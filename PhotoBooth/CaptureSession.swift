@@ -1,16 +1,16 @@
 import UIKit
 
-protocol PhotoCaptureable {
+protocol ImageCapturing {
     
-    func getPhotos() -> UIImage
+    func getImage() -> UIImage
     
     func configurePreview(view: UIView)
 }
 
-class CaptureSession: PhotoCaptureable {
+class CaptureSession: ImageCapturing {
     
-    func getPhotos() -> UIImage {
-        
+    func getImage() -> UIImage {
+        return UIImage()
     }
     
     func configurePreview(view: UIView) {
