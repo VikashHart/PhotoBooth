@@ -3,7 +3,7 @@ import AVFoundation
 
 protocol PhotoCaptureable {
 
-    func getPhotos() -> UIImage
+    func captureImage() -> UIImage
 
     func configurePreview(view: UIView)
 
@@ -12,27 +12,26 @@ protocol PhotoCaptureable {
 
 class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate {
 
-    var avSession = AVCaptureSession()
+    private var avSession = AVCaptureSession()
 
-    var backCamera: AVCaptureDevice?
-    var frontCamera: AVCaptureDevice?
-    var currentCamera: AVCaptureDevice?
+    private var backCamera: AVCaptureDevice?
+    private var frontCamera: AVCaptureDevice?
+    private var currentCamera: AVCaptureDevice?
 
-    var photoOutput: AVCapturePhotoOutput?
-    let photoSessionPreset = AVCaptureSession.Preset.photo
+    private var photoOutput: AVCapturePhotoOutput?
+    private let photoSessionPreset = AVCaptureSession.Preset.photo
 
-    var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+    private var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
 
-    var image: UIImage?
-    var filmStrip = [UIImage]()
+    private var images = [UIImage]()
 
-    func setupCaptureSession() {
+    private func setupCaptureSession() {
         setupPhotoCaptureSession()
         setupDevices()
         setUpCaptureSessionInput(position: .front)
     }
 
-    func getPhotos() -> UIImage {
+    func captureImage() -> UIImage {
         return UIImage()
     }
 
@@ -132,7 +131,7 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
             print(imageData)
-            image = UIImage(data: imageData)
+            let image = UIImage(data: imageData)
 //            guard let image = image else { return }
 //            let previewVC = PreviewViewController(image: image)
 //            previewVC.delegate = self

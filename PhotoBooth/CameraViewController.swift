@@ -3,7 +3,7 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
     
-    let captureSession: PhotoCaptureable = CaptureSession()
+    private let captureSession: PhotoCaptureable = CaptureSession()
     
     lazy var previewLayerContainer: UIView = {
         let pl = UIView()
@@ -21,12 +21,10 @@ class CameraViewController: UIViewController {
         return button
     }()
         
-    var image: UIImage?
-    var filmStrip = [UIImage]()
+    private var capturedImages = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
         setupViews()
         captureSession.configurePreview(view: previewLayerContainer)
         self.switchCameraButton.addTarget(self,
@@ -41,11 +39,11 @@ class CameraViewController: UIViewController {
         self.view.addGestureRecognizer(down)
     }
     
-    @objc func rotateCamera() {
+    @objc private func rotateCamera() {
         captureSession.switchCamera()
     }
     
-    @objc func cancelPhotoBoothSession() {
+    @objc private func cancelPhotoBoothSession() {
         
     }
     
