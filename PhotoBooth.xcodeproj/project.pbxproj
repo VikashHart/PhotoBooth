@@ -14,6 +14,8 @@
 		811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811F9A212149A4D60079EA7E /* CaptureSession.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
+		8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* SetupCardViewController.swift */; };
+		8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		811F9A212149A4D60079EA7E /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		8174574C21598D7E00F612F6 /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
+		8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				811F9A1B21484B680079EA7E /* Info.plist */,
 				811F9A212149A4D60079EA7E /* CaptureSession.swift */,
 				814F104B2154654F0066CCD5 /* MockSession.swift */,
+				8174574C21598D7E00F612F6 /* SetupCardViewController.swift */,
+				8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */,
 			);
 			path = PhotoBooth;
 			sourceTree = "<group>";
@@ -141,10 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,
 				811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */,
+				8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
