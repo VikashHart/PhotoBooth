@@ -7,14 +7,11 @@ class MockSession: PhotoCaptureable {
         return UIImage()
     }
     
-    func configurePreview(view: UIView) {
+    func configurePreview(view: AVCapturePreviewView) {
         
     }
     
     func switchCamera() {
         
     }
-    
-    
-    
 }
