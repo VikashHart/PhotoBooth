@@ -21,8 +21,6 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private var photoOutput: AVCapturePhotoOutput?
     private let photoSessionPreset = AVCaptureSession.Preset.photo
 
-    private var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
-
     private var images = [UIImage]()
 
     private func setupCaptureSession() {
