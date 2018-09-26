@@ -5,8 +5,8 @@ class CameraViewController: UIViewController {
     
     private let captureSession: PhotoCaptureable = CaptureSession()
     
-    lazy var previewLayerContainer: UIView = {
-        let pl = UIView()
+    lazy var previewLayerContainer: AVCapturePreviewView = {
+        let pl = AVCapturePreviewView()
         pl.translatesAutoresizingMaskIntoConstraints = false
         return pl
     }()

@@ -5,7 +5,7 @@ protocol PhotoCaptureable {
 
     func captureImage() -> UIImage
 
-    func configurePreview(view: UIView)
+    func configurePreview(view: AVCapturePreviewView)
 
     func switchCamera()
 }
@@ -21,8 +21,6 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private var photoOutput: AVCapturePhotoOutput?
     private let photoSessionPreset = AVCaptureSession.Preset.photo
 
-    private var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
-
     private var images = [UIImage]()
 
     private func setupCaptureSession() {
@@ -35,7 +33,7 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         return UIImage()
     }
 
-    func configurePreview(view: UIView) {
+    func configurePreview(view: AVCapturePreviewView) {
         setupCaptureSession()
         setupPreviewLayer(view: view)
         startRunningCaptureSession()
@@ -115,11 +113,10 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     }
 
     // This function creates a layer in the view that will enable a live feed of what your camera is observing.
-    private func setupPreviewLayer(view: UIView){
-        cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: avSession)
-        cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        cameraPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
+    private func setupPreviewLayer(view: AVCapturePreviewView){
+        view.avPreviewLayer.session = avSession
+        view.avPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        view.avPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
     }
 
     // Starts running the capture session after you set up the view.
