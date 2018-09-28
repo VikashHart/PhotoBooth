@@ -9,7 +9,7 @@ class PhotoShootSetupCard: UIView {
 
     lazy var cardUIView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         view.layer.opacity = 0.95
         view.layer.cornerRadius = 20
         view.layer.masksToBounds = true
@@ -30,15 +30,44 @@ class PhotoShootSetupCard: UIView {
         return label
     }()
 
-    lazy var numberOfPhotosButton: UIButton = {
+    lazy var photosStepperContainerUIView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var photosStepperMinusButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont(name: fontRegular, size: 16)
-        button.setTitle("# of pictures", for: .normal)
-        button.setTitleColor(UIColor.gray, for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.textAlignment = .center
-        button.backgroundColor = .white
-        button.titleLabel?.numberOfLines = 1
+        let image = UIImage(named: "stepper_minus")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.tintColor = photoBoothBlue
+        button.contentMode = .center
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.opacity = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    lazy var photosStepperLabel: UILabel = {
+        let label = UILabel()
+        label.text = "10 Photos Selected"
+        label.font = UIFont(name: fontRegular, size: 18)
+        label.textAlignment = .center
+        label.textColor = .gray
+        label.backgroundColor = .clear
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    lazy var photosStepperPlusButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "stepper_plus")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.tintColor = photoBoothBlue
+        button.contentMode = .center
+        button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -51,15 +80,44 @@ class PhotoShootSetupCard: UIView {
         return view
     }()
 
-    lazy var timerDelayButton: UIButton = {
+    lazy var timerStepperContainerUIView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var timerStepperMinusButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont(name: fontRegular, size: 16)
-        button.setTitle("seconds between shots", for: .normal)
-        button.setTitleColor(UIColor.gray, for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.textAlignment = .center
-        button.backgroundColor = .white
-        button.titleLabel?.numberOfLines = 1
+        let image = UIImage(named: "stepper_minus")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.tintColor = photoBoothBlue
+        button.contentMode = .center
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.opacity = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    lazy var timerStepperLabel: UILabel = {
+        let label = UILabel()
+        label.text = "10 Seconds Selected"
+        label.font = UIFont(name: fontRegular, size: 18)
+        label.textAlignment = .center
+        label.textColor = .gray
+        label.backgroundColor = .clear
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    lazy var timerStepperPlusButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "stepper_plus")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.tintColor = photoBoothBlue
+        button.contentMode = .center
+        button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -103,9 +161,15 @@ class PhotoShootSetupCard: UIView {
     private func setupViews() {
         setupCard()
         setupHeaderLabel()
-        setupNumberOfPhotosButton()
+        setupPhotosStepperContainer()
+        setupPhotosPlusButton()
+        setupPhotosMinusButton()
+        setupPhotosStepperLabel()
         setupPhotosColorBar()
-        setupTimerDelayButton()
+        setupSecondsStepperContainer()
+        setupTimerMinusButton()
+        setupTimerPlusButton()
+        setupTimerStepperLabel()
         setupTimerColorBar()
         setupStartShootButton()
     }
@@ -130,40 +194,100 @@ class PhotoShootSetupCard: UIView {
             ])
     }
 
-    private func setupNumberOfPhotosButton() {
-        addSubview(numberOfPhotosButton)
+    private func setupPhotosStepperContainer() {
+        addSubview(photosStepperContainerUIView)
         NSLayoutConstraint.activate([
-            numberOfPhotosButton.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 40),
-            numberOfPhotosButton.leadingAnchor.constraint(equalTo: cardUIView.leadingAnchor, constant: 16),
-            numberOfPhotosButton.trailingAnchor.constraint(equalTo: cardUIView.trailingAnchor, constant: -16),
-            numberOfPhotosButton.heightAnchor.constraint(equalToConstant: 40)
+            photosStepperContainerUIView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 40),
+            photosStepperContainerUIView.leadingAnchor.constraint(equalTo: cardUIView.leadingAnchor, constant: 16),
+            photosStepperContainerUIView.trailingAnchor.constraint(equalTo: cardUIView.trailingAnchor, constant: -16),
+            photosStepperContainerUIView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+    }
+
+    private func setupPhotosMinusButton() {
+        photosStepperContainerUIView.addSubview(photosStepperMinusButton)
+        NSLayoutConstraint.activate([
+            photosStepperMinusButton.topAnchor.constraint(equalTo: photosStepperContainerUIView.topAnchor),
+            photosStepperMinusButton.leadingAnchor.constraint(equalTo: photosStepperContainerUIView.leadingAnchor),
+            photosStepperMinusButton.bottomAnchor.constraint(equalTo: photosStepperContainerUIView.bottomAnchor),
+            photosStepperMinusButton.widthAnchor.constraint(equalToConstant: 30)
+            ])
+    }
+
+    private func setupPhotosPlusButton() {
+        photosStepperContainerUIView.addSubview(photosStepperPlusButton)
+        NSLayoutConstraint.activate([
+            photosStepperPlusButton.topAnchor.constraint(equalTo: photosStepperContainerUIView.topAnchor),
+            photosStepperPlusButton.trailingAnchor.constraint(equalTo: photosStepperContainerUIView.trailingAnchor),
+            photosStepperPlusButton.bottomAnchor.constraint(equalTo: photosStepperContainerUIView.bottomAnchor),
+            photosStepperPlusButton.widthAnchor.constraint(equalToConstant: 30)
+            ])
+    }
+
+    private func setupPhotosStepperLabel() {
+        photosStepperContainerUIView.addSubview(photosStepperLabel)
+        NSLayoutConstraint.activate([
+            photosStepperLabel.topAnchor.constraint(equalTo: photosStepperContainerUIView.topAnchor),
+            photosStepperLabel.leadingAnchor.constraint(equalTo: photosStepperMinusButton.trailingAnchor),
+            photosStepperLabel.trailingAnchor.constraint(equalTo: photosStepperPlusButton.leadingAnchor),
+            photosStepperLabel.bottomAnchor.constraint(equalTo: photosStepperContainerUIView.bottomAnchor)
             ])
     }
 
     private func setupPhotosColorBar() {
         addSubview(photosColorBarUIView)
         NSLayoutConstraint.activate([
-            photosColorBarUIView.topAnchor.constraint(equalTo: numberOfPhotosButton.bottomAnchor, constant: 0),
+            photosColorBarUIView.topAnchor.constraint(equalTo: photosStepperContainerUIView.bottomAnchor, constant: 0),
             photosColorBarUIView.leadingAnchor.constraint(equalTo: cardUIView.leadingAnchor, constant: 16),
             photosColorBarUIView.trailingAnchor.constraint(equalTo: cardUIView.trailingAnchor, constant: -16),
             photosColorBarUIView.heightAnchor.constraint(equalToConstant: 2.5),
             ])
     }
 
-    private func setupTimerDelayButton() {
-        addSubview(timerDelayButton)
+    private func setupSecondsStepperContainer() {
+        addSubview(timerStepperContainerUIView)
         NSLayoutConstraint.activate([
-            timerDelayButton.topAnchor.constraint(equalTo: photosColorBarUIView.bottomAnchor, constant: 30),
-            timerDelayButton.leadingAnchor.constraint(equalTo: cardUIView.leadingAnchor, constant: 16),
-            timerDelayButton.trailingAnchor.constraint(equalTo: cardUIView.trailingAnchor, constant: -16),
-            timerDelayButton.heightAnchor.constraint(equalToConstant: 40)
+            timerStepperContainerUIView.topAnchor.constraint(equalTo: photosColorBarUIView.bottomAnchor, constant: 30),
+            timerStepperContainerUIView.leadingAnchor.constraint(equalTo: cardUIView.leadingAnchor, constant: 16),
+            timerStepperContainerUIView.trailingAnchor.constraint(equalTo: cardUIView.trailingAnchor, constant: -16),
+            timerStepperContainerUIView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+    }
+
+    private func setupTimerMinusButton() {
+        timerStepperContainerUIView.addSubview(timerStepperMinusButton)
+        NSLayoutConstraint.activate([
+            timerStepperMinusButton.topAnchor.constraint(equalTo: timerStepperContainerUIView.topAnchor),
+            timerStepperMinusButton.leadingAnchor.constraint(equalTo: timerStepperContainerUIView.leadingAnchor),
+            timerStepperMinusButton.bottomAnchor.constraint(equalTo: timerStepperContainerUIView.bottomAnchor),
+            timerStepperMinusButton.widthAnchor.constraint(equalToConstant: 30)
+            ])
+    }
+
+    private func setupTimerPlusButton() {
+        timerStepperContainerUIView.addSubview(timerStepperPlusButton)
+        NSLayoutConstraint.activate([
+            timerStepperPlusButton.topAnchor.constraint(equalTo: timerStepperContainerUIView.topAnchor),
+            timerStepperPlusButton.trailingAnchor.constraint(equalTo: timerStepperContainerUIView.trailingAnchor),
+            timerStepperPlusButton.bottomAnchor.constraint(equalTo: timerStepperContainerUIView.bottomAnchor),
+            timerStepperPlusButton.widthAnchor.constraint(equalToConstant: 30)
+            ])
+    }
+
+    private func setupTimerStepperLabel() {
+        timerStepperContainerUIView.addSubview(timerStepperLabel)
+        NSLayoutConstraint.activate([
+            timerStepperLabel.topAnchor.constraint(equalTo: timerStepperContainerUIView.topAnchor),
+            timerStepperLabel.leadingAnchor.constraint(equalTo: timerStepperMinusButton.trailingAnchor),
+            timerStepperLabel.trailingAnchor.constraint(equalTo: timerStepperPlusButton.leadingAnchor),
+            timerStepperLabel.bottomAnchor.constraint(equalTo: timerStepperContainerUIView.bottomAnchor)
             ])
     }
 
     private func setupTimerColorBar() {
         addSubview(timerColorBarUIView)
         NSLayoutConstraint.activate([
-            timerColorBarUIView.topAnchor.constraint(equalTo: timerDelayButton.bottomAnchor, constant: 0),
+            timerColorBarUIView.topAnchor.constraint(equalTo: timerStepperContainerUIView.bottomAnchor, constant: 0),
             timerColorBarUIView.leadingAnchor.constraint(equalTo: cardUIView.leadingAnchor, constant: 16),
             timerColorBarUIView.trailingAnchor.constraint(equalTo: cardUIView.trailingAnchor, constant: -16),
             timerColorBarUIView.heightAnchor.constraint(equalToConstant: 2.5),
