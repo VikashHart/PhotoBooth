@@ -5,7 +5,7 @@ protocol PhotoCaptureable {
 
     func captureImage() -> UIImage
 
-    func configurePreview(view: UIView)
+    func configurePreview(view: AVCapturePreviewView)
 
     func switchCamera()
 }
@@ -35,7 +35,7 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         return UIImage()
     }
 
-    func configurePreview(view: UIView) {
+    func configurePreview(view: AVCapturePreviewView) {
         setupCaptureSession()
         setupPreviewLayer(view: view)
         startRunningCaptureSession()
