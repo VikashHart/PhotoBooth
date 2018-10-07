@@ -66,11 +66,6 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
             let settings = AVCapturePhotoSettings()
             self.photoOutput?.capturePhoto(with: settings, delegate: self)
         }
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-//            let settings = AVCapturePhotoSettings()
-//            self.photoOutput?.capturePhoto(with: settings, delegate: self)
-//        })
     }
 
     // This function switches the camera.
