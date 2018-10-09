@@ -8,6 +8,7 @@ class MockSession: PhotoCaptureable {
     }
 
     func configurePreview(view: AVCapturePreviewView) {
+        view.backgroundColor = .purple
     }
     
     func switchCamera() {
