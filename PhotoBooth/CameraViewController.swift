@@ -21,6 +21,13 @@ class CameraViewController: UIViewController {
         return button
     }()
 
+    lazy var middlePrompt: PromptView = {
+        let pv = PromptView()
+        pv.translatesAutoresizingMaskIntoConstraints = false
+        pv.alpha = 0
+        return pv
+    }()
+
     private var capturedImages = [UIImage]()
 
     override func viewDidLoad() {
@@ -39,9 +46,10 @@ class CameraViewController: UIViewController {
     }
 
     private func presentConfigurationCard() {
-        let cardVC = SetupCardViewController()
-        cardVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(cardVC, animated: true, completion: nil)
+//        let cardVC = SetupCardViewController()
+//        cardVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        self.present(cardVC, animated: true, completion: nil)
+        middlePrompt.present(modal: SetUpCardPartialModal(), animated: false)
     }
 
     private func setupDownSwipeGesture() {
@@ -61,6 +69,7 @@ class CameraViewController: UIViewController {
     private func setupViews() {
         setupPreviewLayerContainer()
         setupSwitchCameraButton()
+        setUpMiddlePromptContainer()
     }
     
     private func setupPreviewLayerContainer() {
@@ -83,6 +92,15 @@ class CameraViewController: UIViewController {
             ])
     }
 
+    private func setUpMiddlePromptContainer() {
+        view.addSubview(middlePrompt)
+        NSLayoutConstraint.activate([
+            middlePrompt.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65),
+            middlePrompt.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor),
+            middlePrompt.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            middlePrompt.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 }
 
 extension CameraViewController: UIGestureRecognizerDelegate {
