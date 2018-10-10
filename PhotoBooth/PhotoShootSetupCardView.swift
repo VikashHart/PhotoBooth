@@ -74,7 +74,6 @@ class PhotoShootSetupCard: UIView {
 
     private func commonInit() {
         backgroundColor = .white
-        self.layer.opacity = 0.95
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
         setupViews()
@@ -143,7 +142,7 @@ class PhotoShootSetupCard: UIView {
             startShootButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             startShootButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             startShootButton.heightAnchor.constraint(equalToConstant: 40),
-            startShootButton.bottomAnchor.constraint(greaterThanOrEqualTo: self.bottomAnchor, constant: -55)
+            startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
             ])
     }
 }
