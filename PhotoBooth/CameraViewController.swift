@@ -20,7 +20,7 @@ class CameraViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-        
+
     private var capturedImages = [UIImage]()
 
     override func viewDidLoad() {
@@ -31,6 +31,17 @@ class CameraViewController: UIViewController {
                                                 action: #selector(rotateCamera),
                                                 for: .touchUpInside)
         setupDownSwipeGesture()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        presentConfigurationCard()
+    }
+
+    private func presentConfigurationCard() {
+        let cardVC = SetupCardViewController()
+        cardVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(cardVC, animated: true, completion: nil)
     }
 
     private func setupDownSwipeGesture() {
@@ -66,7 +77,7 @@ class CameraViewController: UIViewController {
         previewLayerContainer.addSubview(switchCameraButton)
         NSLayoutConstraint.activate([
             switchCameraButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            switchCameraButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            switchCameraButton.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -20),
             switchCameraButton.widthAnchor.constraint(equalToConstant: 40),
             switchCameraButton.heightAnchor.constraint(equalToConstant: 40)
             ])

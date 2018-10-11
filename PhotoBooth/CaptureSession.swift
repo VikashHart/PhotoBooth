@@ -60,11 +60,10 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         avSession.sessionPreset = photoSessionPreset
         avSession.commitConfiguration()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+        DispatchQueue.main.async {
             let settings = AVCapturePhotoSettings()
-            self.photoOutput?.capturePhoto(with: settings, delegate: self as AVCapturePhotoCaptureDelegate)
-            print("photo taken")
-        })
+            self.photoOutput?.capturePhoto(with: settings, delegate: self)
+        }
     }
 
     // This function switches the camera.
@@ -72,7 +71,6 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         guard let currentPosition = currentCamera?.position else { return }
         let newPosition: AVCaptureDevice.Position = currentPosition == .back ? .front : .back
         setUpCaptureSessionInput(position: newPosition)
-        print("camera switched")
     }
 
     // Mark:- AVCapture Session Setup functions

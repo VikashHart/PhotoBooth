@@ -6,12 +6,11 @@ class MockSession: PhotoCaptureable {
     func captureImage() -> UIImage {
         return UIImage()
     }
-    
+
     func configurePreview(view: AVCapturePreviewView) {
-        
+        view.backgroundColor = .purple
     }
     
     func switchCamera() {
-        
     }
 }
