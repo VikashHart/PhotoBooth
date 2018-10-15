@@ -12,6 +12,10 @@
 		811F9A1721484B670079EA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1621484B670079EA7E /* Assets.xcassets */; };
 		811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1821484B680079EA7E /* LaunchScreen.storyboard */; };
 		811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811F9A212149A4D60079EA7E /* CaptureSession.swift */; };
+		812704AB21707E8500545143 /* StepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704AA21707E8500545143 /* StepperViewModel.swift */; };
+		812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */; };
+		812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */; };
+		812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
 		8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* SetupCardViewController.swift */; };
@@ -29,6 +33,10 @@
 		811F9A1921484B680079EA7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		811F9A1B21484B680079EA7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		811F9A212149A4D60079EA7E /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
+		812704AA21707E8500545143 /* StepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModel.swift; sourceTree = "<group>"; };
+		812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModel.swift; sourceTree = "<group>"; };
+		812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModel.swift; sourceTree = "<group>"; };
+		812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModel.swift; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		8174574C21598D7E00F612F6 /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +88,11 @@
 				814F104B2154654F0066CCD5 /* MockSession.swift */,
 				8174574C21598D7E00F612F6 /* SetupCardViewController.swift */,
 				8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */,
+				812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */,
+				812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */,
+				812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */,
 				81745756216ADE6700F612F6 /* CustomStepperView.swift */,
+				812704AA21707E8500545143 /* StepperViewModel.swift */,
 			);
 			path = PhotoBooth;
 			sourceTree = "<group>";
@@ -156,8 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
+				812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
+				812704AB21707E8500545143 /* StepperViewModel.swift in Sources */,
 				8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */,
 				81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
@@ -165,6 +180,7 @@
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,
 				811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */,
 				8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */,
+				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

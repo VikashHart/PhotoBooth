@@ -2,8 +2,11 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
-    
+
+    //Mark:- Variables
     private let captureSession: PhotoCaptureable = CaptureSession()
+
+    private let partialModal: PartialModal = SetUpCardPartialModal()
     
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
@@ -30,6 +33,7 @@ class CameraViewController: UIViewController {
 
     private var capturedImages = [UIImage]()
 
+    //Mark:- override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -45,10 +49,19 @@ class CameraViewController: UIViewController {
         presentConfigurationCard()
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        let orientation = UIDevice.current.orientation
+        let connection = previewLayerContainer.avPreviewLayer.connection
+        switch orientation {
+        case .portrait: connection?.videoOrientation = .portrait
+        case .landscapeLeft: connection?.videoOrientation = .landscapeRight
+        case .landscapeRight: connection?.videoOrientation = .landscapeLeft
+        case .portraitUpsideDown: connection?.videoOrientation = .portraitUpsideDown
+        default: break
+        }
+    }
+
     private func presentConfigurationCard() {
-//        let cardVC = SetupCardViewController()
-//        cardVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        self.present(cardVC, animated: true, completion: nil)
         middlePrompt.present(modal: SetUpCardPartialModal(), animated: false)
     }
 
@@ -60,6 +73,10 @@ class CameraViewController: UIViewController {
     
     @objc private func rotateCamera() {
         captureSession.switchCamera()
+    }
+
+    @objc private func configureShoot() {
+        
     }
     
     @objc private func cancelPhotoBoothSession() {
@@ -95,7 +112,7 @@ class CameraViewController: UIViewController {
     private func setUpMiddlePromptContainer() {
         view.addSubview(middlePrompt)
         NSLayoutConstraint.activate([
-            middlePrompt.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65),
+            middlePrompt.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
             middlePrompt.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor),
             middlePrompt.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             middlePrompt.centerYAnchor.constraint(equalTo: view.centerYAnchor)

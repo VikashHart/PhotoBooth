@@ -2,6 +2,8 @@ import UIKit
 
 class CustomStepper: UIView {
 
+    private let viewModel: StepperViewModel
+
     lazy var stepperMinusButton: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "stepper_minus")?.withRenderingMode(.alwaysTemplate)
@@ -13,6 +15,7 @@ class CustomStepper: UIView {
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(minusButtonTapped(sender:)), for: .touchUpInside)
         return button
     }()
 
@@ -40,22 +43,18 @@ class CustomStepper: UIView {
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(plusButtonTapped(sender:)), for: .touchUpInside)
         return button
     }()
 
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: StepperViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupConstraints()
-        self.backgroundColor = .white
+        fatalError()
     }
 
     private func setupConstraints() {
@@ -95,5 +94,21 @@ class CustomStepper: UIView {
             stepperLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             stepperLabel.heightAnchor.constraint(equalToConstant: 40)
             ])
+    }
+
+    private func updateUI() {
+        stepperMinusButton.isEnabled = viewModel.minusEnabled
+        stepperPlusButton.isEnabled = viewModel.plusEnabled
+        stepperLabel.text = viewModel.labelText
+    }
+
+    @objc private func minusButtonTapped(sender: UIButton) {
+        viewModel.minusTapped()
+        updateUI()
+    }
+
+    @objc private func plusButtonTapped(sender: UIButton) {
+        viewModel.plusTapped()
+        updateUI()
     }
 }

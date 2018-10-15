@@ -2,6 +2,8 @@ import UIKit
 
 class PhotoShootSetupCard: UIView {
 
+    private let viewModel: PhotoShootSetupCardViewModel
+
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = "Setup your photoshoot"
@@ -22,14 +24,14 @@ class PhotoShootSetupCard: UIView {
     }()
 
     lazy var photoStepper: CustomStepper = {
-        let stepper = CustomStepper()
+        let stepper = CustomStepper(viewModel: viewModel.photoStepperViewModel)
         stepper.stepperLabel.text = "# of photos selected"
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()
 
     lazy var timerStepper: CustomStepper = {
-        let stepper = CustomStepper()
+        let stepper = CustomStepper(viewModel: viewModel.timerStepperViewModel)
         stepper.stepperLabel.text = "# of seconds selected"
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
@@ -73,7 +75,7 @@ class PhotoShootSetupCard: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .white
+        backgroundColor = UIColor.white.withAlphaComponent(0.95)
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
         setupViews()
