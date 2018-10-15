@@ -10,6 +10,16 @@ protocol PhotoCaptureable {
     func switchCamera()
 }
 
+class PhotoCaptureableFactory {
+    static func getPhotoCapturable() -> PhotoCaptureable{
+        #if targetEnvironment(simulator)
+            return MockSession()
+        #else
+            return CaptureSession()
+        #endif
+    }
+}
+
 class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate {
 
     private var avSession = AVCaptureSession()
