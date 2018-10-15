@@ -24,7 +24,18 @@
 		81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */; };
 		81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745754216ACF5B00F612F6 /* UIStyles.swift */; };
 		81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745756216ADE6700F612F6 /* CustomStepperView.swift */; };
+		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C72BE89A21751A88003C047E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 811F9A0421484B660079EA7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 811F9A0B21484B660079EA7E;
+			remoteInfo = PhotoBooth;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		811F9A0C21484B660079EA7E /* PhotoBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +57,20 @@
 		81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapturePreviewView.swift; sourceTree = "<group>"; };
 		81745754216ACF5B00F612F6 /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
 		81745756216ADE6700F612F6 /* CustomStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperView.swift; sourceTree = "<group>"; };
+		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
+		C72BE89921751A88003C047E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		811F9A0921484B660079EA7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C72BE89221751A88003C047E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				811F9A0E21484B660079EA7E /* PhotoBooth */,
+				C72BE89621751A88003C047E /* PhotoBoothTests */,
 				811F9A0D21484B660079EA7E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				811F9A0C21484B660079EA7E /* PhotoBooth.app */,
+				C72BE89521751A88003C047E /* PhotoBoothTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +123,15 @@
 			path = PhotoBooth;
 			sourceTree = "<group>";
 		};
+		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
+			isa = PBXGroup;
+			children = (
+				C72BE89721751A88003C047E /* PhotoBoothTests.swift */,
+				C72BE89921751A88003C047E /* Info.plist */,
+			);
+			path = PhotoBoothTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +152,24 @@
 			productReference = 811F9A0C21484B660079EA7E /* PhotoBooth.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C72BE89421751A88003C047E /* PhotoBoothTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C72BE89E21751A88003C047E /* Build configuration list for PBXNativeTarget "PhotoBoothTests" */;
+			buildPhases = (
+				C72BE89121751A88003C047E /* Sources */,
+				C72BE89221751A88003C047E /* Frameworks */,
+				C72BE89321751A88003C047E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C72BE89B21751A88003C047E /* PBXTargetDependency */,
+			);
+			name = PhotoBoothTests;
+			productName = PhotoBoothTests;
+			productReference = C72BE89521751A88003C047E /* PhotoBoothTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,6 +182,10 @@
 				TargetAttributes = {
 					811F9A0B21484B660079EA7E = {
 						CreatedOnToolsVersion = 9.4;
+					};
+					C72BE89421751A88003C047E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 811F9A0B21484B660079EA7E;
 					};
 				};
 			};
@@ -149,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				811F9A0B21484B660079EA7E /* PhotoBooth */,
+				C72BE89421751A88003C047E /* PhotoBoothTests */,
 			);
 		};
 /* End PBXProject section */
@@ -161,6 +216,13 @@
 				811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */,
 				811F9A1721484B670079EA7E /* Assets.xcassets in Resources */,
 				811F9A1521484B660079EA7E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C72BE89321751A88003C047E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +250,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C72BE89121751A88003C047E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C72BE89B21751A88003C047E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 811F9A0B21484B660079EA7E /* PhotoBooth */;
+			targetProxy = C72BE89A21751A88003C047E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		811F9A1321484B660079EA7E /* Main.storyboard */ = {
@@ -358,6 +436,44 @@
 			};
 			name = Release;
 		};
+		C72BE89C21751A88003C047E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vh.PhotoBoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoBooth.app/PhotoBooth";
+			};
+			name = Debug;
+		};
+		C72BE89D21751A88003C047E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vh.PhotoBoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoBooth.app/PhotoBooth";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -375,6 +491,15 @@
 			buildConfigurations = (
 				811F9A1F21484B680079EA7E /* Debug */,
 				811F9A2021484B680079EA7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C72BE89E21751A88003C047E /* Build configuration list for PBXNativeTarget "PhotoBoothTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C72BE89C21751A88003C047E /* Debug */,
+				C72BE89D21751A88003C047E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
