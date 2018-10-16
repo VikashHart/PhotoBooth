@@ -2,28 +2,66 @@ import Foundation
 
 class PhotoStepperViewModel: StepperViewModel {
 
-    var currentValue: Int
+    var currentValue: Int {
+        didSet {
+            updateValues()
+        }
+    }
 
-    var minusEnabled: Bool
+    private let minValue = 1
 
-    var plusEnabled: Bool
+    private let maxValue = 10
 
-    var labelText: String
+    var minusEnabled: Bool = true
 
-    init(currentValue: Int, minusEnabled: Bool, plusEnabled: Bool, labelText: String) {
-        self.currentValue = currentValue
-        self.minusEnabled = minusEnabled
-        self.plusEnabled = plusEnabled
-        self.labelText = labelText
+    var plusEnabled: Bool = true
+
+    var labelText: String = ""
+
+    init(initialValue: Int = 0) {
+        self.currentValue = initialValue
+        updateValues()
     }
 
     func minusTapped() {
-        <#code#>
+
+        guard currentValue != minValue else { return }
+            currentValue -= 1
     }
 
     func plusTapped() {
-        <#code#>
+
+        guard currentValue != maxValue else { return }
+            currentValue += 1
     }
 
-    
+    private func updateValues() {
+        switch currentValue {
+            case 1:
+                minusEnabled = false
+                plusEnabled = true
+            case 2...9:
+                minusEnabled = true
+                plusEnabled = true
+            case 10:
+                minusEnabled = true
+                plusEnabled = false
+            default:
+                break
+        }
+        labelText = textForLabel()
+    }
+
+    private func textForLabel() -> String {
+        var newText = ""
+        switch currentValue {
+            case 1 :
+                newText = "\(currentValue) photo"
+            case 2...10:
+                newText = "\(currentValue) photos"
+            default:
+                break
+        }
+        return newText
+    }
 }

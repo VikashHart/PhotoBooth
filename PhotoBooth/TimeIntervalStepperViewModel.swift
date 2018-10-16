@@ -4,26 +4,62 @@ class TimeIntervalStepperViewModel: StepperViewModel {
 
     var currentValue: TimeInterval
 
-    var minusEnabled: Bool
+    var minValue: Double = 1
 
-    var plusEnabled: Bool
+    var maxValue: Double = 10
 
-    var labelText: String
+    var minusEnabled: Bool = true
 
-    init(currentValue: TimeInterval, minusEnabled: Bool, plusEnabled: Bool, labelText: String) {
-        self.currentValue = currentValue
-        self.minusEnabled = minusEnabled
-        self.plusEnabled = plusEnabled
-        self.labelText = labelText
+    var plusEnabled: Bool = true
+
+    var labelText: String = ""
+
+    init(initialValue: TimeInterval = 0) {
+        self.currentValue = initialValue
+        updateValues()
     }
 
     func minusTapped() {
-        <#code#>
+
+        guard currentValue != minValue else { return }
+        currentValue -= 1
     }
 
     func plusTapped() {
-        <#code#>
+
+        guard currentValue != maxValue else { return }
+        currentValue += 1
     }
 
+    private func updateValues() {
+        switch currentValue {
+            case 1:
+                minusEnabled = false
+                plusEnabled = true
+            case 2...9:
+                minusEnabled = true
+                plusEnabled = true
+            case 10:
+                minusEnabled = true
+                plusEnabled = false
+            default:
+                break
+        }
+        labelText = textForLabel()
+    }
 
+    private func textForLabel() -> String {
+
+        var currentValueAsInt = Int(currentValue)
+        var newText = ""
+        switch currentValueAsInt {
+            case 1:
+                newText = "\(currentValueAsInt) second appart"
+            case 2...10:
+                newText = "\(currentValueAsInt) seconds appart"
+            default:
+                break
+        }
+        return newText
+    }
 }

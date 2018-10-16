@@ -13,11 +13,14 @@ struct PhotoShootConfiguration {
 }
 
 class PhotoShootSetupCardViewModel: SetupPhotoShootViewModel {
-    var photoStepperViewModel: StepperViewModel = PhotoStepperViewModel(currentValue: 3, minusEnabled: true, plusEnabled: true, labelText: "3 photos selected")
+    private let _photoStepperViewModel = PhotoStepperViewModel(initialValue: 3)
+    private let _timerStepperViewModel = TimeIntervalStepperViewModel(initialValue: 5)
 
-    var timerStepperViewModel: StepperViewModel = TimeIntervalStepperViewModel(currentValue: 5, minusEnabled: true, plusEnabled: true, labelText: "5 second delay")
+    var photoStepperViewModel: StepperViewModel { return _photoStepperViewModel }
+    var timerStepperViewModel: StepperViewModel { return _timerStepperViewModel }
 
     func getPhotoShootConfiguration() -> PhotoShootConfiguration {
-        
+        let configuration = PhotoShootConfiguration.init(photoCount: _photoStepperViewModel.currentValue, timeInterval: _timerStepperViewModel.currentValue)
+        return configuration
     }
 }
