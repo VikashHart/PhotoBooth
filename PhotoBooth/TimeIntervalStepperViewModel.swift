@@ -2,17 +2,21 @@ import Foundation
 
 class TimeIntervalStepperViewModel: StepperViewModel {
 
-    var currentValue: TimeInterval
+    private(set) var currentValue: TimeInterval {
+        didSet {
+            updateValues()
+        }
+    }
 
-    var minValue: Double = 1
+    private let minValue: Double = 1
 
-    var maxValue: Double = 10
+    private let maxValue: Double = 10
 
-    var minusEnabled: Bool = true
+    private(set) var minusEnabled: Bool = true
 
-    var plusEnabled: Bool = true
+    private(set) var plusEnabled: Bool = true
 
-    var labelText: String = ""
+    private(set) var labelText: String = ""
 
     init(initialValue: TimeInterval = 0) {
         self.currentValue = initialValue
@@ -20,13 +24,11 @@ class TimeIntervalStepperViewModel: StepperViewModel {
     }
 
     func minusTapped() {
-
         guard currentValue != minValue else { return }
         currentValue -= 1
     }
 
     func plusTapped() {
-
         guard currentValue != maxValue else { return }
         currentValue += 1
     }
@@ -49,7 +51,6 @@ class TimeIntervalStepperViewModel: StepperViewModel {
     }
 
     private func textForLabel() -> String {
-
         var currentValueAsInt = Int(currentValue)
         var newText = ""
         switch currentValueAsInt {

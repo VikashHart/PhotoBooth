@@ -16,6 +16,7 @@
 		812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */; };
 		812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */; };
 		812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */; };
+		812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
 		8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* SetupCardViewController.swift */; };
@@ -37,6 +38,7 @@
 		812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModel.swift; sourceTree = "<group>"; };
 		812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModel.swift; sourceTree = "<group>"; };
 		812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModel.swift; sourceTree = "<group>"; };
+		812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupPhotoShootViewModel+PhotoShootConfiguration.swift"; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		8174574C21598D7E00F612F6 /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				8174574C21598D7E00F612F6 /* SetupCardViewController.swift */,
 				8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */,
 				812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */,
+				812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */,
 				812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */,
 				812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */,
 				81745756216ADE6700F612F6 /* CustomStepperView.swift */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */,
+				812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,

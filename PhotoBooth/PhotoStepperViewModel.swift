@@ -2,7 +2,7 @@ import Foundation
 
 class PhotoStepperViewModel: StepperViewModel {
 
-    var currentValue: Int {
+    private(set) var currentValue: Int {
         didSet {
             updateValues()
         }
@@ -12,11 +12,11 @@ class PhotoStepperViewModel: StepperViewModel {
 
     private let maxValue = 10
 
-    var minusEnabled: Bool = true
+    private(set) var minusEnabled: Bool = true
 
-    var plusEnabled: Bool = true
+    private(set) var plusEnabled: Bool = true
 
-    var labelText: String = ""
+    private(set) var labelText: String = ""
 
     init(initialValue: Int = 0) {
         self.currentValue = initialValue
@@ -24,13 +24,11 @@ class PhotoStepperViewModel: StepperViewModel {
     }
 
     func minusTapped() {
-
         guard currentValue != minValue else { return }
             currentValue -= 1
     }
 
     func plusTapped() {
-
         guard currentValue != maxValue else { return }
             currentValue += 1
     }
