@@ -11,7 +11,7 @@ protocol PhotoCaptureable {
 }
 
 class PhotoCaptureableFactory {
-    static func getPhotoCapturable() -> PhotoCaptureable{
+    static func getPhotoCapturable() -> PhotoCaptureable {
         #if targetEnvironment(simulator)
             return MockSession()
         #else
