@@ -2,8 +2,11 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
-    
+
+    //Mark:- Variables
     private let captureSession: PhotoCaptureable = CaptureSession()
+
+    private let partialModal: PartialModal = SetUpCardPartialModal()
     
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
@@ -21,8 +24,16 @@ class CameraViewController: UIViewController {
         return button
     }()
 
+    lazy var middlePrompt: PromptView = {
+        let pv = PromptView()
+        pv.translatesAutoresizingMaskIntoConstraints = false
+        pv.alpha = 0
+        return pv
+    }()
+
     private var capturedImages = [UIImage]()
 
+    //Mark:- override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -38,10 +49,20 @@ class CameraViewController: UIViewController {
         presentConfigurationCard()
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        let orientation = UIDevice.current.orientation
+        let connection = previewLayerContainer.avPreviewLayer.connection
+        switch orientation {
+        case .portrait: connection?.videoOrientation = .portrait
+        case .landscapeLeft: connection?.videoOrientation = .landscapeRight
+        case .landscapeRight: connection?.videoOrientation = .landscapeLeft
+        case .portraitUpsideDown: connection?.videoOrientation = .portraitUpsideDown
+        default: break
+        }
+    }
+
     private func presentConfigurationCard() {
-        let cardVC = SetupCardViewController()
-        cardVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(cardVC, animated: true, completion: nil)
+        middlePrompt.present(modal: SetUpCardPartialModal(), animated: false)
     }
 
     private func setupDownSwipeGesture() {
@@ -53,6 +74,10 @@ class CameraViewController: UIViewController {
     @objc private func rotateCamera() {
         captureSession.switchCamera()
     }
+
+    @objc private func configureShoot() {
+        
+    }
     
     @objc private func cancelPhotoBoothSession() {
         
@@ -61,6 +86,7 @@ class CameraViewController: UIViewController {
     private func setupViews() {
         setupPreviewLayerContainer()
         setupSwitchCameraButton()
+        setUpMiddlePromptContainer()
     }
     
     private func setupPreviewLayerContainer() {
@@ -77,12 +103,21 @@ class CameraViewController: UIViewController {
         previewLayerContainer.addSubview(switchCameraButton)
         NSLayoutConstraint.activate([
             switchCameraButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            switchCameraButton.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -20),
+            switchCameraButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             switchCameraButton.widthAnchor.constraint(equalToConstant: 40),
             switchCameraButton.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
 
+    private func setUpMiddlePromptContainer() {
+        view.addSubview(middlePrompt)
+        NSLayoutConstraint.activate([
+            middlePrompt.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            middlePrompt.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor),
+            middlePrompt.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            middlePrompt.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 }
 
 extension CameraViewController: UIGestureRecognizerDelegate {

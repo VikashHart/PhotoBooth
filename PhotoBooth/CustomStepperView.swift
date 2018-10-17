@@ -2,6 +2,8 @@ import UIKit
 
 class CustomStepper: UIView {
 
+    private let viewModel: StepperViewModel
+
     lazy var stepperMinusButton: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "stepper_minus")?.withRenderingMode(.alwaysTemplate)
@@ -13,6 +15,7 @@ class CustomStepper: UIView {
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(minusButtonTapped(sender:)), for: .touchUpInside)
         return button
     }()
 
@@ -21,7 +24,7 @@ class CustomStepper: UIView {
         label.text = "# of _ selected"
         label.font = UIFont.regularFont(size: 18)
         label.textAlignment = .center
-        label.textColor = .gray
+        label.textColor = .black
         label.backgroundColor = .white
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -33,29 +36,26 @@ class CustomStepper: UIView {
         let button = UIButton()
         let image = UIImage(named: "stepper_plus")?.withRenderingMode(.alwaysTemplate)
         button.setImage(image, for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.tintColor = UIColor.photoBoothBlue
         button.contentMode = .center
         button.backgroundColor = .white
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(plusButtonTapped(sender:)), for: .touchUpInside)
         return button
     }()
 
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: StepperViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupConstraints()
+        updateUI()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupConstraints()
-        self.backgroundColor = .white
+        fatalError()
     }
 
     private func setupConstraints() {
@@ -95,5 +95,21 @@ class CustomStepper: UIView {
             stepperLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             stepperLabel.heightAnchor.constraint(equalToConstant: 40)
             ])
+    }
+
+    private func updateUI() {
+        stepperMinusButton.isEnabled = viewModel.minusEnabled
+        stepperPlusButton.isEnabled = viewModel.plusEnabled
+        stepperLabel.text = viewModel.labelText
+    }
+
+    @objc private func minusButtonTapped(sender: UIButton) {
+        viewModel.minusTapped()
+        updateUI()
+    }
+
+    @objc private func plusButtonTapped(sender: UIButton) {
+        viewModel.plusTapped()
+        updateUI()
     }
 }

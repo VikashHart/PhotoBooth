@@ -2,9 +2,11 @@ import UIKit
 
 class PhotoShootSetupCard: UIView {
 
+    private let viewModel = PhotoShootSetupCardViewModel()
+
     lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Setup your photoshoot"
+        label.text = "Set up your photoshoot"
         label.font = UIFont.semiBoldFont(size: 22)
         label.textAlignment = .center
         label.textColor = .black
@@ -22,15 +24,13 @@ class PhotoShootSetupCard: UIView {
     }()
 
     lazy var photoStepper: CustomStepper = {
-        let stepper = CustomStepper()
-        stepper.stepperLabel.text = "# of photos selected"
+        let stepper = CustomStepper(viewModel: viewModel.photoStepperViewModel)
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()
 
     lazy var timerStepper: CustomStepper = {
-        let stepper = CustomStepper()
-        stepper.stepperLabel.text = "# of seconds selected"
+        let stepper = CustomStepper(viewModel: viewModel.timerStepperViewModel)
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()
@@ -73,8 +73,7 @@ class PhotoShootSetupCard: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .white
-        self.layer.opacity = 0.95
+        backgroundColor = UIColor.white.withAlphaComponent(0.95)
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
         setupViews()
@@ -143,7 +142,7 @@ class PhotoShootSetupCard: UIView {
             startShootButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             startShootButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             startShootButton.heightAnchor.constraint(equalToConstant: 40),
-            startShootButton.bottomAnchor.constraint(greaterThanOrEqualTo: self.bottomAnchor, constant: -55)
+            startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
             ])
     }
 }
