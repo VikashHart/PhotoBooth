@@ -2,11 +2,11 @@ import UIKit
 
 class PhotoShootSetupCard: UIView {
 
-    private let viewModel: PhotoShootSetupCardViewModel
+    private let viewModel = PhotoShootSetupCardViewModel()
 
     lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Setup your photoshoot"
+        label.text = "Set up your photoshoot"
         label.font = UIFont.semiBoldFont(size: 22)
         label.textAlignment = .center
         label.textColor = .black
@@ -25,14 +25,12 @@ class PhotoShootSetupCard: UIView {
 
     lazy var photoStepper: CustomStepper = {
         let stepper = CustomStepper(viewModel: viewModel.photoStepperViewModel)
-        stepper.stepperLabel.text = "# of photos selected"
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()
 
     lazy var timerStepper: CustomStepper = {
         let stepper = CustomStepper(viewModel: viewModel.timerStepperViewModel)
-        stepper.stepperLabel.text = "# of seconds selected"
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()

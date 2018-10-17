@@ -103,7 +103,7 @@ class CameraViewController: UIViewController {
         previewLayerContainer.addSubview(switchCameraButton)
         NSLayoutConstraint.activate([
             switchCameraButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            switchCameraButton.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -20),
+            switchCameraButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             switchCameraButton.widthAnchor.constraint(equalToConstant: 40),
             switchCameraButton.heightAnchor.constraint(equalToConstant: 40)
             ])

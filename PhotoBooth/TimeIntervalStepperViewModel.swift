@@ -55,9 +55,9 @@ class TimeIntervalStepperViewModel: StepperViewModel {
         var newText = ""
         switch currentValueAsInt {
             case 1:
-                newText = "\(currentValueAsInt) second appart"
+                newText = "\(currentValueAsInt) second apart"
             case 2...10:
-                newText = "\(currentValueAsInt) seconds appart"
+                newText = "\(currentValueAsInt) seconds apart"
             default:
                 break
         }

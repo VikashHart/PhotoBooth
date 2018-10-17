@@ -24,7 +24,7 @@ class CustomStepper: UIView {
         label.text = "# of _ selected"
         label.font = UIFont.regularFont(size: 18)
         label.textAlignment = .center
-        label.textColor = .gray
+        label.textColor = .black
         label.backgroundColor = .white
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -36,7 +36,7 @@ class CustomStepper: UIView {
         let button = UIButton()
         let image = UIImage(named: "stepper_plus")?.withRenderingMode(.alwaysTemplate)
         button.setImage(image, for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.tintColor = UIColor.photoBoothBlue
         button.contentMode = .center
         button.backgroundColor = .white
@@ -51,6 +51,7 @@ class CustomStepper: UIView {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setupConstraints()
+        updateUI()
     }
 
     required init?(coder aDecoder: NSCoder) {
