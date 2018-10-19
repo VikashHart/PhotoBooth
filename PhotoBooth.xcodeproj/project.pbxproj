@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E6B84837CFDD347AFA8D202 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D547CA5FA62A8BF82D8730 /* Pods_PhotoBooth.framework */; };
+		80B455342F4F60FB260CCEA5 /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EBFA2E818E768E6216FA1F /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811F9A0F21484B660079EA7E /* AppDelegate.swift */; };
 		811F9A1521484B660079EA7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1321484B660079EA7E /* Main.storyboard */; };
 		811F9A1721484B670079EA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1621484B670079EA7E /* Assets.xcassets */; };
@@ -24,9 +26,24 @@
 		81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */; };
 		81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745754216ACF5B00F612F6 /* UIStyles.swift */; };
 		81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745756216ADE6700F612F6 /* CustomStepperView.swift */; };
+		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
+		C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89F21751CC2003C047E /* QuickNimbleDemoTestFile.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C72BE89A21751A88003C047E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 811F9A0421484B660079EA7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 811F9A0B21484B660079EA7E;
+			remoteInfo = PhotoBooth;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		71D547CA5FA62A8BF82D8730 /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80EBFA2E818E768E6216FA1F /* Pods_PhotoBooth_PhotoBoothTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth_PhotoBoothTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8117D3F38609657262292C12 /* Pods-PhotoBooth-PhotoBoothTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth-PhotoBoothTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests.debug.xcconfig"; sourceTree = "<group>"; };
 		811F9A0C21484B660079EA7E /* PhotoBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		811F9A0F21484B660079EA7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		811F9A1421484B660079EA7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +63,13 @@
 		81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapturePreviewView.swift; sourceTree = "<group>"; };
 		81745754216ACF5B00F612F6 /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
 		81745756216ADE6700F612F6 /* CustomStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperView.swift; sourceTree = "<group>"; };
+		87E1BFDFBA0F7C029773AA22 /* Pods-PhotoBooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth.debug.xcconfig"; sourceTree = "<group>"; };
+		A0E81D880AF147AFF901152A /* Pods-PhotoBooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth.release.xcconfig"; sourceTree = "<group>"; };
+		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
+		C72BE89921751A88003C047E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C72BE89F21751CC2003C047E /* QuickNimbleDemoTestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickNimbleDemoTestFile.swift; sourceTree = "<group>"; };
+		FFAAFFC298C9CF39F827F4D0 /* Pods-PhotoBooth-PhotoBoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth-PhotoBoothTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +77,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6B84837CFDD347AFA8D202 /* Pods_PhotoBooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C72BE89221751A88003C047E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B455342F4F60FB260CCEA5 /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31449962BCB0FCC8FCD70F2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71D547CA5FA62A8BF82D8730 /* Pods_PhotoBooth.framework */,
+				80EBFA2E818E768E6216FA1F /* Pods_PhotoBooth_PhotoBoothTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E025C252F01A92267B121C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87E1BFDFBA0F7C029773AA22 /* Pods-PhotoBooth.debug.xcconfig */,
+				A0E81D880AF147AFF901152A /* Pods-PhotoBooth.release.xcconfig */,
+				8117D3F38609657262292C12 /* Pods-PhotoBooth-PhotoBoothTests.debug.xcconfig */,
+				FFAAFFC298C9CF39F827F4D0 /* Pods-PhotoBooth-PhotoBoothTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		811F9A0321484B660079EA7E = {
 			isa = PBXGroup;
 			children = (
 				811F9A0E21484B660079EA7E /* PhotoBooth */,
+				C72BE89621751A88003C047E /* PhotoBoothTests */,
 				811F9A0D21484B660079EA7E /* Products */,
+				6E025C252F01A92267B121C7 /* Pods */,
+				31449962BCB0FCC8FCD70F2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				811F9A0C21484B660079EA7E /* PhotoBooth.app */,
+				C72BE89521751A88003C047E /* PhotoBoothTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +157,16 @@
 			path = PhotoBooth;
 			sourceTree = "<group>";
 		};
+		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
+			isa = PBXGroup;
+			children = (
+				C72BE89721751A88003C047E /* PhotoBoothTests.swift */,
+				C72BE89921751A88003C047E /* Info.plist */,
+				C72BE89F21751CC2003C047E /* QuickNimbleDemoTestFile.swift */,
+			);
+			path = PhotoBoothTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,6 +174,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 811F9A1E21484B680079EA7E /* Build configuration list for PBXNativeTarget "PhotoBooth" */;
 			buildPhases = (
+				DFE56B04C173CA1785695076 /* [CP] Check Pods Manifest.lock */,
 				811F9A0821484B660079EA7E /* Sources */,
 				811F9A0921484B660079EA7E /* Frameworks */,
 				811F9A0A21484B660079EA7E /* Resources */,
@@ -120,6 +188,26 @@
 			productReference = 811F9A0C21484B660079EA7E /* PhotoBooth.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C72BE89421751A88003C047E /* PhotoBoothTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C72BE89E21751A88003C047E /* Build configuration list for PBXNativeTarget "PhotoBoothTests" */;
+			buildPhases = (
+				E34884408631DCDA19CF2535 /* [CP] Check Pods Manifest.lock */,
+				C72BE89121751A88003C047E /* Sources */,
+				C72BE89221751A88003C047E /* Frameworks */,
+				C72BE89321751A88003C047E /* Resources */,
+				D6B8C537D4347556D761B99A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C72BE89B21751A88003C047E /* PBXTargetDependency */,
+			);
+			name = PhotoBoothTests;
+			productName = PhotoBoothTests;
+			productReference = C72BE89521751A88003C047E /* PhotoBoothTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,6 +220,10 @@
 				TargetAttributes = {
 					811F9A0B21484B660079EA7E = {
 						CreatedOnToolsVersion = 9.4;
+					};
+					C72BE89421751A88003C047E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 811F9A0B21484B660079EA7E;
 					};
 				};
 			};
@@ -149,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				811F9A0B21484B660079EA7E /* PhotoBooth */,
+				C72BE89421751A88003C047E /* PhotoBoothTests */,
 			);
 		};
 /* End PBXProject section */
@@ -164,7 +257,73 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C72BE89321751A88003C047E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D6B8C537D4347556D761B99A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFE56B04C173CA1785695076 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoBooth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E34884408631DCDA19CF2535 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoBooth-PhotoBoothTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		811F9A0821484B660079EA7E /* Sources */ = {
@@ -188,7 +347,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C72BE89121751A88003C047E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
+				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C72BE89B21751A88003C047E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 811F9A0B21484B660079EA7E /* PhotoBooth */;
+			targetProxy = C72BE89A21751A88003C047E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		811F9A1321484B660079EA7E /* Main.storyboard */ = {
@@ -326,6 +502,7 @@
 		};
 		811F9A1F21484B680079EA7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87E1BFDFBA0F7C029773AA22 /* Pods-PhotoBooth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,6 +520,7 @@
 		};
 		811F9A2021484B680079EA7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0E81D880AF147AFF901152A /* Pods-PhotoBooth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -355,6 +533,46 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C72BE89C21751A88003C047E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8117D3F38609657262292C12 /* Pods-PhotoBooth-PhotoBoothTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vh.PhotoBoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoBooth.app/PhotoBooth";
+			};
+			name = Debug;
+		};
+		C72BE89D21751A88003C047E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFAAFFC298C9CF39F827F4D0 /* Pods-PhotoBooth-PhotoBoothTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vh.PhotoBoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoBooth.app/PhotoBooth";
 			};
 			name = Release;
 		};
@@ -375,6 +593,15 @@
 			buildConfigurations = (
 				811F9A1F21484B680079EA7E /* Debug */,
 				811F9A2021484B680079EA7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C72BE89E21751A88003C047E /* Build configuration list for PBXNativeTarget "PhotoBoothTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C72BE89C21751A88003C047E /* Debug */,
+				C72BE89D21751A88003C047E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

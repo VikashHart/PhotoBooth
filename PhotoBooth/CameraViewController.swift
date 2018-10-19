@@ -2,11 +2,8 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
-
-    //Mark:- Variables
-    private let captureSession: PhotoCaptureable = CaptureSession()
-
-    private let partialModal: PartialModal = SetUpCardPartialModal()
+    
+    private let captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable()
     
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
