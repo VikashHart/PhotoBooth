@@ -10,4 +10,6 @@ class PhotoShootSetupCardViewModel: SetupPhotoShootViewModel {
     func getPhotoShootConfiguration() -> PhotoShootConfiguration {
         return PhotoShootConfiguration(photoCount: _photoStepperViewModel.currentValue, timeInterval: _timerStepperViewModel.currentValue)
     }
+
+    var onConfigure: ((PhotoShootConfiguration) -> ())?
 }

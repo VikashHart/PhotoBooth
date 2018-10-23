@@ -58,6 +58,7 @@ class PhotoShootSetupCard: UIView {
         button.tintColor = .white
         button.backgroundColor = UIColor.photoBoothBlue
         button.layer.opacity = 1
+        button.addTarget(self, action: #selector(completeConfiguration), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -144,5 +145,9 @@ class PhotoShootSetupCard: UIView {
             startShootButton.heightAnchor.constraint(equalToConstant: 40),
             startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
             ])
+    }
+
+    @objc private func completeConfiguration(sender: UIButton) {
+        viewModel.onConfigure?(viewModel.getPhotoShootConfiguration())
     }
 }

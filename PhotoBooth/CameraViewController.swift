@@ -4,6 +4,7 @@ import AVFoundation
 class CameraViewController: UIViewController {
     
     private let captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable()
+    private let setupViewModel = PhotoShootSetupCardViewModel()
     
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
@@ -27,6 +28,9 @@ class CameraViewController: UIViewController {
         pv.alpha = 0
         return pv
     }()
+
+    private var numberOfPhotos = Int()
+    private var timerDelay = TimeInterval()
 
     private var capturedImages = [UIImage]()
 
@@ -72,8 +76,12 @@ class CameraViewController: UIViewController {
         captureSession.switchCamera()
     }
 
-    @objc private func configureShoot() {
-        
+    private func configureShoot() {
+        setupViewModel.onConfigure = { PhotoShootConfiguration in
+            self.numberOfPhotos = PhotoShootConfiguration.photoCount
+            self.timerDelay = PhotoShootConfiguration.timeInterval
+        }
+        middlePrompt.dismissRequested(modal: middlePrompt.currentModal!)
     }
     
     @objc private func cancelPhotoBoothSession() {
