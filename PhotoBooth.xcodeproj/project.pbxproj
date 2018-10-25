@@ -17,6 +17,7 @@
 		812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */; };
 		812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */; };
 		812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */; };
+		813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
 		8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */; };
@@ -57,6 +58,7 @@
 		812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModel.swift; sourceTree = "<group>"; };
 		812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModel.swift; sourceTree = "<group>"; };
 		812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupPhotoShootViewModel+PhotoShootConfiguration.swift"; sourceTree = "<group>"; };
+		813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModelSpec.swift; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModelSpec.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				C72BE89721751A88003C047E /* PhotoBoothTests.swift */,
 				C72BE89921751A88003C047E /* Info.plist */,
 				C72BE89F21751CC2003C047E /* QuickNimbleDemoTestFile.swift */,
+				813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */,
 				8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */,
 			);
 			path = PhotoBoothTests;
@@ -356,6 +359,7 @@
 			files = (
 				8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */,
 				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
+				813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */,
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

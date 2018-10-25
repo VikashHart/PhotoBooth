@@ -8,9 +8,9 @@ class TimeIntervalStepperViewModel: StepperViewModel {
         }
     }
 
-    private let minValue: Double = 1
+    private let minValue: Double
 
-    private let maxValue: Double = 10
+    private let maxValue: Double
 
     private(set) var minusEnabled: Bool = true
 
@@ -18,8 +18,11 @@ class TimeIntervalStepperViewModel: StepperViewModel {
 
     private(set) var labelText: String = ""
 
-    init(initialValue: TimeInterval = 0) {
+    init(initialValue: TimeInterval = 0, min: TimeInterval = 1, max: TimeInterval = 10) {
+        assert(min <= max)
         self.currentValue = initialValue
+        self.minValue = min
+        self.maxValue = max
         updateValues()
     }
 
