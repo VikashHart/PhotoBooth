@@ -8,9 +8,9 @@ class PhotoStepperViewModel: StepperViewModel {
         }
     }
 
-    private let minValue = 1
+    private let minValue: Int
 
-    private let maxValue = 10
+    private let maxValue: Int
 
     private(set) var minusEnabled: Bool = true
 
@@ -18,19 +18,22 @@ class PhotoStepperViewModel: StepperViewModel {
 
     private(set) var labelText: String = ""
 
-    init(initialValue: Int = 0) {
+    init(initialValue: Int = 0, min: Int = 1, max: Int = 10) {
+        assert(min <= max)
+        self.minValue = min
+        self.maxValue = max
         self.currentValue = initialValue
         updateValues()
     }
 
     func minusTapped() {
         guard currentValue != minValue else { return }
-            currentValue -= 1
+        currentValue -= 1
     }
 
     func plusTapped() {
         guard currentValue != maxValue else { return }
-            currentValue += 1
+        currentValue += 1
     }
 
     private func updateValues() {
