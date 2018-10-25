@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import PhotoBooth
 
 class PhotoBoothTests: XCTestCase {
     
