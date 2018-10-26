@@ -26,7 +26,6 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         expect(timeIntervalStepperViewModel.plusEnabled).to(beTrue())
                     }
                     it("the stepper label text is '1 second apart'") {
-                        print(timeIntervalStepperViewModel.labelText)
                         expect(timeIntervalStepperViewModel.labelText).to(match("1 second apart"))
                     }
 
