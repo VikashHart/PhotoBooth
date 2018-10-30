@@ -2,11 +2,11 @@ import UIKit
 
 class PhotoShootSetupCard: UIView {
 
-    private let viewModel = PhotoShootSetupCardViewModel()
+    private let viewModel: PhotoShootSetupCardViewModel
 
     lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Set up your photoshoot"
+        label.text = viewModel.titleText
         label.font = UIFont.semiBoldFont(size: 22)
         label.textAlignment = .center
         label.textColor = .black
@@ -58,17 +58,18 @@ class PhotoShootSetupCard: UIView {
         button.tintColor = .white
         button.backgroundColor = UIColor.photoBoothBlue
         button.layer.opacity = 1
+        button.addTarget(self, action: #selector(completeConfiguration), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+        fatalError()
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: PhotoShootSetupCardViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         commonInit()
     }
 
@@ -81,7 +82,7 @@ class PhotoShootSetupCard: UIView {
 
     private func setupViews() {
         setupHeaderLabel()
-        setupPhotoSteper()
+        setupPhotoStepper()
         setupPhotosColorBar()
         setupTimerStepper()
         setupTimerColorBar()
@@ -97,7 +98,7 @@ class PhotoShootSetupCard: UIView {
             ])
     }
 
-    private func setupPhotoSteper() {
+    private func setupPhotoStepper() {
         addSubview(photoStepper)
         NSLayoutConstraint.activate([
             photoStepper.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 40),
@@ -144,5 +145,9 @@ class PhotoShootSetupCard: UIView {
             startShootButton.heightAnchor.constraint(equalToConstant: 40),
             startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
             ])
+    }
+
+    @objc private func completeConfiguration(sender: UIButton) {
+        viewModel.finalizeConfiguration()
     }
 }

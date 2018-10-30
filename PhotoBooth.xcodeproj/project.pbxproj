@@ -18,10 +18,13 @@
 		812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */; };
 		812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */; };
 		813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */; };
+		813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */; };
+		813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FB121868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift */; };
+		813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FB3218809BE00CEB640 /* PartialModal.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
 		8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */; };
-		8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* SetupCardViewController.swift */; };
+		8174574D21598D7E00F612F6 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* PromptView.swift */; };
 		8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */; };
 		81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */; };
 		81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745754216ACF5B00F612F6 /* UIStyles.swift */; };
@@ -59,10 +62,13 @@
 		812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModel.swift; sourceTree = "<group>"; };
 		812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupPhotoShootViewModel+PhotoShootConfiguration.swift"; sourceTree = "<group>"; };
 		813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModelSpec.swift; sourceTree = "<group>"; };
+		813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardPartialModal.swift; sourceTree = "<group>"; };
+		813B2FB121868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModelSpec.swift; sourceTree = "<group>"; };
+		813B2FB3218809BE00CEB640 /* PartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialModal.swift; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModelSpec.swift; sourceTree = "<group>"; };
-		8174574C21598D7E00F612F6 /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
+		8174574C21598D7E00F612F6 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardView.swift; sourceTree = "<group>"; };
 		81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapturePreviewView.swift; sourceTree = "<group>"; };
 		81745754216ACF5B00F612F6 /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
@@ -138,7 +144,9 @@
 				81745754216ACF5B00F612F6 /* UIStyles.swift */,
 				81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */,
 				814F104B2154654F0066CCD5 /* MockSession.swift */,
-				8174574C21598D7E00F612F6 /* SetupCardViewController.swift */,
+				8174574C21598D7E00F612F6 /* PromptView.swift */,
+				813B2FB3218809BE00CEB640 /* PartialModal.swift */,
+				813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */,
 				8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */,
 				812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */,
 				812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */,
@@ -156,6 +164,7 @@
 				C72BE89721751A88003C047E /* PhotoBoothTests.swift */,
 				C72BE89921751A88003C047E /* Info.plist */,
 				C72BE89F21751CC2003C047E /* QuickNimbleDemoTestFile.swift */,
+				813B2FB121868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift */,
 				813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */,
 				8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */,
 			);
@@ -342,13 +351,15 @@
 				812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModel.swift in Sources */,
+				813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */,
+				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
 				8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */,
 				81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,
 				811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */,
-				8174574D21598D7E00F612F6 /* SetupCardViewController.swift in Sources */,
+				8174574D21598D7E00F612F6 /* PromptView.swift in Sources */,
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +372,7 @@
 				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
 				813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */,
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
+				813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

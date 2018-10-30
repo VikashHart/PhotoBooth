@@ -1,27 +1,5 @@
 import UIKit
 
-class SetupCardViewController: UIViewController {
-
-    let setupCard = PhotoShootSetupCard()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureSetupCard()
-        view.backgroundColor = .clear
-    }
-
-    private func configureSetupCard() {
-        view.addSubview(setupCard)
-        setupCard.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            setupCard.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
-            setupCard.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor),
-            setupCard.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            setupCard.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
-    }
-}
-
 class PromptView: UIView, PartialModalDelegate {
     private(set) var currentModal: PartialModal?
 
@@ -59,22 +37,4 @@ class PromptView: UIView, PartialModalDelegate {
             currentModal = nil
         }
     }
-}
-
-protocol PartialModal {
-    var view: UIView { get }
-    var delegate: PartialModalDelegate? { get set }
-}
-
-protocol PartialModalDelegate {
-    func dismissRequested(modal: PartialModal)
-}
-
-func ==(lhs: PartialModal, rhs: PartialModal) -> Bool {
-    return lhs.view == rhs.view
-}
-
-class SetUpCardPartialModal: PartialModal {
-    var view: UIView = PhotoShootSetupCard()
-    var delegate: PartialModalDelegate?
 }

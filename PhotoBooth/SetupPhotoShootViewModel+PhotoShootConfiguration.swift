@@ -1,10 +1,11 @@
 import Foundation
 
 protocol SetupPhotoShootViewModel {
+    var titleText: String { get }
     var photoStepperViewModel: StepperViewModel { get }
     var timerStepperViewModel: StepperViewModel { get }
 
-    func getPhotoShootConfiguration() -> PhotoShootConfiguration
+    func finalizeConfiguration()
 }
 
 struct PhotoShootConfiguration {
