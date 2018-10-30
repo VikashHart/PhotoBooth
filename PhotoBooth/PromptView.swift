@@ -38,21 +38,3 @@ class PromptView: UIView, PartialModalDelegate {
         }
     }
 }
-
-protocol PartialModal {
-    var view: UIView { get }
-    var delegate: PartialModalDelegate? { get set }
-}
-
-protocol PartialModalDelegate {
-    func dismissRequested(modal: PartialModal)
-}
-
-func ==(lhs: PartialModal, rhs: PartialModal) -> Bool {
-    return lhs.view == rhs.view
-}
-
-class SetUpCardPartialModal: PartialModal {
-    var view: UIView = PhotoShootSetupCard()
-    var delegate: PartialModalDelegate?
-}

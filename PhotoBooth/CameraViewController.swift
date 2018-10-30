@@ -4,7 +4,7 @@ import AVFoundation
 class CameraViewController: UIViewController {
     
     private let captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable()
-    private let setupViewModel = PhotoShootSetupCardViewModel()
+
     
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
@@ -63,7 +63,15 @@ class CameraViewController: UIViewController {
     }
 
     private func presentConfigurationCard() {
-        middlePrompt.present(modal: SetUpCardPartialModal(), animated: false)
+        let setupCardPartialModal = SetUpCardPartialModal(onConfigureFinalized: { [weak self] configuration, modal in
+            modal.dismiss()
+            self?.beginShoot(config: configuration)
+        })
+        middlePrompt.present(modal: setupCardPartialModal, animated: false)
+    }
+
+    private func beginShoot(config: PhotoShootConfiguration) {
+
     }
 
     private func setupDownSwipeGesture() {
@@ -74,14 +82,6 @@ class CameraViewController: UIViewController {
     
     @objc private func rotateCamera() {
         captureSession.switchCamera()
-    }
-
-    private func configureShoot() {
-        setupViewModel.onConfigure = { PhotoShootConfiguration in
-            self.numberOfPhotos = PhotoShootConfiguration.photoCount
-            self.timerDelay = PhotoShootConfiguration.timeInterval
-        }
-        middlePrompt.dismissRequested(modal: middlePrompt.currentModal!)
     }
     
     @objc private func cancelPhotoBoothSession() {
