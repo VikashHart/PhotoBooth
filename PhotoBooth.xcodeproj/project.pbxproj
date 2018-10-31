@@ -33,6 +33,7 @@
 		8183608C2188D80100238022 /* SwipeToCancelPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */; };
 		8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */; };
 		818360902188E50000238022 /* SwipeToCancelPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */; };
+		81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -81,6 +82,7 @@
 		8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptView.swift; sourceTree = "<group>"; };
 		8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptViewModel.swift; sourceTree = "<group>"; };
 		8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPrompt.swift; sourceTree = "<group>"; };
+		81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptSpec.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				813B2FB121868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift */,
 				813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */,
 				8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */,
+				81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */,
 			);
 			path = PhotoBoothTests;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
 				813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */,
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
+				81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */,
 				813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
