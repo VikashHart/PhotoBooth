@@ -6,7 +6,7 @@ class SwipeToCancelPromptView: UIView {
 
     lazy var promptLabel: UILabel = {
         let label = UILabel()
-        label.text = "NewLabel"
+        label.text = viewModel.promptText
         label.font = UIFont.semiBoldFont(size: 22)
         label.textAlignment = .center
         label.textColor = .white
