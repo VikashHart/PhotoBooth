@@ -1,5 +1,5 @@
 import Foundation
 
-protocol SwipeToCancelPrompt {
+protocol SwipeToCancelPromptViewModeling {
     var promptText: String { get }
 }

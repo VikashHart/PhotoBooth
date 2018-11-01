@@ -2,7 +2,7 @@ import UIKit
 
 class SwipeToCancelPromptView: UIView {
 
-    private let viewModel: SwipeToCancelPromptViewModel
+    private let viewModel: SwipeToCancelPromptViewModeling
 
     lazy var promptLabel: UILabel = {
         let label = UILabel()
@@ -21,7 +21,7 @@ class SwipeToCancelPromptView: UIView {
         fatalError()
     }
 
-    init(viewModel: SwipeToCancelPromptViewModel) {
+    init(viewModel: SwipeToCancelPromptViewModeling) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         commonInit()

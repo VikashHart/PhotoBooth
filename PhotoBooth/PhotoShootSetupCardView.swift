@@ -2,7 +2,7 @@ import UIKit
 
 class PhotoShootSetupCard: UIView {
 
-    private let viewModel: PhotoShootSetupCardViewModel
+    private let viewModel: SetupPhotoShootViewModeling
 
     lazy var headerLabel: UILabel = {
         let label = UILabel()
@@ -67,7 +67,7 @@ class PhotoShootSetupCard: UIView {
         fatalError()
     }
 
-    init(viewModel: PhotoShootSetupCardViewModel) {
+    init(viewModel: SetupPhotoShootViewModeling) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         commonInit()
