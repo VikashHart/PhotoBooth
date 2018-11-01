@@ -1,6 +1,6 @@
 import Foundation
 
-class PhotoShootSetupCardViewModel: SetupPhotoShootViewModel {
+class PhotoShootSetupCardViewModel: SetupPhotoShootViewModeling {
     let titleText = "Set up your photoshoot"
 
     private let _photoStepperViewModel: PhotoStepperViewModel

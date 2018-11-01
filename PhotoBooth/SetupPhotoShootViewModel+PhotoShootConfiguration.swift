@@ -1,6 +1,6 @@
 import Foundation
 
-protocol SetupPhotoShootViewModel {
+protocol SetupPhotoShootViewModeling {
     var titleText: String { get }
     var photoStepperViewModel: StepperViewModel { get }
     var timerStepperViewModel: StepperViewModel { get }
