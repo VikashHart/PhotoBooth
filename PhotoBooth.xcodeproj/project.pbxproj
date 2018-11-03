@@ -29,6 +29,7 @@
 		81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */; };
 		81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745754216ACF5B00F612F6 /* UIStyles.swift */; };
 		81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745756216ADE6700F612F6 /* CustomStepperView.swift */; };
+		818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360B9218CCFD100238022 /* CountdownIndicatorView.swift */; };
 		8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360892188D68500238022 /* SwipeToCancelPromptPartialModal.swift */; };
 		8183608C2188D80100238022 /* SwipeToCancelPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */; };
 		8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */; };
@@ -78,6 +79,7 @@
 		81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapturePreviewView.swift; sourceTree = "<group>"; };
 		81745754216ACF5B00F612F6 /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
 		81745756216ADE6700F612F6 /* CustomStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperView.swift; sourceTree = "<group>"; };
+		818360B9218CCFD100238022 /* CountdownIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorView.swift; sourceTree = "<group>"; };
 		818360892188D68500238022 /* SwipeToCancelPromptPartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptPartialModal.swift; sourceTree = "<group>"; };
 		8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptView.swift; sourceTree = "<group>"; };
 		8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptViewModel.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */,
 				81745756216ADE6700F612F6 /* CustomStepperView.swift */,
 				812704AA21707E8500545143 /* StepperViewModel.swift */,
+				818360B9218CCFD100238022 /* CountdownIndicatorView.swift */,
 			);
 			path = PhotoBooth;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				8174574D21598D7E00F612F6 /* PromptView.swift in Sources */,
 				8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */,
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
+				818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBooth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,6 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBooth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -582,6 +588,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,6 +609,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

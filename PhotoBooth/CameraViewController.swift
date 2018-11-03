@@ -5,11 +5,17 @@ class CameraViewController: UIViewController {
     
     private let captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable()
 
-    
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
         pl.translatesAutoresizingMaskIntoConstraints = false
         return pl
+    }()
+
+    lazy var countdownView: UIView = {
+        let view = CountdownIndicatorView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     lazy var switchCameraButton: UIButton = {
@@ -90,6 +96,7 @@ class CameraViewController: UIViewController {
     
     private func setupViews() {
         setupPreviewLayerContainer()
+        setupCountdownView()
         setupSwitchCameraButton()
         setUpMiddlePromptContainer()
     }
@@ -101,6 +108,16 @@ class CameraViewController: UIViewController {
             previewLayerContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             previewLayerContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             previewLayerContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+
+    private func setupCountdownView() {
+        previewLayerContainer.addSubview(countdownView)
+        NSLayoutConstraint.activate([
+            countdownView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            countdownView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            countdownView.widthAnchor.constraint(equalToConstant: 40),
+            countdownView.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
     
