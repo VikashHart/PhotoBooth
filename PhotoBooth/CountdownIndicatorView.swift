@@ -1,13 +1,14 @@
 import UIKit
 
 class CountdownIndicatorView: UIView {
+    private let viewModel: CountdownIndicatorViewModeling
 
     private let pulseLayer = CAShapeLayer()
     private let startAngle = -CGFloat.pi / 2
 
-    lazy var centerLabel: UILabel = {
+    lazy var countdownLabel: UILabel = {
         let label = UILabel()
-        label.text = "10"
+        label.text = viewModel.timerLabelText
         label.font = UIFont.boldFont(size: 23)
         label.textAlignment = .center
         label.textColor = .white
@@ -24,9 +25,21 @@ class CountdownIndicatorView: UIView {
         fatalError()
     }
 
-    init() {
+    init(viewModel: CountdownIndicatorViewModeling) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         commonInit()
+    }
+
+    func updateWith(timeRemaining: Seconds, animated: Bool) {
+        if animated == true {
+            viewModel.update(timeRemaining: timeRemaining)
+            countdownLabel.text = viewModel.timerLabelText
+            animatePulseLayer()
+        } else {
+            viewModel.update(timeRemaining: timeRemaining)
+            countdownLabel.text = viewModel.timerLabelText
+        }
     }
 
     private func commonInit() {
@@ -48,12 +61,12 @@ class CountdownIndicatorView: UIView {
     }
 
     private func setupCenterLabel() {
-        addSubview(centerLabel)
+        addSubview(countdownLabel)
         NSLayoutConstraint.activate([
-            centerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            centerLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            centerLabel.widthAnchor.constraint(equalToConstant: 40),
-            centerLabel.heightAnchor.constraint(equalToConstant: 40)
+            countdownLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            countdownLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            countdownLabel.widthAnchor.constraint(equalToConstant: 40),
+            countdownLabel.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
 
@@ -62,8 +75,6 @@ class CountdownIndicatorView: UIView {
         drawBezierPath()
         pulseLayer.lineCap = kCALineCapRound
         pulseLayer.fillColor = UIColor.photoBoothBlue.withAlphaComponent(0.8).cgColor
-
-        animatePulseLayer()
     }
 
     private func drawBezierPath() {
@@ -80,7 +91,7 @@ class CountdownIndicatorView: UIView {
         pulsingAnimation.toValue = 1.2
         pulsingAnimation.duration = 0.5
         pulsingAnimation.autoreverses = true
-        pulsingAnimation.repeatCount = Float.infinity
+        pulsingAnimation.repeatCount = 1
         pulsingAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 
         pulseLayer.add(pulsingAnimation, forKey: "pulsing")

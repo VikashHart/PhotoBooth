@@ -1,5 +1,7 @@
 import UIKit
 
+typealias Seconds = Int
+
 enum FontType: String {
     case regular = "AvenirNext-Regular"
     case medium = "AvenirNext-Medium"
