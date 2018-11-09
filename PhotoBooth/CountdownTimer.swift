@@ -27,7 +27,6 @@ class CountdownTimer: TimerModeling {
         guard !isTimerRunning else { return }
         isTimerRunning = true
         onTimerUpdated(timeRemaining)
-        timeRemaining = maxTime
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: (#selector(updateTimer)),
@@ -41,6 +40,7 @@ class CountdownTimer: TimerModeling {
 
     func restartTimer() {
         removeTimer()
+        timeRemaining = maxTime
         startTimer()
     }
 
