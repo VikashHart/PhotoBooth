@@ -3,8 +3,6 @@ import Foundation
 class CountdownTimer: TimerModeling {
     var timeRemaining: Seconds = 1 {
         didSet {
-            onTimerUpdated(timeRemaining)
-
             if timeRemaining <= 0 {
                 removeTimer()
             }
@@ -54,5 +52,6 @@ class CountdownTimer: TimerModeling {
     @objc private func updateTimer() {
         guard isTimerRunning else { return }
         timeRemaining -= 1
+        onTimerUpdated(timeRemaining)
     }
 }

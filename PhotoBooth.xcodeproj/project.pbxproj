@@ -40,6 +40,8 @@
 		818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360BF218FC5DB00238022 /* CountdownIndicatorViewModeling.swift */; };
 		818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360C1218FC5FA00238022 /* CountdownIndicatorViewModel.swift */; };
 		818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360C32191343A00238022 /* CameraViewControllerViewModel.swift */; };
+		81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */; };
+		81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -95,6 +97,8 @@
 		818360BF218FC5DB00238022 /* CountdownIndicatorViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModeling.swift; sourceTree = "<group>"; };
 		818360C1218FC5FA00238022 /* CountdownIndicatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModel.swift; sourceTree = "<group>"; };
 		818360C32191343A00238022 /* CameraViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerViewModel.swift; sourceTree = "<group>"; };
+		81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerSpec.swift; sourceTree = "<group>"; };
+		81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModelSpec.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */,
 				8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */,
 				81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */,
+				81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */,
+				81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */,
 			);
 			path = PhotoBoothTests;
 			sourceTree = "<group>";
@@ -411,10 +417,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */,
 				8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */,
 				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
 				813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */,
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
+				81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */,
 				81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */,
 				813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */,
 			);
