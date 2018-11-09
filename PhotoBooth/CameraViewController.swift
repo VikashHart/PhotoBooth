@@ -4,12 +4,21 @@ import AVFoundation
 class CameraViewController: UIViewController {
     
     private let captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable()
+    var viewModel: CameraViewControllerViewModeling = CameraViewControllerViewModel()
 
-    
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
         pl.translatesAutoresizingMaskIntoConstraints = false
         return pl
+    }()
+
+    lazy var countdownView: CountdownIndicatorView = {
+        let viewModel = CountdownIndicatorViewModel()
+        let view = CountdownIndicatorView(viewModel: viewModel)
+        view.backgroundColor = .clear
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     lazy var switchCameraButton: UIButton = {
@@ -28,9 +37,6 @@ class CameraViewController: UIViewController {
         pv.alpha = 0
         return pv
     }()
-
-    private var numberOfPhotos = Int()
-    private var timerDelay = TimeInterval()
 
     private var capturedImages = [UIImage]()
 
@@ -65,13 +71,35 @@ class CameraViewController: UIViewController {
     private func presentConfigurationCard() {
         let setupCardPartialModal = SetUpCardPartialModal(onConfigureFinalized: { [weak self] configuration, modal in
             modal.dismiss()
-            self?.beginShoot(config: configuration)
+            self?.configureShoot(config: configuration)
+            self?.presentSwipeToCancelPrompt()
         })
         middlePrompt.present(modal: setupCardPartialModal, animated: false)
     }
 
-    private func beginShoot(config: PhotoShootConfiguration) {
+    private func presentSwipeToCancelPrompt() {
+        let cancelPrompt = SwipeToCancelPromptPartialModal()
+        middlePrompt.present(modal: cancelPrompt, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            cancelPrompt.dismiss()
+            self.startShoot()
+        }
+    }
 
+    private func configureShoot(config: PhotoShootConfiguration) {
+        viewModel.setupShoot(with: config) { [weak self] timeRemaining in
+
+            if timeRemaining != 0 {
+                self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: true)
+            } else {
+                self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: false)
+            }
+        }
+    }
+
+    private func startShoot() {
+        countdownView.isHidden = false
+        viewModel.startShoot()
     }
 
     private func setupDownSwipeGesture() {
@@ -90,6 +118,7 @@ class CameraViewController: UIViewController {
     
     private func setupViews() {
         setupPreviewLayerContainer()
+        setupCountdownView()
         setupSwitchCameraButton()
         setUpMiddlePromptContainer()
     }
@@ -101,6 +130,16 @@ class CameraViewController: UIViewController {
             previewLayerContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             previewLayerContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             previewLayerContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+
+    private func setupCountdownView() {
+        previewLayerContainer.addSubview(countdownView)
+        NSLayoutConstraint.activate([
+            countdownView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            countdownView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            countdownView.widthAnchor.constraint(equalToConstant: 40),
+            countdownView.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
     

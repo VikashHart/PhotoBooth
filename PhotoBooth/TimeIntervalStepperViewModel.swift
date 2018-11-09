@@ -2,15 +2,15 @@ import Foundation
 
 class TimeIntervalStepperViewModel: StepperViewModel {
 
-    private(set) var currentValue: TimeInterval {
+    private(set) var currentValue: Seconds {
         didSet {
             updateValues()
         }
     }
 
-    private let minValue: Double
+    private let minValue: Seconds
 
-    private let maxValue: Double
+    private let maxValue: Seconds
 
     private(set) var minusEnabled: Bool = true
 
@@ -18,7 +18,7 @@ class TimeIntervalStepperViewModel: StepperViewModel {
 
     private(set) var labelText: String = ""
 
-    init(initialValue: TimeInterval = 0, min: TimeInterval = 1, max: TimeInterval = 10) {
+    init(initialValue: Seconds = 0, min: Seconds = 1, max: Seconds = 10) {
         assert(min <= max)
         self.currentValue = initialValue
         self.minValue = min

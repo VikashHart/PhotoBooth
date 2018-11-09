@@ -17,7 +17,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                     }
 
                     it("has a currentValue of 1") {
-                        expect(timeIntervalStepperViewModel.currentValue).to(be(1.0))
+                        expect(timeIntervalStepperViewModel.currentValue).to(be(1))
                     }
                     it("has a minusEnabled value of false") {
                         expect(timeIntervalStepperViewModel.minusEnabled).to(beFalse())
@@ -36,7 +36,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value stays at 1") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(1.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(1))
                         }
                         it("the minusEnabled remains false") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beFalse())
@@ -56,7 +56,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value changes to 2") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(2.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(2))
                         }
                         it("the minusEnabled changes to true") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -79,7 +79,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                     }
 
                     it("has a currentValue of 2") {
-                        expect(timeIntervalStepperViewModel.currentValue).to(be(2.0))
+                        expect(timeIntervalStepperViewModel.currentValue).to(be(2))
                     }
                     it("has a minusEnabled value of true") {
                         expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -98,7 +98,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value changes to 1") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(1.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(1))
                         }
                         it("the minusEnabled changes to false") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beFalse())
@@ -118,7 +118,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value changes to 3") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(3.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(3))
                         }
                         it("the minusEnabled changes to true") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -141,7 +141,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                     }
 
                     it("has a currentValue of 9") {
-                        expect(timeIntervalStepperViewModel.currentValue).to(be(9.0))
+                        expect(timeIntervalStepperViewModel.currentValue).to(be(9))
                     }
                     it("has a minusEnabled value of true") {
                         expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -160,7 +160,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value stays at 8") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(8.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(8))
                         }
                         it("the minusEnabled remains true") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -180,7 +180,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value changes to 10") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(10.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(10))
                         }
                         it("the minusEnabled remains true") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -203,7 +203,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                     }
 
                     it("has a currentValue of 10") {
-                        expect(timeIntervalStepperViewModel.currentValue).to(be(10.0))
+                        expect(timeIntervalStepperViewModel.currentValue).to(be(10))
                     }
                     it("has a minusEnabled value of true") {
                         expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -222,7 +222,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value changes to 9") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(9.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(9))
                         }
                         it("the minusEnabled remains true") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())
@@ -242,7 +242,7 @@ class TimeIntervalStepperViewModelSpec: QuickSpec {
                         }
 
                         it("the current value stays at 10") {
-                            expect(timeIntervalStepperViewModel.currentValue).to(be(10.0))
+                            expect(timeIntervalStepperViewModel.currentValue).to(be(10))
                         }
                         it("the minusEnabled remains true") {
                             expect(timeIntervalStepperViewModel.minusEnabled).to(beTrue())

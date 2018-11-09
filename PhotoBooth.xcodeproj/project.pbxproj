@@ -34,6 +34,14 @@
 		8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */; };
 		818360902188E50000238022 /* SwipeToCancelPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */; };
 		81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */; };
+		818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360B9218CCFD100238022 /* CountdownIndicatorView.swift */; };
+		818360BC218F9FF100238022 /* TimerModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360BB218F9FF100238022 /* TimerModeling.swift */; };
+		818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360BD218FA0A400238022 /* CountdownTimer.swift */; };
+		818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360BF218FC5DB00238022 /* CountdownIndicatorViewModeling.swift */; };
+		818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360C1218FC5FA00238022 /* CountdownIndicatorViewModel.swift */; };
+		818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360C32191343A00238022 /* CameraViewControllerViewModel.swift */; };
+		81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */; };
+		81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -83,6 +91,14 @@
 		8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptViewModel.swift; sourceTree = "<group>"; };
 		8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPrompt.swift; sourceTree = "<group>"; };
 		81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptSpec.swift; sourceTree = "<group>"; };
+		818360B9218CCFD100238022 /* CountdownIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorView.swift; sourceTree = "<group>"; };
+		818360BB218F9FF100238022 /* TimerModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModeling.swift; sourceTree = "<group>"; };
+		818360BD218FA0A400238022 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		818360BF218FC5DB00238022 /* CountdownIndicatorViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModeling.swift; sourceTree = "<group>"; };
+		818360C1218FC5FA00238022 /* CountdownIndicatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModel.swift; sourceTree = "<group>"; };
+		818360C32191343A00238022 /* CameraViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerViewModel.swift; sourceTree = "<group>"; };
+		81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerSpec.swift; sourceTree = "<group>"; };
+		81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModelSpec.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
@@ -146,6 +162,7 @@
 			children = (
 				811F9A0F21484B660079EA7E /* AppDelegate.swift */,
 				814F10492154650B0066CCD5 /* CameraViewController.swift */,
+				818360C32191343A00238022 /* CameraViewControllerViewModel.swift */,
 				811F9A1321484B660079EA7E /* Main.storyboard */,
 				811F9A1621484B670079EA7E /* Assets.xcassets */,
 				811F9A1821484B680079EA7E /* LaunchScreen.storyboard */,
@@ -168,6 +185,11 @@
 				812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */,
 				81745756216ADE6700F612F6 /* CustomStepperView.swift */,
 				812704AA21707E8500545143 /* StepperViewModel.swift */,
+				818360B9218CCFD100238022 /* CountdownIndicatorView.swift */,
+				818360BF218FC5DB00238022 /* CountdownIndicatorViewModeling.swift */,
+				818360C1218FC5FA00238022 /* CountdownIndicatorViewModel.swift */,
+				818360BB218F9FF100238022 /* TimerModeling.swift */,
+				818360BD218FA0A400238022 /* CountdownTimer.swift */,
 			);
 			path = PhotoBooth;
 			sourceTree = "<group>";
@@ -182,6 +204,8 @@
 				813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */,
 				8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */,
 				81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */,
+				81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */,
+				81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */,
 			);
 			path = PhotoBoothTests;
 			sourceTree = "<group>";
@@ -362,17 +386,22 @@
 			files = (
 				812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */,
 				812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */,
+				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModel.swift in Sources */,
+				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
+				818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */,
 				813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */,
 				818360902188E50000238022 /* SwipeToCancelPrompt.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
+				818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */,
 				8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */,
 				81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
+				818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */,
 				8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */,
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,
 				811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */,
@@ -380,6 +409,7 @@
 				8174574D21598D7E00F612F6 /* PromptView.swift in Sources */,
 				8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */,
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
+				818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,10 +417,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */,
 				8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */,
 				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
 				813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */,
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
+				81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */,
 				81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */,
 				813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */,
 			);
@@ -546,6 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBooth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBooth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -582,6 +616,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,6 +637,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
 				INFOPLIST_FILE = PhotoBoothTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

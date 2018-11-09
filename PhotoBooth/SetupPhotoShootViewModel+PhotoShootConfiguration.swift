@@ -10,5 +10,5 @@ protocol SetupPhotoShootViewModeling {
 
 struct PhotoShootConfiguration {
     let photoCount: Int
-    let timeInterval: TimeInterval
+    let timeInterval: Seconds
 }
