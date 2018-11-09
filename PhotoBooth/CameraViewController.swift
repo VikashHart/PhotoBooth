@@ -38,8 +38,6 @@ class CameraViewController: UIViewController {
         return pv
     }()
 
-    private var timerLabelText = String()
-
     private var capturedImages = [UIImage]()
 
     //Mark:- override functions
@@ -75,7 +73,6 @@ class CameraViewController: UIViewController {
             modal.dismiss()
             self?.configureShoot(config: configuration)
             self?.presentSwipeToCancelPrompt()
-
         })
         middlePrompt.present(modal: setupCardPartialModal, animated: false)
     }
@@ -92,8 +89,7 @@ class CameraViewController: UIViewController {
     private func configureShoot(config: PhotoShootConfiguration) {
         viewModel.setupShoot(with: config) { [weak self] timeRemaining in
 
-            var time = timeRemaining
-            if time != 0 {
+            if timeRemaining != 0 {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: true)
             } else {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: false)

@@ -16,7 +16,7 @@ class PromptView: UIView, PartialModalDelegate {
             ])
 
         if animated {
-            self.layoutIfNeeded()
+            layoutIfNeeded()
             UIView.animate(withDuration: 0.3) {
                 self.alpha = 1
             }

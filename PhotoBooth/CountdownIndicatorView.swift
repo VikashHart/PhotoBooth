@@ -32,13 +32,10 @@ class CountdownIndicatorView: UIView {
     }
 
     func updateWith(timeRemaining: Seconds, animated: Bool) {
-        if animated == true {
-            viewModel.update(timeRemaining: timeRemaining)
-            countdownLabel.text = viewModel.timerLabelText
+        viewModel.update(timeRemaining: timeRemaining)
+        countdownLabel.text = viewModel.timerLabelText
+        if animated {
             animatePulseLayer()
-        } else {
-            viewModel.update(timeRemaining: timeRemaining)
-            countdownLabel.text = viewModel.timerLabelText
         }
     }
 

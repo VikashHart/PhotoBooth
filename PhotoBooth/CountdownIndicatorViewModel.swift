@@ -4,7 +4,7 @@ class CountdownIndicatorViewModel: CountdownIndicatorViewModeling {
 
     private(set) var timerLabelText = ""
 
-    var timeRemaining: Seconds {
+    private var timeRemaining: Seconds {
         didSet {
             updateText()
         }
@@ -24,7 +24,7 @@ class CountdownIndicatorViewModel: CountdownIndicatorViewModeling {
     }
 
     private func getTimerLabelText() -> String {
-        let time = Int(timeRemaining)
+        let time = timeRemaining
         return String(time)
     }
 }
