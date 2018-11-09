@@ -8,7 +8,7 @@ class CountdownTimerSpec: QuickSpec {
         var timer: CountdownTimer!
         var countdownArray: [Int]!
 
-        fdescribe("Countdown Timer") {
+        describe("Countdown Timer") {
             context("When the timer is initialized with a value of 5") {
 
                 afterEach {
