@@ -2,6 +2,6 @@ import Foundation
 
 protocol TimerModeling {
     func startTimer()
-    func pauseTimer()
+    func stopTimer()
     func restartTimer()
 }

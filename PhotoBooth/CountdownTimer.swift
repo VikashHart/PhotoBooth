@@ -3,7 +3,7 @@ import Foundation
 class CountdownTimer: TimerModeling {
     var timeRemaining: Seconds = 1 {
         didSet {
-            if timeRemaining <= 0 {
+            if timeRemaining == 0 {
                 removeTimer()
             }
         }
@@ -11,7 +11,7 @@ class CountdownTimer: TimerModeling {
 
     private var maxTime: Seconds = 1
 
-    private var timer = Timer()
+    private var timer: Timer?
 
     private var isTimerRunning = false
 
@@ -34,7 +34,7 @@ class CountdownTimer: TimerModeling {
                                      repeats: true)
     }
 
-    func pauseTimer() {
+    func stopTimer() {
         removeTimer()
     }
 
@@ -45,7 +45,8 @@ class CountdownTimer: TimerModeling {
     }
 
     private func removeTimer() {
-        timer.invalidate()
+        timer?.invalidate()
+        timer = nil
         isTimerRunning = false
     }
 

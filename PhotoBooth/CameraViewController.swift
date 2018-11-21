@@ -2,8 +2,7 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
-    
-    private let captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable()
+
     var viewModel: CameraViewControllerViewModeling = CameraViewControllerViewModel()
 
     lazy var previewLayerContainer: AVCapturePreviewView = {
@@ -44,7 +43,7 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        captureSession.configurePreview(view: previewLayerContainer)
+        viewModel.captureSession.configurePreview(view: previewLayerContainer)
         self.switchCameraButton.addTarget(self,
                                                 action: #selector(rotateCamera),
                                                 for: .touchUpInside)
@@ -109,11 +108,11 @@ class CameraViewController: UIViewController {
     }
     
     @objc private func rotateCamera() {
-        captureSession.switchCamera()
+        viewModel.captureSession.switchCamera()
     }
     
     @objc private func cancelPhotoBoothSession() {
-        
+        viewModel.timer?.stopTimer()
     }
     
     private func setupViews() {
