@@ -12,7 +12,7 @@ class CountdownTimerSpec: QuickSpec {
             context("When the timer is initialized with a value of 5") {
 
                 afterEach {
-                    timer.pauseTimer()
+                    timer.stopTimer()
                     timer = nil
                 }
 
