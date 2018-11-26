@@ -51,6 +51,7 @@ class CountdownTimer: TimerModeling {
     }
 
     @objc private func updateTimer() {
+        NSLog("TIME")
         guard isTimerRunning else { return }
         timeRemaining -= 1
         onTimerUpdated(timeRemaining)

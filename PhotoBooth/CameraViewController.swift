@@ -37,7 +37,7 @@ class CameraViewController: UIViewController {
         return pv
     }()
 
-    private var capturedImages = [UIImage]()
+//    private var capturedImages = [UIImage]()
 
     //Mark:- override functions
     override func viewDidLoad() {
@@ -92,13 +92,21 @@ class CameraViewController: UIViewController {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: true)
             } else {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: false)
+                guard self?.viewModel.capturedImages.count == self?.viewModel.numberOfPhotos else { return }
             }
         }
     }
 
+    private func presentReviewPage(images: [UIImage]) {
+        let reviewVC = ModalReviewViewController(capturedImages: images)
+        present(reviewVC, animated: true, completion: nil)
+    }
+
     private func startShoot() {
         countdownView.isHidden = false
-        viewModel.startShoot()
+        viewModel.startShoot(onComplete: { [weak self] capturedImages in
+            self?.presentReviewPage(images: capturedImages)
+        })
     }
 
     private func setupDownSwipeGesture() {
