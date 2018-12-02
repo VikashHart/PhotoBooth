@@ -10,6 +10,7 @@ protocol CameraViewControllerViewModeling {
     func setupShoot(with config: PhotoShootConfiguration,
                     onTimerUpdated: @escaping (Seconds) -> Void)
     func startShoot(onComplete: @escaping (([UIImage]) -> Void))
+    func viewModelReset()
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -42,6 +43,12 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     func startShoot(onComplete: @escaping (([UIImage]) -> Void)) {
         onShootComplete = onComplete
         timer?.startTimer()
+    }
+
+    func viewModelReset() {
+        self.timer = nil
+        self.numberOfPhotos = 0
+        self.capturedImages = [UIImage]()
     }
 
     private func capturePhoto() {

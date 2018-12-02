@@ -46,7 +46,7 @@ class ReviewPageView: UIView {
 
     lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.semiBoldFont(size: 16)
+        button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle("Done", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .clear
@@ -162,7 +162,6 @@ class ReviewPageView: UIView {
             collectionView.topAnchor.constraint(equalTo: navBarUIView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9)
             ])
     }
 

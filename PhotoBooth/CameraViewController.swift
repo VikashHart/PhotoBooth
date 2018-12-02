@@ -37,8 +37,6 @@ class CameraViewController: UIViewController {
         return pv
     }()
 
-//    private var capturedImages = [UIImage]()
-
     //Mark:- override functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +98,8 @@ class CameraViewController: UIViewController {
     private func presentReviewPage(images: [UIImage]) {
         let reviewVC = ModalReviewViewController(capturedImages: images)
         present(reviewVC, animated: true, completion: nil)
+        viewModel.viewModelReset()
+        countdownView.isHidden = true
     }
 
     private func startShoot() {

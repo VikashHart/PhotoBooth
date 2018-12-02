@@ -2,9 +2,7 @@ import UIKit
 
 class ModalReviewViewController: UIViewController {
 
-    private let capturedImages: [UIImage]
-
-    private var viewModel: ReviewPageViewModeling = ReviewPageViewModel()
+    private var viewModel: ReviewPageViewModeling
 
     lazy var reviewView: ReviewPageView = {
         let view = ReviewPageView()
@@ -36,12 +34,13 @@ class ModalReviewViewController: UIViewController {
     }
 
     init(capturedImages: [UIImage]) {
-        self.capturedImages = capturedImages
+        self.viewModel = ReviewPageViewModel(capturedImages: capturedImages)
         super.init(nibName: nil, bundle: nil)
     }
 
     @objc func cancelSelected() {
         dismiss(animated: true, completion: nil)
+        self.viewModel.scrubViewModel()
     }
 
     @objc func selectSelected() {
@@ -60,9 +59,14 @@ class ModalReviewViewController: UIViewController {
         self.reviewView.doneButton.isHidden = true
         self.reviewView.shareButton.isEnabled = false
         self.reviewView.shareButton.tintColor = UIColor.lightGray
+        self.viewModel.clearSelectedItems()
+        print(viewModel.selectedIndicies)
+        print(viewModel.selectedImages)
     }
 
     @objc func shareSelected() {
+        
+
 
     }
 
@@ -83,29 +87,51 @@ extension ModalReviewViewController: UICollectionViewDelegate {
         let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! ReviewCell
 
         if self.viewModel.isSelectable == true {
-            if cell.viewModel?.isSelected == true {
+            if cell.viewModel.isSelected == false {
+                cell.viewModel.isSelected = true
                 cell.selectedUIView.alpha = 0.5
                 cell.selectedPhotoIcon.isHidden = false
-            } else {
+                self.viewModel.selectedIndicies.append(indexPath)
+                self.viewModel.selectedImages.append(cell.viewModel.image)
+                print("selected")
+                print(viewModel.selectedIndicies)
+                print(viewModel.selectedImages)
+
+            } else if cell.viewModel.isSelected == true {
+                cell.viewModel.isSelected = false
                 cell.selectedUIView.alpha = 0
                 cell.selectedPhotoIcon.isHidden = true
+
+                var indexOfThingToRemove: Int?
+                for (index, indexPathFromArr) in viewModel.selectedIndicies.enumerated() {
+                    if indexPathFromArr == indexPath {
+                        indexOfThingToRemove = index
+                    }
+                }
+                if indexOfThingToRemove != nil {
+                    self.viewModel.selectedIndicies.remove(at: indexOfThingToRemove!)
+                    self.viewModel.selectedImages.remove(at: indexOfThingToRemove!)
+                }
+
+                print("deselected")
+                print(viewModel.selectedIndicies)
+                print(viewModel.selectedImages)
             }
         } else {
-            cell.selectedUIView.alpha = 0
-            cell.selectedPhotoIcon.isHidden = true
+            cell.viewModel.isSelected = false
         }
     }
 }
 
 extension ModalReviewViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.capturedImages.count
+        return self.viewModel.capturedImages.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = reviewView.collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else { return UICollectionViewCell() }
-        let image = capturedImages[indexPath.row]
-        cell.photoImageView.image = image
+        cell.viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
+        cell.photoImageView.image = cell.viewModel.image
         return cell
     }
 }

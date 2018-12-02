@@ -2,10 +2,12 @@ import UIKit
 
 class ReviewCell: UICollectionViewCell {
 
-    var viewModel: ReviewCellModeling?
+    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage())
 
     lazy var photoImageView: UIImageView = {
         let photo = UIImageView()
+        let image = viewModel.image
+        photo.image = image
         photo.contentMode = .center
         photo.backgroundColor = .clear
         photo.contentMode = .scaleAspectFill
@@ -75,10 +77,10 @@ class ReviewCell: UICollectionViewCell {
     private func setupSelectedView() {
         addSubview(selectedUIView)
         NSLayoutConstraint.activate([
-            selectedUIView.topAnchor.constraint(equalTo: topAnchor),
-            selectedUIView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            selectedUIView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            selectedUIView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            selectedUIView.topAnchor.constraint(equalTo: photoImageView.topAnchor),
+            selectedUIView.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor),
+            selectedUIView.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor),
+            selectedUIView.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor)
             ])
     }
 
