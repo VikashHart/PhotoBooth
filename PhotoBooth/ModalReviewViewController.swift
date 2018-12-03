@@ -36,11 +36,13 @@ class ModalReviewViewController: UIViewController {
     init(capturedImages: [UIImage]) {
         self.viewModel = ReviewPageViewModel(capturedImages: capturedImages)
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.reloadIndices = { [weak self] indices in
+            self?.reloadCells(indices: indices)
+        }
     }
 
     @objc func cancelSelected() {
         dismiss(animated: true, completion: nil)
-        self.viewModel.scrubViewModel()
     }
 
     @objc func selectSelected() {
@@ -59,8 +61,8 @@ class ModalReviewViewController: UIViewController {
         self.reviewView.doneButton.isHidden = true
         self.reviewView.shareButton.isEnabled = false
         self.reviewView.shareButton.tintColor = UIColor.lightGray
-        self.viewModel.clearSelectedItems()
-        print(viewModel.selectedIndicies)
+        viewModel.deselectAll()
+        print(viewModel.selectedIndices)
         print(viewModel.selectedImages)
     }
 
@@ -68,6 +70,10 @@ class ModalReviewViewController: UIViewController {
         
 
 
+    }
+
+    private func reloadCells(indices: [IndexPath]) {
+        reviewView.collectionView.reloadItems(at: indices)
     }
 
     private func setupReviewView() {
@@ -87,38 +93,8 @@ extension ModalReviewViewController: UICollectionViewDelegate {
         let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! ReviewCell
 
         if self.viewModel.isSelectable == true {
-            if cell.viewModel.isSelected == false {
-                cell.viewModel.isSelected = true
-                cell.selectedUIView.alpha = 0.5
-                cell.selectedPhotoIcon.isHidden = false
-                self.viewModel.selectedIndicies.append(indexPath)
-                self.viewModel.selectedImages.append(cell.viewModel.image)
-                print("selected")
-                print(viewModel.selectedIndicies)
-                print(viewModel.selectedImages)
-
-            } else if cell.viewModel.isSelected == true {
-                cell.viewModel.isSelected = false
-                cell.selectedUIView.alpha = 0
-                cell.selectedPhotoIcon.isHidden = true
-
-                var indexOfThingToRemove: Int?
-                for (index, indexPathFromArr) in viewModel.selectedIndicies.enumerated() {
-                    if indexPathFromArr == indexPath {
-                        indexOfThingToRemove = index
-                    }
-                }
-                if indexOfThingToRemove != nil {
-                    self.viewModel.selectedIndicies.remove(at: indexOfThingToRemove!)
-                    self.viewModel.selectedImages.remove(at: indexOfThingToRemove!)
-                }
-
-                print("deselected")
-                print(viewModel.selectedIndicies)
-                print(viewModel.selectedImages)
-            }
-        } else {
-            cell.viewModel.isSelected = false
+            cell.viewModel.isSelected.toggle()
+            cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
         }
     }
 }

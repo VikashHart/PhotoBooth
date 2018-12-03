@@ -54,13 +54,12 @@ class TimeIntervalStepperViewModel: StepperViewModel {
     }
 
     private func textForLabel() -> String {
-        var currentValueAsInt = currentValue
         var newText = ""
-        switch currentValueAsInt {
+        switch currentValue {
             case 1:
-                newText = "\(currentValueAsInt) second apart"
+                newText = "\(currentValue) second apart"
             case 2...10:
-                newText = "\(currentValueAsInt) seconds apart"
+                newText = "\(currentValue) seconds apart"
             default:
                 break
         }

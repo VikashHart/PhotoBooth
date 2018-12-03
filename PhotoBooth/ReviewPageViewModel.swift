@@ -3,13 +3,19 @@ import UIKit
 class ReviewPageViewModel: ReviewPageViewModeling {
 
     var capturedImages: [UIImage]
-    var selectedIndicies = [IndexPath]()
-    var selectedImages = [UIImage]()
+    var selectedIndices = [IndexPath]()
+    var selectedImages: [UIImage] {
+        return selectedIndices.map({ (indexPath) in
+            return capturedImages[indexPath.row]
+        })
+    }
 
     let cellSpacing: CGFloat
     let numberOfCells: CGFloat
     let numberOfSpaces: CGFloat
     var isSelectable: Bool
+
+    var reloadIndices: (([IndexPath]) -> Void)?
 
     init(cellSpacing: CGFloat = 5,
          numCells: CGFloat = 2,
@@ -23,25 +29,32 @@ class ReviewPageViewModel: ReviewPageViewModeling {
     }
 
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling {
-        let viewModel = ReviewCellViewModel(image: capturedImages[indexPath.row])
+        let viewModel = ReviewCellViewModel(isSelected: selectedIndices.contains(indexPath),
+                                            image: capturedImages[indexPath.row])
+        
         return viewModel
     }
 
-//    func getImages(index: Int) -> [UIImage] {
-//        for index in selectedIndicies {
-//            if capturedImages.contains()
-//        }
-//    }
-    func clearSelectedItems() {
-        
-        selectedIndicies = [IndexPath]()
-        selectedImages = [UIImage]()
+    func add(index: IndexPath) {
+        selectedIndices.append(index)
     }
 
-    func scrubViewModel() {
-        capturedImages = [UIImage]()
-        selectedIndicies = [IndexPath]()
-        selectedImages = [UIImage]()
+    func remove(index: IndexPath) {
+        selectedIndices = selectedIndices.filter({ (indexPath) -> Bool in
+            return indexPath.row != index.row
+            })
+    }
+
+    func deselectAll() {
+        if selectedIndices.isEmpty == false {
+            let indexes = selectedIndices
+            clearSelectedItems()
+            reloadIndices?(indexes)
+        }
+    }
+
+    private func clearSelectedItems() {
+        selectedIndices = [IndexPath]()
     }
 }
 

@@ -2,8 +2,9 @@ import UIKit
 
 protocol ReviewPageViewModeling {
     var capturedImages: [UIImage] { get }
-    var selectedIndicies: [IndexPath] { get set }
-    var selectedImages: [UIImage] { get set }
+    var selectedIndices: [IndexPath] { get set }
+    var selectedImages: [UIImage] { get }
+    var reloadIndices: (([IndexPath]) -> Void)? { get set }
 
     var cellSpacing: CGFloat { get }
     var numberOfCells: CGFloat { get }
@@ -11,6 +12,7 @@ protocol ReviewPageViewModeling {
     var isSelectable: Bool { get set }
 
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling
-    func clearSelectedItems()
-    func scrubViewModel()
+    func add(index: IndexPath)
+    func remove(index: IndexPath)
+    func deselectAll()
 }

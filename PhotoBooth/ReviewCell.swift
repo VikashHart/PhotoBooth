@@ -2,12 +2,17 @@ import UIKit
 
 class ReviewCell: UICollectionViewCell {
 
-    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage())
+    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage()) {
+        didSet {
+            viewModel.onSelectionChanged = { [weak self] in
+                self?.updateUI()
+            }
+            updateUI()
+        }
+    }
 
     lazy var photoImageView: UIImageView = {
         let photo = UIImageView()
-        let image = viewModel.image
-        photo.image = image
         photo.contentMode = .center
         photo.backgroundColor = .clear
         photo.contentMode = .scaleAspectFill
@@ -16,9 +21,9 @@ class ReviewCell: UICollectionViewCell {
         return photo
     }()
 
-    lazy var selectedUIView: UIView = {
+    lazy var selectedView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white.withAlphaComponent(0)
+        view.backgroundColor = UIColor.white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -28,10 +33,11 @@ class ReviewCell: UICollectionViewCell {
         let image = UIImage(named: "selected_icon")?.withRenderingMode(.alwaysTemplate)
         photo.image = image
         photo.tintColor = UIColor.photoBoothBlue.withAlphaComponent(1.0)
-        photo.contentMode = .center
+        photo.contentMode = .scaleAspectFit
         photo.backgroundColor = .white
-        photo.layer.borderWidth = 2
+        photo.layer.borderWidth = 3
         photo.layer.borderColor = UIColor.white.cgColor
+        photo.layer.cornerRadius = 20
         photo.layer.masksToBounds = true
         photo.isHidden = true
         photo.translatesAutoresizingMaskIntoConstraints = false
@@ -65,30 +71,38 @@ class ReviewCell: UICollectionViewCell {
     }
 
     private func setupPhotoImageView() {
-        addSubview(photoImageView)
+        contentView.addSubview(photoImageView)
         NSLayoutConstraint.activate([
-            photoImageView.topAnchor.constraint(equalTo: topAnchor),
-            photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            photoImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            photoImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            photoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
     }
 
     private func setupSelectedView() {
-        addSubview(selectedUIView)
+        contentView.addSubview(selectedView)
         NSLayoutConstraint.activate([
-            selectedUIView.topAnchor.constraint(equalTo: photoImageView.topAnchor),
-            selectedUIView.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor),
-            selectedUIView.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor),
-            selectedUIView.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor)
+            selectedView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            selectedView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            selectedView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            selectedView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
     }
 
     private func setupSelectedPhotoIcon() {
-        selectedUIView.addSubview(selectedPhotoIcon)
+        selectedView.addSubview(selectedPhotoIcon)
         NSLayoutConstraint.activate([
-            selectedPhotoIcon.trailingAnchor.constraint(equalTo: selectedUIView.trailingAnchor, constant: -20),
-            selectedPhotoIcon.bottomAnchor.constraint(equalTo: selectedUIView.bottomAnchor, constant: -10)
+            selectedPhotoIcon.trailingAnchor.constraint(equalTo: selectedView.trailingAnchor, constant: -10),
+            selectedPhotoIcon.heightAnchor.constraint(equalToConstant: 40),
+            selectedPhotoIcon.widthAnchor.constraint(equalToConstant: 40),
+            selectedPhotoIcon.bottomAnchor.constraint(equalTo: selectedView.bottomAnchor, constant: -10)
             ])
+    }
+
+    private func updateUI() {
+        photoImageView.image = viewModel.image
+        selectedView.backgroundColor = UIColor.white.withAlphaComponent(viewModel.selectionAlpha)
+        selectedPhotoIcon.isHidden = viewModel.hidePhotoIcon
     }
 }
