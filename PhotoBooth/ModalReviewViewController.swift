@@ -62,8 +62,6 @@ class ModalReviewViewController: UIViewController {
         self.reviewView.shareButton.isEnabled = false
         self.reviewView.shareButton.tintColor = UIColor.lightGray
         viewModel.deselectAll()
-        print(viewModel.selectedIndices)
-        print(viewModel.selectedImages)
     }
 
     @objc func shareSelected() {
