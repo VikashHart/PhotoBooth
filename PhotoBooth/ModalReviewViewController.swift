@@ -46,12 +46,12 @@ class ModalReviewViewController: UIViewController {
     }
 
     @objc func selectSelected() {
-            self.viewModel.isSelectable = true
-            self.reviewView.selectButton.isHidden = true
-            self.reviewView.cancelButton.isHidden = true
-            self.reviewView.doneButton.isHidden = false
-            self.reviewView.shareButton.isEnabled = true
-            self.reviewView.shareButton.tintColor = UIColor.photoBoothBlue
+        self.viewModel.isSelectable = true
+        self.reviewView.selectButton.isHidden = true
+        self.reviewView.cancelButton.isHidden = true
+        self.reviewView.doneButton.isHidden = false
+        self.reviewView.shareButton.isEnabled = true
+        self.reviewView.shareButton.tintColor = UIColor.photoBoothBlue
     }
 
     @objc func doneSelected() {

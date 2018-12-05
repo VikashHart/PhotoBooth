@@ -36,17 +36,6 @@ class ReviewCellViewModelSpec: QuickSpec {
                         expect(viewModel.selectionAlpha).to(be(0.5))
                     }
                 }
-
-//                context("if selected state changes, the onSelectionChanged callback will be called") {
-//
-//                    beforeEach {
-//                        viewModel.isSelected = true
-//                    }
-//
-//                    it("the onSelectioChanged callback should be called") {
-//                        expect(viewModel.onSelectionChanged).
-//                    }
-//                }
             }
         }
     }

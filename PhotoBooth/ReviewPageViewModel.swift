@@ -2,7 +2,7 @@ import UIKit
 
 class ReviewPageViewModel: ReviewPageViewModeling {
 
-    var capturedImages: [UIImage]
+    let capturedImages: [UIImage]
     var selectedIndices = [IndexPath]()
     var selectedImages: [UIImage] {
         return selectedIndices.map({ (indexPath) in

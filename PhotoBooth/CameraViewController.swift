@@ -90,7 +90,6 @@ class CameraViewController: UIViewController {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: true)
             } else {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: false)
-                guard self?.viewModel.capturedImages.count == self?.viewModel.numberOfPhotos else { return }
             }
         }
     }
@@ -98,7 +97,7 @@ class CameraViewController: UIViewController {
     private func presentReviewPage(images: [UIImage]) {
         let reviewVC = ModalReviewViewController(capturedImages: images)
         present(reviewVC, animated: true, completion: nil)
-        viewModel.viewModelReset()
+        viewModel.reset()
         countdownView.isHidden = true
     }
 

@@ -16,6 +16,23 @@ class ReviewPageViewModelSpec: QuickSpec {
                     viewModel = ReviewPageViewModel(capturedImages: images)
                 }
 
+                context("When I call get viewModel") {
+                    let indexPath: IndexPath = IndexPath(row: 0, section: 0)
+                    var cellViewModel: ReviewCellModeling!
+
+                    beforeEach {
+                        cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
+                    }
+
+                    it("should return a cellViewModel with selected value of false") {
+                        expect(cellViewModel.isSelected).to(be(false))
+                    }
+
+                    it("should return a UIImage") {
+                        expect(cellViewModel.image).to(be(viewModel.capturedImages[0]))
+                    }
+                }
+
                 context("And I press add") {
                     let index: IndexPath = IndexPath(row: 0, section: 0)
 
