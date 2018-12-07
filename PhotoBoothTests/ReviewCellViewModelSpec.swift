@@ -6,6 +6,8 @@ class ReviewCellViewModelSpec: QuickSpec {
 
     override func spec() {
         var viewModel: ReviewCellViewModel!
+        var onSelectionChanged: (() -> Void)!
+        var didChange: Bool!
 
         describe("ReviewCellViewModel") {
             context("When I instantiate the cell viewModel") {
@@ -22,7 +24,7 @@ class ReviewCellViewModelSpec: QuickSpec {
                     }
 
                     it("the selection alpha should be 0") {
-                        expect(viewModel.selectionAlpha).to(be(0))
+                        expect(viewModel.selectionAlpha).to(equal(0))
                     }
                 }
 
@@ -33,7 +35,22 @@ class ReviewCellViewModelSpec: QuickSpec {
                     }
 
                     it("the selection alpha should be 0") {
-                        expect(viewModel.selectionAlpha).to(be(0.5))
+                        expect(viewModel.selectionAlpha).to(equal(0.5))
+                    }
+                }
+
+                context("When onSelectionChanged is called") {
+
+                    beforeEach {
+                        onSelectionChanged = {
+                            didChange = true
+                        }
+                        viewModel.onSelectionChanged = onSelectionChanged
+                        viewModel.onSelectionChanged?()
+                    }
+
+                    it("Should change the didChange property to true") {
+                        expect(didChange).to(equal(true))
                     }
                 }
             }

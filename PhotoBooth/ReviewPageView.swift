@@ -2,6 +2,13 @@ import UIKit
 
 class ReviewPageView: UIView {
 
+    var viewModel: ReviewPageViewModeling = ReviewPageViewModel(isSelectHidden: false,
+                                                                isShareActive: false) {
+        didSet {
+            updateUI()
+        }
+    }
+
     lazy var navBarUIView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.photoBoothBlue
@@ -92,9 +99,11 @@ class ReviewPageView: UIView {
         commonInit()
     }
 
-    override init(frame: CGRect) {
+    init(viewModel: ReviewPageViewModeling) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         commonInit()
+        bindUiToViewModel()
     }
 
     private func commonInit() {
@@ -184,6 +193,20 @@ class ReviewPageView: UIView {
             shareButton.heightAnchor.constraint(equalToConstant: 35),
             shareButton.widthAnchor.constraint(equalToConstant: 35)
             ])
+    }
+
+    private func updateUI() {
+        cancelButton.isHidden = viewModel.isCancelHidden
+        selectButton.isHidden = viewModel.isSelectHidden
+        doneButton.isHidden = viewModel.isDoneHidden
+        shareButton.isEnabled = viewModel.isShareActive
+        shareButton.tintColor = viewModel.shareColor
+    }
+
+    private func bindUiToViewModel() {
+        viewModel.onSelectChanged = { [weak self] in
+            self?.updateUI()
+        }
     }
 }
 

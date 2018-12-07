@@ -1,11 +1,11 @@
 import UIKit
 
-class ModalReviewViewController: UIViewController {
+class ReviewViewController: UIViewController {
 
-    private var viewModel: ReviewPageViewModeling
+    private var viewModel: ReviewViewControllerModeling
 
     lazy var reviewView: ReviewPageView = {
-        let view = ReviewPageView()
+        let view = ReviewPageView(viewModel: viewModel.reviewViewModel)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,7 +34,7 @@ class ModalReviewViewController: UIViewController {
     }
 
     init(capturedImages: [UIImage]) {
-        self.viewModel = ReviewPageViewModel(capturedImages: capturedImages)
+        self.viewModel = ReviewViewControllerModel(capturedImages: capturedImages)
         super.init(nibName: nil, bundle: nil)
         self.viewModel.reloadIndices = { [weak self] indices in
             self?.reloadCells(indices: indices)
@@ -46,21 +46,11 @@ class ModalReviewViewController: UIViewController {
     }
 
     @objc func selectSelected() {
-        self.viewModel.isSelectable = true
-        self.reviewView.selectButton.isHidden = true
-        self.reviewView.cancelButton.isHidden = true
-        self.reviewView.doneButton.isHidden = false
-        self.reviewView.shareButton.isEnabled = true
-        self.reviewView.shareButton.tintColor = UIColor.photoBoothBlue
+        viewModel.selectPressed()
     }
 
     @objc func doneSelected() {
-        self.viewModel.isSelectable = false
-        self.reviewView.selectButton.isHidden = false
-        self.reviewView.cancelButton.isHidden = false
-        self.reviewView.doneButton.isHidden = true
-        self.reviewView.shareButton.isEnabled = false
-        self.reviewView.shareButton.tintColor = UIColor.lightGray
+        viewModel.donePressed()
         viewModel.deselectAll()
     }
 
@@ -85,7 +75,7 @@ class ModalReviewViewController: UIViewController {
     }
 }
 
-extension ModalReviewViewController: UICollectionViewDelegate {
+extension ReviewViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! ReviewCell
@@ -97,7 +87,7 @@ extension ModalReviewViewController: UICollectionViewDelegate {
     }
 }
 
-extension ModalReviewViewController: UICollectionViewDataSource {
+extension ReviewViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel.capturedImages.count
     }
@@ -110,7 +100,7 @@ extension ModalReviewViewController: UICollectionViewDataSource {
     }
 }
 
-extension ModalReviewViewController: UICollectionViewDelegateFlowLayout {
+extension ReviewViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width

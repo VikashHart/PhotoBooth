@@ -1,71 +1,80 @@
+import UIKit
 import Quick
 import Nimble
-import UIKit
 @testable import PhotoBooth
 
 class ReviewPageViewModelSpec: QuickSpec {
 
     override func spec() {
         var viewModel: ReviewPageViewModel!
+        var onSelectChanged: (() -> Void)!
+        var didChange: Bool!
 
-       fdescribe("ReviewPageViewModel") {
-            context("When I instantiate the viewModel with an array of images") {
+        describe("ReviewPageViewModel") {
+            context("When isSelectHidden is equal to false") {
 
                 beforeEach {
-                    let images = [UIImage(), UIImage(), UIImage()]
-                    viewModel = ReviewPageViewModel(capturedImages: images)
+                    viewModel = ReviewPageViewModel(isSelectHidden: false, isShareActive: false)
                 }
 
-                context("When I call get viewModel") {
-                    let indexPath: IndexPath = IndexPath(row: 0, section: 0)
-                    var cellViewModel: ReviewCellModeling!
-
-                    beforeEach {
-                        cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
-                    }
-
-                    it("should return a cellViewModel with selected value of false") {
-                        expect(cellViewModel.isSelected).to(be(false))
-                    }
-
-                    it("should return a UIImage") {
-                        expect(cellViewModel.image).to(be(viewModel.capturedImages[0]))
-                    }
+                it("isDoneHidden should be true") {
+                    expect(viewModel.isDoneHidden).to(be(true))
                 }
 
-                context("And I press add") {
-                    let index: IndexPath = IndexPath(row: 0, section: 0)
+                it("isCancelHidden should be false") {
+                    expect(viewModel.isCancelHidden).to(be(false))
+                }
+            }
 
-                    beforeEach {
-                        viewModel.add(index: index)
-                    }
+            context("When isSelectHidden is equal to true") {
 
-                    it("Should add an element to the selected indices array") {
-                        expect(viewModel.selectedIndices).to(equal([index]))
-                    }
+                beforeEach {
+                    viewModel = ReviewPageViewModel(isSelectHidden: true, isShareActive: false)
                 }
 
-                context("And I press remove") {
-                    let index: IndexPath = IndexPath(row: 0, section: 0)
-
-                    beforeEach {
-                        viewModel.remove(index: index)
-                    }
-
-                    it("Should remove the selected element from the selected indices array") {
-                        expect(viewModel.selectedIndices).to(equal([]))
-                    }
+                it("isDoneHidden should be false") {
+                    expect(viewModel.isDoneHidden).to(be(false))
                 }
 
-                context("And I call the deselectAll function") {
+                it("isCancelHidden should be true") {
+                    expect(viewModel.isCancelHidden).to(be(true))
+                }
+            }
 
-                    beforeEach {
-                        viewModel.deselectAll()
-                    }
+            context("When isShareActive is equal to false") {
 
-                    it("Should clear the selected indices") {
-                        expect(viewModel.selectedIndices).to(be([]))
+                beforeEach {
+                    viewModel = ReviewPageViewModel(isSelectHidden: false, isShareActive: false)
+                }
+
+                it("shareColor should be lightGray") {
+                    expect(viewModel.shareColor).to(be(UIColor.lightGray))
+                }
+            }
+
+            context("When isShareActive is equal to true") {
+
+                beforeEach {
+                    viewModel = ReviewPageViewModel(isSelectHidden: false, isShareActive: true)
+                }
+
+                it("shareColor should be photoBoothBlue") {
+                    expect(viewModel.shareColor).to(be(UIColor.photoBoothBlue))
+                }
+            }
+
+            context("When the onSelectChanged callback is called") {
+
+                beforeEach {
+                    onSelectChanged = {
+                        didChange = true
                     }
+                    viewModel.onSelectChanged = onSelectChanged
+                    viewModel.onSelectChanged?()
+                }
+
+                it("didChange should be true") {
+                    expect(didChange).to(equal(true))
                 }
             }
         }

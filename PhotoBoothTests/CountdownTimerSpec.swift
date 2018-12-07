@@ -27,7 +27,6 @@ class CountdownTimerSpec: QuickSpec {
                 it("will return an array containing 2,1,0") {
 
                     expect(countdownArray).toEventually(equal([2,1,0]), timeout: 2.1, pollInterval: 1, description: nil)
-
                 }
 
                 context("and reset timer is called") {
@@ -43,7 +42,6 @@ class CountdownTimerSpec: QuickSpec {
                     it("will return an array containing 2,1,0") {
 
                     expect(countdownArray).toEventually(equal([2,2,1,0]), timeout: 2.1, pollInterval: 1, description: nil)
-
                     }
                 }
             }

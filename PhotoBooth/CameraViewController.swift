@@ -95,7 +95,7 @@ class CameraViewController: UIViewController {
     }
 
     private func presentReviewPage(images: [UIImage]) {
-        let reviewVC = ModalReviewViewController(capturedImages: images)
+        let reviewVC = ReviewViewController(capturedImages: images)
         present(reviewVC, animated: true, completion: nil)
         viewModel.reset()
         countdownView.isHidden = true

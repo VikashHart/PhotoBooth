@@ -42,15 +42,17 @@
 		818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360C32191343A00238022 /* CameraViewControllerViewModel.swift */; };
 		81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */; };
 		81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */; };
-		81CA8CA421A5EEE900170F1A /* ModalReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA321A5EEE900170F1A /* ModalReviewViewController.swift */; };
+		81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */; };
 		81CA8CA621A5F39A00170F1A /* ReviewPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA521A5F39A00170F1A /* ReviewPageView.swift */; };
 		81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA721A61A7300170F1A /* ReviewCell.swift */; };
-		81CA8CAA21A7883A00170F1A /* ReviewPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA921A7883A00170F1A /* ReviewPageViewModel.swift */; };
-		81CA8CAC21A788CB00170F1A /* ReviewPageViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CAB21A788CB00170F1A /* ReviewPageViewModeling.swift */; };
+		81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA921A7883A00170F1A /* ReviewViewControllerModel.swift */; };
+		81CA8CAC21A788CB00170F1A /* ReviewViewControllerModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CAB21A788CB00170F1A /* ReviewViewControllerModeling.swift */; };
 		81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CAD21A9E27A00170F1A /* ReviewCellModeling.swift */; };
 		81CA8CB021A9E29400170F1A /* ReviewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CAF21A9E29400170F1A /* ReviewCellViewModel.swift */; };
-		81CA8CD821B5BC6800170F1A /* ReviewPageViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CD721B5BC6800170F1A /* ReviewPageViewModelSpec.swift */; };
+		81CA8CD821B5BC6800170F1A /* ReviewViewControllerModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CD721B5BC6800170F1A /* ReviewViewControllerModelSpec.swift */; };
 		81F6B35121B61FB7006A7BED /* ReviewCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35021B61FB7006A7BED /* ReviewCellViewModelSpec.swift */; };
+		81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35221B88D89006A7BED /* ReviewPageViewModel.swift */; };
+		81F6B35521BA0C0D006A7BED /* ReviewPageViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35421BA0C0D006A7BED /* ReviewPageViewModelSpec.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -108,15 +110,17 @@
 		818360C32191343A00238022 /* CameraViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerViewModel.swift; sourceTree = "<group>"; };
 		81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerSpec.swift; sourceTree = "<group>"; };
 		81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModelSpec.swift; sourceTree = "<group>"; };
-		81CA8CA321A5EEE900170F1A /* ModalReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalReviewViewController.swift; sourceTree = "<group>"; };
+		81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		81CA8CA521A5F39A00170F1A /* ReviewPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageView.swift; sourceTree = "<group>"; };
 		81CA8CA721A61A7300170F1A /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
-		81CA8CA921A7883A00170F1A /* ReviewPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewModel.swift; sourceTree = "<group>"; };
-		81CA8CAB21A788CB00170F1A /* ReviewPageViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewModeling.swift; sourceTree = "<group>"; };
+		81CA8CA921A7883A00170F1A /* ReviewViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewControllerModel.swift; sourceTree = "<group>"; };
+		81CA8CAB21A788CB00170F1A /* ReviewViewControllerModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewControllerModeling.swift; sourceTree = "<group>"; };
 		81CA8CAD21A9E27A00170F1A /* ReviewCellModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCellModeling.swift; sourceTree = "<group>"; };
 		81CA8CAF21A9E29400170F1A /* ReviewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCellViewModel.swift; sourceTree = "<group>"; };
-		81CA8CD721B5BC6800170F1A /* ReviewPageViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewModelSpec.swift; sourceTree = "<group>"; };
+		81CA8CD721B5BC6800170F1A /* ReviewViewControllerModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewControllerModelSpec.swift; sourceTree = "<group>"; };
 		81F6B35021B61FB7006A7BED /* ReviewCellViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCellViewModelSpec.swift; sourceTree = "<group>"; };
+		81F6B35221B88D89006A7BED /* ReviewPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewModel.swift; sourceTree = "<group>"; };
+		81F6B35421BA0C0D006A7BED /* ReviewPageViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewModelSpec.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
@@ -181,7 +185,7 @@
 				811F9A0F21484B660079EA7E /* AppDelegate.swift */,
 				814F10492154650B0066CCD5 /* CameraViewController.swift */,
 				818360C32191343A00238022 /* CameraViewControllerViewModel.swift */,
-				81CA8CA321A5EEE900170F1A /* ModalReviewViewController.swift */,
+				81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */,
 				811F9A1321484B660079EA7E /* Main.storyboard */,
 				811F9A1621484B670079EA7E /* Assets.xcassets */,
 				811F9A1821484B680079EA7E /* LaunchScreen.storyboard */,
@@ -210,8 +214,9 @@
 				818360BB218F9FF100238022 /* TimerModeling.swift */,
 				818360BD218FA0A400238022 /* CountdownTimer.swift */,
 				81CA8CA521A5F39A00170F1A /* ReviewPageView.swift */,
-				81CA8CAB21A788CB00170F1A /* ReviewPageViewModeling.swift */,
-				81CA8CA921A7883A00170F1A /* ReviewPageViewModel.swift */,
+				81F6B35221B88D89006A7BED /* ReviewPageViewModel.swift */,
+				81CA8CAB21A788CB00170F1A /* ReviewViewControllerModeling.swift */,
+				81CA8CA921A7883A00170F1A /* ReviewViewControllerModel.swift */,
 				81CA8CA721A61A7300170F1A /* ReviewCell.swift */,
 				81CA8CAD21A9E27A00170F1A /* ReviewCellModeling.swift */,
 				81CA8CAF21A9E29400170F1A /* ReviewCellViewModel.swift */,
@@ -231,7 +236,8 @@
 				81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */,
 				81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */,
 				81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */,
-				81CA8CD721B5BC6800170F1A /* ReviewPageViewModelSpec.swift */,
+				81F6B35421BA0C0D006A7BED /* ReviewPageViewModelSpec.swift */,
+				81CA8CD721B5BC6800170F1A /* ReviewViewControllerModelSpec.swift */,
 				81F6B35021B61FB7006A7BED /* ReviewCellViewModelSpec.swift */,
 			);
 			path = PhotoBoothTests;
@@ -416,14 +422,14 @@
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
-				81CA8CAA21A7883A00170F1A /* ReviewPageViewModel.swift in Sources */,
+				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
 				812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModel.swift in Sources */,
-				81CA8CA421A5EEE900170F1A /* ModalReviewViewController.swift in Sources */,
+				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
 				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
 				818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */,
-				81CA8CAC21A788CB00170F1A /* ReviewPageViewModeling.swift in Sources */,
+				81CA8CAC21A788CB00170F1A /* ReviewViewControllerModeling.swift in Sources */,
 				813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */,
 				818360902188E50000238022 /* SwipeToCancelPrompt.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
@@ -433,6 +439,7 @@
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
+				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
 				818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */,
 				8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */,
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,
@@ -455,10 +462,11 @@
 				8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */,
 				C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */,
 				813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */,
-				81CA8CD821B5BC6800170F1A /* ReviewPageViewModelSpec.swift in Sources */,
+				81CA8CD821B5BC6800170F1A /* ReviewViewControllerModelSpec.swift in Sources */,
 				81F6B35121B61FB7006A7BED /* ReviewCellViewModelSpec.swift in Sources */,
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
 				81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */,
+				81F6B35521BA0C0D006A7BED /* ReviewPageViewModelSpec.swift in Sources */,
 				81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */,
 				813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */,
 			);
