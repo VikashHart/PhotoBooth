@@ -18,7 +18,7 @@ protocol ReviewViewControllerModeling {
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling
     func add(index: IndexPath)
     func remove(index: IndexPath)
-
+    func deselectAll()
     func selectPressed()
     func donePressed()
 }
