@@ -37,8 +37,6 @@ class CameraViewController: UIViewController {
         return pv
     }()
 
-    private var capturedImages = [UIImage]()
-
     //Mark:- override functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,9 +94,18 @@ class CameraViewController: UIViewController {
         }
     }
 
+    private func presentReviewPage(images: [UIImage]) {
+        let reviewVC = ReviewViewController(capturedImages: images)
+        present(reviewVC, animated: true, completion: nil)
+        viewModel.reset()
+        countdownView.isHidden = true
+    }
+
     private func startShoot() {
         countdownView.isHidden = false
-        viewModel.startShoot()
+        viewModel.startShoot(onComplete: { [weak self] capturedImages in
+            self?.presentReviewPage(images: capturedImages)
+        })
     }
 
     private func setupDownSwipeGesture() {

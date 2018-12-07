@@ -67,10 +67,6 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     // Mark:- @objc functions for buttons
     // This is the function that will be called when the take photo button is pressed.
     @objc func takePhoto(){
-        avSession.beginConfiguration()
-        avSession.sessionPreset = photoSessionPreset
-        avSession.commitConfiguration()
-
         DispatchQueue.main.async {
             let settings = AVCapturePhotoSettings()
             self.photoOutput?.capturePhoto(with: settings, delegate: self)
@@ -87,6 +83,10 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     // Mark:- AVCapture Session Setup functions
     // This function sets up the photo capture session as well as the photo ouput instance and its settings.
     private func setupPhotoCaptureSession(){
+        avSession.beginConfiguration()
+        avSession.sessionPreset = photoSessionPreset
+        avSession.commitConfiguration()
+
         photoOutput = AVCapturePhotoOutput()
         photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
         avSession.addOutput(photoOutput!)

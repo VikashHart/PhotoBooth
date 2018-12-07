@@ -5,10 +5,12 @@ protocol CameraViewControllerViewModeling {
     var captureSession: PhotoCaptureable { get }
     var timer: TimerModeling? { get }
     var numberOfPhotos: Int { get }
+    var capturedImages: [UIImage] { get }
 
     func setupShoot(with config: PhotoShootConfiguration,
                     onTimerUpdated: @escaping (Seconds) -> Void)
-    func startShoot()
+    func startShoot(onComplete: @escaping (([UIImage]) -> Void))
+    func reset()
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -16,6 +18,8 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var timer: TimerModeling?
     private(set) var numberOfPhotos: Int = 0
     private(set) var capturedImages = [UIImage]()
+
+    private var onShootComplete: (([UIImage]) -> Void)?
 
     init(captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable() ) {
         self.captureSession = captureSession
@@ -36,8 +40,15 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
         })
     }
 
-    func startShoot() {
+    func startShoot(onComplete: @escaping (([UIImage]) -> Void)) {
+        onShootComplete = onComplete
         timer?.startTimer()
+    }
+
+    func reset() {
+        self.timer = nil
+        self.numberOfPhotos = 0
+        self.capturedImages = [UIImage]()
     }
 
     private func capturePhoto() {
@@ -48,6 +59,7 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
         capturedImages.append(image)
         if capturedImages.count == numberOfPhotos {
             timer?.stopTimer()
+            onShootComplete?(capturedImages)
         } else {
             timer?.restartTimer()
         }

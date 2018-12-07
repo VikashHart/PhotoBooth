@@ -7,7 +7,7 @@ class MockSession: PhotoCaptureable {
     
     func captureImage() {
         DispatchQueue.main.async {
-            self.onImageCaptured?(UIImage())
+            self.onImageCaptured?(UIImage(named: "sim_default")!)
         }
     }
 
