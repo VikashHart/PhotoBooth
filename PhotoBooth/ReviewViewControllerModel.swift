@@ -53,14 +53,6 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
             })
     }
 
-    func deselectAll() {
-        if selectedIndices.isEmpty == false {
-            let indexes = selectedIndices
-            clearSelectedItems()
-            reloadIndices?(indexes)
-        }
-    }
-
     func selectPressed() {
         isSelectable = true
         reviewViewModel.isSelectHidden = true
@@ -69,6 +61,15 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     func donePressed() {
         isSelectable = false
         reviewViewModel.isSelectHidden = false
+        deselectAll()
+    }
+    
+    private func deselectAll() {
+        if selectedIndices.isEmpty == false {
+            let indexes = selectedIndices
+            clearSelectedItems()
+            reloadIndices?(indexes)
+        }
     }
 
     private func updateShareState() {

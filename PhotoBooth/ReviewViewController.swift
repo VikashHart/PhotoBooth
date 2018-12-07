@@ -51,7 +51,6 @@ class ReviewViewController: UIViewController {
 
     @objc func doneSelected() {
         viewModel.donePressed()
-        viewModel.deselectAll()
     }
 
     @objc func shareSelected() {
