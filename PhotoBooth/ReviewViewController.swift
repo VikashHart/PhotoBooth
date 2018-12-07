@@ -42,8 +42,7 @@ class ReviewViewController: UIViewController {
     }
 
     func openShareMenu() {
-        let images = viewModel.selectedImages
-        let activityVC = UIActivityViewController(activityItems: images, applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: viewModel.selectedImages, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
 
