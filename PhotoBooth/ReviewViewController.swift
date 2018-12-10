@@ -41,6 +41,11 @@ class ReviewViewController: UIViewController {
         }
     }
 
+    func openShareMenu() {
+        let activityVC = UIActivityViewController(activityItems: viewModel.selectedImages, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
+
     @objc func cancelSelected() {
         dismiss(animated: true, completion: nil)
     }
@@ -54,9 +59,7 @@ class ReviewViewController: UIViewController {
     }
 
     @objc func shareSelected() {
-        
-
-
+        openShareMenu()
     }
 
     private func reloadCells(indices: [IndexPath]) {
