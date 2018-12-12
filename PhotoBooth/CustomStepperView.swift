@@ -70,7 +70,7 @@ class CustomStepper: UIView {
             stepperMinusButton.topAnchor.constraint(equalTo: topAnchor),
             stepperMinusButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             stepperMinusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stepperMinusButton.heightAnchor.constraint(equalToConstant: 40),
+            stepperMinusButton.heightAnchor.constraint(equalToConstant: 35),
             stepperMinusButton.widthAnchor.constraint(equalTo: stepperMinusButton.heightAnchor)
             ])
     }
@@ -81,7 +81,7 @@ class CustomStepper: UIView {
             stepperPlusButton.topAnchor.constraint(equalTo: topAnchor),
             stepperPlusButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             stepperPlusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stepperPlusButton.heightAnchor.constraint(equalToConstant: 40),
+            stepperPlusButton.heightAnchor.constraint(equalToConstant: 35),
             stepperPlusButton.widthAnchor.constraint(equalTo: stepperPlusButton.heightAnchor)
             ])
     }

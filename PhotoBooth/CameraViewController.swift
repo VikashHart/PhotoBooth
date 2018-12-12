@@ -3,10 +3,23 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
 
-    var viewModel: CameraViewControllerViewModeling = CameraViewControllerViewModel()
+    lazy var viewModel: CameraViewControllerViewModeling = {
+        let viewModel = CameraViewControllerViewModel() {
+            [weak self] in
+            self?.presentConfigurationCard()
+            self?.countdownView.isHidden = true
+        }
+
+        viewModel.onCountdownComplete = { [weak self] in
+            self?.flashViewAnimate()
+        }
+
+        return viewModel
+    }()
 
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
+        pl.backgroundColor = UIColor.white.withAlphaComponent(0)
         pl.translatesAutoresizingMaskIntoConstraints = false
         return pl
     }()
@@ -33,14 +46,23 @@ class CameraViewController: UIViewController {
     lazy var middlePrompt: PromptView = {
         let pv = PromptView()
         pv.translatesAutoresizingMaskIntoConstraints = false
-        pv.alpha = 0
         return pv
+    }()
+
+    lazy var flashView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white.withAlphaComponent(1)
+        view.alpha = 0
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     //Mark:- override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+
         viewModel.captureSession.configurePreview(view: previewLayerContainer)
         self.switchCameraButton.addTarget(self,
                                                 action: #selector(rotateCamera),
@@ -77,15 +99,23 @@ class CameraViewController: UIViewController {
     private func presentSwipeToCancelPrompt() {
         let cancelPrompt = SwipeToCancelPromptPartialModal()
         middlePrompt.present(modal: cancelPrompt, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             cancelPrompt.dismiss()
             self.startShoot()
         }
     }
 
+    private func presentCancelationPartialModal() {
+        let cancelModal = SwipeToCancelPartialModal(numberOfPhotos: viewModel.capturedImages.count) {
+            [weak self] action, modal in
+            modal.dismiss()
+            self?.viewModel.processCancellationAction(action: action)
+        }
+        middlePrompt.present(modal: cancelModal, animated: true)
+    }
+
     private func configureShoot(config: PhotoShootConfiguration) {
         viewModel.setupShoot(with: config) { [weak self] timeRemaining in
-
             if timeRemaining != 0 {
                 self?.countdownView.updateWith(timeRemaining: timeRemaining, animated: true)
             } else {
@@ -112,6 +142,19 @@ class CameraViewController: UIViewController {
         let down = UISwipeGestureRecognizer(target : self, action : #selector(cancelPhotoBoothSession))
         down.direction = .down
         self.view.addGestureRecognizer(down)
+        down.delegate = self
+    }
+
+    private func flashViewAnimate() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.flashView.isHidden = false
+            self.flashView.alpha = 1
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                self.flashView.alpha = 0
+                self.flashView.isHidden = true
+            }
+        }
     }
     
     @objc private func rotateCamera() {
@@ -120,6 +163,13 @@ class CameraViewController: UIViewController {
     
     @objc private func cancelPhotoBoothSession() {
         viewModel.timer?.stopTimer()
+        if viewModel.capturedImages.count == 0 {
+            viewModel.reset()
+            countdownView.isHidden = true
+            presentConfigurationCard()
+        } else {
+            presentCancelationPartialModal()
+        }
     }
     
     private func setupViews() {
@@ -127,6 +177,7 @@ class CameraViewController: UIViewController {
         setupCountdownView()
         setupSwitchCameraButton()
         setUpMiddlePromptContainer()
+        setupFlashView()
     }
     
     private func setupPreviewLayerContainer() {
@@ -168,8 +219,21 @@ class CameraViewController: UIViewController {
             middlePrompt.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+
+    private func setupFlashView() {
+        view.addSubview(flashView)
+        NSLayoutConstraint.activate([
+            flashView.topAnchor.constraint(equalTo: view.topAnchor),
+            flashView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            flashView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            flashView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
 }
 
 extension CameraViewController: UIGestureRecognizerDelegate {
-    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewModel.cancelEnabled
+    }
+
 }
