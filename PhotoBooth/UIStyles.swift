@@ -32,5 +32,5 @@ extension UIFont {
 }
 
 extension UIColor {
-    static let photoBoothBlue = UIColor(red: 38/225, green: 185/225, blue: 224/225, alpha: 1)
+    static let photoBoothBlue = UIColor(red: 59/225, green: 170/225, blue: 220/225, alpha: 1)
 }

@@ -35,7 +35,6 @@ class CancellationPartialModalView: UIView {
         button.setTitle("Review", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.photoBoothBlue
-        button.layer.opacity = 1
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(review), for: .touchUpInside)
@@ -48,7 +47,6 @@ class CancellationPartialModalView: UIView {
         button.setTitle("Discard All", for: .normal)
         button.setTitleColor(UIColor.photoBoothBlue, for: .normal)
         button.backgroundColor = UIColor.white
-        button.layer.opacity = 1
         button.layer.borderColor = UIColor.photoBoothBlue.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 20
@@ -63,7 +61,6 @@ class CancellationPartialModalView: UIView {
         button.setTitle("Dismiss", for: .normal)
         button.setTitleColor(UIColor.photoBoothBlue, for: .normal)
         button.tintColor = .white
-        button.layer.opacity = 1
         button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

@@ -34,8 +34,8 @@ class ReviewCellViewModelSpec: QuickSpec {
                         viewModel.isSelected = true
                     }
 
-                    it("the selection alpha should be 0") {
-                        expect(viewModel.selectionAlpha).to(equal(0.5))
+                    it("the selection alpha should be 0.33") {
+                        expect(viewModel.selectionAlpha).to(equal(0.33))
                     }
                 }
 

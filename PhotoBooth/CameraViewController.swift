@@ -19,7 +19,6 @@ class CameraViewController: UIViewController {
 
     lazy var previewLayerContainer: AVCapturePreviewView = {
         let pl = AVCapturePreviewView()
-        pl.backgroundColor = UIColor.white.withAlphaComponent(0)
         pl.translatesAutoresizingMaskIntoConstraints = false
         return pl
     }()

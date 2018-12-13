@@ -4,6 +4,8 @@ class PromptView: UIView, PartialModalDelegate {
     private(set) var currentModal: PartialModal?
 
     func present(modal: PartialModal, animated: Bool) {
+        currentModal?.dismiss()
+
         superview?.bringSubview(toFront: self)
         let modalView = modal.view
         modalView.translatesAutoresizingMaskIntoConstraints = false

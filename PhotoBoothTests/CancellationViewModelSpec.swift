@@ -10,7 +10,7 @@ class CancellationViewModelSpec: QuickSpec {
         var cancelAction: CancellationAction!
         var onActionSelected: ((CancellationAction) -> Void)!
 
-        fdescribe("CancellationViewModel") {
+        describe("CancellationViewModel") {
             context("When the view model is initialized with a currentNumberOfPhotos equal to 1") {
 
                 beforeEach {
@@ -30,7 +30,7 @@ class CancellationViewModelSpec: QuickSpec {
                     expect(viewModel.detailLabelText).to(equal("You have 1 picture in your roll. What would you like to do with it?"))
                 }
 
-                context("and when the cancellation action is .review") {
+                context("and the reviewPressed func is called") {
 
                     beforeEach {
                         viewModel.reviewPressed()
@@ -41,7 +41,7 @@ class CancellationViewModelSpec: QuickSpec {
                     }
                 }
 
-                context("and when the cancellation action is .discard") {
+                context("and the discardPressed function is called") {
 
                     beforeEach {
                         viewModel.discardPressed()
@@ -52,7 +52,7 @@ class CancellationViewModelSpec: QuickSpec {
                     }
                 }
 
-                context("and when the cancellation action is .dismiss") {
+                context("and the dismissPressed function is called") {
 
                     beforeEach {
                         viewModel.dismissPressed()
