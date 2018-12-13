@@ -14,7 +14,7 @@ class ReviewCellViewModel: ReviewCellModeling {
     }
 
     var selectionAlpha: CGFloat {
-        return isSelected ? 0.5 : 0
+        return isSelected ? 0.33 : 0
     }
 
     var onSelectionChanged: (() -> Void)?

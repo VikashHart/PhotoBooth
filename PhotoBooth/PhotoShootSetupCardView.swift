@@ -7,7 +7,7 @@ class PhotoShootSetupCard: UIView {
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.titleText
-        label.font = UIFont.semiBoldFont(size: 22)
+        label.font = UIFont.mediumFont(size: 22)
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -58,6 +58,8 @@ class PhotoShootSetupCard: UIView {
         button.tintColor = .white
         button.backgroundColor = UIColor.photoBoothBlue
         button.layer.opacity = 1
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(completeConfiguration), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -93,15 +95,15 @@ class PhotoShootSetupCard: UIView {
         addSubview(headerLabel)
         NSLayoutConstraint.activate([
             headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
-            headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             ])
     }
 
     private func setupPhotoStepper() {
         addSubview(photoStepper)
         NSLayoutConstraint.activate([
-            photoStepper.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 40),
+            photoStepper.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
             photoStepper.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             photoStepper.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             ])
@@ -139,10 +141,10 @@ class PhotoShootSetupCard: UIView {
     private func setupStartShootButton() {
         addSubview(startShootButton)
         NSLayoutConstraint.activate([
-            startShootButton.topAnchor.constraint(equalTo: timerColorBar.bottomAnchor, constant: 55),
+            startShootButton.topAnchor.constraint(equalTo: timerColorBar.bottomAnchor, constant: 50),
             startShootButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             startShootButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            startShootButton.heightAnchor.constraint(equalToConstant: 40),
+            startShootButton.heightAnchor.constraint(equalToConstant: 44),
             startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
             ])
     }

@@ -14,9 +14,9 @@ class SwipeToCancelPromptSpec: QuickSpec {
                     swipeToCanceViewModel = SwipeToCancelPromptViewModel()
                 }
 
-                it("the prompt text will be 'Quickly swipe down at any time to cancel'") {
+                it("the prompt text will be 'Quickly swipe down during shoot to cancel'") {
                     expect(swipeToCanceViewModel.promptText)
-                        .to(match("Quickly swipe down at any time to cancel"))
+                        .to(match("Quickly swipe down during shoot to cancel"))
                 }
             }
         }
