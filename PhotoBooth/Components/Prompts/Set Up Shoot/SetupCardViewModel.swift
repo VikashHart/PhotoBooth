@@ -1,13 +1,13 @@
 import Foundation
 
-class PhotoShootSetupCardViewModel: SetupPhotoShootViewModeling {
+class SetupCardViewModel: SetupCardViewModeling {
     let titleText = "Set up your photoshoot"
 
     private let _photoStepperViewModel: PhotoStepperViewModel
     private let _timerStepperViewModel: TimeIntervalStepperViewModel
 
-    var photoStepperViewModel: StepperViewModel { return _photoStepperViewModel }
-    var timerStepperViewModel: StepperViewModel { return _timerStepperViewModel }
+    var photoStepperViewModel: StepperViewModeling { return _photoStepperViewModel }
+    var timerStepperViewModel: StepperViewModeling { return _timerStepperViewModel }
 
     private let onConfigure: ((PhotoShootConfiguration) -> ())
 

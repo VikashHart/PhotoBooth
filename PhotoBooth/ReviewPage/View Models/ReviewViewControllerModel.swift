@@ -2,7 +2,10 @@ import UIKit
 
 class ReviewViewControllerModel: ReviewViewControllerModeling {
     var reviewViewModel: ReviewPageViewModeling
-    let capturedImages: [UIImage]
+    private var capturedImages: [UIImage] {
+        return data.images
+    }
+    let data: PhotoShootData
     var selectedIndices: [IndexPath] {
         didSet {
             updateShareState()
@@ -27,14 +30,14 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
          cellSpacing: CGFloat = 5,
          numCells: CGFloat = 2,
          isSelectable: Bool = false,
-         capturedImages: [UIImage]) {
+         data: PhotoShootData) {
         self.reviewViewModel = reviewViewModel
         self.selectedIndices = selectedIndices
         self.cellSpacing = cellSpacing
         self.numberOfCells = numCells
         self.numberOfSpaces = numCells + 1
         self.isSelectable = isSelectable
-        self.capturedImages = capturedImages
+        self.data = data
     }
 
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling {
@@ -71,6 +74,21 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         reviewViewModel.isSelectHidden = false
         deselectAll()
     }
+
+    func postShareCancelled() {
+        let parameters = data.parameters
+        Analytics.logEvent("share_cancelled", parameters: parameters)
+    }
+
+    func postShareCompleted(activityType: UIActivityType) {
+        let imageOrientations = selectedImages.map { image in
+            return image.orientation.description
+        }
+        let parameters = ["share_activity" : activityType,
+                          "selected_image_count" : selectedIndices.count,
+                          "image_orientations": imageOrientations] + data.parameters
+        Analytics.logEvent("share_completed", parameters: parameters)
+    }
     
     private func updateShareState() {
         reviewViewModel.isShareActive = !selectedIndices.isEmpty
@@ -80,4 +98,3 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         selectedIndices = [IndexPath]()
     }
 }
-

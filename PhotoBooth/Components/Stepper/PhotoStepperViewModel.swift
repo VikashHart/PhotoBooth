@@ -1,16 +1,16 @@
 import Foundation
 
-class TimeIntervalStepperViewModel: StepperViewModel {
+class PhotoStepperViewModel: StepperViewModeling {
 
-    private(set) var currentValue: Seconds {
+    private(set) var currentValue: Int {
         didSet {
             updateValues()
         }
     }
 
-    private let minValue: Seconds
+    private let minValue: Int
 
-    private let maxValue: Seconds
+    private let maxValue: Int
 
     private(set) var minusEnabled: Bool = true
 
@@ -18,11 +18,11 @@ class TimeIntervalStepperViewModel: StepperViewModel {
 
     private(set) var labelText: String = ""
 
-    init(initialValue: Seconds = 0, min: Seconds = 1, max: Seconds = 10) {
+    init(initialValue: Int = 0, min: Int = 1, max: Int = 10) {
         assert(min <= max)
-        self.currentValue = initialValue
         self.minValue = min
         self.maxValue = max
+        self.currentValue = initialValue
         updateValues()
     }
 
@@ -56,10 +56,10 @@ class TimeIntervalStepperViewModel: StepperViewModel {
     private func textForLabel() -> String {
         var newText = ""
         switch currentValue {
-            case 1:
-                newText = "\(currentValue) second apart"
+            case 1 :
+                newText = "\(currentValue) photo"
             case 2...10:
-                newText = "\(currentValue) seconds apart"
+                newText = "\(currentValue) photos"
             default:
                 break
         }

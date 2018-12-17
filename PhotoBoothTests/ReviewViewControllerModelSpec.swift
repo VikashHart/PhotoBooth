@@ -16,7 +16,7 @@ class ReviewViewControllerModelSpec: QuickSpec {
 
                 beforeEach {
                     let images = [UIImage(), UIImage(), UIImage()]
-                    viewModel = ReviewViewControllerModel(capturedImages: images)
+                    viewModel = ReviewViewControllerModel(data: PhotoShootData(sessionID: "1234", images: images))
                 }
 
                 context("When I call get viewModel") {
@@ -32,7 +32,7 @@ class ReviewViewControllerModelSpec: QuickSpec {
                     }
 
                     it("should return a UIImage") {
-                        expect(cellViewModel.image).to(be(viewModel.capturedImages[0]))
+                        expect(cellViewModel.image).to(be(viewModel.data.images[0]))
                     }
                 }
 

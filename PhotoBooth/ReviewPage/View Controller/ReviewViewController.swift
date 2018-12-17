@@ -33,16 +33,36 @@ class ReviewViewController: UIViewController {
         fatalError()
     }
 
-    init(capturedImages: [UIImage]) {
-        self.viewModel = ReviewViewControllerModel(capturedImages: capturedImages)
+    init(data: PhotoShootData) {
+        self.viewModel = ReviewViewControllerModel(data: data)
         super.init(nibName: nil, bundle: nil)
         self.viewModel.reloadIndices = { [weak self] indices in
             self?.reloadCells(indices: indices)
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.portrait)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(.all)
+    }
+
     func openShareMenu() {
         let activityVC = UIActivityViewController(activityItems: viewModel.selectedImages, applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                // User canceled
+                self.viewModel.postShareCancelled()
+                return
+            }
+            // User completed activity
+            guard let shareActivity = activityType else { return }
+            self.viewModel.postShareCompleted(activityType: shareActivity)
+        }
         self.present(activityVC, animated: true, completion: nil)
     }
 
@@ -91,7 +111,7 @@ extension ReviewViewController: UICollectionViewDelegate {
 
 extension ReviewViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.capturedImages.count
+        return self.viewModel.data.images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

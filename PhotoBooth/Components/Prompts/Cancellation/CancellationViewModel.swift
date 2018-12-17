@@ -4,6 +4,17 @@ enum CancellationAction {
     case review
     case discard
     case dismiss
+
+    var description: String {
+        switch self {
+        case .review:
+            return "review"
+        case .discard:
+            return "discard"
+        case .dismiss:
+            return "dismiss"
+        }
+    }
 }
 
 class CancellationViewModel: CancellationViewModeling {

@@ -7,32 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811A89D421C83BF800AA3D3D /* ProcessedImage+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A89D321C83BF800AA3D3D /* ProcessedImage+Analytics.swift */; };
+		811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A89D521C8415B00AA3D3D /* Dictionary+MergeOperator.swift */; };
 		811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811F9A0F21484B660079EA7E /* AppDelegate.swift */; };
 		811F9A1521484B660079EA7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1321484B660079EA7E /* Main.storyboard */; };
 		811F9A1721484B670079EA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1621484B670079EA7E /* Assets.xcassets */; };
 		811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811F9A1821484B680079EA7E /* LaunchScreen.storyboard */; };
 		811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811F9A212149A4D60079EA7E /* CaptureSession.swift */; };
-		812704AB21707E8500545143 /* StepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704AA21707E8500545143 /* StepperViewModel.swift */; };
+		812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704AA21707E8500545143 /* StepperViewModeling.swift */; };
 		812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */; };
 		812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */; };
-		812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */; };
-		812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */; };
+		812704B321740B2A00545143 /* SetupCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B221740B2A00545143 /* SetupCardViewModel.swift */; };
+		812704B52176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812704B42176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift */; };
 		813B2FAE2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */; };
 		813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */; };
 		813B2FB221868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FB121868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift */; };
 		813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B2FB3218809BE00CEB640 /* PartialModal.swift */; };
+		814956D321C323A400CE3AD9 /* AnalyticsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956D221C323A400CE3AD9 /* AnalyticsFactory.swift */; };
+		814956D521C5ADD500CE3AD9 /* AVSession+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956D421C5ADD500CE3AD9 /* AVSession+Analytics.swift */; };
+		814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956D621C5B19900CE3AD9 /* AppUtility.swift */; };
+		814956EE21C5CBA500CE3AD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 814956EB21C5CB4300CE3AD9 /* GoogleService-Info.plist */; };
+		814956F421C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956F321C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift */; };
+		814956F621C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956F521C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift */; };
+		814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956F721C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift */; };
+		814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956F921C7374300CE3AD9 /* ProcessedImage.swift */; };
+		814956FC21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956FB21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
 		8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */; };
 		8174574D21598D7E00F612F6 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* PromptView.swift */; };
-		8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */; };
+		8174574F21598DA800F612F6 /* SetupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574E21598DA800F612F6 /* SetupCardView.swift */; };
 		81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */; };
 		81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745754216ACF5B00F612F6 /* UIStyles.swift */; };
 		81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81745756216ADE6700F612F6 /* CustomStepperView.swift */; };
 		8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360892188D68500238022 /* SwipeToCancelPromptPartialModal.swift */; };
 		8183608C2188D80100238022 /* SwipeToCancelPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */; };
 		8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */; };
-		818360902188E50000238022 /* SwipeToCancelPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */; };
+		818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183608F2188E50000238022 /* SwipeToCancelPromptViewModeling.swift */; };
 		81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */; };
 		818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360B9218CCFD100238022 /* CountdownIndicatorView.swift */; };
 		818360BC218F9FF100238022 /* TimerModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360BB218F9FF100238022 /* TimerModeling.swift */; };
@@ -78,6 +89,8 @@
 		1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth_PhotoBoothTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D389BACCFB6A3D7F40DAAF /* Pods-PhotoBooth-PhotoBoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth-PhotoBoothTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests.release.xcconfig"; sourceTree = "<group>"; };
 		3DFCDBC024AD4C950711D037 /* Pods-PhotoBooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth.debug.xcconfig"; sourceTree = "<group>"; };
+		811A89D321C83BF800AA3D3D /* ProcessedImage+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessedImage+Analytics.swift"; sourceTree = "<group>"; };
+		811A89D521C8415B00AA3D3D /* Dictionary+MergeOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+MergeOperator.swift"; sourceTree = "<group>"; };
 		811F9A0C21484B660079EA7E /* PhotoBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		811F9A0F21484B660079EA7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		811F9A1421484B660079EA7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,27 +98,36 @@
 		811F9A1921484B680079EA7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		811F9A1B21484B680079EA7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		811F9A212149A4D60079EA7E /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
-		812704AA21707E8500545143 /* StepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModel.swift; sourceTree = "<group>"; };
+		812704AA21707E8500545143 /* StepperViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModeling.swift; sourceTree = "<group>"; };
 		812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModel.swift; sourceTree = "<group>"; };
 		812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModel.swift; sourceTree = "<group>"; };
-		812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModel.swift; sourceTree = "<group>"; };
-		812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupPhotoShootViewModel+PhotoShootConfiguration.swift"; sourceTree = "<group>"; };
+		812704B221740B2A00545143 /* SetupCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewModel.swift; sourceTree = "<group>"; };
+		812704B42176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupCardViewModeling+PhotoShootConfiguration.swift"; sourceTree = "<group>"; };
 		813B2FAD2181F50A00CEB640 /* TimeIntervalStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalStepperViewModelSpec.swift; sourceTree = "<group>"; };
 		813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardPartialModal.swift; sourceTree = "<group>"; };
 		813B2FB121868C3200CEB640 /* PhotoShootSetupCardViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardViewModelSpec.swift; sourceTree = "<group>"; };
 		813B2FB3218809BE00CEB640 /* PartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialModal.swift; sourceTree = "<group>"; };
+		814956D221C323A400CE3AD9 /* AnalyticsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFactory.swift; sourceTree = "<group>"; };
+		814956D421C5ADD500CE3AD9 /* AVSession+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVSession+Analytics.swift"; sourceTree = "<group>"; };
+		814956D621C5B19900CE3AD9 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		814956EB21C5CB4300CE3AD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		814956F321C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoShootConfiguration+Analytics.swift"; sourceTree = "<group>"; };
+		814956F521C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoShootData+Analytics.swift"; sourceTree = "<group>"; };
+		814956F721C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDeviceOrientation+Analytics.swift"; sourceTree = "<group>"; };
+		814956F921C7374300CE3AD9 /* ProcessedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessedImage.swift; sourceTree = "<group>"; };
+		814956FB21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Orientations.swift"; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModelSpec.swift; sourceTree = "<group>"; };
 		8174574C21598D7E00F612F6 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
-		8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShootSetupCardView.swift; sourceTree = "<group>"; };
+		8174574E21598DA800F612F6 /* SetupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardView.swift; sourceTree = "<group>"; };
 		81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapturePreviewView.swift; sourceTree = "<group>"; };
 		81745754216ACF5B00F612F6 /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
 		81745756216ADE6700F612F6 /* CustomStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperView.swift; sourceTree = "<group>"; };
 		818360892188D68500238022 /* SwipeToCancelPromptPartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptPartialModal.swift; sourceTree = "<group>"; };
 		8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptView.swift; sourceTree = "<group>"; };
 		8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptViewModel.swift; sourceTree = "<group>"; };
-		8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPrompt.swift; sourceTree = "<group>"; };
+		8183608F2188E50000238022 /* SwipeToCancelPromptViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptViewModeling.swift; sourceTree = "<group>"; };
 		81836091218A696C00238022 /* SwipeToCancelPromptSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPromptSpec.swift; sourceTree = "<group>"; };
 		818360B9218CCFD100238022 /* CountdownIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorView.swift; sourceTree = "<group>"; };
 		818360BB218F9FF100238022 /* TimerModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModeling.swift; sourceTree = "<group>"; };
@@ -193,49 +215,212 @@
 			isa = PBXGroup;
 			children = (
 				811F9A0F21484B660079EA7E /* AppDelegate.swift */,
+				811F9A1621484B670079EA7E /* Assets.xcassets */,
+				814956DD21C5C3D300CE3AD9 /* Camera Page */,
+				814956DE21C5C48200CE3AD9 /* Components */,
+				811F9A1B21484B680079EA7E /* Info.plist */,
+				814956D821C5B35800CE3AD9 /* ReviewPage */,
+				814956E921C5CABE00CE3AD9 /* Storyboards */,
+				814956EA21C5CB2E00CE3AD9 /* Supporting Files */,
+			);
+			path = PhotoBooth;
+			sourceTree = "<group>";
+		};
+		814956D821C5B35800CE3AD9 /* ReviewPage */ = {
+			isa = PBXGroup;
+			children = (
+				814956DB21C5B41800CE3AD9 /* View Models */,
+				814956DA21C5B3D200CE3AD9 /* View Controller */,
+				814956D921C5B3AA00CE3AD9 /* Views */,
+			);
+			path = ReviewPage;
+			sourceTree = "<group>";
+		};
+		814956D921C5B3AA00CE3AD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81CA8CA521A5F39A00170F1A /* ReviewPageView.swift */,
+				81CA8CA721A61A7300170F1A /* ReviewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		814956DA21C5B3D200CE3AD9 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		814956DB21C5B41800CE3AD9 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				814956DC21C5B43C00CE3AD9 /* Protocols */,
+				81F6B35221B88D89006A7BED /* ReviewPageViewModel.swift */,
+				81CA8CA921A7883A00170F1A /* ReviewViewControllerModel.swift */,
+				81CA8CAF21A9E29400170F1A /* ReviewCellViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		814956DC21C5B43C00CE3AD9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				81CA8CAD21A9E27A00170F1A /* ReviewCellModeling.swift */,
+				81CA8CAB21A788CB00170F1A /* ReviewViewControllerModeling.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		814956DD21C5C3D300CE3AD9 /* Camera Page */ = {
+			isa = PBXGroup;
+			children = (
 				814F10492154650B0066CCD5 /* CameraViewController.swift */,
 				818360C32191343A00238022 /* CameraViewControllerViewModel.swift */,
-				81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */,
-				811F9A1321484B660079EA7E /* Main.storyboard */,
-				811F9A1621484B670079EA7E /* Assets.xcassets */,
-				811F9A1821484B680079EA7E /* LaunchScreen.storyboard */,
-				811F9A1B21484B680079EA7E /* Info.plist */,
-				811F9A212149A4D60079EA7E /* CaptureSession.swift */,
-				81745754216ACF5B00F612F6 /* UIStyles.swift */,
-				81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */,
+			);
+			path = "Camera Page";
+			sourceTree = "<group>";
+		};
+		814956DE21C5C48200CE3AD9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				814956E721C5C97400CE3AD9 /* Prompts */,
+				814956E121C5C57600CE3AD9 /* Analytics */,
+				814956E021C5C55D00CE3AD9 /* Styles */,
+				814956DF21C5C4F200CE3AD9 /* Capture Session */,
+				814956E321C5C64A00CE3AD9 /* Timer */,
+				814956E421C5C6D400CE3AD9 /* Countdown Indicator */,
+				814956E521C5C70600CE3AD9 /* Stepper */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		814956DF21C5C4F200CE3AD9 /* Capture Session */ = {
+			isa = PBXGroup;
+			children = (
 				814F104B2154654F0066CCD5 /* MockSession.swift */,
+				81745750215B0EEB00F612F6 /* AVCapturePreviewView.swift */,
+				811F9A212149A4D60079EA7E /* CaptureSession.swift */,
+				814956F921C7374300CE3AD9 /* ProcessedImage.swift */,
+				814956FB21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift */,
+			);
+			path = "Capture Session";
+			sourceTree = "<group>";
+		};
+		814956E021C5C55D00CE3AD9 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				81745754216ACF5B00F612F6 /* UIStyles.swift */,
+				814956D621C5B19900CE3AD9 /* AppUtility.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		814956E121C5C57600CE3AD9 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				814956D221C323A400CE3AD9 /* AnalyticsFactory.swift */,
+				814956D421C5ADD500CE3AD9 /* AVSession+Analytics.swift */,
+				814956F321C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift */,
+				814956F521C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift */,
+				814956F721C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift */,
+				811A89D321C83BF800AA3D3D /* ProcessedImage+Analytics.swift */,
+				811A89D521C8415B00AA3D3D /* Dictionary+MergeOperator.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		814956E221C5C60900CE3AD9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
 				8174574C21598D7E00F612F6 /* PromptView.swift */,
 				813B2FB3218809BE00CEB640 /* PartialModal.swift */,
-				813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */,
-				818360892188D68500238022 /* SwipeToCancelPromptPartialModal.swift */,
-				8183608F2188E50000238022 /* SwipeToCancelPrompt.swift */,
-				8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */,
-				8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */,
-				81F6B35621BB4705006A7BED /* CancellationPartialModalView.swift */,
-				81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */,
-				81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */,
-				81A70D4021BDC3B900DB8884 /* SwipeToCancelPartialModal.swift */,
-				8174574E21598DA800F612F6 /* PhotoShootSetupCardView.swift */,
-				812704B221740B2A00545143 /* PhotoShootSetupCardViewModel.swift */,
-				812704B42176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift */,
-				812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */,
-				812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */,
-				81745756216ADE6700F612F6 /* CustomStepperView.swift */,
-				812704AA21707E8500545143 /* StepperViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		814956E321C5C64A00CE3AD9 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				818360BB218F9FF100238022 /* TimerModeling.swift */,
+				818360BD218FA0A400238022 /* CountdownTimer.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		814956E421C5C6D400CE3AD9 /* Countdown Indicator */ = {
+			isa = PBXGroup;
+			children = (
 				818360B9218CCFD100238022 /* CountdownIndicatorView.swift */,
 				818360BF218FC5DB00238022 /* CountdownIndicatorViewModeling.swift */,
 				818360C1218FC5FA00238022 /* CountdownIndicatorViewModel.swift */,
-				818360BB218F9FF100238022 /* TimerModeling.swift */,
-				818360BD218FA0A400238022 /* CountdownTimer.swift */,
-				81CA8CA521A5F39A00170F1A /* ReviewPageView.swift */,
-				81F6B35221B88D89006A7BED /* ReviewPageViewModel.swift */,
-				81CA8CAB21A788CB00170F1A /* ReviewViewControllerModeling.swift */,
-				81CA8CA921A7883A00170F1A /* ReviewViewControllerModel.swift */,
-				81CA8CA721A61A7300170F1A /* ReviewCell.swift */,
-				81CA8CAD21A9E27A00170F1A /* ReviewCellModeling.swift */,
-				81CA8CAF21A9E29400170F1A /* ReviewCellViewModel.swift */,
 			);
-			path = PhotoBooth;
+			path = "Countdown Indicator";
+			sourceTree = "<group>";
+		};
+		814956E521C5C70600CE3AD9 /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				81745756216ADE6700F612F6 /* CustomStepperView.swift */,
+				812704AA21707E8500545143 /* StepperViewModeling.swift */,
+				812704AE2173FECF00545143 /* PhotoStepperViewModel.swift */,
+				812704B02174002500545143 /* TimeIntervalStepperViewModel.swift */,
+			);
+			path = Stepper;
+			sourceTree = "<group>";
+		};
+		814956E621C5C92A00CE3AD9 /* Set Up Shoot */ = {
+			isa = PBXGroup;
+			children = (
+				813B2FAF21864F2C00CEB640 /* SetupCardPartialModal.swift */,
+				8174574E21598DA800F612F6 /* SetupCardView.swift */,
+				812704B42176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift */,
+				812704B221740B2A00545143 /* SetupCardViewModel.swift */,
+			);
+			path = "Set Up Shoot";
+			sourceTree = "<group>";
+		};
+		814956E721C5C97400CE3AD9 /* Prompts */ = {
+			isa = PBXGroup;
+			children = (
+				814956E821C5C9F700CE3AD9 /* Cancellation */,
+				814956E221C5C60900CE3AD9 /* Presenter */,
+				814956E621C5C92A00CE3AD9 /* Set Up Shoot */,
+			);
+			path = Prompts;
+			sourceTree = "<group>";
+		};
+		814956E821C5C9F700CE3AD9 /* Cancellation */ = {
+			isa = PBXGroup;
+			children = (
+				818360892188D68500238022 /* SwipeToCancelPromptPartialModal.swift */,
+				8183608F2188E50000238022 /* SwipeToCancelPromptViewModeling.swift */,
+				8183608B2188D80100238022 /* SwipeToCancelPromptView.swift */,
+				8183608D2188E34700238022 /* SwipeToCancelPromptViewModel.swift */,
+				81A70D4021BDC3B900DB8884 /* SwipeToCancelPartialModal.swift */,
+				81F6B35621BB4705006A7BED /* CancellationPartialModalView.swift */,
+				81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */,
+				81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */,
+			);
+			path = Cancellation;
+			sourceTree = "<group>";
+		};
+		814956E921C5CABE00CE3AD9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				811F9A1821484B680079EA7E /* LaunchScreen.storyboard */,
+				811F9A1321484B660079EA7E /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		814956EA21C5CB2E00CE3AD9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				814956EB21C5CB4300CE3AD9 /* GoogleService-Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
@@ -280,6 +465,7 @@
 				811F9A0821484B660079EA7E /* Sources */,
 				811F9A0921484B660079EA7E /* Frameworks */,
 				811F9A0A21484B660079EA7E /* Resources */,
+				CB02BC02425DED55E58B3090 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */,
+				814956EE21C5CBA500CE3AD9 /* GoogleService-Info.plist in Resources */,
 				811F9A1721484B670079EA7E /* Assets.xcassets in Resources */,
 				811F9A1521484B660079EA7E /* Main.storyboard in Resources */,
 			);
@@ -412,17 +599,41 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB02BC02425DED55E58B3090 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -433,27 +644,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */,
-				812704B52176540100545143 /* SetupPhotoShootViewModel+PhotoShootConfiguration.swift in Sources */,
+				812704B52176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift in Sources */,
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
+				814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
-				812704B321740B2A00545143 /* PhotoShootSetupCardViewModel.swift in Sources */,
+				812704B321740B2A00545143 /* SetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
+				814956F421C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift in Sources */,
 				81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */,
-				812704AB21707E8500545143 /* StepperViewModel.swift in Sources */,
+				812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */,
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
+				814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */,
+				814956D321C323A400CE3AD9 /* AnalyticsFactory.swift in Sources */,
 				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
 				818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */,
 				81CA8CAC21A788CB00170F1A /* ReviewViewControllerModeling.swift in Sources */,
 				813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */,
-				818360902188E50000238022 /* SwipeToCancelPrompt.swift in Sources */,
+				818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */,
+				814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
+				811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */,
 				818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */,
-				8174574F21598DA800F612F6 /* PhotoShootSetupCardView.swift in Sources */,
+				8174574F21598DA800F612F6 /* SetupCardView.swift in Sources */,
 				81F6B35721BB4705006A7BED /* CancellationPartialModalView.swift in Sources */,
 				81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
+				811A89D421C83BF800AA3D3D /* ProcessedImage+Analytics.swift in Sources */,
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
@@ -465,9 +683,12 @@
 				811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */,
 				81A70D4121BDC3B900DB8884 /* SwipeToCancelPartialModal.swift in Sources */,
 				8183608C2188D80100238022 /* SwipeToCancelPromptView.swift in Sources */,
+				814956D521C5ADD500CE3AD9 /* AVSession+Analytics.swift in Sources */,
 				8174574D21598D7E00F612F6 /* PromptView.swift in Sources */,
 				8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */,
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
+				814956F621C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift in Sources */,
+				814956FC21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift in Sources */,
 				818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */,
 				81CA8CB021A9E29400170F1A /* ReviewCellViewModel.swift in Sources */,
 			);
@@ -640,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3DFCDBC024AD4C950711D037 /* Pods-PhotoBooth.debug.xcconfig */;
 			buildSettings = {
+				ANALYTICS_ENABLED = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63X7US2LVV;
@@ -659,6 +881,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E05D44E27EEB4992989D7657 /* Pods-PhotoBooth.release.xcconfig */;
 			buildSettings = {
+				ANALYTICS_ENABLED = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63X7US2LVV;

@@ -1,13 +1,17 @@
 import UIKit
+import AVFoundation
 
 class MockSession: PhotoCaptureable {
-    var onImageCaptured: ((UIImage) -> Void)?
+    func updateOrientation(orientation: AVCaptureVideoOrientation) {
+    }
+
+    var onImageCaptured: ((ProcessedImage) -> Void)?
 
     let mockImage = UIImage()
     
     func captureImage() {
         DispatchQueue.main.async {
-            self.onImageCaptured?(UIImage(named: "sim_default")!)
+            self.onImageCaptured?(ProcessedImage(image: UIImage(named: "sim_default")!, cameraPosition: .front) )
         }
     }
 

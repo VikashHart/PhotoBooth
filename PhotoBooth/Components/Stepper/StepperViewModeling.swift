@@ -1,6 +1,6 @@
 import Foundation
 
-protocol StepperViewModel {
+protocol StepperViewModeling {
     var minusEnabled: Bool { get }
     var plusEnabled: Bool  { get }
     var labelText: String  { get }

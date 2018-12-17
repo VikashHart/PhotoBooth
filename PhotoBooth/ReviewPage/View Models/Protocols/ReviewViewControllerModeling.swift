@@ -3,7 +3,7 @@ import UIKit
 protocol ReviewViewControllerModeling {
     var reviewViewModel: ReviewPageViewModeling { get }
 
-    var capturedImages: [UIImage] { get }
+    var data: PhotoShootData { get }
     var selectedIndices: [IndexPath] { get set }
     var selectedImages: [UIImage] { get }
     var reloadIndices: (([IndexPath]) -> Void)? { get set }
@@ -21,4 +21,6 @@ protocol ReviewViewControllerModeling {
     func deselectAll()
     func selectPressed()
     func donePressed()
+    func postShareCancelled()
+    func postShareCompleted(activityType: UIActivityType)
 }

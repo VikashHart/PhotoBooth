@@ -2,13 +2,15 @@ import UIKit
 import AVFoundation
 
 protocol PhotoCaptureable {
-    var onImageCaptured: ((UIImage) -> Void)? { get set }
+    var onImageCaptured: ((ProcessedImage) -> Void)? { get set }
 
     func captureImage()
 
     func configurePreview(view: AVCapturePreviewView)
 
     func switchCamera()
+
+    func updateOrientation(orientation: AVCaptureVideoOrientation)
 }
 
 class PhotoCaptureableFactory {
@@ -28,11 +30,22 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private var backCamera: AVCaptureDevice?
     private var frontCamera: AVCaptureDevice?
     private var currentCamera: AVCaptureDevice?
+    private var videoOrientation: AVCaptureVideoOrientation
 
     private var photoOutput: AVCapturePhotoOutput?
     private let photoSessionPreset = AVCaptureSession.Preset.photo
 
-    var onImageCaptured: ((UIImage) -> Void)?
+    var onImageCaptured: ((ProcessedImage) -> Void)?
+
+    override init() {
+        let statusBarOrientation = UIApplication.shared.statusBarOrientation
+        if statusBarOrientation != .unknown,
+            let videoOrientation = AVCaptureVideoOrientation(interfaceOrientation: statusBarOrientation) {
+            self.videoOrientation = videoOrientation
+        } else {
+            self.videoOrientation = .portrait
+        }
+    }
 
     private func setupCaptureSession() {
         setupPhotoCaptureSession()
@@ -66,9 +79,12 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
 
     // Mark:- @objc functions for buttons
     // This is the function that will be called when the take photo button is pressed.
-    @objc func takePhoto(){
+    @objc func takePhoto() {
         DispatchQueue.main.async {
+            self.photoOutput?.connection(with: .video)?.videoOrientation = self.videoOrientation
             let settings = AVCapturePhotoSettings()
+            settings.isHighResolutionPhotoEnabled = true
+            self.photoOutput?.isHighResolutionCaptureEnabled = true
             self.photoOutput?.capturePhoto(with: settings, delegate: self)
         }
     }
@@ -78,6 +94,25 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         guard let currentPosition = currentCamera?.position else { return }
         let newPosition: AVCaptureDevice.Position = currentPosition == .back ? .front : .back
         setUpCaptureSessionInput(position: newPosition)
+        Analytics.logEvent("camera_rotated", parameters: ["camera_orientation" : newPosition.positionDescription])
+    }
+
+    func updateOrientation(orientation: AVCaptureVideoOrientation) {
+        videoOrientation = orientation
+    }
+
+    // AVCapturePhotoCaptureDelegate methods. This extension is used because you need to wait until the photo you took "didFinishProcessing" before you can handle the image.
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let imageData = photo.fileDataRepresentation() {
+
+            guard let image = UIImage(data: imageData),
+                let cameraPosition = currentCamera?.position
+                else { return }
+
+            let processedImage = ProcessedImage(image: image,
+                                                cameraPosition: cameraPosition)
+            onImageCaptured?(processedImage)
+        }
     }
 
     // Mark:- AVCapture Session Setup functions
@@ -125,21 +160,11 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private func setupPreviewLayer(view: AVCapturePreviewView){
         view.avPreviewLayer.session = avSession
         view.avPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        view.avPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        view.avPreviewLayer.connection?.videoOrientation = videoOrientation
     }
 
     // Starts running the capture session after you set up the view.
     private func startRunningCaptureSession(){
         avSession.startRunning()
-    }
-
-    // AVCapturePhotoCaptureDelegate methods. This extension is used because you need to wait until the photo you took "didFinishProcessing" before you can handle the image.
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let imageData = photo.fileDataRepresentation() {
-            print(imageData)
-            let image = UIImage(data: imageData)
-            guard let processedImage = image else { return }
-            onImageCaptured?(processedImage)
-        }
     }
 }

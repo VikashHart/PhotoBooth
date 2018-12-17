@@ -70,20 +70,18 @@ class CameraViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         presentConfigurationCard()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let orientation = UIDevice.current.orientation
         let connection = previewLayerContainer.avPreviewLayer.connection
-        switch orientation {
-        case .portrait: connection?.videoOrientation = .portrait
-        case .landscapeLeft: connection?.videoOrientation = .landscapeRight
-        case .landscapeRight: connection?.videoOrientation = .landscapeLeft
-        case .portraitUpsideDown: connection?.videoOrientation = .portraitUpsideDown
-        default: break
-        }
+
+        guard let videoOrientation = AVCaptureVideoOrientation(deviceOrientation: orientation)
+            else { return }
+        connection?.videoOrientation = videoOrientation
+        viewModel.captureSession.updateOrientation(orientation: videoOrientation)
     }
 
     private func presentConfigurationCard() {
@@ -123,8 +121,8 @@ class CameraViewController: UIViewController {
         }
     }
 
-    private func presentReviewPage(images: [UIImage]) {
-        let reviewVC = ReviewViewController(capturedImages: images)
+    private func presentReviewPage(data: PhotoShootData) {
+        let reviewVC = ReviewViewController(data: data)
         present(reviewVC, animated: true, completion: nil)
         viewModel.reset()
         countdownView.isHidden = true
@@ -132,8 +130,8 @@ class CameraViewController: UIViewController {
 
     private func startShoot() {
         countdownView.isHidden = false
-        viewModel.startShoot(onComplete: { [weak self] capturedImages in
-            self?.presentReviewPage(images: capturedImages)
+        viewModel.startShoot(onComplete: { [weak self] data in
+            self?.presentReviewPage(data: data)
         })
     }
 
@@ -232,7 +230,14 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if !viewModel.cancelEnabled {
+            postInvalidSwipeEvent()
+        }
         return viewModel.cancelEnabled
     }
 
+    private func postInvalidSwipeEvent() {
+        Analytics.logEvent("invalid_swipe_event",
+                           parameters: viewModel.photoShootConfiguration?.parameters ?? [:])
+    }
 }

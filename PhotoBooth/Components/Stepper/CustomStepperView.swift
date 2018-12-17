@@ -2,7 +2,7 @@ import UIKit
 
 class CustomStepper: UIView {
 
-    private let viewModel: StepperViewModel
+    private let viewModel: StepperViewModeling
 
     lazy var stepperMinusButton: UIButton = {
         let button = UIButton()
@@ -47,7 +47,7 @@ class CustomStepper: UIView {
         return button
     }()
 
-    init(viewModel: StepperViewModel) {
+    init(viewModel: StepperViewModeling) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setupConstraints()
@@ -93,7 +93,7 @@ class CustomStepper: UIView {
             stepperLabel.leadingAnchor.constraint(equalTo: stepperMinusButton.trailingAnchor),
             stepperLabel.trailingAnchor.constraint(equalTo: stepperPlusButton.leadingAnchor),
             stepperLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stepperLabel.heightAnchor.constraint(equalToConstant: 40)
+            stepperLabel.heightAnchor.constraint(equalToConstant: 35)
             ])
     }
 

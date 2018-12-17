@@ -6,7 +6,7 @@ class PhotoShootSetupCardViewModelSpec: QuickSpec {
 
     override func spec() {
 
-        var photoShootSetupCardViewModel: PhotoShootSetupCardViewModel!
+        var photoShootSetupCardViewModel: SetupCardViewModel!
         var onConfigure: ((PhotoShootConfiguration) -> ())!
         var photoStepperViewModel: PhotoStepperViewModel!
         var timeIntervalStepperViewModel: TimeIntervalStepperViewModel!
@@ -16,7 +16,7 @@ class PhotoShootSetupCardViewModelSpec: QuickSpec {
             context("when the PhotoShootSetupCardViewModel is initialized"){
 
                 it("has titleText of 'Set up your photoshoot'") {
-                    expect(PhotoShootSetupCardViewModel(onConfigure: { _ in }).titleText)
+                    expect(SetupCardViewModel(onConfigure: { _ in }).titleText)
                         .to(match("Set up your photoshoot"))
                 }
 
@@ -29,7 +29,7 @@ class PhotoShootSetupCardViewModelSpec: QuickSpec {
                             onConfigure = { config in
                                 configuration = config
                             }
-                            photoShootSetupCardViewModel = PhotoShootSetupCardViewModel(onConfigure: onConfigure, photoStepperViewModel: photoStepperViewModel, timerStepperViewModel: timeIntervalStepperViewModel)
+                            photoShootSetupCardViewModel = SetupCardViewModel(onConfigure: onConfigure, photoStepperViewModel: photoStepperViewModel, timerStepperViewModel: timeIntervalStepperViewModel)
                         }
 
                         context("when finalizeConfiguration() is called") {
@@ -46,7 +46,6 @@ class PhotoShootSetupCardViewModelSpec: QuickSpec {
                         }
                     }
                 }
-
             }
         }
     }
