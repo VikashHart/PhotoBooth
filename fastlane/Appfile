@@ -1,0 +1,8 @@
+app_identifier("Vikash-Hart.PhotoBooth") # The bundle identifier of your app
+apple_id("vikashhart@gmail.com") # Your Apple email address
+
+itc_team_id("119495908") # App Store Connect Team ID
+team_id("63X7US2LVV") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
