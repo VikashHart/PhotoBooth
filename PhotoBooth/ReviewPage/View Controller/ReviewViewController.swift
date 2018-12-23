@@ -105,6 +105,9 @@ extension ReviewViewController: UICollectionViewDelegate {
         if self.viewModel.isSelectable == true {
             cell.viewModel.isSelected.toggle()
             cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
+        } else {
+            let previewVC = PreviewViewController(image: cell.viewModel.image)
+            present(previewVC, animated: true, completion: nil)
         }
     }
 }

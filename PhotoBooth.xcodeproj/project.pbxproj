@@ -53,6 +53,10 @@
 		818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818360C32191343A00238022 /* CameraViewControllerViewModel.swift */; };
 		81A70D4121BDC3B900DB8884 /* SwipeToCancelPartialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A70D4021BDC3B900DB8884 /* SwipeToCancelPartialModal.swift */; };
 		81A70D4521BF26FD00DB8884 /* CancellationViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A70D4421BF26FD00DB8884 /* CancellationViewModelSpec.swift */; };
+		81B4570621CCB3C8001595DD /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570521CCB3C8001595DD /* PreviewView.swift */; };
+		81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570721CCCD78001595DD /* PreviewViewModel.swift */; };
+		81B4570A21CCD37A001595DD /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570921CCD37A001595DD /* PreviewViewController.swift */; };
+		81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570B21CCD5AB001595DD /* PreviewViewControllerViewModel.swift */; };
 		81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */; };
 		81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */; };
 		81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */; };
@@ -137,6 +141,10 @@
 		818360C32191343A00238022 /* CameraViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerViewModel.swift; sourceTree = "<group>"; };
 		81A70D4021BDC3B900DB8884 /* SwipeToCancelPartialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCancelPartialModal.swift; sourceTree = "<group>"; };
 		81A70D4421BF26FD00DB8884 /* CancellationViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModelSpec.swift; sourceTree = "<group>"; };
+		81B4570521CCB3C8001595DD /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		81B4570721CCCD78001595DD /* PreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewModel.swift; sourceTree = "<group>"; };
+		81B4570921CCD37A001595DD /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		81B4570B21CCD5AB001595DD /* PreviewViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerViewModel.swift; sourceTree = "<group>"; };
 		81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerSpec.swift; sourceTree = "<group>"; };
 		81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModelSpec.swift; sourceTree = "<group>"; };
 		81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 		811F9A0E21484B660079EA7E /* PhotoBooth */ = {
 			isa = PBXGroup;
 			children = (
+				81B4570121CCB2A7001595DD /* Preview Page */,
 				811F9A0F21484B660079EA7E /* AppDelegate.swift */,
 				811F9A1621484B670079EA7E /* Assets.xcassets */,
 				814956DD21C5C3D300CE3AD9 /* Camera Page */,
@@ -421,6 +430,41 @@
 				814956EB21C5CB4300CE3AD9 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81B4570121CCB2A7001595DD /* Preview Page */ = {
+			isa = PBXGroup;
+			children = (
+				81B4570421CCB306001595DD /* View */,
+				81B4570321CCB2F1001595DD /* View Controller */,
+				81B4570221CCB2C4001595DD /* View Model */,
+			);
+			path = "Preview Page";
+			sourceTree = "<group>";
+		};
+		81B4570221CCB2C4001595DD /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				81B4570721CCCD78001595DD /* PreviewViewModel.swift */,
+				81B4570B21CCD5AB001595DD /* PreviewViewControllerViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		81B4570321CCB2F1001595DD /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81B4570921CCD37A001595DD /* PreviewViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		81B4570421CCB306001595DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81B4570521CCB3C8001595DD /* PreviewView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
@@ -666,6 +710,7 @@
 				812704B52176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift in Sources */,
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
 				814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */,
+				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
@@ -675,12 +720,14 @@
 				81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */,
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
+				81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */,
 				814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */,
 				814956D321C323A400CE3AD9 /* AnalyticsFactory.swift in Sources */,
 				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
 				818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */,
 				81CA8CAC21A788CB00170F1A /* ReviewViewControllerModeling.swift in Sources */,
 				813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */,
+				81B4570A21CCD37A001595DD /* PreviewViewController.swift in Sources */,
 				818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */,
 				814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
@@ -706,6 +753,7 @@
 				8174574D21598D7E00F612F6 /* PromptView.swift in Sources */,
 				8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */,
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
+				81B4570621CCB3C8001595DD /* PreviewView.swift in Sources */,
 				814956F621C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift in Sources */,
 				814956FC21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift in Sources */,
 				818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */,
