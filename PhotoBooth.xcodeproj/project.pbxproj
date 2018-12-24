@@ -222,12 +222,12 @@
 		811F9A0E21484B660079EA7E /* PhotoBooth */ = {
 			isa = PBXGroup;
 			children = (
-				81B4570121CCB2A7001595DD /* Preview Page */,
 				811F9A0F21484B660079EA7E /* AppDelegate.swift */,
 				811F9A1621484B670079EA7E /* Assets.xcassets */,
 				814956DD21C5C3D300CE3AD9 /* Camera Page */,
 				814956DE21C5C48200CE3AD9 /* Components */,
 				811F9A1B21484B680079EA7E /* Info.plist */,
+				81B4570121CCB2A7001595DD /* Preview Page */,
 				814956D821C5B35800CE3AD9 /* ReviewPage */,
 				814956E921C5CABE00CE3AD9 /* Storyboards */,
 				814956EA21C5CB2E00CE3AD9 /* Supporting Files */,

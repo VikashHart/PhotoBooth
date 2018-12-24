@@ -7,7 +7,6 @@ class PreviewView: UIView {
     lazy var previewImageView: UIImageView = {
         let photo = UIImageView()
         photo.image = viewModel.image
-        photo.tintColor = .white
         photo.contentMode = .scaleAspectFit
         photo.backgroundColor = .black
         photo.layer.masksToBounds = true

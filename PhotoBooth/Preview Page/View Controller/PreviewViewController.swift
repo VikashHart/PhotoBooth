@@ -23,11 +23,6 @@ class PreviewViewController: UIViewController {
         AppUtility.lockOrientation(.all)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        AppUtility.lockOrientation(.portrait)
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
