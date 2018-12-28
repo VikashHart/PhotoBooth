@@ -35,6 +35,8 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private var photoOutput: AVCapturePhotoOutput?
     private let photoSessionPreset = AVCaptureSession.Preset.photo
 
+    private let sessionQueue = DispatchQueue(label: "session Queue")
+
     var onImageCaptured: ((ProcessedImage) -> Void)?
 
     override init() {
@@ -60,6 +62,7 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     func configurePreview(view: AVCapturePreviewView) {
         setupCaptureSession()
         setupPreviewLayer(view: view)
+        configureOutput()
         startRunningCaptureSession()
     }
 
@@ -77,14 +80,19 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         setupInputOutput()
     }
 
+    //This function will be called when the VC sets up the capture session so that the output connection is set before the first photo is taken so that it doesn't come out black.
+    func configureOutput() {
+        self.photoOutput?.connection(with: .video)?.videoOrientation = self.videoOrientation
+        self.photoOutput?.isHighResolutionCaptureEnabled = true
+    }
+
     // Mark:- @objc functions for buttons
     // This is the function that will be called when the take photo button is pressed.
     @objc func takePhoto() {
-        DispatchQueue.main.async {
+        sessionQueue.async {
             self.photoOutput?.connection(with: .video)?.videoOrientation = self.videoOrientation
             let settings = AVCapturePhotoSettings()
             settings.isHighResolutionPhotoEnabled = true
-            self.photoOutput?.isHighResolutionCaptureEnabled = true
             self.photoOutput?.capturePhoto(with: settings, delegate: self)
         }
     }
