@@ -51,12 +51,12 @@ class PreviewView: UIView {
     }
 
     private func setupPreviewImageView() {
-        addSubview(previewImageView)
+        addSubview(imageView)
         NSLayoutConstraint.activate([
-            previewImageView.topAnchor.constraint(equalTo: topAnchor),
-            previewImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            previewImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            previewImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }
 
