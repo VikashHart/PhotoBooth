@@ -4,14 +4,14 @@ class PreviewView: UIView {
 
     let viewModel: PreviewViewModel
 
-    lazy var previewImageView: UIImageView = {
-        let photo = UIImageView()
-        photo.image = viewModel.image
-        photo.contentMode = .scaleAspectFit
-        photo.backgroundColor = .black
-        photo.layer.masksToBounds = true
-        photo.translatesAutoresizingMaskIntoConstraints = false
-        return photo
+    lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        image.image = viewModel.image
+        image.contentMode = .scaleAspectFit
+        image.backgroundColor = .black
+        image.layer.masksToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
 
     lazy var backButton: UIButton = {

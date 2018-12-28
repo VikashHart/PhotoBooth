@@ -18,11 +18,6 @@ class PreviewViewController: UIViewController {
                                            for: .touchUpInside)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        AppUtility.lockOrientation(.all)
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
