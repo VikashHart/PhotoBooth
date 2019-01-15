@@ -91,9 +91,7 @@ class CameraViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
             if let url = URL(string: UIApplicationOpenSettingsURLString) {
-                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
-                    // Handle
-                })
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         })
 

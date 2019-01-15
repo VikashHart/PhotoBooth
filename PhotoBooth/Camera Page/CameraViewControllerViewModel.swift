@@ -84,24 +84,10 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
 
     func checkCameraAccess() -> Bool {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .denied:
-            print("Denied, request permission from settings")
-            return false
-        case .restricted:
-            print("Restricted, device owner must approve")
+        case .denied, .restricted, .notDetermined:
             return false
         case .authorized:
-            print("Authorized, proceed")
             return true
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { success in
-                if success {
-                    print("Permission granted, proceed")
-                } else {
-                    print("Permission denied")
-                }
-            }
-            return false
         }
     }
 
