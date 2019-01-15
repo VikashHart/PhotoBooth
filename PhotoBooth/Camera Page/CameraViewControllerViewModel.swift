@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import AVFoundation
 
 protocol CameraViewControllerViewModeling {
     var captureSession: PhotoCaptureable { get }
@@ -16,6 +17,7 @@ protocol CameraViewControllerViewModeling {
     func startShoot(onComplete: @escaping ((PhotoShootData) -> Void))
     func reset()
     func processCancellationAction(action: CancellationAction)
+    func checkCameraAccess() -> Bool
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -77,6 +79,29 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
             onStartNewShoot()
         case .dismiss:
             timer?.restartTimer()
+        }
+    }
+
+    func checkCameraAccess() -> Bool {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .denied:
+            print("Denied, request permission from settings")
+            return false
+        case .restricted:
+            print("Restricted, device owner must approve")
+            return false
+        case .authorized:
+            print("Authorized, proceed")
+            return true
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    print("Permission granted, proceed")
+                } else {
+                    print("Permission denied")
+                }
+            }
+            return false
         }
     }
 
