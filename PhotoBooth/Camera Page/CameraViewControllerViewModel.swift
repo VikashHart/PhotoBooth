@@ -17,7 +17,7 @@ protocol CameraViewControllerViewModeling {
     func startShoot(onComplete: @escaping ((PhotoShootData) -> Void))
     func reset()
     func processCancellationAction(action: CancellationAction)
-    func checkCameraAccess() -> Bool
+    func cameraAuthorizationStatusCheck() -> Bool
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -82,7 +82,7 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
         }
     }
 
-    func checkCameraAccess() -> Bool {
+    func cameraAuthorizationStatusCheck() -> Bool {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .denied, .restricted, .notDetermined:
             return false
