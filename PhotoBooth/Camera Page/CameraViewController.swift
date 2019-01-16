@@ -84,11 +84,30 @@ class CameraViewController: UIViewController {
         viewModel.captureSession.updateOrientation(orientation: videoOrientation)
     }
 
+    private func presentMissingCameraAccessAlert() {
+        let alertController = UIAlertController(title: "Looks like camera access is denied",
+                                                message: "In order to take pictures Lens needs access to your camera. To update your app permissions, click settings below.",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        })
+
+        present(alertController, animated: true)
+    }
+
     private func presentConfigurationCard() {
         let setupCardPartialModal = SetUpCardPartialModal(onConfigureFinalized: { [weak self] configuration, modal in
-            modal.dismiss()
-            self?.configureShoot(config: configuration)
-            self?.presentSwipeToCancelPrompt()
+            guard let strongSelf = self else { return }
+            if strongSelf.viewModel.cameraAuthorizationStatusCheck() {
+                modal.dismiss()
+                strongSelf.configureShoot(config: configuration)
+                strongSelf.presentSwipeToCancelPrompt()
+            } else {
+                strongSelf.presentMissingCameraAccessAlert()
+            }
         })
         middlePrompt.present(modal: setupCardPartialModal, animated: false)
     }

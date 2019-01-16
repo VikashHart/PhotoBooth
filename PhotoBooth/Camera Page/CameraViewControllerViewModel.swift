@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import AVFoundation
 
 protocol CameraViewControllerViewModeling {
     var captureSession: PhotoCaptureable { get }
@@ -16,6 +17,7 @@ protocol CameraViewControllerViewModeling {
     func startShoot(onComplete: @escaping ((PhotoShootData) -> Void))
     func reset()
     func processCancellationAction(action: CancellationAction)
+    func cameraAuthorizationStatusCheck() -> Bool
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -77,6 +79,15 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
             onStartNewShoot()
         case .dismiss:
             timer?.restartTimer()
+        }
+    }
+
+    func cameraAuthorizationStatusCheck() -> Bool {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .denied, .restricted, .notDetermined:
+            return false
+        case .authorized:
+            return true
         }
     }
 
