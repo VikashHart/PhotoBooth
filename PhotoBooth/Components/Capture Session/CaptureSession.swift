@@ -10,7 +10,28 @@ protocol PhotoCaptureable {
 
     func switchCamera()
 
+    func getFlashMode() -> AVCaptureDevice.FlashMode
+
+    func setFlashMode(mode: FlashModeOption)
+
+    func focus(touchLocation: CGPoint)
+
+    func minMaxZoom(_ factor: CGFloat) -> CGFloat
+
+    func updateZoomScaleFactor(scale factor: CGFloat)
+
     func updateOrientation(orientation: AVCaptureVideoOrientation)
+}
+
+enum FlashModeOption {
+    case on
+    case auto
+    case off
+}
+
+struct CameraZoom {
+    static let min: CGFloat = 1.0
+    static let max: CGFloat = 3.0
 }
 
 class PhotoCaptureableFactory {
@@ -31,7 +52,7 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     private var frontCamera: AVCaptureDevice?
     private var currentCamera: AVCaptureDevice?
     private var videoOrientation: AVCaptureVideoOrientation
-
+    private var currentFlashMode: AVCaptureDevice.FlashMode?
     private var photoOutput: AVCapturePhotoOutput?
     private let photoSessionPreset = AVCaptureSession.Preset.photo
 
@@ -53,10 +74,68 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         setupPhotoCaptureSession()
         setupDevices()
         setUpCaptureSessionInput(position: .front)
+        setFlashMode(mode: .off)
     }
 
     func captureImage(){
         takePhoto()
+    }
+
+    func getFlashMode() -> AVCaptureDevice.FlashMode {
+        return currentFlashMode!
+    }
+
+    func setFlashMode(mode: FlashModeOption) {
+        guard let camera = currentCamera else { return }
+        if camera.hasFlash {
+            switch mode {
+            case .on:
+                currentFlashMode = .on
+            case .auto:
+                currentFlashMode = .auto
+            default:
+                currentFlashMode = .off
+            }
+        }
+    }
+
+    func focus(touchLocation: CGPoint) {
+        let focusPoint = touchLocation
+
+        if let device = currentCamera {
+            do {
+                try device.lockForConfiguration()
+                if device.isFocusPointOfInterestSupported {
+                    device.focusPointOfInterest = focusPoint
+                    device.focusMode = AVCaptureDevice.FocusMode.autoFocus
+                }
+                if device.isExposurePointOfInterestSupported {
+                    device.exposurePointOfInterest = focusPoint
+                    device.exposureMode = AVCaptureDevice.ExposureMode.autoExpose
+                }
+                device.unlockForConfiguration()
+            } catch {
+                // Handle errors here
+                print("\(error.localizedDescription)")
+            }
+        }
+    }
+
+    // Return zoom value between the minimum and maximum zoom values
+    func minMaxZoom(_ factor: CGFloat) -> CGFloat {
+        return min(min(max(factor, CameraZoom.min), CameraZoom.max), currentCamera!.activeFormat.videoMaxZoomFactor)
+    }
+
+    func updateZoomScaleFactor(scale factor: CGFloat) {
+        if let device = currentCamera {
+            do {
+                try device.lockForConfiguration()
+                defer { device.unlockForConfiguration() }
+                device.videoZoomFactor = factor
+            } catch {
+                print("\(error.localizedDescription)")
+            }
+        }
     }
 
     func configurePreview(view: AVCapturePreviewView) {
@@ -90,9 +169,11 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     // This is the function that will be called when the take photo button is pressed.
     @objc func takePhoto() {
         sessionQueue.async {
+            guard let flashType = self.currentFlashMode else { return }
             self.photoOutput?.connection(with: .video)?.videoOrientation = self.videoOrientation
             let settings = AVCapturePhotoSettings()
             settings.isHighResolutionPhotoEnabled = true
+            settings.flashMode = flashType
             self.photoOutput?.capturePhoto(with: settings, delegate: self)
         }
     }
