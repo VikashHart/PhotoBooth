@@ -91,8 +91,6 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
             switch mode {
             case .on:
                 currentFlashMode = .on
-            case .auto:
-                currentFlashMode = .auto
             default:
                 currentFlashMode = .off
             }

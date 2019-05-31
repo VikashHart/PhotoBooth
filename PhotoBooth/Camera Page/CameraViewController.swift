@@ -250,7 +250,7 @@ class CameraViewController: UIViewController {
         case .changed: viewModel.captureSession.updateZoomScaleFactor(scale: newScaleFactor)
         case .ended:
             viewModel.updateZoomFactor(factor: newScaleFactor)
-            viewModel.captureSession.updateZoomScaleFactor(scale: viewModel.zoomFactor)
+            viewModel.captureSession.updateZoomScaleFactor(scale: newScaleFactor)
         default: break
         }
     }
