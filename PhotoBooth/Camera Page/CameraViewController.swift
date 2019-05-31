@@ -37,6 +37,9 @@ class CameraViewController: UIViewController {
         button.setImage(UIImage(named: "flash_off")?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
         button.layer.opacity = 1
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 22
+        button.layer.shadowOpacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -47,6 +50,9 @@ class CameraViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.tintColor = .white
         button.layer.opacity = 1
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 22
+        button.layer.shadowOpacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -181,36 +187,26 @@ class CameraViewController: UIViewController {
     }
 
     @objc func flashMode() {
+        var flashImage = UIImage()
         switch viewModel.flashType {
         case .on:
-            UIView.animate(withDuration: 0.1,
-                           animations: {
-                            self.flashButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-                            self.viewModel.toggleFlash()
-            },
-                           completion: { _ in
-                            UIView.animate(withDuration: 0.1) {
-                                print(self.viewModel.captureSession.getFlashMode().rawValue)
-                                self.flashButton.setImage(UIImage(named: "flash_off"), for: .normal)
-                                self.flashButton.transform = CGAffineTransform.identity
-                            }
-            })
+            flashImage = UIImage(named: "flash_off")!
         case .off:
-            UIView.animate(withDuration: 0.1,
-                           animations: {
-                            self.flashButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-                            self.viewModel.toggleFlash()
-            },
-                           completion: { _ in
-                            UIView.animate(withDuration: 0.1) {
-                                print(self.viewModel.captureSession.getFlashMode().rawValue)
-                                self.flashButton.setImage(UIImage(named: "flash_on"), for: .normal)
-                                self.flashButton.transform = CGAffineTransform.identity
-                            }
-            })
+            flashImage = UIImage(named: "flash_on")!
         default:
             break
         }
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.flashButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                        self.viewModel.toggleFlash()
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.flashButton.setImage(flashImage, for: .normal)
+                            self.flashButton.transform = CGAffineTransform.identity
+                        }
+        })
     }
 
     @objc private func rotateCamera() {
@@ -239,7 +235,6 @@ class CameraViewController: UIViewController {
 
     @objc func handleSingleTap(tapGesture: UITapGestureRecognizer) {
         let point = tapGesture.location(in: self.previewLayerContainer)
-        print("current point: \(point)")
         viewModel.captureSession.focus(touchLocation: point)
     }
 
