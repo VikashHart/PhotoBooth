@@ -190,11 +190,11 @@ class CameraViewController: UIViewController {
         var flashImage = UIImage()
         switch viewModel.flashType {
         case .on:
-            flashImage = UIImage(named: "flash_off")!
+            guard let offImage = UIImage(named: "flash_off") else { return }
+            flashImage = offImage
         case .off:
-            flashImage = UIImage(named: "flash_on")!
-        default:
-            break
+            guard let onImage = UIImage(named: "flash_on") else { return }
+            flashImage = onImage
         }
         UIView.animate(withDuration: 0.1,
                        animations: {

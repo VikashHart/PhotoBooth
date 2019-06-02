@@ -8,7 +8,7 @@ class MockSession: PhotoCaptureable {
     func minMaxZoom(_ factor: CGFloat) -> CGFloat {
         return CGFloat()
     }
-    func setFlashMode(mode: FlashModeOption) {
+    func setFlashMode(mode: FlashStatus) {
     }
     func focus(touchLocation: CGPoint) {
     }

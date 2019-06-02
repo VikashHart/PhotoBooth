@@ -9,7 +9,7 @@ protocol CameraViewControllerViewModeling {
     var capturedImages: [UIImage] { get }
     var zoomFactor: CGFloat { get }
     var cancelEnabled: Bool { get }
-    var flashType: FlashModeOption { get }
+    var flashType: FlashStatus { get }
     var photoShootConfiguration: PhotoShootConfiguration? { get }
     var onStartNewShoot: () -> Void { get }
     var onCountdownComplete: (() -> Void)? { get set }
@@ -31,7 +31,7 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var capturedImages = [UIImage]()
     private(set) var zoomFactor: CGFloat = 1.0
     private(set) var cancelEnabled: Bool = false
-    private(set) var flashType: FlashModeOption = .off
+    private(set) var flashType: FlashStatus = .off
     private var onShootComplete: ((PhotoShootData) -> Void)?
     private(set) var photoShootConfiguration: PhotoShootConfiguration?
     let onStartNewShoot: () -> Void

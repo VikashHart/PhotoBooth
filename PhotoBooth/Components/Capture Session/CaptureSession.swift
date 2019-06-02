@@ -1,39 +1,6 @@
 import UIKit
 import AVFoundation
 
-protocol PhotoCaptureable {
-    var onImageCaptured: ((ProcessedImage) -> Void)? { get set }
-
-    func captureImage()
-
-    func configurePreview(view: AVCapturePreviewView)
-
-    func switchCamera()
-
-    func getFlashMode() -> AVCaptureDevice.FlashMode
-
-    func setFlashMode(mode: FlashModeOption)
-
-    func focus(touchLocation: CGPoint)
-
-    func minMaxZoom(_ factor: CGFloat) -> CGFloat
-
-    func updateZoomScaleFactor(scale factor: CGFloat)
-
-    func updateOrientation(orientation: AVCaptureVideoOrientation)
-}
-
-enum FlashModeOption {
-    case on
-    case auto
-    case off
-}
-
-struct CameraZoom {
-    static let min: CGFloat = 1.0
-    static let max: CGFloat = 3.0
-}
-
 class PhotoCaptureableFactory {
     static func getPhotoCapturable() -> PhotoCaptureable {
         #if targetEnvironment(simulator)
@@ -85,7 +52,7 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
         return currentFlashMode!
     }
 
-    func setFlashMode(mode: FlashModeOption) {
+    func setFlashMode(mode: FlashStatus) {
         guard let camera = currentCamera else { return }
         if camera.hasFlash {
             switch mode {
@@ -121,7 +88,8 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
 
     // Return zoom value between the minimum and maximum zoom values
     func minMaxZoom(_ factor: CGFloat) -> CGFloat {
-        return min(min(max(factor, CameraZoom.min), CameraZoom.max), currentCamera!.activeFormat.videoMaxZoomFactor)
+        guard let camera = currentCamera else { return CameraZoom.min }
+        return min(min(max(factor, CameraZoom.min), CameraZoom.max), camera.activeFormat.videoMaxZoomFactor)
     }
 
     func updateZoomScaleFactor(scale factor: CGFloat) {
