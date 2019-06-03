@@ -7,7 +7,9 @@ protocol CameraViewControllerViewModeling {
     var timer: TimerModeling? { get }
     var numberOfPhotos: Int { get }
     var capturedImages: [UIImage] { get }
+    var zoomFactor: CGFloat { get }
     var cancelEnabled: Bool { get }
+    var flashType: FlashStatus { get }
     var photoShootConfiguration: PhotoShootConfiguration? { get }
     var onStartNewShoot: () -> Void { get }
     var onCountdownComplete: (() -> Void)? { get set }
@@ -18,6 +20,8 @@ protocol CameraViewControllerViewModeling {
     func reset()
     func processCancellationAction(action: CancellationAction)
     func cameraAuthorizationStatusCheck() -> Bool
+    func updateZoomFactor(factor: CGFloat)
+    func toggleFlash()
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -25,7 +29,9 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var timer: TimerModeling?
     private(set) var numberOfPhotos: Int = 0
     private(set) var capturedImages = [UIImage]()
+    private(set) var zoomFactor: CGFloat = 1.0
     private(set) var cancelEnabled: Bool = false
+    private(set) var flashType: FlashStatus = .off
     private var onShootComplete: ((PhotoShootData) -> Void)?
     private(set) var photoShootConfiguration: PhotoShootConfiguration?
     let onStartNewShoot: () -> Void
@@ -65,6 +71,7 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
         self.timer = nil
         self.numberOfPhotos = 0
         self.capturedImages = [UIImage]()
+        self.zoomFactor = 1.0
         self.cancelEnabled = false
     }
 
@@ -88,6 +95,23 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
             return false
         case .authorized:
             return true
+        }
+    }
+
+    func updateZoomFactor(factor: CGFloat) {
+        zoomFactor = factor
+    }
+
+    func toggleFlash() {
+        switch captureSession.getFlashMode() {
+        case .on:
+            flashType = .off
+            captureSession.setFlashMode(mode: .off)
+        case .off:
+            flashType = .on
+            captureSession.setFlashMode(mode: .on)
+        default:
+            return
         }
     }
 

@@ -31,6 +31,18 @@ class CameraViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
+    lazy var flashButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "flash_off")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        button.layer.opacity = 1
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 22
+        button.layer.shadowOpacity = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     lazy var switchCameraButton: UIButton = {
         let button = UIButton()
@@ -38,6 +50,9 @@ class CameraViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.tintColor = .white
         button.layer.opacity = 1
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 22
+        button.layer.shadowOpacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -61,12 +76,10 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-
         viewModel.captureSession.configurePreview(view: previewLayerContainer)
-        self.switchCameraButton.addTarget(self,
-                                                action: #selector(rotateCamera),
-                                                for: .touchUpInside)
         setupDownSwipeGesture()
+        setupButtons()
+        configureGestures()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -172,9 +185,41 @@ class CameraViewController: UIViewController {
             }
         }
     }
-    
+
+    @objc func flashMode() {
+        var flashImage = UIImage()
+        switch viewModel.flashType {
+        case .on:
+            guard let offImage = UIImage(named: "flash_off") else { return }
+            flashImage = offImage
+        case .off:
+            guard let onImage = UIImage(named: "flash_on") else { return }
+            flashImage = onImage
+        }
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.flashButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                        self.viewModel.toggleFlash()
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.flashButton.setImage(flashImage, for: .normal)
+                            self.flashButton.transform = CGAffineTransform.identity
+                        }
+        })
+    }
+
     @objc private func rotateCamera() {
-        viewModel.captureSession.switchCamera()
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.viewModel.captureSession.switchCamera()
+                        self.switchCameraButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.switchCameraButton.transform = CGAffineTransform.identity
+                        }
+        })
     }
     
     @objc private func cancelPhotoBoothSession() {
@@ -187,11 +232,62 @@ class CameraViewController: UIViewController {
             presentCancelationPartialModal()
         }
     }
+
+    @objc func handleSingleTap(tapGesture: UITapGestureRecognizer) {
+        let point = tapGesture.location(in: self.previewLayerContainer)
+        viewModel.captureSession.focus(touchLocation: point)
+    }
+
+    @objc func handleDoubleTap() {
+        viewModel.captureSession.switchCamera()
+    }
+
+    @objc func pinch(_ pinch: UIPinchGestureRecognizer) {
+        let newScaleFactor = viewModel.captureSession.minMaxZoom(pinch.scale * viewModel.zoomFactor)
+
+        switch pinch.state {
+        case .began: fallthrough
+        case .changed: viewModel.captureSession.updateZoomScaleFactor(scale: newScaleFactor)
+        case .ended:
+            viewModel.updateZoomFactor(factor: newScaleFactor)
+            viewModel.captureSession.updateZoomScaleFactor(scale: newScaleFactor)
+        default: break
+        }
+    }
+
+    private func setupButtons() {
+        switchCameraButton.addTarget(self,
+                                     action: #selector(rotateCamera),
+                                     for: .touchUpInside)
+        flashButton.addTarget(self,
+                              action: #selector(flashMode),
+                              for: .touchUpInside)
+    }
+
+    private func configureGestures() {
+        // Single Tap
+        let singleTap: UITapGestureRecognizer =  UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(tapGesture:)))
+        singleTap.numberOfTapsRequired = 1
+        previewLayerContainer.addGestureRecognizer(singleTap)
+
+        // Double Tap
+        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
+        doubleTap.numberOfTapsRequired = 2
+        previewLayerContainer.addGestureRecognizer(doubleTap)
+
+        singleTap.require(toFail: doubleTap)
+        singleTap.delaysTouchesBegan = true
+        doubleTap.delaysTouchesBegan = true
+
+        let pinchToZoom: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch(_:)))
+        previewLayerContainer.addGestureRecognizer(pinchToZoom)
+    }
     
     private func setupViews() {
         setupPreviewLayerContainer()
         setupCountdownView()
         setupSwitchCameraButton()
+        setupFlashButton()
         setUpMiddlePromptContainer()
         setupFlashView()
     }
@@ -223,6 +319,16 @@ class CameraViewController: UIViewController {
             switchCameraButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             switchCameraButton.widthAnchor.constraint(equalToConstant: 40),
             switchCameraButton.heightAnchor.constraint(equalToConstant: 40)
+            ])
+    }
+
+    private func setupFlashButton() {
+        previewLayerContainer.addSubview(flashButton)
+        NSLayoutConstraint.activate([
+            flashButton.topAnchor.constraint(equalTo: switchCameraButton.bottomAnchor, constant: 16),
+            flashButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            flashButton.heightAnchor.constraint(equalToConstant: 40),
+            flashButton.widthAnchor.constraint(equalToConstant: 40)
             ])
     }
 
