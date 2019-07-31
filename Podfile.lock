@@ -46,6 +46,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
+  - Motion (3.0.0):
+    - Motion/Core (= 3.0.0)
+  - Motion/Core (3.0.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -61,6 +64,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
   - Fabric (~> 1.9.0)
   - Firebase/Core
+  - Motion (from `https://github.com/CosmicMind/Motion.git`, branch `swift-4.2`)
   - Nimble (~> 7.3.1)
   - Quick (~> 1.3.2)
   - RxSwift (~> 4.4.0)
@@ -81,6 +85,16 @@ SPEC REPOS:
     - RxAtomic
     - RxSwift
 
+EXTERNAL SOURCES:
+  Motion:
+    :branch: swift-4.2
+    :git: https://github.com/CosmicMind/Motion.git
+
+CHECKOUT OPTIONS:
+  Motion:
+    :commit: abcfc10c2409d89ebafdd8d25938ac806e7cb528
+    :git: https://github.com/CosmicMind/Motion.git
+
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
@@ -90,12 +104,13 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  Motion: c89835c7ed7e6c36ca35b7f3327927d132238aed
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
 
-PODFILE CHECKSUM: 1a79f020b541dc66767ac4603a5657fc32bff21a
+PODFILE CHECKSUM: 3a2584e16b5f1c9ce6a3546ad1c771eacd87889a
 
 COCOAPODS: 1.5.3
