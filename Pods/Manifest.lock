@@ -53,6 +53,9 @@ PODS:
   - nanopb/encode (0.3.901)
   - Nimble (7.3.1)
   - Quick (1.3.2)
+  - RxAtomic (4.4.2)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
@@ -60,6 +63,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Nimble (~> 7.3.1)
   - Quick (~> 1.3.2)
+  - RxSwift (~> 4.4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -74,6 +78,8 @@ SPEC REPOS:
     - nanopb
     - Nimble
     - Quick
+    - RxAtomic
+    - RxSwift
 
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
@@ -87,7 +93,9 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
 
-PODFILE CHECKSUM: c06672ce010295ab9c57fd50aaa78c9e3e001b8c
+PODFILE CHECKSUM: 1a79f020b541dc66767ac4603a5657fc32bff21a
 
 COCOAPODS: 1.5.3
