@@ -1,4 +1,5 @@
 import UIKit
+import Motion
 
 class PreviewView: UIView {
 
@@ -11,6 +12,7 @@ class PreviewView: UIView {
         image.backgroundColor = .black
         image.layer.masksToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.motionIdentifier = viewModel.imageIdentifier
         return image
     }()
 
