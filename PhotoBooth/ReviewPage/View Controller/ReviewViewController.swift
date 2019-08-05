@@ -55,7 +55,7 @@ class ReviewViewController: UIViewController {
 
     func openShareMenu() {
         let activityVC = UIActivityViewController(activityItems: viewModel.selectedImages, applicationActivities: nil)
-        activityVC.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+        activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
                 // User canceled
                 self.viewModel.postShareCancelled()
