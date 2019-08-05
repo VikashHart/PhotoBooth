@@ -3,9 +3,7 @@ import RxSwift
 
 class ReviewPageView: UIView {
 
-    var viewModel: ReviewPageViewModeling = ReviewPageViewModel(isSelectHidden: false,
-                                                                isShareActive: false,
-                                                                selectionCountObservable:  Observable.just(0)) {
+    var viewModel: ReviewPageViewModeling = ReviewPageViewModel(selectionCountObservable:  Observable.just(0)) {
         didSet {
             updateUI()
         }

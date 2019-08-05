@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 
 protocol ReviewPageViewModeling {
-    var isShareActive: Bool { get set }
+    var isShareActive: Bool { get }
     var isCancelHidden: Bool { get }
     var isSelectHidden: Bool { get set }
     var isDoneHidden: Bool { get }
@@ -26,7 +26,7 @@ class ReviewPageViewModel: ReviewPageViewModeling {
         return isSelectHidden
     }
 
-    var isShareActive: Bool {
+    private(set) var isShareActive: Bool {
         didSet {
             onSelectChanged?()
         }
