@@ -91,7 +91,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         Analytics.logEvent("share_cancelled", parameters: parameters)
     }
 
-    func postShareCompleted(activityType: UIActivityType) {
+    func postShareCompleted(activityType: UIActivity.ActivityType) {
         let imageOrientations = selectedImages.map { image in
             return image.orientation.description
         }

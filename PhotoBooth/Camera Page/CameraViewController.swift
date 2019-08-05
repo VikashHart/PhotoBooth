@@ -103,8 +103,8 @@ class CameraViewController: UIViewController {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
-            if let url = URL(string: UIApplicationOpenSettingsURLString) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }
         })
 
@@ -365,4 +365,9 @@ extension CameraViewController: UIGestureRecognizerDelegate {
         Analytics.logEvent("invalid_swipe_event",
                            parameters: viewModel.photoShootConfiguration?.parameters ?? [:])
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
