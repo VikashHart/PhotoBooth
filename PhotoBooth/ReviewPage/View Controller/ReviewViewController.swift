@@ -1,5 +1,4 @@
 import UIKit
-import Motion
 
 class ReviewViewController: UIViewController {
 
@@ -28,7 +27,6 @@ class ReviewViewController: UIViewController {
         self.reviewView.shareButton.addTarget(self,
                                               action: #selector(shareSelected),
                                               for: .touchUpInside)
-        self.isMotionEnabled = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -55,7 +53,7 @@ class ReviewViewController: UIViewController {
 
     func openShareMenu() {
         let activityVC = UIActivityViewController(activityItems: viewModel.selectedImages, applicationActivities: nil)
-        activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+        activityVC.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
                 // User canceled
                 self.viewModel.postShareCancelled()
@@ -97,14 +95,6 @@ class ReviewViewController: UIViewController {
             reviewView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-    private func updateFooter() {
-        switch viewModel.selectedIndices.count {
-        case 0: reviewView.showFooter(false)
-        case 1: reviewView.showFooter(true)
-        default: break
-        }
-    }
 }
 
 extension ReviewViewController: UICollectionViewDelegate {
@@ -115,9 +105,8 @@ extension ReviewViewController: UICollectionViewDelegate {
         if self.viewModel.isSelectable == true {
             cell.viewModel.isSelected.toggle()
             cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
-            updateFooter()
         } else {
-            let previewVC = PreviewViewController(image: cell.viewModel.image, imageIdentifier: indexPath.description)
+            let previewVC = PreviewViewController(image: cell.viewModel.image)
             present(previewVC, animated: true, completion: nil)
         }
     }
@@ -130,10 +119,8 @@ extension ReviewViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = reviewView.collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else { return UICollectionViewCell() }
-        let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
-        cell.viewModel = viewModel
-        cell.photoImageView.image = viewModel.image
-        cell.photoImageView.motionIdentifier = indexPath.description
+        cell.viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
+        cell.photoImageView.image = cell.viewModel.image
         return cell
     }
 }

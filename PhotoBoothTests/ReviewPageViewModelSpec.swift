@@ -1,7 +1,6 @@
 import UIKit
 import Quick
 import Nimble
-import RxSwift
 @testable import PhotoBooth
 
 class ReviewPageViewModelSpec: QuickSpec {
@@ -10,19 +9,12 @@ class ReviewPageViewModelSpec: QuickSpec {
         var viewModel: ReviewPageViewModel!
         var onSelectChanged: (() -> Void)!
         var didChange: Bool!
-        var subject: BehaviorSubject<Int>!
 
-        fdescribe("ReviewPageViewModel") {
-            beforeEach {
-                subject = BehaviorSubject(value: 0)
-            }
-
+        describe("ReviewPageViewModel") {
             context("When isSelectHidden is equal to false") {
 
                 beforeEach {
-                    viewModel = ReviewPageViewModel(isSelectHidden: false,
-                                                    isShareActive: false,
-                                                    selectionCountObservable: subject.asObservable())
+                    viewModel = ReviewPageViewModel(isSelectHidden: false, isShareActive: false)
                 }
 
                 it("isDoneHidden should be true") {
@@ -37,9 +29,7 @@ class ReviewPageViewModelSpec: QuickSpec {
             context("When isSelectHidden is equal to true") {
 
                 beforeEach {
-                    viewModel = ReviewPageViewModel(isSelectHidden: true,
-                                                    isShareActive: false,
-                                                    selectionCountObservable: subject.asObservable())
+                    viewModel = ReviewPageViewModel(isSelectHidden: true, isShareActive: false)
                 }
 
                 it("isDoneHidden should be false") {
@@ -51,15 +41,10 @@ class ReviewPageViewModelSpec: QuickSpec {
                 }
             }
 
-            context("When selection count is 0") {
+            context("When isShareActive is equal to false") {
 
                 beforeEach {
-                    subject.onNext(0)
-                    viewModel = ReviewPageViewModel(selectionCountObservable: subject.asObservable())
-                }
-
-                it("changes isShareActive to false") {
-                    expect(viewModel.isShareActive).to(beFalse())
+                    viewModel = ReviewPageViewModel(isSelectHidden: false, isShareActive: false)
                 }
 
                 it("shareColor should be lightGray") {
@@ -67,15 +52,10 @@ class ReviewPageViewModelSpec: QuickSpec {
                 }
             }
 
-            context("When selection count goes above 0") {
+            context("When isShareActive is equal to true") {
 
                 beforeEach {
-                    viewModel = ReviewPageViewModel(selectionCountObservable: subject.asObservable())
-                    subject.onNext(1)
-                }
-
-                it("changes isShareActive to true") {
-                    expect(viewModel.isShareActive).to(beTrue())
+                    viewModel = ReviewPageViewModel(isSelectHidden: false, isShareActive: true)
                 }
 
                 it("shareColor should be photoBoothBlue") {

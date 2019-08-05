@@ -1,5 +1,4 @@
 import UIKit
-import Motion
 
 class PreviewViewController: UIViewController {
 
@@ -17,17 +16,14 @@ class PreviewViewController: UIViewController {
         previewView.backButton.addTarget(self,
                                            action: #selector(backSelected),
                                            for: .touchUpInside)
-        self.isMotionEnabled = true
-
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
 
-    init(image: UIImage, imageIdentifier: String) {
-        self.viewModel = PreviewViewControllerModel(image: image,
-                                                    imageIdentifier: imageIdentifier)
+    init(image: UIImage) {
+        self.viewModel = PreviewViewControllerModel(image: image)
         super.init(nibName: nil, bundle: nil)
     }
 

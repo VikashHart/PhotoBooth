@@ -22,5 +22,5 @@ protocol ReviewViewControllerModeling {
     func selectPressed()
     func donePressed()
     func postShareCancelled()
-    func postShareCompleted(activityType: UIActivity.ActivityType)
+    func postShareCompleted(activityType: UIActivityType)
 }

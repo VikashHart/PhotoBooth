@@ -1,23 +1,14 @@
 import UIKit
-import RxSwift
 
 class ReviewViewControllerModel: ReviewViewControllerModeling {
-    lazy var reviewViewModel: ReviewPageViewModeling = {
-        return ReviewPageViewModel(selectionCountObservable:
-            selectedIndicesSubject
-                .asObservable()
-                .debug()
-                .map({$0.count})
-        )
-    }()
-
+    var reviewViewModel: ReviewPageViewModeling
     private var capturedImages: [UIImage] {
         return data.images
     }
     let data: PhotoShootData
     var selectedIndices: [IndexPath] {
         didSet {
-            selectedIndicesSubject.onNext(selectedIndices)
+            updateShareState()
         }
     }
     var selectedImages: [UIImage] {
@@ -25,10 +16,6 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
             return capturedImages[indexPath.row]
         })
     }
-
-    private lazy var selectedIndicesSubject: BehaviorSubject<[IndexPath]> = {
-        return BehaviorSubject(value: selectedIndices)
-    }()
 
     let cellSpacing: CGFloat
     let numberOfCells: CGFloat
@@ -38,11 +25,13 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     var reloadIndices: (([IndexPath]) -> Void)?
     var onShareToggled: ((Bool) -> Void)?
 
-    init(selectedIndices: [IndexPath] = [IndexPath](),
+    init(reviewViewModel: ReviewPageViewModeling = ReviewPageViewModel(isSelectHidden: false, isShareActive: false),
+         selectedIndices: [IndexPath] = [IndexPath](),
          cellSpacing: CGFloat = 5,
          numCells: CGFloat = 2,
          isSelectable: Bool = false,
          data: PhotoShootData) {
+        self.reviewViewModel = reviewViewModel
         self.selectedIndices = selectedIndices
         self.cellSpacing = cellSpacing
         self.numberOfCells = numCells
@@ -91,7 +80,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         Analytics.logEvent("share_cancelled", parameters: parameters)
     }
 
-    func postShareCompleted(activityType: UIActivity.ActivityType) {
+    func postShareCompleted(activityType: UIActivityType) {
         let imageOrientations = selectedImages.map { image in
             return image.orientation.description
         }
@@ -99,6 +88,10 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
                           "selected_image_count" : selectedIndices.count,
                           "image_orientations": imageOrientations] + data.parameters
         Analytics.logEvent("share_completed", parameters: parameters)
+    }
+    
+    private func updateShareState() {
+        reviewViewModel.isShareActive = !selectedIndices.isEmpty
     }
 
     private func clearSelectedItems() {

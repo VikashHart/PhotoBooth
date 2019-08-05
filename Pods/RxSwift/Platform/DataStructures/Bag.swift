@@ -171,8 +171,8 @@ extension Bag {
 }
 
 extension BagKey: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(rawValue)
+    var hashValue: Int {
+        return rawValue.hashValue
     }
 }
 

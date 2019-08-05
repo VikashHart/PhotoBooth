@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "RxAtomic.h"
 
-FOUNDATION_EXPORT double MotionVersionNumber;
-FOUNDATION_EXPORT const unsigned char MotionVersionString[];
+FOUNDATION_EXPORT double RxAtomicVersionNumber;
+FOUNDATION_EXPORT const unsigned char RxAtomicVersionString[];
 

@@ -70,7 +70,7 @@ class CountdownIndicatorView: UIView {
     private func setupPulsingLayer() {
         layer.addSublayer(pulseLayer)
         drawBezierPath()
-        pulseLayer.lineCap = CAShapeLayerLineCap.round
+        pulseLayer.lineCap = kCALineCapRound
         pulseLayer.fillColor = UIColor.photoBoothBlue.withAlphaComponent(0.8).cgColor
     }
 
@@ -89,7 +89,7 @@ class CountdownIndicatorView: UIView {
         pulsingAnimation.duration = 0.5
         pulsingAnimation.autoreverses = true
         pulsingAnimation.repeatCount = 1
-        pulsingAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        pulsingAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 
         pulseLayer.add(pulsingAnimation, forKey: "pulsing")
     }
