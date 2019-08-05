@@ -7,7 +7,8 @@ protocol PreviewViewControllerModeling {
 class PreviewViewControllerModel: PreviewViewControllerModeling {
     var previewViewModel: PreviewViewModel
 
-    init(image: UIImage) {
-        self.previewViewModel = PreviewViewModel(image: image)
+    init(image: UIImage, imageIdentifier: String) {
+        self.previewViewModel = PreviewViewModel(image: image,
+                                                 imageIdentifier: imageIdentifier)
     }
 }

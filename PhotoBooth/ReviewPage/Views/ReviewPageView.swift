@@ -1,9 +1,11 @@
 import UIKit
+import RxSwift
 
 class ReviewPageView: UIView {
 
     var viewModel: ReviewPageViewModeling = ReviewPageViewModel(isSelectHidden: false,
-                                                                isShareActive: false) {
+                                                                isShareActive: false,
+                                                                selectionCountObservable:  Observable.just(0)) {
         didSet {
             updateUI()
         }
@@ -94,6 +96,8 @@ class ReviewPageView: UIView {
         return button
     }()
 
+    private var footerBottomConstraint: NSLayoutConstraint?
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -104,6 +108,15 @@ class ReviewPageView: UIView {
         super.init(frame: .zero)
         commonInit()
         bindUiToViewModel()
+    }
+
+    func showFooter(_ visibile: Bool) {
+        let yOffset = visibile ? 0 : frame.height - footerView.frame.origin.y
+        footerBottomConstraint?.constant = yOffset
+
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
     }
 
     private func commonInit() {
@@ -167,22 +180,31 @@ class ReviewPageView: UIView {
 
     private func setupCollectionView() {
         addSubview(collectionView)
+
+        let collectionViewBottom = collectionView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor)
+        collectionViewBottom.priority = .required
+
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: navBarUIView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionViewBottom
             ])
     }
 
     private func setupFooterView() {
         addSubview(footerView)
+
+        footerBottomConstraint = footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 100)
+
         NSLayoutConstraint.activate([
-            footerView.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            footerView.topAnchor.constraint(greaterThanOrEqualTo: collectionView.bottomAnchor),
             footerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             footerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             footerView.heightAnchor.constraint(equalToConstant: 44),
-            footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-            ])
+            footerBottomConstraint,
+            ].compactMap({$0})
+        )
     }
 
     private func setupShareButton() {
