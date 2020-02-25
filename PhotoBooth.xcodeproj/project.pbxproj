@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810ACBB122B5DEA1002DE469 /* BackdropSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBB022B5DEA1002DE469 /* BackdropSelectorView.swift */; };
+		810ACBB422B7422D002DE469 /* BackdropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBB322B7422D002DE469 /* BackdropViewController.swift */; };
+		810ACBB622B74294002DE469 /* BackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBB522B74294002DE469 /* BackdropView.swift */; };
+		810ACBB822B742A7002DE469 /* BackdropCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBB722B742A7002DE469 /* BackdropCell.swift */; };
+		810ACBBA22B80FBF002DE469 /* BackdropViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBB922B80FBF002DE469 /* BackdropViewControllerViewModel.swift */; };
+		810ACBD022C3C054002DE469 /* BackdropObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBCF22C3C054002DE469 /* BackdropObject.swift */; };
+		810ACBD222C3C075002DE469 /* BackdropObjectModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ACBD122C3C075002DE469 /* BackdropObjectModeling.swift */; };
 		811A89D421C83BF800AA3D3D /* ProcessedImage+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A89D321C83BF800AA3D3D /* ProcessedImage+Analytics.swift */; };
 		811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A89D521C8415B00AA3D3D /* Dictionary+MergeOperator.swift */; };
 		811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811F9A0F21484B660079EA7E /* AppDelegate.swift */; };
@@ -37,6 +44,7 @@
 		814956FC21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814956FB21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift */; };
 		814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F10492154650B0066CCD5 /* CameraViewController.swift */; };
 		814F104C2154654F0066CCD5 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F104B2154654F0066CCD5 /* MockSession.swift */; };
+		8152536922DE2A5400E0F243 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152536822DE2A5400E0F243 /* CoordinatorProtocol.swift */; };
 		8161FBE1218116DB001A7063 /* PhotoStepperViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */; };
 		8174574D21598D7E00F612F6 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574C21598D7E00F612F6 /* PromptView.swift */; };
 		8174574F21598DA800F612F6 /* SetupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174574E21598DA800F612F6 /* SetupCardView.swift */; };
@@ -60,6 +68,8 @@
 		81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570721CCCD78001595DD /* PreviewViewModel.swift */; };
 		81B4570A21CCD37A001595DD /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570921CCD37A001595DD /* PreviewViewController.swift */; };
 		81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4570B21CCD5AB001595DD /* PreviewViewControllerViewModel.swift */; };
+		81BAE50D22F22F5400B16C50 /* BackdropImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAE50C22F22F5400B16C50 /* BackdropImages.swift */; };
+		81BAE50F22F87A6200B16C50 /* NoSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAE50E22F87A6200B16C50 /* NoSelectionCell.swift */; };
 		81CA8CA02194F87200170F1A /* CountdownTimerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */; };
 		81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */; };
 		81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */; };
@@ -76,6 +86,9 @@
 		81F6B35721BB4705006A7BED /* CancellationPartialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35621BB4705006A7BED /* CancellationPartialModalView.swift */; };
 		81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */; };
 		81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */; };
+		81F9FF3A2335522A0018AA58 /* BackdropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9FF392335522A0018AA58 /* BackdropViewModel.swift */; };
+		81F9FF48233731310018AA58 /* BackdropViewModelModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9FF47233731310018AA58 /* BackdropViewModelModeling.swift */; };
+		81FFAEEF22E24D3B009558B0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FFAEEE22E24D3B009558B0 /* MainCoordinator.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -83,6 +96,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		81F9FF4323372F220018AA58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81F9FF3D23372F220018AA58 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		81F9FF4523372F220018AA58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81F9FF3D23372F220018AA58 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 		C72BE89A21751A88003C047E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 811F9A0421484B660079EA7E /* Project object */;
@@ -96,6 +123,13 @@
 		1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth_PhotoBoothTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D389BACCFB6A3D7F40DAAF /* Pods-PhotoBooth-PhotoBoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth-PhotoBoothTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests.release.xcconfig"; sourceTree = "<group>"; };
 		3DFCDBC024AD4C950711D037 /* Pods-PhotoBooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth.debug.xcconfig"; sourceTree = "<group>"; };
+		810ACBB022B5DEA1002DE469 /* BackdropSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropSelectorView.swift; sourceTree = "<group>"; };
+		810ACBB322B7422D002DE469 /* BackdropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropViewController.swift; sourceTree = "<group>"; };
+		810ACBB522B74294002DE469 /* BackdropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropView.swift; sourceTree = "<group>"; };
+		810ACBB722B742A7002DE469 /* BackdropCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropCell.swift; sourceTree = "<group>"; };
+		810ACBB922B80FBF002DE469 /* BackdropViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropViewControllerViewModel.swift; sourceTree = "<group>"; };
+		810ACBCF22C3C054002DE469 /* BackdropObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropObject.swift; sourceTree = "<group>"; };
+		810ACBD122C3C075002DE469 /* BackdropObjectModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropObjectModeling.swift; sourceTree = "<group>"; };
 		811A89D321C83BF800AA3D3D /* ProcessedImage+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessedImage+Analytics.swift"; sourceTree = "<group>"; };
 		811A89D521C8415B00AA3D3D /* Dictionary+MergeOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+MergeOperator.swift"; sourceTree = "<group>"; };
 		811F9A0C21484B660079EA7E /* PhotoBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +162,7 @@
 		814956FB21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Orientations.swift"; sourceTree = "<group>"; };
 		814F10492154650B0066CCD5 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		814F104B2154654F0066CCD5 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		8152536822DE2A5400E0F243 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		8161FBE0218116DB001A7063 /* PhotoStepperViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStepperViewModelSpec.swift; sourceTree = "<group>"; };
 		8174574C21598D7E00F612F6 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		8174574E21598DA800F612F6 /* SetupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardView.swift; sourceTree = "<group>"; };
@@ -151,6 +186,8 @@
 		81B4570721CCCD78001595DD /* PreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewModel.swift; sourceTree = "<group>"; };
 		81B4570921CCD37A001595DD /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		81B4570B21CCD5AB001595DD /* PreviewViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerViewModel.swift; sourceTree = "<group>"; };
+		81BAE50C22F22F5400B16C50 /* BackdropImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropImages.swift; sourceTree = "<group>"; };
+		81BAE50E22F87A6200B16C50 /* NoSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSelectionCell.swift; sourceTree = "<group>"; };
 		81CA8C9F2194F87200170F1A /* CountdownTimerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerSpec.swift; sourceTree = "<group>"; };
 		81CA8CA12195319A00170F1A /* CountdownIndicatorViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownIndicatorViewModelSpec.swift; sourceTree = "<group>"; };
 		81CA8CA321A5EEE900170F1A /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +204,10 @@
 		81F6B35621BB4705006A7BED /* CancellationPartialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationPartialModalView.swift; sourceTree = "<group>"; };
 		81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModeling.swift; sourceTree = "<group>"; };
 		81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModel.swift; sourceTree = "<group>"; };
+		81F9FF392335522A0018AA58 /* BackdropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropViewModel.swift; sourceTree = "<group>"; };
+		81F9FF3D23372F220018AA58 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GPUImage.xcodeproj; sourceTree = "<group>"; };
+		81F9FF47233731310018AA58 /* BackdropViewModelModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropViewModelModeling.swift; sourceTree = "<group>"; };
+		81FFAEEE22E24D3B009558B0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
@@ -205,9 +246,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		810ACBAF22B5DE42002DE469 /* Backdrop Selector */ = {
+			isa = PBXGroup;
+			children = (
+				810ACBB022B5DEA1002DE469 /* BackdropSelectorView.swift */,
+			);
+			path = "Backdrop Selector";
+			sourceTree = "<group>";
+		};
+		810ACBB222B741E8002DE469 /* Backdrop Page */ = {
+			isa = PBXGroup;
+			children = (
+				810ACBB922B80FBF002DE469 /* BackdropViewControllerViewModel.swift */,
+				810ACBB322B7422D002DE469 /* BackdropViewController.swift */,
+				810ACBB522B74294002DE469 /* BackdropView.swift */,
+				810ACBB722B742A7002DE469 /* BackdropCell.swift */,
+				81BAE50E22F87A6200B16C50 /* NoSelectionCell.swift */,
+			);
+			path = "Backdrop Page";
+			sourceTree = "<group>";
+		};
+		810ACBCE22C3BFFF002DE469 /* Backdrop Object */ = {
+			isa = PBXGroup;
+			children = (
+				810ACBD122C3C075002DE469 /* BackdropObjectModeling.swift */,
+				810ACBCF22C3C054002DE469 /* BackdropObject.swift */,
+				81F9FF392335522A0018AA58 /* BackdropViewModel.swift */,
+				81F9FF47233731310018AA58 /* BackdropViewModelModeling.swift */,
+			);
+			path = "Backdrop Object";
+			sourceTree = "<group>";
+		};
 		811F9A0321484B660079EA7E = {
 			isa = PBXGroup;
 			children = (
+				81F9FF3C233728770018AA58 /* Libraries */,
 				811F9A0E21484B660079EA7E /* PhotoBooth */,
 				C72BE89621751A88003C047E /* PhotoBoothTests */,
 				811F9A0D21484B660079EA7E /* Products */,
@@ -233,6 +306,7 @@
 				814956DD21C5C3D300CE3AD9 /* Camera Page */,
 				814956DE21C5C48200CE3AD9 /* Components */,
 				811F9A1B21484B680079EA7E /* Info.plist */,
+				810ACBB222B741E8002DE469 /* Backdrop Page */,
 				81B4570121CCB2A7001595DD /* Preview Page */,
 				814956D821C5B35800CE3AD9 /* ReviewPage */,
 				814956E921C5CABE00CE3AD9 /* Storyboards */,
@@ -308,13 +382,17 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				81BAE50B22F2241900B16C50 /* Backdrop Images */,
+				8152536722DE29A500E0F243 /* Coordinator */,
 				814956E721C5C97400CE3AD9 /* Prompts */,
 				814956E121C5C57600CE3AD9 /* Analytics */,
 				814956E021C5C55D00CE3AD9 /* Styles */,
 				814956DF21C5C4F200CE3AD9 /* Capture Session */,
+				810ACBCE22C3BFFF002DE469 /* Backdrop Object */,
 				814956E321C5C64A00CE3AD9 /* Timer */,
 				814956E421C5C6D400CE3AD9 /* Countdown Indicator */,
 				814956E521C5C70600CE3AD9 /* Stepper */,
+				810ACBAF22B5DE42002DE469 /* Backdrop Selector */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -449,6 +527,15 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8152536722DE29A500E0F243 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8152536822DE2A5400E0F243 /* CoordinatorProtocol.swift */,
+				81FFAEEE22E24D3B009558B0 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		81B4570121CCB2A7001595DD /* Preview Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +569,31 @@
 				81B4570521CCB3C8001595DD /* PreviewView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		81BAE50B22F2241900B16C50 /* Backdrop Images */ = {
+			isa = PBXGroup;
+			children = (
+				81BAE50C22F22F5400B16C50 /* BackdropImages.swift */,
+			);
+			path = "Backdrop Images";
+			sourceTree = "<group>";
+		};
+		81F9FF3C233728770018AA58 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				81F9FF3D23372F220018AA58 /* GPUImage.xcodeproj */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		81F9FF3E23372F220018AA58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81F9FF4423372F220018AA58 /* libGPUImage.a */,
+				81F9FF4623372F220018AA58 /* GPUImage.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
@@ -589,6 +701,12 @@
 			mainGroup = 811F9A0321484B660079EA7E;
 			productRefGroup = 811F9A0D21484B660079EA7E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 81F9FF3E23372F220018AA58 /* Products */;
+					ProjectRef = 81F9FF3D23372F220018AA58 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				811F9A0B21484B660079EA7E /* PhotoBooth */,
@@ -596,6 +714,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		81F9FF4423372F220018AA58 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 81F9FF4323372F220018AA58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		81F9FF4623372F220018AA58 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 81F9FF4523372F220018AA58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		811F9A0A21484B660079EA7E /* Resources */ = {
@@ -700,6 +835,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth-PhotoBoothTests/Pods-PhotoBooth-PhotoBoothTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -707,6 +844,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
@@ -724,11 +863,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBooth/Pods-PhotoBooth-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,6 +886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810ACBB622B74294002DE469 /* BackdropView.swift in Sources */,
 				812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */,
 				812704B52176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift in Sources */,
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
@@ -750,11 +894,16 @@
 				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
+				810ACBD022C3C054002DE469 /* BackdropObject.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
 				812704B321740B2A00545143 /* SetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
+				810ACBB822B742A7002DE469 /* BackdropCell.swift in Sources */,
 				814956F421C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift in Sources */,
+				8152536922DE2A5400E0F243 /* CoordinatorProtocol.swift in Sources */,
+				81F9FF48233731310018AA58 /* BackdropViewModelModeling.swift in Sources */,
 				81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */,
+				810ACBD222C3C075002DE469 /* BackdropObjectModeling.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */,
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
 				81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */,
@@ -767,6 +916,7 @@
 				81B4570A21CCD37A001595DD /* PreviewViewController.swift in Sources */,
 				818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */,
 				814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */,
+				81BAE50D22F22F5400B16C50 /* BackdropImages.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
 				811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */,
 				818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */,
@@ -775,8 +925,11 @@
 				81F6B35721BB4705006A7BED /* CancellationPartialModalView.swift in Sources */,
 				81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
+				810ACBB122B5DEA1002DE469 /* BackdropSelectorView.swift in Sources */,
 				811A89D421C83BF800AA3D3D /* ProcessedImage+Analytics.swift in Sources */,
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
+				81F9FF3A2335522A0018AA58 /* BackdropViewModel.swift in Sources */,
+				81BAE50F22F87A6200B16C50 /* NoSelectionCell.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
 				818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */,
@@ -794,8 +947,11 @@
 				8131077C22A35D520019BBC6 /* CameraZoom.swift in Sources */,
 				81B4570621CCB3C8001595DD /* PreviewView.swift in Sources */,
 				814956F621C71CAA00CE3AD9 /* PhotoShootData+Analytics.swift in Sources */,
+				81FFAEEF22E24D3B009558B0 /* MainCoordinator.swift in Sources */,
 				814956FC21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift in Sources */,
 				818360BA218CCFD100238022 /* CountdownIndicatorView.swift in Sources */,
+				810ACBB422B7422D002DE469 /* BackdropViewController.swift in Sources */,
+				810ACBBA22B80FBF002DE469 /* BackdropViewControllerViewModel.swift in Sources */,
 				8131077A22A1BD280019BBC6 /* FlashStatus.swift in Sources */,
 				81CA8CB021A9E29400170F1A /* ReviewCellViewModel.swift in Sources */,
 			);

@@ -17,6 +17,13 @@ class SetupCardView: UIView {
         return label
     }()
 
+    lazy var backdropButton: BackdropSelector = {
+        let button = BackdropSelector()
+        button.backdropButton.addTarget(self, action: #selector(selectBackdrop(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     lazy var photosStepperContainerUIView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +91,7 @@ class SetupCardView: UIView {
 
     private func setupViews() {
         setupHeaderLabel()
+        setupBackdropSelection()
         setupPhotoStepper()
         setupPhotosColorBar()
         setupTimerStepper()
@@ -94,16 +102,25 @@ class SetupCardView: UIView {
     private func setupHeaderLabel() {
         addSubview(headerLabel)
         NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
+            headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            ])
+    }
+
+    private func setupBackdropSelection() {
+        addSubview(backdropButton)
+        NSLayoutConstraint.activate([
+            backdropButton.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
+            backdropButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            backdropButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
             ])
     }
 
     private func setupPhotoStepper() {
         addSubview(photoStepper)
         NSLayoutConstraint.activate([
-            photoStepper.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
+            photoStepper.topAnchor.constraint(equalTo: backdropButton.bottomAnchor, constant: 30),
             photoStepper.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             photoStepper.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             ])
@@ -141,12 +158,16 @@ class SetupCardView: UIView {
     private func setupStartShootButton() {
         addSubview(startShootButton)
         NSLayoutConstraint.activate([
-            startShootButton.topAnchor.constraint(equalTo: timerColorBar.bottomAnchor, constant: 50),
+            startShootButton.topAnchor.constraint(equalTo: timerColorBar.bottomAnchor, constant: 40),
             startShootButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             startShootButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             startShootButton.heightAnchor.constraint(equalToConstant: 44),
             startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
             ])
+    }
+
+    @objc private func selectBackdrop(sender: UIButton) {
+
     }
 
     @objc private func completeConfiguration(sender: UIButton) {

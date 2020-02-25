@@ -12,6 +12,7 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var coordinator: MainCoordinator?
     var window: UIWindow?
     var orientationLock = UIInterfaceOrientationMask.all
 
@@ -19,11 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         AnalyticsStore.get().configure()
 
-        let cameraVC = CameraViewController()
+        let navController = UINavigationController()
+        coordinator = MainCoordinator(navigationController: navController)
+        coordinator?.start()
+
+//        let cameraVC = CameraViewController()
 
         //Window setup
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = cameraVC
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
 
         return true

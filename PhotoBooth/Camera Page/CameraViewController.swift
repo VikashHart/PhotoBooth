@@ -3,6 +3,8 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
 
+    weak var coordinator: MainCoordinator?
+
     lazy var viewModel: CameraViewControllerViewModeling = {
         let viewModel = CameraViewControllerViewModel() {
             [weak self] in
@@ -82,6 +84,11 @@ class CameraViewController: UIViewController {
         configureGestures()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presentConfigurationCard()
@@ -154,8 +161,7 @@ class CameraViewController: UIViewController {
     }
 
     private func presentReviewPage(data: PhotoShootData) {
-        let reviewVC = ReviewViewController(data: data)
-        present(reviewVC, animated: true, completion: nil)
+        coordinator?.presentReviewVC(data: data)
         viewModel.reset()
         countdownView.isHidden = true
     }
@@ -210,16 +216,17 @@ class CameraViewController: UIViewController {
     }
 
     @objc private func rotateCamera() {
-        UIView.animate(withDuration: 0.1,
-                       animations: {
-                        self.viewModel.captureSession.switchCamera()
-                        self.switchCameraButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-        },
-                       completion: { _ in
-                        UIView.animate(withDuration: 0.1) {
-                            self.switchCameraButton.transform = CGAffineTransform.identity
-                        }
-        })
+        coordinator?.presentBackdropVC()
+//        UIView.animate(withDuration: 0.1,
+//                       animations: {
+//                        self.viewModel.captureSession.switchCamera()
+//                        self.switchCameraButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+//        },
+//                       completion: { _ in
+//                        UIView.animate(withDuration: 0.1) {
+//                            self.switchCameraButton.transform = CGAffineTransform.identity
+//                        }
+//        })
     }
     
     @objc private func cancelPhotoBoothSession() {
@@ -231,6 +238,11 @@ class CameraViewController: UIViewController {
         } else {
             presentCancelationPartialModal()
         }
+    }
+
+    @objc private func presentBackdropVC() {
+        let backdropVC = BackdropViewController()
+        present(backdropVC, animated: true, completion: nil)
     }
 
     @objc func handleSingleTap(tapGesture: UITapGestureRecognizer) {

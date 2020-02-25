@@ -2,6 +2,7 @@ import UIKit
 
 class ReviewViewController: UIViewController {
 
+    weak var coordinator: MainCoordinator?
     private var viewModel: ReviewViewControllerModeling
 
     lazy var reviewView: ReviewPageView = {
@@ -67,7 +68,7 @@ class ReviewViewController: UIViewController {
     }
 
     @objc func cancelSelected() {
-        dismiss(animated: true, completion: nil)
+        coordinator?.dismiss()
     }
 
     @objc func selectSelected() {
@@ -106,8 +107,7 @@ extension ReviewViewController: UICollectionViewDelegate {
             cell.viewModel.isSelected.toggle()
             cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
         } else {
-            let previewVC = PreviewViewController(image: cell.viewModel.image)
-            present(previewVC, animated: true, completion: nil)
+            coordinator?.presentPreviewVC(image: cell.viewModel.image)
         }
     }
 }

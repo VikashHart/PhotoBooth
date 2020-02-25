@@ -2,6 +2,7 @@ import UIKit
 
 class PreviewViewController: UIViewController {
 
+    weak var coordinator: MainCoordinator?
     private let viewModel: PreviewViewControllerModel
 
     lazy var previewView: PreviewView = {
@@ -28,7 +29,7 @@ class PreviewViewController: UIViewController {
     }
 
     @objc private func backSelected() {
-        dismiss(animated: true, completion: nil)
+        coordinator?.dismiss()
     }
 
     private func setupPreviewView() {
