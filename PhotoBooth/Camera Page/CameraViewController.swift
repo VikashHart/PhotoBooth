@@ -36,10 +36,13 @@ class CameraViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "flash_off")?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         button.layer.opacity = 1
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowRadius = 22
         button.layer.shadowOpacity = 1
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -49,10 +52,13 @@ class CameraViewController: UIViewController {
         let image = UIImage(named: "rotate_camera")?.withRenderingMode(.alwaysTemplate)
         button.setImage(image, for: .normal)
         button.tintColor = .white
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         button.layer.opacity = 1
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowRadius = 22
         button.layer.shadowOpacity = 1
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -210,9 +216,9 @@ class CameraViewController: UIViewController {
     }
 
     @objc private func rotateCamera() {
+        self.viewModel.captureSession.switchCamera()
         UIView.animate(withDuration: 0.1,
                        animations: {
-                        self.viewModel.captureSession.switchCamera()
                         self.switchCameraButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
         },
                        completion: { _ in
@@ -286,8 +292,8 @@ class CameraViewController: UIViewController {
     private func setupViews() {
         setupPreviewLayerContainer()
         setupCountdownView()
-        setupSwitchCameraButton()
         setupFlashButton()
+        setupSwitchCameraButton()
         setUpMiddlePromptContainer()
         setupFlashView()
     }
@@ -311,24 +317,24 @@ class CameraViewController: UIViewController {
             countdownView.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
+
+    private func setupFlashButton() {
+            previewLayerContainer.addSubview(flashButton)
+            NSLayoutConstraint.activate([
+                flashButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -48),
+                flashButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+                flashButton.heightAnchor.constraint(equalToConstant: 50),
+                flashButton.widthAnchor.constraint(equalToConstant: 50)
+                ])
+        }
     
     private func setupSwitchCameraButton() {
         previewLayerContainer.addSubview(switchCameraButton)
         NSLayoutConstraint.activate([
-            switchCameraButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            switchCameraButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            switchCameraButton.widthAnchor.constraint(equalToConstant: 40),
-            switchCameraButton.heightAnchor.constraint(equalToConstant: 40)
-            ])
-    }
-
-    private func setupFlashButton() {
-        previewLayerContainer.addSubview(flashButton)
-        NSLayoutConstraint.activate([
-            flashButton.topAnchor.constraint(equalTo: switchCameraButton.bottomAnchor, constant: 16),
-            flashButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            flashButton.heightAnchor.constraint(equalToConstant: 40),
-            flashButton.widthAnchor.constraint(equalToConstant: 40)
+            switchCameraButton.bottomAnchor.constraint(equalTo: flashButton.topAnchor, constant: -8),
+            switchCameraButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            switchCameraButton.widthAnchor.constraint(equalToConstant: 50),
+            switchCameraButton.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
 

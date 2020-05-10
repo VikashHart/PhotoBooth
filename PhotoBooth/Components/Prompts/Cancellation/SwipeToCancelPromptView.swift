@@ -7,6 +7,9 @@ class SwipeToCancelPromptView: UIView {
     lazy var labelContainer: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        view.addBlurEffect()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

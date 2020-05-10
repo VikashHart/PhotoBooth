@@ -11,7 +11,7 @@ class CustomStepper: UIView {
         button.imageEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
         button.tintColor = UIColor.photoBoothBlue
         button.contentMode = .center
-        button.backgroundColor = .white
+        button.backgroundColor = .clear
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -22,10 +22,10 @@ class CustomStepper: UIView {
     lazy var stepperLabel: UILabel = {
         let label = UILabel()
         label.text = "# of _ selected"
-        label.font = UIFont.regularFont(size: 18)
+        label.font = UIFont.regularFont(size: 14)
         label.textAlignment = .center
-        label.textColor = .black
-        label.backgroundColor = .white
+        label.textColor = .white
+        label.backgroundColor = .clear
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class CustomStepper: UIView {
         button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.tintColor = UIColor.photoBoothBlue
         button.contentMode = .center
-        button.backgroundColor = .white
+        button.backgroundColor = .clear
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -50,12 +50,20 @@ class CustomStepper: UIView {
     init(viewModel: StepperViewModeling) {
         self.viewModel = viewModel
         super.init(frame: .zero)
-        setupConstraints()
+        commonInit()
         updateUI()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+
+    private func commonInit() {
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.white.cgColor
+        setupConstraints()
     }
 
     private func setupConstraints() {
@@ -68,9 +76,9 @@ class CustomStepper: UIView {
         addSubview(stepperMinusButton)
         NSLayoutConstraint.activate([
             stepperMinusButton.topAnchor.constraint(equalTo: topAnchor),
-            stepperMinusButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stepperMinusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             stepperMinusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stepperMinusButton.heightAnchor.constraint(equalToConstant: 35),
+            stepperMinusButton.heightAnchor.constraint(equalToConstant: 40),
             stepperMinusButton.widthAnchor.constraint(equalTo: stepperMinusButton.heightAnchor)
             ])
     }
@@ -79,9 +87,9 @@ class CustomStepper: UIView {
         addSubview(stepperPlusButton)
         NSLayoutConstraint.activate([
             stepperPlusButton.topAnchor.constraint(equalTo: topAnchor),
-            stepperPlusButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stepperPlusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             stepperPlusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stepperPlusButton.heightAnchor.constraint(equalToConstant: 35),
+            stepperPlusButton.heightAnchor.constraint(equalToConstant: 40),
             stepperPlusButton.widthAnchor.constraint(equalTo: stepperPlusButton.heightAnchor)
             ])
     }
@@ -93,7 +101,7 @@ class CustomStepper: UIView {
             stepperLabel.leadingAnchor.constraint(equalTo: stepperMinusButton.trailingAnchor),
             stepperLabel.trailingAnchor.constraint(equalTo: stepperPlusButton.leadingAnchor),
             stepperLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stepperLabel.heightAnchor.constraint(equalToConstant: 35)
+            stepperLabel.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
 
