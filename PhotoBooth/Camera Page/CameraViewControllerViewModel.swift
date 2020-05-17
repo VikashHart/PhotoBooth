@@ -4,6 +4,7 @@ import AVFoundation
 
 protocol CameraViewControllerViewModeling {
     var captureSession: PhotoCaptureable { get }
+    var AVAuthorizationStatus: Bool { get }
     var timer: TimerModeling? { get }
     var numberOfPhotos: Int { get }
     var capturedImages: [UIImage] { get }
@@ -19,13 +20,15 @@ protocol CameraViewControllerViewModeling {
     func startShoot(onComplete: @escaping ((PhotoShootData) -> Void))
     func reset()
     func processCancellationAction(action: CancellationAction)
-    func cameraAuthorizationStatusCheck() -> Bool
     func updateZoomFactor(factor: CGFloat)
     func toggleFlash()
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var captureSession: PhotoCaptureable
+    var AVAuthorizationStatus: Bool {
+        authorizationFactory.getAVAuthorizationStatus()
+    }
     private(set) var timer: TimerModeling?
     private(set) var numberOfPhotos: Int = 0
     private(set) var capturedImages = [UIImage]()
@@ -36,10 +39,13 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var photoShootConfiguration: PhotoShootConfiguration?
     let onStartNewShoot: () -> Void
     var onCountdownComplete: (() -> Void)?
+    private let authorizationFactory: AVAuthorization
 
     init(captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable(),
+         authorizationFactory: AVAuthorization = AVAuthorizationFactory(),
          onStartNewShoot: @escaping () -> Void) {
         self.captureSession = captureSession
+        self.authorizationFactory = authorizationFactory
         self.onStartNewShoot = onStartNewShoot
         self.captureSession.onImageCaptured = { [weak self] processedImage in
             self?.postImageCapturedEvent(processedImage: processedImage)
@@ -86,15 +92,6 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
             onStartNewShoot()
         case .dismiss:
             timer?.restartTimer()
-        }
-    }
-
-    func cameraAuthorizationStatusCheck() -> Bool {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .denied, .restricted, .notDetermined:
-            return false
-        case .authorized:
-            return true
         }
     }
 

@@ -9,6 +9,8 @@ extension AVCaptureDevice.Position {
             return "back"
         case .front:
             return "front"
+        @unknown default:
+            return "unknown future case position"
         }
     }
 }

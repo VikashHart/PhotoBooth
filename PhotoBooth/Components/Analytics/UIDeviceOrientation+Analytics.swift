@@ -11,6 +11,8 @@ extension UIDeviceOrientation {
             return "flat"
         case .unknown:
             return "unknown"
+        @unknown default:
+            return "unknown future case orientation"
         }
     }
 }

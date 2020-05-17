@@ -17,7 +17,7 @@ struct Environment: EnvironmentProtocol {
         let analyticsString = settings["Analytics Enabled"] as! String
         analyticsEnabled = analyticsString == "YES"
 
-        print(analyticsEnabled)
+        print("Analytics Enabled: \(analyticsEnabled)")
     }
 }
 
