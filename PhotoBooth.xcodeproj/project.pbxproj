@@ -77,7 +77,7 @@
 		81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */; };
 		81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */; };
 		A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */; };
-		A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationFactory.swift */; };
+		A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -171,7 +171,7 @@
 		81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModel.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorization.swift; sourceTree = "<group>"; };
-		A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationFactory.swift; sourceTree = "<group>"; };
+		A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationProvider.swift; sourceTree = "<group>"; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
 		C72BE89921751A88003C047E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 				814956FB21C82F6100CE3AD9 /* AVCaptureVideoOrientation+Orientations.swift */,
 				8131077922A1BD280019BBC6 /* FlashStatus.swift */,
 				8131077B22A35D510019BBC6 /* CameraZoom.swift */,
-				A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationFactory.swift */,
+				A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */,
 			);
 			path = "Capture Session";
 			sourceTree = "<group>";
@@ -743,7 +743,7 @@
 			files = (
 				812704B12174002500545143 /* TimeIntervalStepperViewModel.swift in Sources */,
 				812704B52176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift in Sources */,
-				A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationFactory.swift in Sources */,
+				A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */,
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
 				814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */,
 				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,

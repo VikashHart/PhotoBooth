@@ -1,7 +1,7 @@
 import Foundation
 import AVFoundation
 
-class AVAuthorizationFactory: AVAuthorization {
+class AVAuthorizationProvider: AVAuthorization {
     func getAVAuthorizationStatus() -> Bool {
         return cameraAuthorizationStatusCheck()
     }

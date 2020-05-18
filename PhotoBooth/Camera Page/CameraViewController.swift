@@ -114,7 +114,7 @@ class CameraViewController: UIViewController {
     private func presentConfigurationCard() {
         let setupCardPartialModal = SetUpCardPartialModal(onConfigureFinalized: { [weak self] configuration, modal in
             guard let strongSelf = self else { return }
-            if strongSelf.viewModel.AVAuthorizationStatus {
+            if strongSelf.viewModel.permissionStatus {
                 modal.dismiss()
                 strongSelf.configureShoot(config: configuration)
                 strongSelf.presentSwipeToCancelPrompt()

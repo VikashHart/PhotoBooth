@@ -4,7 +4,7 @@ import AVFoundation
 
 protocol CameraViewControllerViewModeling {
     var captureSession: PhotoCaptureable { get }
-    var AVAuthorizationStatus: Bool { get }
+    var permissionStatus: Bool { get }
     var timer: TimerModeling? { get }
     var numberOfPhotos: Int { get }
     var capturedImages: [UIImage] { get }
@@ -26,8 +26,8 @@ protocol CameraViewControllerViewModeling {
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var captureSession: PhotoCaptureable
-    var AVAuthorizationStatus: Bool {
-        authorizationFactory.getAVAuthorizationStatus()
+    var permissionStatus: Bool {
+        authorizationProvider.getAVAuthorizationStatus()
     }
     private(set) var timer: TimerModeling?
     private(set) var numberOfPhotos: Int = 0
@@ -39,13 +39,13 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
     private(set) var photoShootConfiguration: PhotoShootConfiguration?
     let onStartNewShoot: () -> Void
     var onCountdownComplete: (() -> Void)?
-    private let authorizationFactory: AVAuthorization
+    private let authorizationProvider: AVAuthorization
 
     init(captureSession: PhotoCaptureable = PhotoCaptureableFactory.getPhotoCapturable(),
-         authorizationFactory: AVAuthorization = AVAuthorizationFactory(),
+         authorizationProvider: AVAuthorization = AVAuthorizationProvider(),
          onStartNewShoot: @escaping () -> Void) {
         self.captureSession = captureSession
-        self.authorizationFactory = authorizationFactory
+        self.authorizationProvider = authorizationProvider
         self.onStartNewShoot = onStartNewShoot
         self.captureSession.onImageCaptured = { [weak self] processedImage in
             self?.postImageCapturedEvent(processedImage: processedImage)
