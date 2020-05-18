@@ -118,6 +118,7 @@ extension ReviewViewController: UICollectionViewDelegate {
             updateFooter()
         } else {
             let previewVC = PreviewViewController(image: cell.viewModel.image, imageIdentifier: indexPath.description)
+            previewVC.modalPresentationStyle = .fullScreen
             present(previewVC, animated: true, completion: nil)
         }
     }

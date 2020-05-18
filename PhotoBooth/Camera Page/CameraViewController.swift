@@ -114,7 +114,7 @@ class CameraViewController: UIViewController {
     private func presentConfigurationCard() {
         let setupCardPartialModal = SetUpCardPartialModal(onConfigureFinalized: { [weak self] configuration, modal in
             guard let strongSelf = self else { return }
-            if strongSelf.viewModel.cameraAuthorizationStatusCheck() {
+            if strongSelf.viewModel.permissionStatus {
                 modal.dismiss()
                 strongSelf.configureShoot(config: configuration)
                 strongSelf.presentSwipeToCancelPrompt()
@@ -155,6 +155,7 @@ class CameraViewController: UIViewController {
 
     private func presentReviewPage(data: PhotoShootData) {
         let reviewVC = ReviewViewController(data: data)
+        reviewVC.modalPresentationStyle = .fullScreen
         present(reviewVC, animated: true, completion: nil)
         viewModel.reset()
         countdownView.isHidden = true

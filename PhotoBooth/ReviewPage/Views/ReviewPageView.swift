@@ -94,7 +94,8 @@ class ReviewPageView: UIView {
         return button
     }()
 
-    private var footerBottomConstraint: NSLayoutConstraint?
+    private var footerTopToViewBottom: NSLayoutConstraint?
+    private var footerBottomToSafeAreaBottom: NSLayoutConstraint?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -108,9 +109,30 @@ class ReviewPageView: UIView {
         bindUiToViewModel()
     }
 
+    private func footerActivate() {
+        footerTopToViewBottom?.isActive = false
+        footerBottomToSafeAreaBottom?.isActive = true
+
+        collectionView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 44,right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0,left: 0,bottom: 44,right: 0)
+    }
+
+    private func footerDeactivate() {
+        footerBottomToSafeAreaBottom?.isActive = false
+        footerTopToViewBottom?.isActive = true
+
+        collectionView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
+
+    }
+
     func showFooter(_ visibile: Bool) {
-        let yOffset = visibile ? 0 : frame.height - footerView.frame.origin.y
-        footerBottomConstraint?.constant = yOffset
+        switch visibile {
+        case true:
+            self.footerActivate()
+        case false:
+            self.footerDeactivate()
+        }
 
         UIView.animate(withDuration: 0.2) {
             self.layoutIfNeeded()
@@ -178,31 +200,26 @@ class ReviewPageView: UIView {
 
     private func setupCollectionView() {
         addSubview(collectionView)
-
-        let collectionViewBottom = collectionView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor)
-        collectionViewBottom.priority = .required
-
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: navBarUIView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewBottom
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
             ])
     }
 
     private func setupFooterView() {
         addSubview(footerView)
 
-        footerBottomConstraint = footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 100)
+        footerTopToViewBottom = footerView.topAnchor.constraint(equalTo: bottomAnchor)
+        footerBottomToSafeAreaBottom = footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
 
         NSLayoutConstraint.activate([
-            footerView.topAnchor.constraint(greaterThanOrEqualTo: collectionView.bottomAnchor),
             footerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             footerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            footerView.heightAnchor.constraint(equalToConstant: 44),
-            footerBottomConstraint,
-            ].compactMap({$0})
-        )
+            footerView.heightAnchor.constraint(equalToConstant: 44)
+            ])
+        footerTopToViewBottom?.isActive = true
     }
 
     private func setupShareButton() {
