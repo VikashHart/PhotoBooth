@@ -1,41 +1,21 @@
 import Foundation
 import Firebase
 
-protocol EnvironmentProtocol {
-    var analyticsEnabled: Bool { get }
-}
-
-struct Environment: EnvironmentProtocol {
-    static let shared: Environment = Environment()
-    let analyticsEnabled: Bool
-
-    private init() {
-        let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
-        let plist = NSDictionary(contentsOfFile: path) as! [AnyHashable: Any]
-        let settings = plist["Settings"] as! [AnyHashable: Any]
-
-        let analyticsString = settings["Analytics Enabled"] as! String
-        analyticsEnabled = analyticsString == "YES"
-
-        print("Analytics Enabled: \(analyticsEnabled)")
-    }
-}
-
-protocol AnalyticsTracker {
-    func configure()
+protocol MetricsTracker {
+    func configureMetrics()
     func logEvent(_ name: String, parameters: [String: Any])
 }
 
-class AnalyticsStore {
-    static let store = AnalyticsStore()
-    private var tracker: AnalyticsTracker = FirebaseAnalyticsTracker()
+class MetricsStore {
+    static let store = MetricsStore()
+    private var tracker: MetricsTracker = FirebaseMetricsTracker()
 
-    static func get() -> AnalyticsTracker { return store.tracker }
+    static func get() -> MetricsTracker { return store.tracker }
 }
 
 class Analytics {
     static func logEvent(_ name: String, parameters: [String: Any]) {
-        AnalyticsStore.get().logEvent(name, parameters: parameters)
+        MetricsStore.get().logEvent(name, parameters: parameters)
     }
 }
 
@@ -46,12 +26,12 @@ class Analytics {
  // checkbox in the Run section
  */
 
-class FirebaseAnalyticsTracker: AnalyticsTracker {
+class FirebaseMetricsTracker: MetricsTracker {
     private var isActive: Bool {
-        return Environment.shared.analyticsEnabled
+        return Environment.shared.productionEnabled
     }
 
-    func configure() {
+    func configureMetrics() {
         guard isActive else { return }
         FirebaseApp.configure()
     }
