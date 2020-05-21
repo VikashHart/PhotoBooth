@@ -100,6 +100,7 @@ PODS:
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.4.0)
+  - lottie-ios (3.1.8)
   - Motion (3.1.3):
     - Motion/Core (= 3.1.3)
   - Motion/Core (3.1.3)
@@ -119,6 +120,7 @@ DEPENDENCIES:
   - FirebaseAnalytics (~> 6.5.0)
   - FirebaseCrashlytics (~> 4.1.0)
   - FirebasePerformance (~> 3.1.11)
+  - lottie-ios (~> 3.1.8)
   - Motion (~> 3.1.1)
   - Nimble (~> 7.3.3)
   - Quick (~> 1.3.2)
@@ -143,6 +145,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
+    - lottie-ios
     - Motion
     - nanopb
     - Nimble
@@ -169,6 +172,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
@@ -177,6 +181,6 @@ SPEC CHECKSUMS:
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 7d75063d95053a988c3f347f9b7ab32be3a20f9d
+PODFILE CHECKSUM: eb04cf416a31d9c426ab40d876caaadc620c3a93
 
 COCOAPODS: 1.9.1

@@ -2,32 +2,26 @@ import Foundation
 import Firebase
 
 protocol EnvironmentProtocol {
-    var metricsEnabled: Bool { get }
-    func configure()
+    var productionEnabled: Bool { get }
 }
 
 struct Environment: EnvironmentProtocol {
     static let shared: Environment = Environment()
-    let metricsEnabled: Bool
+    let productionEnabled: Bool
 
     private init() {
         #if DEBUG
-        self.metricsEnabled = false
+        self.productionEnabled = false
         #else
-        self.metricsEnabled = true
+        self.productionEnabled = true
         #endif
 
         print("""
 
             --- Metrics Enabled ---
-            Analytics: \(metricsEnabled)
-            Performance: \(metricsEnabled)
+            Analytics: \(productionEnabled)
+            Performance: \(productionEnabled)
 
             """)
-    }
-
-    func configure() {
-        guard metricsEnabled else { return }
-        FirebaseApp.configure()
     }
 }
