@@ -3,7 +3,6 @@ import UIKit
 import AVFoundation
 
 protocol CameraViewControllerViewModeling {
-    var captureSession: PhotoCaptureable { get }
     var permissionStatus: Bool { get }
     var timer: TimerModeling? { get }
     var numberOfPhotos: Int { get }
@@ -22,6 +21,12 @@ protocol CameraViewControllerViewModeling {
     func processCancellationAction(action: CancellationAction)
     func updateZoomFactor(factor: CGFloat)
     func toggleFlash()
+    func configurePreview(view: AVCapturePreviewView)
+    func updateOrientation(orientation: AVCaptureVideoOrientation)
+    func switchCamera()
+    func focus(touchLocation: CGPoint)
+    func minMaxZoom(_ factor: CGFloat) -> CGFloat
+    func updateZoomScaleFactor(scale factor: CGFloat)
 }
 
 class CameraViewControllerViewModel: CameraViewControllerViewModeling {
@@ -110,6 +115,30 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
         default:
             return
         }
+    }
+
+    func configurePreview(view: AVCapturePreviewView) {
+        captureSession.configurePreview(view: view)
+    }
+
+    func updateOrientation(orientation: AVCaptureVideoOrientation) {
+        captureSession.updateOrientation(orientation: orientation)
+    }
+
+    func switchCamera() {
+        captureSession.switchCamera()
+    }
+
+    func focus(touchLocation: CGPoint) {
+        captureSession.focus(touchLocation: touchLocation)
+    }
+
+    func minMaxZoom(_ factor: CGFloat) -> CGFloat {
+        captureSession.minMaxZoom(factor)
+    }
+
+    func updateZoomScaleFactor(scale factor: CGFloat) {
+        captureSession.updateZoomScaleFactor(scale: factor)
     }
 
     private func getPhotoShootData() -> PhotoShootData {

@@ -1,7 +1,7 @@
 import Foundation
 
 class SetupCardViewModel: SetupCardViewModeling {
-    let titleText = "Set up your photoshoot"
+    let titleText = StyleGuide.AppCopy.CameraVC.setupCardHeaderTitle
 
     private let _photoStepperViewModel: PhotoStepperViewModel
     private let _timerStepperViewModel: TimeIntervalStepperViewModel
