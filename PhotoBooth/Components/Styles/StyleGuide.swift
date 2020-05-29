@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 enum StyleGuide {
     enum Assets {
@@ -25,5 +26,16 @@ enum StyleGuide {
             static let lhAlertButtonText = "Settings"
             static let rhAlertButtonText = "Cancel"
         }
+    }
+
+    enum HapticFeedbackType {
+        @available(iOS 13.0, *)
+        static let primaryFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.soft
+        static let fallbackFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.medium
+
+    }
+
+    enum StaticAppNumbers {
+        static let shimmerDelay: TimeInterval = 8
     }
 }

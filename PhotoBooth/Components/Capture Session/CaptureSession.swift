@@ -72,11 +72,11 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
                 try device.lockForConfiguration()
                 if device.isFocusPointOfInterestSupported {
                     device.focusPointOfInterest = focusPoint
-                    device.focusMode = AVCaptureDevice.FocusMode.autoFocus
+                    device.focusMode = AVCaptureDevice.FocusMode.continuousAutoFocus
                 }
                 if device.isExposurePointOfInterestSupported {
                     device.exposurePointOfInterest = focusPoint
-                    device.exposureMode = AVCaptureDevice.ExposureMode.autoExpose
+                    device.exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
                 }
                 device.unlockForConfiguration()
             } catch {

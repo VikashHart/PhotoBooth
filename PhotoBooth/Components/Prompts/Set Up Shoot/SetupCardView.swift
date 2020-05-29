@@ -9,7 +9,7 @@ class SetupCardView: UIView {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
-        view.addBlurEffect()
+        view.addBlurEffect(blurStyle: .light)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -193,7 +193,8 @@ class SetupCardView: UIView {
     }
 
     private func animateShimmer() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+        DispatchQueue.main.asyncAfter(deadline:
+        .now() + StyleGuide.StaticAppNumbers.shimmerDelay) {
             let shimmerMask = UIView(frame: self.startShootButton.bounds)
             shimmerMask.layer.cornerRadius = self.startShootButton.layer.cornerRadius
             UIView.animate(withDuration: 1,
@@ -214,6 +215,16 @@ class SetupCardView: UIView {
     }
 
     @objc private func completeConfiguration(sender: UIButton) {
+        if #available(iOS 13.0, *) {
+            let generator = UIImpactFeedbackGenerator(style: StyleGuide.HapticFeedbackType.primaryFeedbackStyle)
+            generator.prepare()
+            generator.impactOccurred()
+        } else {
+            // Fallback on earlier versions
+            let generator = UIImpactFeedbackGenerator(style: StyleGuide.HapticFeedbackType.fallbackFeedbackStyle)
+            generator.prepare()
+            generator.impactOccurred()
+        }
         viewModel.finalizeConfiguration()
     }
 }

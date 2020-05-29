@@ -40,7 +40,7 @@ class CameraViewController: UIViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         view.layer.cornerRadius = 25
         view.layer.masksToBounds = true
-        view.addBlurEffect()
+        view.addBlurEffect(blurStyle: .light)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -61,7 +61,7 @@ class CameraViewController: UIViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         view.layer.cornerRadius = 25
         view.layer.masksToBounds = true
-        view.addBlurEffect()
+        view.addBlurEffect(blurStyle: .light)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
