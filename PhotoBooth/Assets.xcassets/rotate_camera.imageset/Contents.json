@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-switch_camera.png",
+      "filename" : "icons8-update_left_rotation-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons8-update_left_rotation-2.png",
       "scale" : "2x"
     },
     {

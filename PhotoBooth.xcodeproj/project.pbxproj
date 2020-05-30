@@ -79,6 +79,10 @@
 		A14499542476106D00100B7C /* MetricsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14499532476106C00100B7C /* MetricsProvider.swift */; };
 		A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */; };
 		A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */; };
+		A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */; };
+		A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19A2478685700329532 /* StyleGuide.swift */; };
+		A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */; };
+		A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -174,6 +178,10 @@
 		A14499532476106C00100B7C /* MetricsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsProvider.swift; sourceTree = "<group>"; };
 		A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorization.swift; sourceTree = "<group>"; };
 		A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationProvider.swift; sourceTree = "<group>"; };
+		A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BlurEffect.swift"; sourceTree = "<group>"; };
+		A1EDE19A2478685700329532 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
+		A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFocusAnimation.swift; sourceTree = "<group>"; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
 		C72BE89921751A88003C047E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -315,6 +323,7 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1EDE1972477781000329532 /* Extensions */,
 				814956E721C5C97400CE3AD9 /* Prompts */,
 				814956E121C5C57600CE3AD9 /* Analytics */,
 				814956E021C5C55D00CE3AD9 /* Styles */,
@@ -338,6 +347,7 @@
 				8131077922A1BD280019BBC6 /* FlashStatus.swift */,
 				8131077B22A35D510019BBC6 /* CameraZoom.swift */,
 				A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */,
+				A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */,
 			);
 			path = "Capture Session";
 			sourceTree = "<group>";
@@ -345,6 +355,7 @@
 		814956E021C5C55D00CE3AD9 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				A1EDE19A2478685700329532 /* StyleGuide.swift */,
 				81745754216ACF5B00F612F6 /* UIStyles.swift */,
 				814956D621C5B19900CE3AD9 /* AppUtility.swift */,
 			);
@@ -491,6 +502,15 @@
 				81B4570521CCB3C8001595DD /* PreviewView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A1EDE1972477781000329532 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */,
+				A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
@@ -749,6 +769,7 @@
 				812704B52176540100545143 /* SetupCardViewModeling+PhotoShootConfiguration.swift in Sources */,
 				A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */,
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
+				A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */,
 				814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */,
 				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
@@ -762,6 +783,7 @@
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
 				81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */,
 				814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */,
+				A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */,
 				814956D321C323A400CE3AD9 /* AnalyticsFactory.swift in Sources */,
 				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
 				818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */,
@@ -782,6 +804,8 @@
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
+				A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */,
+				A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */,
 				818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */,
 				81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */,
 				8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */,

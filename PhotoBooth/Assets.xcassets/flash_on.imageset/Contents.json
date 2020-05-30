@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-flash_on_filled.png",
+      "filename" : "icons8-flash_on.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons8-flash_on-1.png",
       "scale" : "2x"
     },
     {

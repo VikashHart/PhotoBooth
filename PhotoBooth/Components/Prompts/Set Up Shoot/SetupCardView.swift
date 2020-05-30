@@ -4,60 +4,79 @@ class SetupCardView: UIView {
 
     private let viewModel: SetupCardViewModeling
 
+    lazy var UIContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        view.addBlurEffect(blurStyle: .light)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var iconContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.cornerRadius = 35
+        view.layer.masksToBounds = true
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 2
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var iconView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: StyleGuide.Assets.cameraIcon)?.withRenderingMode(.alwaysTemplate)
+        view.tintColor = .white
+        view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.titleText
-        label.font = UIFont.mediumFont(size: 22)
+        label.font = UIFont.mediumFont(size: 24)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .white
         label.backgroundColor = .clear
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    lazy var photosStepperContainerUIView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
     lazy var photoStepper: CustomStepper = {
         let stepper = CustomStepper(viewModel: viewModel.photoStepperViewModel)
+        stepper.layer.cornerRadius = 10
+        stepper.layer.masksToBounds = true
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()
 
     lazy var timerStepper: CustomStepper = {
         let stepper = CustomStepper(viewModel: viewModel.timerStepperViewModel)
+        stepper.layer.cornerRadius = 10
+        stepper.layer.masksToBounds = true
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
     }()
 
-    lazy var photoColorBar: UIView = {
+    lazy var startShootContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.photoBoothBlue
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    lazy var timerColorBar: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.photoBoothBlue
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     lazy var startShootButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "camera_icon")?.withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
+        button.setTitle(StyleGuide.AppCopy.CameraVC.startShoot, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.regularFont(size: 22)
         button.contentMode = .center
-        button.imageView?.contentMode = .scaleAspectFit
-        button.tintColor = .white
         button.backgroundColor = UIColor.photoBoothBlue
-        button.layer.opacity = 1
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(completeConfiguration), for: .touchUpInside)
@@ -76,80 +95,136 @@ class SetupCardView: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        backgroundColor = .clear
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
         setupViews()
+        animateShimmer()
     }
 
     private func setupViews() {
+        setupUIContainer()
+        setupIconContainer()
+        setupIconImageView()
         setupHeaderLabel()
         setupPhotoStepper()
-        setupPhotosColorBar()
         setupTimerStepper()
-        setupTimerColorBar()
+        setupStartShootContainer()
         setupStartShootButton()
     }
 
-    private func setupHeaderLabel() {
-        addSubview(headerLabel)
+    private func setupUIContainer() {
+        addSubview(UIContainer)
         NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
-            headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            ])
+            UIContainer.topAnchor.constraint(equalTo: topAnchor),
+            UIContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            UIContainer.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+
+    private func setupIconContainer() {
+        UIContainer.addSubview(iconContainer)
+        NSLayoutConstraint.activate([
+            iconContainer.topAnchor.constraint(equalTo: UIContainer.topAnchor, constant: 20),
+            iconContainer.centerXAnchor.constraint(equalTo: UIContainer.centerXAnchor),
+            iconContainer.heightAnchor.constraint(equalToConstant: 70),
+            iconContainer.widthAnchor.constraint(equalToConstant: 70)
+        ])
+    }
+
+    private func setupIconImageView() {
+        iconContainer.addSubview(iconView)
+        NSLayoutConstraint.activate([
+            iconView.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
+            iconView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
+            iconView.heightAnchor.constraint(equalToConstant: 40),
+            iconView.widthAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+
+    private func setupHeaderLabel() {
+        UIContainer.addSubview(headerLabel)
+        NSLayoutConstraint.activate([
+            headerLabel.topAnchor.constraint(equalTo: iconContainer.bottomAnchor, constant: 20),
+            headerLabel.leadingAnchor.constraint(equalTo: UIContainer.leadingAnchor, constant: 20),
+            headerLabel.trailingAnchor.constraint(equalTo: UIContainer.trailingAnchor, constant: -20),
+            headerLabel.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
 
     private func setupPhotoStepper() {
-        addSubview(photoStepper)
+        UIContainer.addSubview(photoStepper)
         NSLayoutConstraint.activate([
-            photoStepper.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
-            photoStepper.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            photoStepper.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            ])
-    }
-
-    private func setupPhotosColorBar() {
-        addSubview(photoColorBar)
-        NSLayoutConstraint.activate([
-            photoColorBar.topAnchor.constraint(equalTo: photoStepper.bottomAnchor, constant: 0),
-            photoColorBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            photoColorBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            photoColorBar.heightAnchor.constraint(equalToConstant: 2.5),
-            ])
+            photoStepper.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
+            photoStepper.leadingAnchor.constraint(equalTo: UIContainer.leadingAnchor, constant: 24),
+            photoStepper.trailingAnchor.constraint(equalTo: UIContainer.trailingAnchor, constant: -24),
+        ])
     }
 
     private func setupTimerStepper() {
-        addSubview(timerStepper)
+        UIContainer.addSubview(timerStepper)
         NSLayoutConstraint.activate([
-            timerStepper.topAnchor.constraint(equalTo: photoColorBar.bottomAnchor, constant: 30),
-            timerStepper.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            timerStepper.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-            ])
+            timerStepper.topAnchor.constraint(equalTo: photoStepper.bottomAnchor, constant: 24),
+            timerStepper.leadingAnchor.constraint(equalTo: UIContainer.leadingAnchor, constant: 24),
+            timerStepper.trailingAnchor.constraint(equalTo: UIContainer.trailingAnchor, constant: -24),
+            timerStepper.bottomAnchor.constraint(equalTo: UIContainer.bottomAnchor, constant: -24)
+        ])
     }
 
-    private func setupTimerColorBar() {
-        addSubview(timerColorBar)
+    private func setupStartShootContainer() {
+        addSubview(startShootContainer)
         NSLayoutConstraint.activate([
-            timerColorBar.topAnchor.constraint(equalTo: timerStepper.bottomAnchor, constant: 0),
-            timerColorBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            timerColorBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            timerColorBar.heightAnchor.constraint(equalToConstant: 2.5),
-            ])
+            startShootContainer.topAnchor.constraint(equalTo: UIContainer.bottomAnchor),
+            startShootContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            startShootContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            startShootContainer.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 
     private func setupStartShootButton() {
-        addSubview(startShootButton)
+        startShootContainer.addSubview(startShootButton)
         NSLayoutConstraint.activate([
-            startShootButton.topAnchor.constraint(equalTo: timerColorBar.bottomAnchor, constant: 50),
-            startShootButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            startShootButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            startShootButton.heightAnchor.constraint(equalToConstant: 44),
-            startShootButton.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -30)
-            ])
+            startShootButton.topAnchor.constraint(equalTo: startShootContainer.topAnchor, constant: 24),
+            startShootButton.leadingAnchor.constraint(equalTo: startShootContainer.leadingAnchor, constant: 24),
+            startShootButton.trailingAnchor.constraint(equalTo: startShootContainer.trailingAnchor, constant: -24),
+            startShootButton.heightAnchor.constraint(equalToConstant: 40),
+            startShootButton.bottomAnchor.constraint(equalTo: startShootContainer.bottomAnchor, constant: -24)
+        ])
+    }
+
+    private func animateShimmer() {
+        DispatchQueue.main.asyncAfter(deadline:
+        .now() + StyleGuide.StaticAppNumbers.shimmerDelay) {
+            let shimmerMask = UIView(frame: self.startShootButton.bounds)
+            shimmerMask.layer.cornerRadius = self.startShootButton.layer.cornerRadius
+            UIView.animate(withDuration: 1,
+                           delay: 0,
+                           options: .repeat,
+                           animations: {
+                            self.startShootButton.animateShimmer(
+                                withMask: shimmerMask,
+                                shimmerWidth: shimmerMask.bounds.height,
+                                maskColor: .white,
+                                duration: 1,
+                                repeatCount: 1,
+                                insertionPoint: 0)
+            }) { (true) in
+                self.animateShimmer()
+            }
+        }
     }
 
     @objc private func completeConfiguration(sender: UIButton) {
+        if #available(iOS 13.0, *) {
+            let generator = UIImpactFeedbackGenerator(style: StyleGuide.HapticFeedbackType.primaryFeedbackStyle)
+            generator.prepare()
+            generator.impactOccurred()
+        } else {
+            // Fallback on earlier versions
+            let generator = UIImpactFeedbackGenerator(style: StyleGuide.HapticFeedbackType.fallbackFeedbackStyle)
+            generator.prepare()
+            generator.impactOccurred()
+        }
         viewModel.finalizeConfiguration()
     }
 }
