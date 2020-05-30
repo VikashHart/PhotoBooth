@@ -83,6 +83,7 @@
 		A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19A2478685700329532 /* StyleGuide.swift */; };
 		A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */; };
 		A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */; };
+		A1EDE20024820B1400329532 /* swipe_down.json in Resources */ = {isa = PBXBuildFile; fileRef = A1EDE1FF24820B1300329532 /* swipe_down.json */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -182,6 +183,7 @@
 		A1EDE19A2478685700329532 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
 		A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFocusAnimation.swift; sourceTree = "<group>"; };
+		A1EDE1FF24820B1300329532 /* swipe_down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swipe_down.json; sourceTree = "<group>"; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
 		C72BE89921751A88003C047E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1EDE1FE248206CD00329532 /* Lottie Animations */,
 				A1EDE1972477781000329532 /* Extensions */,
 				814956E721C5C97400CE3AD9 /* Prompts */,
 				814956E121C5C57600CE3AD9 /* Analytics */,
@@ -513,6 +516,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A1EDE1FE248206CD00329532 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A1EDE1FF24820B1300329532 /* swipe_down.json */,
+			);
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
 		C72BE89621751A88003C047E /* PhotoBoothTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +647,7 @@
 				811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */,
 				814956EE21C5CBA500CE3AD9 /* GoogleService-Info.plist in Resources */,
 				811F9A1721484B670079EA7E /* Assets.xcassets in Resources */,
+				A1EDE20024820B1400329532 /* swipe_down.json in Resources */,
 				811F9A1521484B660079EA7E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
