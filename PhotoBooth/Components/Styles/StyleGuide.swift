@@ -25,7 +25,13 @@ enum StyleGuide {
             static let missingCameraAccessMessage = "In order to take pictures Lens needs access to your camera. To update your app permissions, click settings below."
             static let lhAlertButtonText = "Settings"
             static let rhAlertButtonText = "Cancel"
+            //MARK: - Pre shoot card
+            static let promptText = "Quickly swipe down during shoot to cancel"
         }
+    }
+
+    enum LottieAnimations {
+        static let swipeDown = "swipe_down"
     }
 
     enum HapticFeedbackType {
@@ -37,5 +43,6 @@ enum StyleGuide {
 
     enum StaticAppNumbers {
         static let shimmerDelay: TimeInterval = 8
+        static let swipeToCancelPromptDuration: TimeInterval = 2.5
     }
 }

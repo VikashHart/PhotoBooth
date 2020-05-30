@@ -1,4 +1,5 @@
 import UIKit
+import Lottie
 
 class SwipeToCancelPromptView: UIView {
 
@@ -6,7 +7,7 @@ class SwipeToCancelPromptView: UIView {
 
     lazy var labelContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -31,6 +32,14 @@ class SwipeToCancelPromptView: UIView {
         return view
     }()
 
+    lazy var animationView: AnimationView = {
+        let view = AnimationView()
+        view.animation = Animation.named(StyleGuide.LottieAnimations.swipeDown)
+        view.loopMode = .loop
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
@@ -42,14 +51,23 @@ class SwipeToCancelPromptView: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .clear
+        configureView()
         setupViews()
+    }
+
+    private func configureView() {
+        backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.addBlurEffect(blurStyle: .light)
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+        animationView.play()
     }
 
     private func setupViews() {
         setupLabelContainer()
         setupPromptLabel()
         setupSpacingView()
+        setupAnimationView()
     }
 
     private func setupLabelContainer() {
@@ -77,10 +95,18 @@ class SwipeToCancelPromptView: UIView {
             spacingView.topAnchor.constraint(equalTo: labelContainer.bottomAnchor),
             spacingView.leadingAnchor.constraint(equalTo: leadingAnchor),
             spacingView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            spacingView.heightAnchor.constraint(equalTo: labelContainer.heightAnchor, multiplier: 3),
+            spacingView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
             spacingView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }
+
+    private func setupAnimationView() {
+        spacingView.addSubview(animationView)
+        NSLayoutConstraint.activate([
+            animationView.centerYAnchor.constraint(equalTo: spacingView.centerYAnchor),
+            animationView.centerXAnchor.constraint(equalTo: spacingView.centerXAnchor),
+            animationView.heightAnchor.constraint(equalToConstant: 250),
+            animationView.widthAnchor.constraint(equalToConstant: 250)
+        ])
+    }
 }
-
-

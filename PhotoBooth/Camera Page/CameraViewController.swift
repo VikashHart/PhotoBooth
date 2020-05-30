@@ -151,7 +151,8 @@ class CameraViewController: UIViewController {
     private func presentSwipeToCancelPrompt() {
         let cancelPrompt = SwipeToCancelPromptPartialModal()
         middlePrompt.present(modal: cancelPrompt, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline:
+        .now() + StyleGuide.StaticAppNumbers.swipeToCancelPromptDuration) {
             cancelPrompt.dismiss()
             self.startShoot()
         }
