@@ -85,7 +85,7 @@ class SwipeToCancelPromptView: UIView {
             promptLabel.topAnchor.constraint(equalTo: labelContainer.topAnchor, constant: 20),
             promptLabel.leadingAnchor.constraint(equalTo: labelContainer.leadingAnchor, constant: 10),
             promptLabel.trailingAnchor.constraint(equalTo: labelContainer.trailingAnchor, constant: -10),
-            promptLabel.bottomAnchor.constraint(equalTo: labelContainer.bottomAnchor, constant: -20)
+            promptLabel.bottomAnchor.constraint(equalTo: labelContainer.bottomAnchor, constant: 0)
             ])
     }
 
@@ -95,7 +95,7 @@ class SwipeToCancelPromptView: UIView {
             spacingView.topAnchor.constraint(equalTo: labelContainer.bottomAnchor),
             spacingView.leadingAnchor.constraint(equalTo: leadingAnchor),
             spacingView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            spacingView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
+            spacingView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
             spacingView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }

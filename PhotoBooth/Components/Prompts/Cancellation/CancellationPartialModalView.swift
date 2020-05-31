@@ -9,7 +9,7 @@ class CancellationPartialModalView: UIView {
         label.text = viewModel.cancelLabelText
         label.font = UIFont.mediumFont(size: 30)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .white
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -22,7 +22,7 @@ class CancellationPartialModalView: UIView {
         label.text = viewModel.detailLabelText
         label.font = UIFont.mediumFont(size: 18)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .white
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -45,9 +45,9 @@ class CancellationPartialModalView: UIView {
     lazy var discardButton: UIButton = {
         let button = UIButton()
         button.setTitle("Discard All", for: .normal)
-        button.setTitleColor(UIColor.photoBoothBlue, for: .normal)
-        button.backgroundColor = UIColor.white
-        button.layer.borderColor = UIColor.photoBoothBlue.cgColor
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
@@ -59,7 +59,7 @@ class CancellationPartialModalView: UIView {
     lazy var dismissButton: UIButton = {
         let button = UIButton()
         button.setTitle("Dismiss", for: .normal)
-        button.setTitleColor(UIColor.photoBoothBlue, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -77,11 +77,13 @@ class CancellationPartialModalView: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .white
+        configureView()
         setupViews()
     }
 
-    override func layoutSubviews() {
+    private func configureView() {
+        backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.addBlurEffect(blurStyle: .light)
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
     }
@@ -108,8 +110,8 @@ class CancellationPartialModalView: UIView {
         addSubview(detailLabel)
         NSLayoutConstraint.activate([
             detailLabel.topAnchor.constraint(equalTo: cancelLabel.bottomAnchor, constant: 16),
-            detailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            detailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             detailLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
     }
@@ -119,8 +121,9 @@ class CancellationPartialModalView: UIView {
         NSLayoutConstraint.activate([
             reviewButton.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 20),
             reviewButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            reviewButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            reviewButton.heightAnchor.constraint(equalTo: reviewButton.widthAnchor, multiplier: 0.3),
+            reviewButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            reviewButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            reviewButton.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
 
@@ -129,8 +132,9 @@ class CancellationPartialModalView: UIView {
         NSLayoutConstraint.activate([
             discardButton.topAnchor.constraint(equalTo: reviewButton.bottomAnchor, constant: 16),
             discardButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            discardButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            discardButton.heightAnchor.constraint(equalTo: reviewButton.widthAnchor, multiplier: 0.3)
+            discardButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            discardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            discardButton.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
 
@@ -139,9 +143,9 @@ class CancellationPartialModalView: UIView {
         NSLayoutConstraint.activate([
             dismissButton.topAnchor.constraint(equalTo: discardButton.bottomAnchor, constant: 10),
             dismissButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            dismissButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            dismissButton.heightAnchor.constraint(equalTo: reviewButton.widthAnchor, multiplier: 0.3),
-            dismissButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            dismissButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            dismissButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            dismissButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
             ])
     }
 
@@ -156,5 +160,4 @@ class CancellationPartialModalView: UIView {
     @objc private func dismiss() {
         viewModel.dismissPressed()
     }
-
 }
