@@ -1,1 +1,1 @@
-# PhotoBooth [![Build Status](https://travis-ci.org/VikashHart/PhotoBooth.svg?branch=master)](https://travis-ci.org/VikashHart/PhotoBooth)
+# PhotoBooth [![Build Status](https://travis-ci.org/VikashHart/PhotoBooth.svg?branch=master)](https://travis-ci.org/VikashHart/PhotoBooth) [![GitHub version](https://badge.fury.io/gh/VikashHart%2FPhotoBooth.svg)](https://github.com/VikashHart/PhotoBooth)
