@@ -2,12 +2,11 @@ import UIKit
 import RxSwift
 
 protocol ReviewPageViewModeling {
-    var isShareActive: Bool { get }
     var isCancelHidden: Bool { get }
     var isSelectHidden: Bool { get set }
     var isDoneHidden: Bool { get }
+    var headerText: String { get }
     var isFooterActive: Observable<Bool> { get }
-    var shareColor: UIColor { get }
     var onSelectChanged: (() -> Void)? { get set }
 }
 
@@ -26,9 +25,12 @@ class ReviewPageViewModel: ReviewPageViewModeling {
         return isSelectHidden
     }
 
-    private(set) var isShareActive: Bool {
-        didSet {
-            onSelectChanged?()
+    var headerText: String {
+        switch isSelectHidden {
+        case true:
+            return StyleGuide.AppCopy.ReviewVC.selectionModeHeaderTitle
+        case false:
+            return ""
         }
     }
 
@@ -38,19 +40,13 @@ class ReviewPageViewModel: ReviewPageViewModeling {
         return self.isFooterActiveSubject.asObservable()
     }()
 
-    var shareColor: UIColor {
-        return isShareActive ? UIColor.photoBoothBlue : UIColor.lightGray
-    }
-
     var onSelectChanged: (() -> Void)?
 
     private let disposeBag = DisposeBag()
 
     init(isSelectHidden: Bool = false,
-         isShareActive: Bool = false,
          selectionCountObservable: Observable<Int>) {
         self.isSelectHidden = isSelectHidden
-        self.isShareActive = isShareActive
 
         bindTo(selectionCount: selectionCountObservable)
     }
@@ -59,12 +55,7 @@ class ReviewPageViewModel: ReviewPageViewModeling {
         selectionCount.observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] count in
                 self?.updateFooter(selectCount: count)
-                self?.updateShareActive(selectCount: count)
             }).disposed(by: disposeBag)
-    }
-
-    private func updateShareActive(selectCount: Int) {
-        isShareActive = selectCount == 0 ? false : true
     }
 
     private func updateFooter(selectCount: Int) {

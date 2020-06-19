@@ -50,7 +50,7 @@ class CameraViewController: UIViewController {
         button.setImage(UIImage(named: StyleGuide.Assets.flashOff)?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .clear
-        button.layer.cornerRadius = 20
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -72,7 +72,7 @@ class CameraViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.tintColor = .white
         button.backgroundColor = .clear
-        button.layer.cornerRadius = 20
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -363,9 +363,7 @@ class CameraViewController: UIViewController {
         previewLayerContainer.addSubview(flashContainer)
         NSLayoutConstraint.activate([
             flashContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
-            flashContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            flashContainer.heightAnchor.constraint(equalToConstant: 50),
-            flashContainer.widthAnchor.constraint(equalToConstant: 50)
+            flashContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8)
         ])
     }
 
@@ -376,8 +374,8 @@ class CameraViewController: UIViewController {
             flashButton.leadingAnchor.constraint(equalTo: flashContainer.leadingAnchor),
             flashButton.trailingAnchor.constraint(equalTo: flashContainer.trailingAnchor),
             flashButton.bottomAnchor.constraint(equalTo: flashContainer.bottomAnchor),
-            flashButton.heightAnchor.constraint(equalToConstant: 40),
-            flashButton.widthAnchor.constraint(equalToConstant: 40)
+            flashButton.heightAnchor.constraint(equalToConstant: 50),
+            flashButton.widthAnchor.constraint(equalToConstant: 50)
         ])
     }
 
@@ -385,9 +383,7 @@ class CameraViewController: UIViewController {
         previewLayerContainer.addSubview(rotateContainer)
         NSLayoutConstraint.activate([
             rotateContainer.bottomAnchor.constraint(equalTo: flashContainer.topAnchor, constant: -8),
-            rotateContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            rotateContainer.heightAnchor.constraint(equalToConstant: 50),
-            rotateContainer.widthAnchor.constraint(equalToConstant: 50)
+            rotateContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8)
         ])
     }
 
@@ -398,8 +394,8 @@ class CameraViewController: UIViewController {
             switchCameraButton.leadingAnchor.constraint(equalTo: rotateContainer.leadingAnchor),
             switchCameraButton.trailingAnchor.constraint(equalTo: rotateContainer.trailingAnchor),
             switchCameraButton.bottomAnchor.constraint(equalTo: rotateContainer.bottomAnchor),
-            switchCameraButton.heightAnchor.constraint(equalToConstant: 40),
-            switchCameraButton.widthAnchor.constraint(equalToConstant: 40)
+            switchCameraButton.heightAnchor.constraint(equalToConstant: 50),
+            switchCameraButton.widthAnchor.constraint(equalToConstant: 50)
         ])
     }
 

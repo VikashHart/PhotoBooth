@@ -77,13 +77,21 @@
 		81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */; };
 		81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */; };
 		A14499542476106D00100B7C /* MetricsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14499532476106C00100B7C /* MetricsProvider.swift */; };
+		A17406DC2492F6BD007D3DDA /* saved.json in Resources */ = {isa = PBXBuildFile; fileRef = A17406DB2492F6BC007D3DDA /* saved.json */; };
+		A1807FA6248706310007460F /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FA5248706310007460F /* ToolBarView.swift */; };
+		A1807FAA2487356C0007460F /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FA92487356C0007460F /* ToolbarDelegate.swift */; };
+		A1807FE12488F1DA0007460F /* SaveIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FE02488F1DA0007460F /* SaveIndicator.swift */; };
+		A1807FE6248953DA0007460F /* PhotosPermissionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FE5248953DA0007460F /* PhotosPermissionsProvider.swift */; };
 		A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */; };
 		A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */; };
+		A1E1F498248C001200C4AD10 /* AuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */; };
 		A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */; };
 		A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19A2478685700329532 /* StyleGuide.swift */; };
 		A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */; };
 		A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */; };
 		A1EDE20024820B1400329532 /* swipe_down.json in Resources */ = {isa = PBXBuildFile; fileRef = A1EDE1FF24820B1300329532 /* swipe_down.json */; };
+		A1EDE2022486BB0C00329532 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE2012486BB0C00329532 /* UIView+Gradient.swift */; };
+		A1EDE2042486BBA900329532 /* UIColor+CGColor+HexConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE2032486BBA900329532 /* UIColor+CGColor+HexConverter.swift */; };
 		AFEFD00003861A4A1040FFE9 /* Pods_PhotoBooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */; };
 		B21C354927319C04C56DD55D /* Pods_PhotoBooth_PhotoBoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5615ED3B5FD998599C8A7A /* Pods_PhotoBooth_PhotoBoothTests.framework */; };
 		C72BE89821751A88003C047E /* PhotoBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BE89721751A88003C047E /* PhotoBoothTests.swift */; };
@@ -177,13 +185,21 @@
 		81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModel.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14499532476106C00100B7C /* MetricsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsProvider.swift; sourceTree = "<group>"; };
+		A17406DB2492F6BC007D3DDA /* saved.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = saved.json; path = ../../../../../../../Downloads/saved.json; sourceTree = "<group>"; };
+		A1807FA5248706310007460F /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
+		A1807FA92487356C0007460F /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
+		A1807FE02488F1DA0007460F /* SaveIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIndicator.swift; sourceTree = "<group>"; };
+		A1807FE5248953DA0007460F /* PhotosPermissionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPermissionsProvider.swift; sourceTree = "<group>"; };
 		A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorization.swift; sourceTree = "<group>"; };
 		A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationProvider.swift; sourceTree = "<group>"; };
+		A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationStatus.swift; sourceTree = "<group>"; };
 		A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BlurEffect.swift"; sourceTree = "<group>"; };
 		A1EDE19A2478685700329532 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
 		A1EDE19E2478E7E500329532 /* CameraFocusAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFocusAnimation.swift; sourceTree = "<group>"; };
 		A1EDE1FF24820B1300329532 /* swipe_down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swipe_down.json; sourceTree = "<group>"; };
+		A1EDE2012486BB0C00329532 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		A1EDE2032486BBA900329532 /* UIColor+CGColor+HexConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CGColor+HexConverter.swift"; sourceTree = "<group>"; };
 		C72BE89521751A88003C047E /* PhotoBoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72BE89721751A88003C047E /* PhotoBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBoothTests.swift; sourceTree = "<group>"; };
 		C72BE89921751A88003C047E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -325,6 +341,7 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1E1F496248BFFEF00C4AD10 /* Permissions */,
 				A1EDE1FE248206CD00329532 /* Lottie Animations */,
 				A1EDE1972477781000329532 /* Extensions */,
 				814956E721C5C97400CE3AD9 /* Prompts */,
@@ -334,6 +351,9 @@
 				814956E321C5C64A00CE3AD9 /* Timer */,
 				814956E421C5C6D400CE3AD9 /* Countdown Indicator */,
 				814956E521C5C70600CE3AD9 /* Stepper */,
+				A1807FA4248705890007460F /* ToolBar Object */,
+				A1807FDF2488F16D0007460F /* Save Indicator */,
+				A1807FE4248953680007460F /* Photos Permissions Provider */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -507,11 +527,46 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A1807FA4248705890007460F /* ToolBar Object */ = {
+			isa = PBXGroup;
+			children = (
+				A1807FA92487356C0007460F /* ToolbarDelegate.swift */,
+				A1807FA5248706310007460F /* ToolBarView.swift */,
+			);
+			path = "ToolBar Object";
+			sourceTree = "<group>";
+		};
+		A1807FDF2488F16D0007460F /* Save Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				A1807FE02488F1DA0007460F /* SaveIndicator.swift */,
+			);
+			path = "Save Indicator";
+			sourceTree = "<group>";
+		};
+		A1807FE4248953680007460F /* Photos Permissions Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A1807FE5248953DA0007460F /* PhotosPermissionsProvider.swift */,
+			);
+			path = "Photos Permissions Provider";
+			sourceTree = "<group>";
+		};
+		A1E1F496248BFFEF00C4AD10 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
 		A1EDE1972477781000329532 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */,
 				A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */,
+				A1EDE2012486BB0C00329532 /* UIView+Gradient.swift */,
+				A1EDE2032486BBA900329532 /* UIColor+CGColor+HexConverter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -520,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EDE1FF24820B1300329532 /* swipe_down.json */,
+				A17406DB2492F6BC007D3DDA /* saved.json */,
 			);
 			path = "Lottie Animations";
 			sourceTree = "<group>";
@@ -645,6 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */,
+				A17406DC2492F6BD007D3DDA /* saved.json in Resources */,
 				814956EE21C5CBA500CE3AD9 /* GoogleService-Info.plist in Resources */,
 				811F9A1721484B670079EA7E /* Assets.xcassets in Resources */,
 				A1EDE20024820B1400329532 /* swipe_down.json in Resources */,
@@ -783,7 +840,9 @@
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
 				A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */,
 				814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */,
+				A1E1F498248C001200C4AD10 /* AuthorizationStatus.swift in Sources */,
 				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,
+				A1807FE6248953DA0007460F /* PhotosPermissionsProvider.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
@@ -791,13 +850,16 @@
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
 				814956F421C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift in Sources */,
 				81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */,
+				A1807FA6248706310007460F /* ToolBarView.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */,
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
+				A1807FAA2487356C0007460F /* ToolbarDelegate.swift in Sources */,
 				81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */,
 				814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */,
 				A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */,
 				814956D321C323A400CE3AD9 /* AnalyticsFactory.swift in Sources */,
 				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
+				A1807FE12488F1DA0007460F /* SaveIndicator.swift in Sources */,
 				818360C42191343A00238022 /* CameraViewControllerViewModel.swift in Sources */,
 				81CA8CAC21A788CB00170F1A /* ReviewViewControllerModeling.swift in Sources */,
 				813B2FB021864F2C00CEB640 /* SetupCardPartialModal.swift in Sources */,
@@ -805,6 +867,7 @@
 				818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */,
 				814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
+				A1EDE2022486BB0C00329532 /* UIView+Gradient.swift in Sources */,
 				811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */,
 				818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */,
 				8174574F21598DA800F612F6 /* SetupCardView.swift in Sources */,
@@ -822,6 +885,7 @@
 				81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */,
 				8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */,
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,
+				A1EDE2042486BBA900329532 /* UIColor+CGColor+HexConverter.swift in Sources */,
 				81CA8CA621A5F39A00170F1A /* ReviewPageView.swift in Sources */,
 				811F9A222149A4D60079EA7E /* CaptureSession.swift in Sources */,
 				81A70D4121BDC3B900DB8884 /* SwipeToCancelPartialModal.swift in Sources */,
@@ -948,6 +1012,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -1001,6 +1066,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
