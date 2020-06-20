@@ -158,9 +158,6 @@ extension ReviewViewController: ToolbarDelegate {
     }
 
     func saveTapped() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.prepare()
-        generator.notificationOccurred(StyleGuide.HapticFeedbackType.savedFeedbackStyle)
         saveImages()
     }
 }

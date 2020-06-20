@@ -160,6 +160,7 @@ class ReviewPageView: UIView {
                         self?.saveAnimationView.isHidden = true
                         self?.activateToolbar()
                     }
+                    self?.playHaptic()
                 }
             }
         }
@@ -171,6 +172,12 @@ class ReviewPageView: UIView {
 
     private func activateToolbar() {
         toolbarView.activateButtons()
+    }
+
+    private func playHaptic() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(StyleGuide.HapticFeedbackType.savedFeedbackStyle)
     }
 
     private func commonInit() {
