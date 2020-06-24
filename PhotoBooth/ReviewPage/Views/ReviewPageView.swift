@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import PromiseKit
 
 class ReviewPageView: UIView {
 
@@ -74,14 +75,12 @@ class ReviewPageView: UIView {
         return button
     }()
 
-    let cell = "ReviewCell"
-
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
-        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: cell)
+        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.ReviewPage.cellId)
         collectionView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -148,29 +147,26 @@ class ReviewPageView: UIView {
         }
     }
 
-    func showSaveIndicator() {
-        deactivateToolbar()
-
-        UIView.animate(withDuration: 0.2, animations: {
+    func showSaveIndicator() -> Guarantee<Void> {
+        return UIView.promiseAnimation(withDuration: 0.2) {
             self.saveAnimationView.isHidden = false
-        }) { (_) in
-            self.saveAnimationView.playAnimation { [weak self] in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    UIView.animate(withDuration: 0.2) {
-                        self?.saveAnimationView.isHidden = true
-                        self?.activateToolbar()
-                    }
-                    self?.playHaptic()
+        }
+        .then(self.saveAnimationView.playAnimation)
+        .done { (_) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                UIView.animate(withDuration: 0.2) {
+                    self.saveAnimationView.isHidden = true
                 }
             }
+            self.playHaptic()
         }
     }
 
-    private func deactivateToolbar() {
+    func deactivateToolbar() {
         toolbarView.deactivateButtons()
     }
 
-    private func activateToolbar() {
+    func activateToolbar() {
         toolbarView.activateButtons()
     }
 

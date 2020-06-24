@@ -1,6 +1,7 @@
 import UIKit
 import Motion
 import Photos
+import PromiseKit
 
 class ReviewViewController: UIViewController {
 
@@ -87,26 +88,25 @@ class ReviewViewController: UIViewController {
     private func saveImages() {
         switch self.viewModel.permissionStatus {
         case .authorized:
-            for image in self.viewModel.selectedImages {
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+            self.reviewView.deactivateToolbar()
+            viewModel.saveImages()
+                .then(self.reviewView.showSaveIndicator)
+                .ensure {
+                    self.reviewView.activateToolbar()
             }
-                self.reviewView.showSaveIndicator()
+            .catch { [weak self] (error) in
+                let ac = UIAlertController.makeImageSaveFailureAlert(error: error)
+                self?.present(ac, animated: true)
+            }
         case .denied:
-            self.viewModel.presentMissingPhotosAccessAlert(viewController: self)
+            let ac = UIAlertController.makeMissingPhotosAccessAlert()
+            self.present(ac, animated: true)
         case .undetermined:
             self.viewModel.requestPhotosPermission()
         }
     }
 
     //MARK: - @objc Methods
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
-        }
-    }
-
     @objc func cancelSelected() {
         dismiss(animated: true, completion: nil)
     }
@@ -153,12 +153,13 @@ class ReviewViewController: UIViewController {
 
 //MARK: - Toolbar delegate
 extension ReviewViewController: ToolbarDelegate {
-    func shareTapped() {
-        openShareMenu()
-    }
-
-    func saveTapped() {
-        saveImages()
+    func toolbarOptionSelected(type: ToolbarOptionType) {
+        switch type {
+        case .share:
+            openShareMenu()
+        case .save:
+            saveImages()
+        }
     }
 }
 
@@ -204,7 +205,7 @@ extension ReviewViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         let width = (screenWidth - (self.viewModel.cellSpacing * self.viewModel.numberOfSpaces)) / self.viewModel.numberOfCells
-        let height = width * 1.6
+        let height = width * StyleGuide.CollectionView.ReviewPage.heightMultiplier
 
         return CGSize(width: width , height: height)
     }

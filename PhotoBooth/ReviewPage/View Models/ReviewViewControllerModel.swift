@@ -1,17 +1,17 @@
 import UIKit
 import RxSwift
+import PromiseKit
 
 class ReviewViewControllerModel: ReviewViewControllerModeling {
     lazy var reviewViewModel: ReviewPageViewModeling = {
         return ReviewPageViewModel(selectionCountObservable:
             selectedIndicesSubject
                 .asObservable()
-                .debug()
                 .map({$0.count})
         )
     }()
 
-     var permissionStatus: AuthorizationStatus {
+    var permissionStatus: AuthorizationStatus {
         return photoAccessLevel
     }
 
@@ -54,8 +54,8 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     private let photoPermissionsProvider: PhotosAccess
 
     init(selectedIndices: [IndexPath] = [IndexPath](),
-         cellSpacing: CGFloat = 16,
-         numCells: CGFloat = 2,
+         cellSpacing: CGFloat = StyleGuide.CollectionView.ReviewPage.cellSpacing,
+         numCells: CGFloat = StyleGuide.CollectionView.ReviewPage.numberOfCells,
          isSelectable: Bool = false,
          data: PhotoShootData,
          photoPermissionsProvider: PhotosAccess = PhotosPermissionsProvider()) {
@@ -126,6 +126,19 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
                           "image_orientations": imageOrientations] + data.parameters
         Analytics.logEvent("share_completed", parameters: parameters)
     }
+
+    func saveImages() -> Promise<Void> {
+        var promises = [Promise<Void>]()
+        for image in selectedImages {
+            let saveTask = PhotosAlbumSaveTask()
+            let taskPromise = saveTask.saveImage(image: image)
+            promises.append(taskPromise)
+        }
+
+        return when(fulfilled: promises)
+    }
+
+    //MARK: - Private Functions
 
     private func requstPermission() {
         photoPermissionsProvider.requestPhotoLibraryPermission { (status) in

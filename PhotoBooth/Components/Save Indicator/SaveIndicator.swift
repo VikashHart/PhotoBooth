@@ -1,5 +1,6 @@
 import UIKit
 import Lottie
+import PromiseKit
 
 class SaveIndicator: UIView {
 
@@ -71,10 +72,12 @@ class SaveIndicator: UIView {
     }
 
     //MARK: - Animation methods
-    func playAnimation(completion: @escaping () -> Void) {
-        animationView.stop()
-        animationView.play { (_) in
-            completion()
+    func playAnimation() -> Guarantee<Void> {
+        return Guarantee { resolver in
+            animationView.stop()
+            animationView.play { (_) in
+                resolver(())
+            }
         }
     }
 

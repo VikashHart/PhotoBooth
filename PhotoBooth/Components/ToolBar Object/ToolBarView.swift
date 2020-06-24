@@ -229,11 +229,11 @@ class ToolbarView: UIView {
 
     //MARK: - Functions
     @objc private func shareTapped() {
-        delegate?.shareTapped()
+        delegate?.toolbarOptionSelected(type: .share)
     }
 
     @objc private func saveTapped() {
-        delegate?.saveTapped()
+        delegate?.toolbarOptionSelected(type: .save)
     }
 
     func deactivateButtons() {

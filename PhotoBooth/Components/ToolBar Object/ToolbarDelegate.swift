@@ -1,6 +1,5 @@
 import Foundation
 
 protocol ToolbarDelegate: class {
-    func shareTapped()
-    func saveTapped()
+    func toolbarOptionSelected(type: ToolbarOptionType)
 }

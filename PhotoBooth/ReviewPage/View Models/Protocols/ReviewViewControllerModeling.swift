@@ -1,4 +1,5 @@
 import UIKit
+import PromiseKit
 
 protocol ReviewViewControllerModeling {
     var reviewViewModel: ReviewPageViewModeling { get }
@@ -27,4 +28,5 @@ protocol ReviewViewControllerModeling {
     func presentMissingPhotosAccessAlert(viewController: UIViewController)
     func postShareCancelled()
     func postShareCompleted(activityType: UIActivity.ActivityType)
+    func saveImages() -> Promise<Void>
 }

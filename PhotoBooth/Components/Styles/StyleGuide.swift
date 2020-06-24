@@ -48,6 +48,12 @@ enum StyleGuide {
             static let rhAlertButtonText = "Cancel"
         }
 
+        enum ErrorAlerts {
+            //MARK: - Save Error
+            static let saveErrorTitle = "Save Error"
+            static let saveErrorbuttonText = "Ok"
+        }
+
         enum Toolbar {
             //MARK: - Toolbar text
             static let shareText = "Share"
@@ -74,11 +80,10 @@ enum StyleGuide {
 
     enum CollectionView {
         enum ReviewPage {
-            private static let cells: CGFloat = 2
             static let cellId = "ReviewCell"
-            static let cellSpacing: CGFloat = 5
+            static let cellSpacing: CGFloat = 16
             static let numberOfCells: CGFloat = 2
-            static let numberOfSpaces: CGFloat = cells + 1
+            static let heightMultiplier: CGFloat = 1.6
         }
     }
 }

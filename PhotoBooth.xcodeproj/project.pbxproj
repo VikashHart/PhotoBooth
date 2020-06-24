@@ -77,7 +77,12 @@
 		81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35821BDA79F006A7BED /* CancellationViewModeling.swift */; };
 		81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */; };
 		A14499542476106D00100B7C /* MetricsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14499532476106C00100B7C /* MetricsProvider.swift */; };
-		A17406DC2492F6BD007D3DDA /* saved.json in Resources */ = {isa = PBXBuildFile; fileRef = A17406DB2492F6BC007D3DDA /* saved.json */; };
+		A14D6BB124A1874A00414D3E /* saved.json in Resources */ = {isa = PBXBuildFile; fileRef = A14D6BB024A1874A00414D3E /* saved.json */; };
+		A17406EB249D2633007D3DDA /* ToolbarOptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17406EA249D2633007D3DDA /* ToolbarOptionType.swift */; };
+		A17406ED249D90FC007D3DDA /* UIView+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17406EC249D90FC007D3DDA /* UIView+Promise.swift */; };
+		A17406F1249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17406F0249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift */; };
+		A17406F4249E909E007D3DDA /* PhotosAlbumSaveTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17406F3249E909E007D3DDA /* PhotosAlbumSaveTask.swift */; };
+		A17406F6249E90FD007D3DDA /* ImageSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17406F5249E90FD007D3DDA /* ImageSaving.swift */; };
 		A1807FA6248706310007460F /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FA5248706310007460F /* ToolBarView.swift */; };
 		A1807FAA2487356C0007460F /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FA92487356C0007460F /* ToolbarDelegate.swift */; };
 		A1807FE12488F1DA0007460F /* SaveIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FE02488F1DA0007460F /* SaveIndicator.swift */; };
@@ -185,7 +190,12 @@
 		81F6B35A21BDA8E9006A7BED /* CancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModel.swift; sourceTree = "<group>"; };
 		96846AAC93970E121E9F3F4A /* Pods_PhotoBooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14499532476106C00100B7C /* MetricsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsProvider.swift; sourceTree = "<group>"; };
-		A17406DB2492F6BC007D3DDA /* saved.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = saved.json; path = ../../../../../../../Downloads/saved.json; sourceTree = "<group>"; };
+		A14D6BB024A1874A00414D3E /* saved.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = saved.json; sourceTree = "<group>"; };
+		A17406EA249D2633007D3DDA /* ToolbarOptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarOptionType.swift; sourceTree = "<group>"; };
+		A17406EC249D90FC007D3DDA /* UIView+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Promise.swift"; sourceTree = "<group>"; };
+		A17406F0249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+CustomAlerts.swift"; sourceTree = "<group>"; };
+		A17406F3249E909E007D3DDA /* PhotosAlbumSaveTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAlbumSaveTask.swift; sourceTree = "<group>"; };
+		A17406F5249E90FD007D3DDA /* ImageSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaving.swift; sourceTree = "<group>"; };
 		A1807FA5248706310007460F /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
 		A1807FA92487356C0007460F /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		A1807FE02488F1DA0007460F /* SaveIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIndicator.swift; sourceTree = "<group>"; };
@@ -354,6 +364,7 @@
 				A1807FA4248705890007460F /* ToolBar Object */,
 				A1807FDF2488F16D0007460F /* Save Indicator */,
 				A1807FE4248953680007460F /* Photos Permissions Provider */,
+				A17406F2249E9030007D3DDA /* Image Handler */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -527,11 +538,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A17406F2249E9030007D3DDA /* Image Handler */ = {
+			isa = PBXGroup;
+			children = (
+				A17406F3249E909E007D3DDA /* PhotosAlbumSaveTask.swift */,
+				A17406F5249E90FD007D3DDA /* ImageSaving.swift */,
+			);
+			path = "Image Handler";
+			sourceTree = "<group>";
+		};
 		A1807FA4248705890007460F /* ToolBar Object */ = {
 			isa = PBXGroup;
 			children = (
 				A1807FA92487356C0007460F /* ToolbarDelegate.swift */,
 				A1807FA5248706310007460F /* ToolBarView.swift */,
+				A17406EA249D2633007D3DDA /* ToolbarOptionType.swift */,
 			);
 			path = "ToolBar Object";
 			sourceTree = "<group>";
@@ -567,6 +588,8 @@
 				A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */,
 				A1EDE2012486BB0C00329532 /* UIView+Gradient.swift */,
 				A1EDE2032486BBA900329532 /* UIColor+CGColor+HexConverter.swift */,
+				A17406EC249D90FC007D3DDA /* UIView+Promise.swift */,
+				A17406F0249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -574,8 +597,8 @@
 		A1EDE1FE248206CD00329532 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				A14D6BB024A1874A00414D3E /* saved.json */,
 				A1EDE1FF24820B1300329532 /* swipe_down.json */,
-				A17406DB2492F6BC007D3DDA /* saved.json */,
 			);
 			path = "Lottie Animations";
 			sourceTree = "<group>";
@@ -701,7 +724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				811F9A1A21484B680079EA7E /* LaunchScreen.storyboard in Resources */,
-				A17406DC2492F6BD007D3DDA /* saved.json in Resources */,
+				A14D6BB124A1874A00414D3E /* saved.json in Resources */,
 				814956EE21C5CBA500CE3AD9 /* GoogleService-Info.plist in Resources */,
 				811F9A1721484B670079EA7E /* Assets.xcassets in Resources */,
 				A1EDE20024820B1400329532 /* swipe_down.json in Resources */,
@@ -844,12 +867,14 @@
 				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,
 				A1807FE6248953DA0007460F /* PhotosPermissionsProvider.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
+				A17406F4249E909E007D3DDA /* PhotosAlbumSaveTask.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
 				812704B321740B2A00545143 /* SetupCardViewModel.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
 				814956F421C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift in Sources */,
 				81F6B35921BDA79F006A7BED /* CancellationViewModeling.swift in Sources */,
+				A17406F1249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift in Sources */,
 				A1807FA6248706310007460F /* ToolBarView.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */,
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
@@ -871,17 +896,20 @@
 				811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */,
 				818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */,
 				8174574F21598DA800F612F6 /* SetupCardView.swift in Sources */,
+				A17406ED249D90FC007D3DDA /* UIView+Promise.swift in Sources */,
 				8131077F22A35E3A0019BBC6 /* PhotoCaptureable.swift in Sources */,
 				81F6B35721BB4705006A7BED /* CancellationPartialModalView.swift in Sources */,
 				81745755216ACF5B00F612F6 /* UIStyles.swift in Sources */,
 				814F104A2154650B0066CCD5 /* CameraViewController.swift in Sources */,
 				811A89D421C83BF800AA3D3D /* ProcessedImage+Analytics.swift in Sources */,
+				A17406EB249D2633007D3DDA /* ToolbarOptionType.swift in Sources */,
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
 				A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */,
 				A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */,
 				818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */,
+				A17406F6249E90FD007D3DDA /* ImageSaving.swift in Sources */,
 				81F6B35B21BDA8E9006A7BED /* CancellationViewModel.swift in Sources */,
 				8183608E2188E34700238022 /* SwipeToCancelPromptViewModel.swift in Sources */,
 				811F9A1021484B660079EA7E /* AppDelegate.swift in Sources */,

@@ -110,6 +110,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - Nimble (7.3.4)
+  - PromiseKit/CorePromise (6.13.1)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
   - Quick (1.3.4)
@@ -123,6 +124,7 @@ DEPENDENCIES:
   - lottie-ios (~> 3.1.8)
   - Motion (~> 3.1.1)
   - Nimble (~> 7.3.3)
+  - PromiseKit/CorePromise (~> 6.13.1)
   - Quick (~> 1.3.2)
   - RxSwift (~> 5.0.0)
 
@@ -149,6 +151,7 @@ SPEC REPOS:
     - Motion
     - nanopb
     - Nimble
+    - PromiseKit
     - PromisesObjC
     - Protobuf
     - Quick
@@ -176,11 +179,12 @@ SPEC CHECKSUMS:
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: eb04cf416a31d9c426ab40d876caaadc620c3a93
+PODFILE CHECKSUM: 736720e4f0ce15dbf5366c6e2047bf74a95f315a
 
 COCOAPODS: 1.9.1
