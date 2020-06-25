@@ -21,7 +21,6 @@ class ReviewPageViewModelSpec: QuickSpec {
 
                 beforeEach {
                     viewModel = ReviewPageViewModel(isSelectHidden: false,
-                                                    isShareActive: false,
                                                     selectionCountObservable: subject.asObservable())
                 }
 
@@ -38,7 +37,6 @@ class ReviewPageViewModelSpec: QuickSpec {
 
                 beforeEach {
                     viewModel = ReviewPageViewModel(isSelectHidden: true,
-                                                    isShareActive: false,
                                                     selectionCountObservable: subject.asObservable())
                 }
 
@@ -48,38 +46,6 @@ class ReviewPageViewModelSpec: QuickSpec {
 
                 it("isCancelHidden should be true") {
                     expect(viewModel.isCancelHidden).to(be(true))
-                }
-            }
-
-            context("When selection count is 0") {
-
-                beforeEach {
-                    subject.onNext(0)
-                    viewModel = ReviewPageViewModel(selectionCountObservable: subject.asObservable())
-                }
-
-                it("changes isShareActive to false") {
-                    expect(viewModel.isShareActive).to(beFalse())
-                }
-
-                it("shareColor should be lightGray") {
-                    expect(viewModel.shareColor).to(be(UIColor.lightGray))
-                }
-            }
-
-            context("When selection count goes above 0") {
-
-                beforeEach {
-                    viewModel = ReviewPageViewModel(selectionCountObservable: subject.asObservable())
-                    subject.onNext(1)
-                }
-
-                it("changes isShareActive to true") {
-                    expect(viewModel.isShareActive).to(beTrue())
-                }
-
-                it("shareColor should be photoBoothBlue") {
-                    expect(viewModel.shareColor).to(be(UIColor.photoBoothBlue))
                 }
             }
 
