@@ -30,16 +30,9 @@ class ReviewCell: UICollectionViewCell {
 
     lazy var selectedPhotoIcon: UIImageView = {
         let photo = UIImageView()
-        let image = UIImage(named: "selected_icon")?.withRenderingMode(.alwaysTemplate)
-        photo.image = image
-        photo.tintColor = UIColor.photoBoothBlue.withAlphaComponent(1.0)
         photo.contentMode = .scaleAspectFit
-        photo.backgroundColor = .white
-        photo.layer.borderWidth = 3
-        photo.layer.borderColor = UIColor.white.cgColor
-        photo.layer.cornerRadius = 20
+        photo.layer.cornerRadius = 15
         photo.layer.masksToBounds = true
-        photo.isHidden = true
         photo.translatesAutoresizingMaskIntoConstraints = false
         return photo
     }()
@@ -94,8 +87,8 @@ class ReviewCell: UICollectionViewCell {
         selectedView.addSubview(selectedPhotoIcon)
         NSLayoutConstraint.activate([
             selectedPhotoIcon.trailingAnchor.constraint(equalTo: selectedView.trailingAnchor, constant: -10),
-            selectedPhotoIcon.heightAnchor.constraint(equalToConstant: 40),
-            selectedPhotoIcon.widthAnchor.constraint(equalToConstant: 40),
+            selectedPhotoIcon.heightAnchor.constraint(equalToConstant: 30),
+            selectedPhotoIcon.widthAnchor.constraint(equalToConstant: 30),
             selectedPhotoIcon.bottomAnchor.constraint(equalTo: selectedView.bottomAnchor, constant: -10)
             ])
     }
@@ -103,6 +96,6 @@ class ReviewCell: UICollectionViewCell {
     private func updateUI() {
         photoImageView.image = viewModel.image
         selectedView.backgroundColor = UIColor.white.withAlphaComponent(viewModel.selectionAlpha)
-        selectedPhotoIcon.isHidden = viewModel.hidePhotoIcon
+        selectedPhotoIcon.image = viewModel.getSelectionImage()
     }
 }

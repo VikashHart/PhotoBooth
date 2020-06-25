@@ -1,7 +1,10 @@
 import UIKit
+import PromiseKit
 
 protocol ReviewViewControllerModeling {
     var reviewViewModel: ReviewPageViewModeling { get }
+
+    var permissionStatus: AuthorizationStatus { get }
 
     var data: PhotoShootData { get }
     var selectedIndices: [IndexPath] { get set }
@@ -13,7 +16,7 @@ protocol ReviewViewControllerModeling {
     var numberOfSpaces: CGFloat { get }
     var isSelectable: Bool { get set }
 
-    var onShareToggled: ((Bool) -> Void)? { get set }
+    var onSelectToggled: (() -> Void)? { get set }
 
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling
     func add(index: IndexPath)
@@ -21,6 +24,9 @@ protocol ReviewViewControllerModeling {
     func deselectAll()
     func selectPressed()
     func donePressed()
+    func requestPhotosPermission()
+    func presentMissingPhotosAccessAlert(viewController: UIViewController)
     func postShareCancelled()
     func postShareCompleted(activityType: UIActivity.ActivityType)
+    func saveImages() -> Promise<Void>
 }

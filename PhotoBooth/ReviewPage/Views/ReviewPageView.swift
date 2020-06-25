@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import PromiseKit
 
 class ReviewPageView: UIView {
 
@@ -9,9 +10,26 @@ class ReviewPageView: UIView {
         }
     }
 
+    lazy var gradientView: GradientView = {
+        let view = GradientView()
+        view.gradientLayer?.startPoint = CGPoint(x: 0.2, y: 0)
+        view.gradientLayer?.endPoint = CGPoint(x: 0.8, y: 1)
+        view.gradientLayer?.colors = CGColor.blues
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var navbarContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        view.addBlurEffect(blurStyle: .light)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     lazy var navBarUIView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.photoBoothBlue
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -19,7 +37,7 @@ class ReviewPageView: UIView {
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle(StyleGuide.AppCopy.ReviewVC.exitButtonText, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .clear
         button.layer.opacity = 1
@@ -29,7 +47,6 @@ class ReviewPageView: UIView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Pictures"
         label.font = UIFont.semiBoldFont(size: 24)
         label.textAlignment = .center
         label.textColor = .white
@@ -42,60 +59,51 @@ class ReviewPageView: UIView {
 
     lazy var selectButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
-        button.setTitle("Select", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setImage(UIImage(named: StyleGuide.Assets.selectionModeOff)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
         button.backgroundColor = .clear
-        button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
-        button.setTitle("Done", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setImage(UIImage(named: StyleGuide.Assets.selectionModeOn), for: .normal)
         button.backgroundColor = .clear
-        button.layer.opacity = 1
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    let cell = "ReviewCell"
-
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: cell)
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.ReviewPage.cellId)
+        collectionView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
 
-    lazy var footerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
+    lazy var toolbarView: ToolbarView = {
+        let view = ToolbarView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    lazy var shareButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: "share_icon")?.withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
-        button.tintColor = .lightGray
-        button.backgroundColor = .clear
-        button.layer.opacity = 1
-        button.isEnabled = false
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    lazy var saveAnimationView: SaveIndicator = {
+        let view = SaveIndicator()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
-    private var footerTopToViewBottom: NSLayoutConstraint?
-    private var footerBottomToSafeAreaBottom: NSLayoutConstraint?
+    private let headerHeight: CGFloat = UIApplication.shared.statusBarFrame.height + 44
+
+    private var toolbarTopToViewBottom: NSLayoutConstraint?
+    private var toolbarBottomToSafeAreaBottom: NSLayoutConstraint?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -109,34 +117,63 @@ class ReviewPageView: UIView {
         bindUiToViewModel()
     }
 
-    private func footerActivate() {
-        footerTopToViewBottom?.isActive = false
-        footerBottomToSafeAreaBottom?.isActive = true
+    private func toolbarActivate() {
+        toolbarTopToViewBottom?.isActive = false
+        toolbarBottomToSafeAreaBottom?.isActive = true
 
-        collectionView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 44,right: 0)
-        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0,left: 0,bottom: 44,right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 54,right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 44,left: 0,bottom: 54,right: 0)
     }
 
-    private func footerDeactivate() {
-        footerBottomToSafeAreaBottom?.isActive = false
-        footerTopToViewBottom?.isActive = true
+    private func toolbarDeactivate() {
+        toolbarBottomToSafeAreaBottom?.isActive = false
+        toolbarTopToViewBottom?.isActive = true
 
-        collectionView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
-        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
 
     }
 
-    func showFooter(_ visibile: Bool) {
+    func showToolbar(_ visibile: Bool) {
         switch visibile {
         case true:
-            self.footerActivate()
+            self.toolbarActivate()
         case false:
-            self.footerDeactivate()
+            self.toolbarDeactivate()
         }
 
         UIView.animate(withDuration: 0.2) {
             self.layoutIfNeeded()
         }
+    }
+
+    func showSaveIndicator() -> Guarantee<Void> {
+        return UIView.promiseAnimation(withDuration: 0.2) {
+            self.saveAnimationView.isHidden = false
+        }
+        .then(self.saveAnimationView.playAnimation)
+        .done { (_) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                UIView.animate(withDuration: 0.2) {
+                    self.saveAnimationView.isHidden = true
+                }
+            }
+            self.playHaptic()
+        }
+    }
+
+    func deactivateToolbar() {
+        toolbarView.deactivateButtons()
+    }
+
+    func activateToolbar() {
+        toolbarView.activateButtons()
+    }
+
+    private func playHaptic() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(StyleGuide.HapticFeedbackType.savedFeedbackStyle)
     }
 
     private func commonInit() {
@@ -145,23 +182,45 @@ class ReviewPageView: UIView {
     }
 
     private func setupViews() {
+        setupGradientView()
+        setupCollectionView()
+        setupNavbarContainer()
         setupNavBarView()
         setupCancelButton()
         setupTitleLabel()
         setupSelectButton()
         setupDoneButton()
-        setupCollectionView()
-        setupFooterView()
-        setupShareButton()
+        setupToolbarView()
+        setupSaveAnimationView()
+    }
+
+    private func setupGradientView() {
+        addSubview(gradientView)
+        NSLayoutConstraint.activate([
+            gradientView.topAnchor.constraint(equalTo: topAnchor),
+            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            gradientView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+
+    private func setupNavbarContainer() {
+        addSubview(navbarContainer)
+        NSLayoutConstraint.activate([
+            navbarContainer.topAnchor.constraint(equalTo: topAnchor),
+            navbarContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            navbarContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            navbarContainer.heightAnchor.constraint(equalToConstant: headerHeight)
+        ])
     }
 
     private func setupNavBarView() {
-        addSubview(navBarUIView)
+        navbarContainer.addSubview(navBarUIView)
         NSLayoutConstraint.activate([
-            navBarUIView.topAnchor.constraint(equalTo: topAnchor),
+            navBarUIView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             navBarUIView.leadingAnchor.constraint(equalTo: leadingAnchor),
             navBarUIView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            navBarUIView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)
+            navBarUIView.heightAnchor.constraint(equalToConstant: 44)
             ])
     }
 
@@ -186,7 +245,9 @@ class ReviewPageView: UIView {
         navBarUIView.addSubview(selectButton)
         NSLayoutConstraint.activate([
             selectButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
-            selectButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10)
+            selectButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10),
+            selectButton.heightAnchor.constraint(equalToConstant: 40),
+            selectButton.widthAnchor.constraint(equalToConstant: 40)
             ])
     }
 
@@ -194,50 +255,51 @@ class ReviewPageView: UIView {
         navBarUIView.addSubview(doneButton)
         NSLayoutConstraint.activate([
             doneButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
-            doneButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10)
+            doneButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10),
+            doneButton.heightAnchor.constraint(equalToConstant: 40),
+            doneButton.widthAnchor.constraint(equalToConstant: 40)
             ])
     }
 
     private func setupCollectionView() {
         addSubview(collectionView)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: navBarUIView.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
             ])
     }
 
-    private func setupFooterView() {
-        addSubview(footerView)
+    private func setupToolbarView() {
+        addSubview(toolbarView)
 
-        footerTopToViewBottom = footerView.topAnchor.constraint(equalTo: bottomAnchor)
-        footerBottomToSafeAreaBottom = footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        toolbarTopToViewBottom = toolbarView.topAnchor.constraint(equalTo: bottomAnchor)
+        toolbarBottomToSafeAreaBottom = toolbarView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4)
 
         NSLayoutConstraint.activate([
-            footerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            footerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            footerView.heightAnchor.constraint(equalToConstant: 44)
+            toolbarView.widthAnchor.constraint(equalToConstant: 150),
+            toolbarView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            toolbarView.heightAnchor.constraint(equalToConstant: 50)
             ])
-        footerTopToViewBottom?.isActive = true
+        toolbarTopToViewBottom?.isActive = true
     }
 
-    private func setupShareButton() {
-        footerView.addSubview(shareButton)
+    private func setupSaveAnimationView() {
+        addSubview(saveAnimationView)
         NSLayoutConstraint.activate([
-            shareButton.centerYAnchor.constraint(equalTo: footerView.centerYAnchor),
-            shareButton.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
-            shareButton.heightAnchor.constraint(equalToConstant: 35),
-            shareButton.widthAnchor.constraint(equalToConstant: 35)
-            ])
+            saveAnimationView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            saveAnimationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            saveAnimationView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            saveAnimationView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 
     private func updateUI() {
         cancelButton.isHidden = viewModel.isCancelHidden
         selectButton.isHidden = viewModel.isSelectHidden
         doneButton.isHidden = viewModel.isDoneHidden
-        shareButton.isEnabled = viewModel.isShareActive
-        shareButton.tintColor = viewModel.shareColor
+        titleLabel.text = viewModel.headerText
     }
 
     private func bindUiToViewModel() {
@@ -246,4 +308,3 @@ class ReviewPageView: UIView {
         }
     }
 }
-

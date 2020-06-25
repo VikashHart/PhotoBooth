@@ -36,29 +36,6 @@ class ReviewViewControllerModelSpec: QuickSpec {
                     }
                 }
 
-                context("When selected indices is nil") {
-
-                    beforeEach {
-                        viewModel.selectedIndices = []
-                    }
-
-                    it("reviewViewModel.isShareActive should be false") {
-                        expect(viewModel.reviewViewModel.isShareActive).to(equal(false))
-                    }
-                }
-
-                context("When selected indices is not nil") {
-
-                    beforeEach {
-                        let index = IndexPath(row: 0, section: 0)
-                        viewModel.selectedIndices = [index]
-                    }
-
-                    it("reviewViewModel.isShareActive should be true") {
-                        expect(viewModel.reviewViewModel.isShareActive).to(equal(true))
-                    }
-                }
-
                 context("And I press add") {
                     let index: IndexPath = IndexPath(row: 0, section: 0)
 

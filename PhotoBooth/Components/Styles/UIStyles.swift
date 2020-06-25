@@ -30,7 +30,3 @@ extension UIFont {
         return UIFont(name: type.rawValue, size: size)!
     }
 }
-
-extension UIColor {
-    static let photoBoothBlue = UIColor(red: 59/225, green: 170/225, blue: 220/225, alpha: 1)
-}
