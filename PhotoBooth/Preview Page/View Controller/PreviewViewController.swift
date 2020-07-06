@@ -21,11 +21,11 @@ class PreviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AppUtility.lockOrientation(.allButUpsideDown)
-        scrollToActiveCell()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
+        scrollToActiveCell()
         viewWillLayoutSubviews()
     }
 
