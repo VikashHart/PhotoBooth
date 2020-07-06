@@ -108,10 +108,6 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         requstPermission()
     }
 
-    func presentMissingPhotosAccessAlert(viewController: UIViewController) {
-        photoPermissionsProvider.presentMissingPhotosAccessAlert(viewController: viewController)
-    }
-
     func postShareCancelled() {
         let parameters = data.parameters
         Analytics.logEvent("share_cancelled", parameters: parameters)

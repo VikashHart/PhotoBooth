@@ -173,7 +173,9 @@ extension ReviewViewController: UICollectionViewDelegate {
             cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
             updateFooter()
         } else {
-            let previewVC = PreviewViewController(image: cell.viewModel.image, imageIdentifier: indexPath.description)
+            let previewVC = PreviewViewController(data: viewModel.data,
+                                                  selectedIndex: indexPath,
+                                                  imageIdentifier: indexPath.description)
             previewVC.modalPresentationStyle = .fullScreen
             present(previewVC, animated: true, completion: nil)
         }

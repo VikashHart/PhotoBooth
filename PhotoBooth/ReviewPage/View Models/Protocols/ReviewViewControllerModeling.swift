@@ -25,7 +25,6 @@ protocol ReviewViewControllerModeling {
     func selectPressed()
     func donePressed()
     func requestPhotosPermission()
-    func presentMissingPhotosAccessAlert(viewController: UIViewController)
     func postShareCancelled()
     func postShareCompleted(activityType: UIActivity.ActivityType)
     func saveImages() -> Promise<Void>

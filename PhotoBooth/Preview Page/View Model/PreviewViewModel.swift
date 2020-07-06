@@ -1,16 +1,30 @@
 import UIKit
 
 protocol PreviewViewModeling {
-    var image: UIImage { get }
+    var selectedImage: UIImage { get }
+    var onImageChanged: (() -> Void)? { get set }
     var imageIdentifier: String { get }
+
+    func setImage(image: UIImage)
 }
 
 class PreviewViewModel: PreviewViewModeling {
-    let image: UIImage
+    private(set) var selectedImage: UIImage {
+        didSet {
+            onImageChanged?()
+        }
+    }
+
+    var onImageChanged: (() -> Void)?
     let imageIdentifier: String
 
-    init(image: UIImage, imageIdentifier: String) {
-        self.image = image
+    init(image: UIImage,
+         imageIdentifier: String){
+        self.selectedImage = image
         self.imageIdentifier = imageIdentifier
+    }
+
+    func setImage(image: UIImage) {
+        self.selectedImage = image
     }
 }
