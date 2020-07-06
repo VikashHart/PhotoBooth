@@ -38,6 +38,13 @@ enum StyleGuide {
             //MARK: - Header text
             static let exitButtonText = "Exit"
             static let selectionModeHeaderTitle = "Selecting"
+            static let selectButtonText = "Select"
+            static let doneButtonText = "Done"
+        }
+
+        enum PreviewVC {
+            //MARK: - Button
+            static let backButtonText = "Back"
         }
 
         enum PhotosPermissions {
@@ -84,6 +91,12 @@ enum StyleGuide {
             static let cellSpacing: CGFloat = 16
             static let numberOfCells: CGFloat = 2
             static let heightMultiplier: CGFloat = 1.6
+        }
+
+        enum PreviewPage {
+            static let cellId = "PreviewCell"
+            static let cellSpacing: CGFloat = 6
+            static let numberOfCells: CGFloat = 1
         }
     }
 }

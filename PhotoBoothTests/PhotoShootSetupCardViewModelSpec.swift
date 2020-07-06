@@ -17,7 +17,7 @@ class PhotoShootSetupCardViewModelSpec: QuickSpec {
 
                 it("has titleText of 'Set up your photoshoot'") {
                     expect(SetupCardViewModel(onConfigure: { _ in }).titleText)
-                        .to(match("Set up your photoshoot"))
+                        .to(equal(StyleGuide.AppCopy.CameraVC.setupCardHeaderTitle))
                 }
 
                 context("and the photoStepperViewModel initial value is 3") {

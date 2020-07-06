@@ -12,7 +12,7 @@ class ReviewPageViewModelSpec: QuickSpec {
         var didChange: Bool!
         var subject: BehaviorSubject<Int>!
 
-        fdescribe("ReviewPageViewModel") {
+        describe("ReviewPageViewModel") {
             beforeEach {
                 subject = BehaviorSubject(value: 0)
             }

@@ -7,7 +7,7 @@ class CancellationPartialModalView: UIView {
     lazy var cancelLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.cancelLabelText
-        label.font = UIFont.mediumFont(size: 30)
+        label.font = UIFont.mediumFont(size: 24)
         label.textAlignment = .center
         label.textColor = .white
         label.backgroundColor = .clear
@@ -99,7 +99,7 @@ class CancellationPartialModalView: UIView {
     private func setupCancelLabel() {
         addSubview(cancelLabel)
         NSLayoutConstraint.activate([
-            cancelLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            cancelLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             cancelLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             cancelLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             cancelLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
@@ -145,7 +145,7 @@ class CancellationPartialModalView: UIView {
             dismissButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             dismissButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             dismissButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            dismissButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
+            dismissButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
             ])
     }
 

@@ -59,17 +59,18 @@ class ReviewPageView: UIView {
 
     lazy var selectButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: StyleGuide.Assets.selectionModeOff)?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .clear
+        button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
+        button.setTitle(StyleGuide.AppCopy.ReviewVC.selectButtonText, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: StyleGuide.Assets.selectionModeOn), for: .normal)
-        button.backgroundColor = .clear
+        button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
+        button.setTitle(StyleGuide.AppCopy.ReviewVC.doneButtonText, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -245,9 +246,7 @@ class ReviewPageView: UIView {
         navBarUIView.addSubview(selectButton)
         NSLayoutConstraint.activate([
             selectButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
-            selectButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10),
-            selectButton.heightAnchor.constraint(equalToConstant: 40),
-            selectButton.widthAnchor.constraint(equalToConstant: 40)
+            selectButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10)
             ])
     }
 
@@ -255,9 +254,7 @@ class ReviewPageView: UIView {
         navBarUIView.addSubview(doneButton)
         NSLayoutConstraint.activate([
             doneButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
-            doneButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10),
-            doneButton.heightAnchor.constraint(equalToConstant: 40),
-            doneButton.widthAnchor.constraint(equalToConstant: 40)
+            doneButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10)
             ])
     }
 
