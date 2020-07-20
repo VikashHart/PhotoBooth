@@ -4,6 +4,7 @@ import Firebase
 protocol MetricsTracker {
     func configureMetrics()
     func logEvent(_ name: String, parameters: [String: Any])
+    func enableAnalytics(value: Bool)
 }
 
 class MetricsStore {
@@ -16,6 +17,10 @@ class MetricsStore {
 class Analytics {
     static func logEvent(_ name: String, parameters: [String: Any]) {
         MetricsStore.get().logEvent(name, parameters: parameters)
+    }
+
+    static func enableAnalytics(value: Bool) {
+        MetricsStore.get().enableAnalytics(value: value)
     }
 }
 
@@ -34,10 +39,24 @@ class FirebaseMetricsTracker: MetricsTracker {
     func configureMetrics() {
         guard isActive else { return }
         FirebaseApp.configure()
+
+        print("""
+
+            --- Metrics Enabled ---
+            Analytics: \(!RemoteConfigStore.configStore.fetchAnalyticsDisabled())
+            Automatic Performance: \(!RemoteConfigStore.configStore.fetchPerformanceAutoDisabled())
+            Custom Performance: \(!RemoteConfigStore.configStore.fetchPerformanceCustomDisabled())
+
+            """)
     }
 
     func logEvent(_ name: String, parameters: [String : Any]) {
         guard isActive else { return }
         Firebase.Analytics.logEvent(name, parameters: parameters)
+    }
+
+    func enableAnalytics(value: Bool) {
+        guard isActive else { return }
+        Firebase.Analytics.setAnalyticsCollectionEnabled(value)
     }
 }
