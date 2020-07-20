@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         MetricsStore.get().configureMetrics()
+        let _ = RemoteConfigStore.configStore
 
         let cameraVC = CameraViewController()
 
