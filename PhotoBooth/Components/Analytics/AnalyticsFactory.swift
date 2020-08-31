@@ -43,9 +43,9 @@ class FirebaseMetricsTracker: MetricsTracker {
         print("""
 
             --- Metrics Enabled ---
-            Analytics: \(!RemoteConfigStore.configStore.fetchAnalyticsDisabled())
-            Automatic Performance: \(!RemoteConfigStore.configStore.fetchPerformanceAutoDisabled())
-            Custom Performance: \(!RemoteConfigStore.configStore.fetchPerformanceCustomDisabled())
+            Analytics: \(RemoteConfigStore.configStore.fetchAnalyticsEnabled())
+            Automatic Performance: \(RemoteConfigStore.configStore.fetchPerformanceAutoEnabled())
+            Custom Performance: \(RemoteConfigStore.configStore.fetchPerformanceCustomEnabled())
 
             """)
     }

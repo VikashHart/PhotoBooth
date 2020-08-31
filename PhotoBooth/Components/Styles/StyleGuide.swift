@@ -4,10 +4,12 @@ import UIKit
 enum StyleGuide {
     enum Assets {
         //MARK: - Application image assets
+        static let appLogo = "app_logo"
         static let cameraIcon = "camera_icon"
         static let flashOff = "flash_off"
         static let flashOn = "flash_on"
         static let justCamera = "just_camera"
+        static let launchScreen = "launch_screen"
         static let rotateCamera = "rotate_camera"
         static let saveIcon = "save_icon"
         static let selectedIcon = "selected_icon"
@@ -18,9 +20,24 @@ enum StyleGuide {
         static let stepperMinus = "stepper_minus"
         static let stepperPlus = "stepper_plus"
         static let unselected = "unselected"
+        static let updateBanner = "update_banner"
     }
 
     enum AppCopy {
+        enum InterstitialVC {
+            //MARK: - Connection failure alert
+            static let connectionFailureTitle = "No Connection Detected"
+            static let connectionFailureMessage = "Please check your wifi/data connection and retry."
+            static let buttonText = "Retry"
+            //MARK: - Update View
+            static let laterButtonText = "Later"
+            static let updateButtonText = "Update"
+            static let okayButtonText = "Okay"
+            //MARK: - Update Requirement Text
+            static let none = ""
+            static let versionUnsuported = "Your version of Lens is no longer supported."
+        }
+
         enum CameraVC {
             //MARK: - Set up shoot card
             static let startShoot = "Start"
@@ -83,6 +100,8 @@ enum StyleGuide {
     enum StaticAppNumbers {
         static let shimmerDelay: TimeInterval = 8
         static let swipeToCancelPromptDuration: TimeInterval = 2.5
+        //MARK: - Interstial View constant
+        static let heightConstant: CGFloat = (UIScreen.main.bounds.height / 4)
     }
 
     enum CollectionView {

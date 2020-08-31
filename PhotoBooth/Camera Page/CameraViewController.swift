@@ -101,6 +101,9 @@ class CameraViewController: UIViewController {
         setupDownSwipeGesture()
         setupButtons()
         configureGestures()
+        print("\(Version(versionString: Bundle.main.releaseVersionNumber!))")
+        print("\(Bundle.main.buildVersionNumber!)")
+        print("\(Version(versionString: UIDevice.current.systemVersion))")
     }
 
     override func viewDidAppear(_ animated: Bool) {

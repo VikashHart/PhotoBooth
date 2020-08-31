@@ -82,6 +82,16 @@
 		A10A1F8E24BD781500AA815F /* RemoteConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F8D24BD781500AA815F /* RemoteConfigModel.swift */; };
 		A10A1F9024BF91C500AA815F /* RCPayloadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F8F24BF91C400AA815F /* RCPayloadClient.swift */; };
 		A10A1F9224BF999900AA815F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F9124BF999900AA815F /* NetworkError.swift */; };
+		A10A1F9824C8EF3D00AA815F /* InterstitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F9724C8EF3D00AA815F /* InterstitialView.swift */; };
+		A10A1F9A24CA78C700AA815F /* InterstitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F9924CA78C700AA815F /* InterstitialViewModel.swift */; };
+		A10A1F9C24CA7C0100AA815F /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F9B24CA7C0100AA815F /* InterstitialViewController.swift */; };
+		A10A1F9E24CA7CEA00AA815F /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F9D24CA7CEA00AA815F /* UpdateView.swift */; };
+		A10A1FA024CB4B8E00AA815F /* InterstitialVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1F9F24CB4B8E00AA815F /* InterstitialVCViewModel.swift */; };
+		A10A1FA624CE387900AA815F /* VersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FA524CE387900AA815F /* VersionSpec.swift */; };
+		A10A1FA924CE570600AA815F /* DeviceProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FA824CE570600AA815F /* DeviceProcessInfo.swift */; };
+		A10A1FAC24D5D3BC00AA815F /* UpdateConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FAB24D5D3BC00AA815F /* UpdateConfiguration.swift */; };
+		A10A1FAE24DB582300AA815F /* UpdateViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FAD24DB582300AA815F /* UpdateViewViewModel.swift */; };
+		A10A1FB024F888CD00AA815F /* UILabel+LineSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FAF24F888CD00AA815F /* UILabel+LineSpacing.swift */; };
 		A12C7FF924AA79B200915E5B /* PreviewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C7FF824AA79B200915E5B /* PreviewCellViewModel.swift */; };
 		A12C7FFB24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C7FFA24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift */; };
 		A12C7FFD24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C7FFC24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift */; };
@@ -208,6 +218,16 @@
 		A10A1F8D24BD781500AA815F /* RemoteConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigModel.swift; sourceTree = "<group>"; };
 		A10A1F8F24BF91C400AA815F /* RCPayloadClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCPayloadClient.swift; sourceTree = "<group>"; };
 		A10A1F9124BF999900AA815F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A10A1F9724C8EF3D00AA815F /* InterstitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialView.swift; sourceTree = "<group>"; };
+		A10A1F9924CA78C700AA815F /* InterstitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewModel.swift; sourceTree = "<group>"; };
+		A10A1F9B24CA7C0100AA815F /* InterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
+		A10A1F9D24CA7CEA00AA815F /* UpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
+		A10A1F9F24CB4B8E00AA815F /* InterstitialVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialVCViewModel.swift; sourceTree = "<group>"; };
+		A10A1FA524CE387900AA815F /* VersionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSpec.swift; sourceTree = "<group>"; };
+		A10A1FA824CE570600AA815F /* DeviceProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProcessInfo.swift; sourceTree = "<group>"; };
+		A10A1FAB24D5D3BC00AA815F /* UpdateConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConfiguration.swift; sourceTree = "<group>"; };
+		A10A1FAD24DB582300AA815F /* UpdateViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewViewModel.swift; sourceTree = "<group>"; };
+		A10A1FAF24F888CD00AA815F /* UILabel+LineSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LineSpacing.swift"; sourceTree = "<group>"; };
 		A12C7FF824AA79B200915E5B /* PreviewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCellViewModel.swift; sourceTree = "<group>"; };
 		A12C7FFA24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPageViewModelSpec.swift; sourceTree = "<group>"; };
 		A12C7FFC24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerViewModelSpec.swift; sourceTree = "<group>"; };
@@ -299,6 +319,7 @@
 				811F9A0F21484B660079EA7E /* AppDelegate.swift */,
 				811F9A1621484B670079EA7E /* Assets.xcassets */,
 				814956DD21C5C3D300CE3AD9 /* Camera Page */,
+				A10A1F9324C78DB900AA815F /* Interstitial Page */,
 				814956DE21C5C48200CE3AD9 /* Components */,
 				811F9A1B21484B680079EA7E /* Info.plist */,
 				81B4570121CCB2A7001595DD /* Preview Page */,
@@ -377,6 +398,8 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A10A1FAA24D5D39900AA815F /* Update Configuration */,
+				A10A1FA724CE56DB00AA815F /* Device Process Info */,
 				A10A1F8C24BD77D400AA815F /* JSON Handler */,
 				A10A1F8524BD434D00AA815F /* Reachability */,
 				A1E1F496248BFFEF00C4AD10 /* Permissions */,
@@ -588,6 +611,59 @@
 			path = "JSON Handler";
 			sourceTree = "<group>";
 		};
+		A10A1F9324C78DB900AA815F /* Interstitial Page */ = {
+			isa = PBXGroup;
+			children = (
+				A10A1F9624C8EE3800AA815F /* View Models */,
+				A10A1F9524C8EE1D00AA815F /* View Controllers */,
+				A10A1F9424C8EE1200AA815F /* Views */,
+			);
+			path = "Interstitial Page";
+			sourceTree = "<group>";
+		};
+		A10A1F9424C8EE1200AA815F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A10A1F9724C8EF3D00AA815F /* InterstitialView.swift */,
+				A10A1F9D24CA7CEA00AA815F /* UpdateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A10A1F9524C8EE1D00AA815F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A10A1F9B24CA7C0100AA815F /* InterstitialViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A10A1F9624C8EE3800AA815F /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10A1F9924CA78C700AA815F /* InterstitialViewModel.swift */,
+				A10A1F9F24CB4B8E00AA815F /* InterstitialVCViewModel.swift */,
+				A10A1FAD24DB582300AA815F /* UpdateViewViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		A10A1FA724CE56DB00AA815F /* Device Process Info */ = {
+			isa = PBXGroup;
+			children = (
+				A10A1FA824CE570600AA815F /* DeviceProcessInfo.swift */,
+			);
+			path = "Device Process Info";
+			sourceTree = "<group>";
+		};
+		A10A1FAA24D5D39900AA815F /* Update Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				A10A1FAB24D5D3BC00AA815F /* UpdateConfiguration.swift */,
+			);
+			path = "Update Configuration";
+			sourceTree = "<group>";
+		};
 		A12C800224B764FF00915E5B /* Firebase Remote Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,6 +726,7 @@
 				A17406EC249D90FC007D3DDA /* UIView+Promise.swift */,
 				A17406F0249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift */,
 				A12C800024B75E2600915E5B /* Bundle+VersionNumber.swift */,
+				A10A1FAF24F888CD00AA815F /* UILabel+LineSpacing.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -682,6 +759,7 @@
 				A12C7FFA24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift */,
 				A12C7FFC24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift */,
 				A12C7FFE24AFB5C500915E5B /* PreviewCellViewModelSpec.swift */,
+				A10A1FA524CE387900AA815F /* VersionSpec.swift */,
 			);
 			path = PhotoBoothTests;
 			sourceTree = "<group>";
@@ -925,9 +1003,12 @@
 				A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */,
 				818360BC218F9FF100238022 /* TimerModeling.swift in Sources */,
 				A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */,
+				A10A1F9C24CA7C0100AA815F /* InterstitialViewController.swift in Sources */,
 				814956F821C7344A00CE3AD9 /* UIDeviceOrientation+Analytics.swift in Sources */,
 				A1E1F498248C001200C4AD10 /* AuthorizationStatus.swift in Sources */,
+				A10A1F9824C8EF3D00AA815F /* InterstitialView.swift in Sources */,
 				A10A1F8B24BD511700AA815F /* ReachabilityStatusType.swift in Sources */,
+				A10A1FAC24D5D3BC00AA815F /* UpdateConfiguration.swift in Sources */,
 				81B4570C21CCD5AB001595DD /* PreviewViewControllerViewModel.swift in Sources */,
 				A1807FE6248953DA0007460F /* PhotosPermissionsProvider.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
@@ -943,9 +1024,11 @@
 				A12C800124B75E2600915E5B /* Bundle+VersionNumber.swift in Sources */,
 				A10A1F8E24BD781500AA815F /* RemoteConfigModel.swift in Sources */,
 				A1807FA6248706310007460F /* ToolBarView.swift in Sources */,
+				A10A1F9E24CA7CEA00AA815F /* UpdateView.swift in Sources */,
 				812704AB21707E8500545143 /* StepperViewModeling.swift in Sources */,
 				81CA8CA421A5EEE900170F1A /* ReviewViewController.swift in Sources */,
 				A1807FAA2487356C0007460F /* ToolbarDelegate.swift in Sources */,
+				A10A1FA024CB4B8E00AA815F /* InterstitialVCViewModel.swift in Sources */,
 				81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */,
 				814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */,
 				A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */,
@@ -959,11 +1042,13 @@
 				81B4570A21CCD37A001595DD /* PreviewViewController.swift in Sources */,
 				818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */,
 				814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */,
+				A10A1F9A24CA78C700AA815F /* InterstitialViewModel.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
 				A1EDE2022486BB0C00329532 /* UIView+Gradient.swift in Sources */,
 				811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */,
 				818360BE218FA0A400238022 /* CountdownTimer.swift in Sources */,
 				8174574F21598DA800F612F6 /* SetupCardView.swift in Sources */,
+				A10A1FAE24DB582300AA815F /* UpdateViewViewModel.swift in Sources */,
 				A17406ED249D90FC007D3DDA /* UIView+Promise.swift in Sources */,
 				8131077F22A35E3A0019BBC6 /* PhotoCaptureable.swift in Sources */,
 				81F6B35721BB4705006A7BED /* CancellationPartialModalView.swift in Sources */,
@@ -974,6 +1059,8 @@
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
+				A10A1FB024F888CD00AA815F /* UILabel+LineSpacing.swift in Sources */,
+				A10A1FA924CE570600AA815F /* DeviceProcessInfo.swift in Sources */,
 				A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */,
 				A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */,
 				818360C0218FC5DB00238022 /* CountdownIndicatorViewModeling.swift in Sources */,
@@ -1021,6 +1108,7 @@
 				C72BE8A021751CC2003C047E /* QuickNimbleDemoTestFile.swift in Sources */,
 				81CA8CA22195319A00170F1A /* CountdownIndicatorViewModelSpec.swift in Sources */,
 				81F6B35521BA0C0D006A7BED /* ReviewPageViewModelSpec.swift in Sources */,
+				A10A1FA624CE387900AA815F /* VersionSpec.swift in Sources */,
 				81836092218A696C00238022 /* SwipeToCancelPromptSpec.swift in Sources */,
 				A12C7FFB24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift in Sources */,
 				A12C7FFF24AFB5C500915E5B /* PreviewCellViewModelSpec.swift in Sources */,

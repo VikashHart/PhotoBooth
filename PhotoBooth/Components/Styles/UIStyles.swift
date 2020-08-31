@@ -7,6 +7,7 @@ enum FontType: String {
     case medium = "AvenirNext-Medium"
     case bold = "AvenirNext-Bold"
     case semiBold = "AvenirNext-DemiBold"
+    case roman = "Avenir-Roman"
 }
 
 extension UIFont {
@@ -24,6 +25,10 @@ extension UIFont {
 
     static func semiBoldFont(size: CGFloat) -> UIFont {
         return UIFont.appFont(type: .semiBold, size: size)
+    }
+
+    static func romanFont(size: CGFloat) -> UIFont {
+        return UIFont.appFont(type: .roman, size: size)
     }
 
     static func appFont(type: FontType, size: CGFloat) -> UIFont {
