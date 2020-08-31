@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Update_Banner@2x.png",
+      "filename" : "update banner@2x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Update_Banner@3x.png",
+      "filename" : "update banner@3x.png",
       "scale" : "2x"
     },
     {

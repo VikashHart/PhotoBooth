@@ -21,7 +21,8 @@ class UpdateView: UIView {
     lazy var bannerImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: StyleGuide.Assets.updateBanner)
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -164,8 +165,8 @@ class UpdateView: UIView {
         NSLayoutConstraint.activate([
             bannerImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 19),
             bannerImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            bannerImageView.heightAnchor.constraint(equalToConstant: 32),
-            bannerImageView.widthAnchor.constraint(equalToConstant: 95)
+            bannerImageView.heightAnchor.constraint(equalToConstant: 40),
+            bannerImageView.widthAnchor.constraint(equalToConstant: 88)
         ])
     }
 
