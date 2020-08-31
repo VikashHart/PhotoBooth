@@ -9,6 +9,11 @@ class UpdateView: UIView {
         view.backgroundColor = .black
         view.layer.cornerRadius = 20
         view.layer.masksToBounds = true
+        view.clipsToBounds = false
+        view.layer.shadowColor = UIColor.shadowGray.cgColor
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 5
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
