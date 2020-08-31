@@ -8,13 +8,16 @@ class RemoteConfigStore {
         return Environment.shared.productionEnabled
     }
     var loadComplete: Bool
-    var loadingDoneCallback: (() -> Void)?
+    var loadingDidComplete: (() -> Void)?
+    var loadingDidFail: (() -> Void)?
     var configPayload: [RCPayload] = []
     private var defaults: [String : Any] = [
         "rcPayload":"",
-        "performanceDisableAuto": false,
-        "performanceDisableCustom": false,
-        "analyticsDisable": false]
+        "performanceEnabledAuto": true,
+        "performanceEnabledCustom": true,
+        "analyticsEnabled": true
+    ]
+
     private let client: RCPayloadRetrievable
 
     private var fetchInterval: TimeInterval {
@@ -36,7 +39,7 @@ class RemoteConfigStore {
     }
 
     private func getRCDefaults() {
-        guard let data = RemoteConfig.remoteConfig()["rcPayload"].dataValue as? NSData else { return }
+        let data: NSData = RemoteConfig.remoteConfig()["rcPayload"].dataValue as NSData
         self.client.getPayload(data: data) { [weak self] (result) in
             switch result {
             case .success(let data):
@@ -44,46 +47,46 @@ class RemoteConfigStore {
                 self?.setAnalyticsCollection()
                 self?.setPerformanceCollection()
                 self?.loadComplete = true
-                self?.loadingDoneCallback?()
+                self?.loadingDidComplete?()
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.loadingDoneCallback?()
+                self?.loadingDidFail?()
             }
         }
     }
 
     func setAnalyticsCollection() {
-        if fetchAnalyticsDisabled() {
-            Analytics.enableAnalytics(value: false)
-        } else {
+        if fetchAnalyticsEnabled() {
             Analytics.enableAnalytics(value: true)
+        } else {
+            Analytics.enableAnalytics(value: false)
         }
     }
 
     private func setPerformanceCollection() {
-        if fetchPerformanceAutoDisabled() {
-            Performance.sharedInstance().isInstrumentationEnabled = false
-        } else {
+        if fetchPerformanceAutoEnabled() {
             Performance.sharedInstance().isInstrumentationEnabled = true
-        }
-
-        if fetchPerformanceCustomDisabled() {
-            Performance.sharedInstance().isDataCollectionEnabled = false
         } else {
+            Performance.sharedInstance().isInstrumentationEnabled = false
+        }
+
+        if fetchPerformanceCustomEnabled() {
             Performance.sharedInstance().isDataCollectionEnabled = true
+        } else {
+            Performance.sharedInstance().isDataCollectionEnabled = false
         }
     }
 
-    func fetchPerformanceAutoDisabled() -> Bool {
-        return RemoteConfig.remoteConfig()["performanceDisableAuto"].boolValue
+    func fetchPerformanceAutoEnabled() -> Bool {
+        return RemoteConfig.remoteConfig()["performanceEnabledAuto"].boolValue
     }
 
-    func fetchPerformanceCustomDisabled() -> Bool {
-        return RemoteConfig.remoteConfig()["performanceDisableCustom"].boolValue
+    func fetchPerformanceCustomEnabled() -> Bool {
+        return RemoteConfig.remoteConfig()["performanceEnabledCustom"].boolValue
     }
 
-    func fetchAnalyticsDisabled() -> Bool {
-        return RemoteConfig.remoteConfig()["analyticsDisable"].boolValue
+    func fetchAnalyticsEnabled() -> Bool {
+        return RemoteConfig.remoteConfig()["analyticsEnabled"].boolValue
     }
 
     private func loadDefaultValues() {
@@ -97,7 +100,6 @@ class RemoteConfigStore {
             if status == .success {
                 RemoteConfig.remoteConfig().activate { (success, error) in
                     if success {
-
                     } else if let error = error {
                         print(error.localizedDescription)
                     }

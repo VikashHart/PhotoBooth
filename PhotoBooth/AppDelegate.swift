@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MetricsStore.get().configureMetrics()
         let _ = RemoteConfigStore.configStore
 
-        let cameraVC = CameraViewController()
+        let interstitialVC = InterstitialViewController()
 
         //Window setup
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = cameraVC
+        window?.rootViewController = interstitialVC
         window?.makeKeyAndVisible()
 
         return true
