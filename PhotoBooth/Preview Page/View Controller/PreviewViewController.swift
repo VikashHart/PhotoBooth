@@ -78,8 +78,10 @@ class PreviewViewController: UIViewController {
                 .then(self.previewView.showSaveIndicator)
                 .ensure {
                     self.previewView.activateToolbar()
+                    self.viewModel.postSaveCompleted()
             }
             .catch { [weak self] (error) in
+                self?.viewModel.postSaveFailed()
                 let ac = UIAlertController.makeImageSaveFailureAlert(error: error)
                 self?.present(ac, animated: true)
             }

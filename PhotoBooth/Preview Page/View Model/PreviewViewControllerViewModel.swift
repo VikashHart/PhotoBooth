@@ -18,6 +18,8 @@ protocol PreviewViewControllerModeling {
     func requestPhotosPermission()
     func postShareCancelled()
     func postShareCompleted(activityType: UIActivity.ActivityType)
+    func postSaveCompleted()
+    func postSaveFailed()
     func saveImage() -> Promise<Void>
     func setSelectedImageAndIndex(indexPath: IndexPath)
 }
@@ -85,15 +87,26 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     }
 
     func postShareCancelled() {
-        let parameters = data.parameters
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview] + data.parameters
         Analytics.logEvent("share_cancelled", parameters: parameters)
     }
 
     func postShareCompleted(activityType: UIActivity.ActivityType) {
         let imageOrientation = selectedImage.orientation.description
-        let parameters = ["share_activity" : activityType,
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview,
+                          "share_activity" : activityType,
                           "image_orientations": imageOrientation] + data.parameters
         Analytics.logEvent("share_completed", parameters: parameters)
+    }
+
+    func postSaveCompleted() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview]
+        Analytics.logEvent("save_completed", parameters: parameters)
+    }
+
+    func postSaveFailed() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview]
+        Analytics.logEvent("save_failed", parameters: parameters)
     }
 
     func saveImage() -> Promise<Void> {
@@ -111,9 +124,25 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
 
     //MARK: - Private Functions
 
+    private func postIntialSavePermissions(status: String) {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview,
+                          "permission_status" : status] as [String : Any]
+        Analytics.logEvent("initial_photo_library_permission_selection", parameters: parameters)
+    }
+
     private func requstPermission() {
         photoPermissionsProvider.requestPhotoLibraryPermission { (status) in
             self.photoAccessLevel = status
+            switch status {
+            case .authorized:
+                let status = "authorized"
+                self.postIntialSavePermissions(status: status)
+            case .denied:
+                let status = "denied"
+                self.postIntialSavePermissions(status: status)
+            default:
+                break
+            }
         }
     }
 

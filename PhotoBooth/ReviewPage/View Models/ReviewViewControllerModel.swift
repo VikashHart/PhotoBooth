@@ -109,7 +109,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     }
 
     func postShareCancelled() {
-        let parameters = data.parameters
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review] + data.parameters
         Analytics.logEvent("share_cancelled", parameters: parameters)
     }
 
@@ -117,10 +117,28 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         let imageOrientations = selectedImages.map { image in
             return image.orientation.description
         }
-        let parameters = ["share_activity" : activityType,
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+                          "share_activity" : activityType,
                           "selected_image_count" : selectedIndices.count,
                           "image_orientations": imageOrientations] + data.parameters
         Analytics.logEvent("share_completed", parameters: parameters)
+    }
+
+    func postSaveCompleted() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+                          "selected_image_count" : selectedIndices.count] as [String : Any]
+        Analytics.logEvent("save_completed", parameters: parameters)
+    }
+
+    func postSaveFailed() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+                          "selected_image_count" : selectedIndices.count] as [String : Any]
+        Analytics.logEvent("save_failed", parameters: parameters)
+    }
+
+    func postSelectPressed() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review]
+        Analytics.logEvent("select_pressed", parameters: parameters)
     }
 
     func saveImages() -> Promise<Void> {
@@ -136,9 +154,25 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
 
     //MARK: - Private Functions
 
+    private func postIntialSavePermissions(status: String) {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+                          "permission_status" : status] as [String : Any]
+        Analytics.logEvent("initial_photo_library_permission_selection", parameters: parameters)
+    }
+
     private func requstPermission() {
         photoPermissionsProvider.requestPhotoLibraryPermission { (status) in
             self.photoAccessLevel = status
+            switch status {
+            case .authorized:
+                let status = "authorized"
+                self.postIntialSavePermissions(status: status)
+            case .denied:
+                let status = "denied"
+                self.postIntialSavePermissions(status: status)
+            default:
+                break
+            }
         }
     }
 

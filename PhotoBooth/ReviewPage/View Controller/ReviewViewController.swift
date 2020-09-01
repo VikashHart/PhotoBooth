@@ -93,8 +93,10 @@ class ReviewViewController: UIViewController {
                 .then(self.reviewView.showSaveIndicator)
                 .ensure {
                     self.reviewView.activateToolbar()
+                    self.viewModel.postSaveCompleted()
             }
             .catch { [weak self] (error) in
+                self?.viewModel.postSaveFailed()
                 let ac = UIAlertController.makeImageSaveFailureAlert(error: error)
                 self?.present(ac, animated: true)
             }
@@ -113,6 +115,7 @@ class ReviewViewController: UIViewController {
 
     @objc func selectSelected() {
         viewModel.selectPressed()
+        viewModel.postSelectPressed()
     }
 
     @objc func doneSelected() {

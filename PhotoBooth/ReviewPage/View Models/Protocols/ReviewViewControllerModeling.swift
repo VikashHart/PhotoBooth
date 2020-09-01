@@ -27,5 +27,8 @@ protocol ReviewViewControllerModeling {
     func requestPhotosPermission()
     func postShareCancelled()
     func postShareCompleted(activityType: UIActivity.ActivityType)
+    func postSaveCompleted()
+    func postSaveFailed()
+    func postSelectPressed()
     func saveImages() -> Promise<Void>
 }
