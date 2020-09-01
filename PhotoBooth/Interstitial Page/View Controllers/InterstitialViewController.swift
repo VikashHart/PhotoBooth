@@ -127,16 +127,27 @@ class InterstitialViewController: UIViewController {
 
     private func setupButtons() {
         guard let updateView = updateView else { return }
-        updateView.laterButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
-        updateView.okayButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
-        updateView.updateButton.addTarget(self, action: #selector(presentAppStorePage), for: .touchUpInside)
+        updateView.laterButton.addTarget(self, action: #selector(laterSelected), for: .touchUpInside)
+        updateView.okayButton.addTarget(self, action: #selector(okaySelected), for: .touchUpInside)
+        updateView.updateButton.addTarget(self, action: #selector(updateSelected), for: .touchUpInside)
     }
 
-    @objc private func dismissView() {
+    @objc private func laterSelected() {
+        viewModel.postLaterSelected()
         presentCameraVC()
     }
 
-    @objc private func presentAppStorePage() {
+    @objc private func okaySelected() {
+        viewModel.postOkaySelected()
+        presentCameraVC()
+    }
+
+    @objc private func updateSelected() {
+        viewModel.postUpdateSelected()
+        presentAppStorePage()
+    }
+
+    private func presentAppStorePage() {
         let urlString = "itms-apps://apps.apple.com/app/id1447331697"
 
         if #available(iOS 10.0, *) {

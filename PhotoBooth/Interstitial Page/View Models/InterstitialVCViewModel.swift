@@ -3,6 +3,9 @@ import Foundation
 protocol InterstitialVCViewModeling {
     func showUpdate() -> Bool
     func getUpdateConfiguraion() -> UpdateConfiguration
+    func postLaterSelected()
+    func postOkaySelected()
+    func postUpdateSelected()
 }
 
 class InterstitialVCViewModel: InterstitialVCViewModeling {
@@ -37,6 +40,21 @@ class InterstitialVCViewModel: InterstitialVCViewModeling {
         }
 
         return configuration
+    }
+
+    func postLaterSelected() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial]
+        Analytics.logEvent("later_selected", parameters: parameters)
+    }
+
+    func postOkaySelected() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial]
+        Analytics.logEvent("okay_selected", parameters: parameters)
+    }
+
+    func postUpdateSelected() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial]
+        Analytics.logEvent("update_selected", parameters: parameters)
     }
 
     private func versionSupported() -> Bool {

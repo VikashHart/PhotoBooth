@@ -92,6 +92,7 @@
 		A10A1FAC24D5D3BC00AA815F /* UpdateConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FAB24D5D3BC00AA815F /* UpdateConfiguration.swift */; };
 		A10A1FAE24DB582300AA815F /* UpdateViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FAD24DB582300AA815F /* UpdateViewViewModel.swift */; };
 		A10A1FB024F888CD00AA815F /* UILabel+LineSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FAF24F888CD00AA815F /* UILabel+LineSpacing.swift */; };
+		A10A1FB224FE034200AA815F /* ViewControllerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A1FB124FE034200AA815F /* ViewControllerIdentifier.swift */; };
 		A12C7FF924AA79B200915E5B /* PreviewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C7FF824AA79B200915E5B /* PreviewCellViewModel.swift */; };
 		A12C7FFB24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C7FFA24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift */; };
 		A12C7FFD24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C7FFC24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift */; };
@@ -228,6 +229,7 @@
 		A10A1FAB24D5D3BC00AA815F /* UpdateConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConfiguration.swift; sourceTree = "<group>"; };
 		A10A1FAD24DB582300AA815F /* UpdateViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewViewModel.swift; sourceTree = "<group>"; };
 		A10A1FAF24F888CD00AA815F /* UILabel+LineSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LineSpacing.swift"; sourceTree = "<group>"; };
+		A10A1FB124FE034200AA815F /* ViewControllerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifier.swift; sourceTree = "<group>"; };
 		A12C7FF824AA79B200915E5B /* PreviewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCellViewModel.swift; sourceTree = "<group>"; };
 		A12C7FFA24AF9EEC00915E5B /* PreviewPageViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPageViewModelSpec.swift; sourceTree = "<group>"; };
 		A12C7FFC24AFA9D900915E5B /* PreviewViewControllerViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerViewModelSpec.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				811A89D321C83BF800AA3D3D /* ProcessedImage+Analytics.swift */,
 				811A89D521C8415B00AA3D3D /* Dictionary+MergeOperator.swift */,
 				A14499532476106C00100B7C /* EnvironmentProvider.swift */,
+				A10A1FB124FE034200AA815F /* ViewControllerIdentifier.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -1031,6 +1034,7 @@
 				A10A1FA024CB4B8E00AA815F /* InterstitialVCViewModel.swift in Sources */,
 				81B4570821CCCD78001595DD /* PreviewViewModel.swift in Sources */,
 				814956D721C5B19900CE3AD9 /* AppUtility.swift in Sources */,
+				A10A1FB224FE034200AA815F /* ViewControllerIdentifier.swift in Sources */,
 				A1EDE19F2478E7E500329532 /* CameraFocusAnimation.swift in Sources */,
 				814956D321C323A400CE3AD9 /* AnalyticsFactory.swift in Sources */,
 				818360C2218FC5FA00238022 /* CountdownIndicatorViewModel.swift in Sources */,
