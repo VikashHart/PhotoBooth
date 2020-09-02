@@ -91,9 +91,10 @@ class ReviewViewController: UIViewController {
             self.reviewView.deactivateToolbar()
             viewModel.saveImages()
                 .then(self.reviewView.showSaveIndicator)
+                .done( { _ in
+                    self.viewModel.postSaveCompleted()})
                 .ensure {
                     self.reviewView.activateToolbar()
-                    self.viewModel.postSaveCompleted()
             }
             .catch { [weak self] (error) in
                 self?.viewModel.postSaveFailed()
