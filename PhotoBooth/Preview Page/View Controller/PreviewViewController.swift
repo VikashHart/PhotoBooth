@@ -76,9 +76,10 @@ class PreviewViewController: UIViewController {
             self.previewView.deactivateToolbar()
             viewModel.saveImage()
                 .then(self.previewView.showSaveIndicator)
+                .done( { _ in
+                self.viewModel.postSaveCompleted()})
                 .ensure {
                     self.previewView.activateToolbar()
-                    self.viewModel.postSaveCompleted()
             }
             .catch { [weak self] (error) in
                 self?.viewModel.postSaveFailed()
