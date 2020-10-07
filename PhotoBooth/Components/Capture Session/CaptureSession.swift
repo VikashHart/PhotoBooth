@@ -160,13 +160,26 @@ class CaptureSession: NSObject, PhotoCaptureable, AVCapturePhotoCaptureDelegate 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
 
-            guard let image = UIImage(data: imageData),
-                let cameraPosition = currentCamera?.position
-                else { return }
+            switch currentCamera?.position {
+            case .front:
+                guard let image = UIImage(data: imageData)?.flipHorizontally(),
+                    let cameraPosition = currentCamera?.position
+                    else { return }
 
-            let processedImage = ProcessedImage(image: image,
-                                                cameraPosition: cameraPosition)
-            onImageCaptured?(processedImage)
+                let processedImage = ProcessedImage(image: image,
+                                                    cameraPosition: cameraPosition)
+                onImageCaptured?(processedImage)
+            case .back:
+                guard let image = UIImage(data: imageData),
+                    let cameraPosition = currentCamera?.position
+                    else { return }
+
+                let processedImage = ProcessedImage(image: image,
+                                                    cameraPosition: cameraPosition)
+                onImageCaptured?(processedImage)
+            default:
+                break
+            }
         }
     }
 

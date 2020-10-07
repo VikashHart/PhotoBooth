@@ -1,5 +1,5 @@
 import UIKit
-import Motion
+//import Motion
 import Photos
 import PromiseKit
 
@@ -31,7 +31,7 @@ class ReviewViewController: UIViewController {
         self.reviewView.doneButton.addTarget(self,
                                              action: #selector(doneSelected),
                                              for: .touchUpInside)
-        self.isMotionEnabled = true
+//        self.isMotionEnabled = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -178,8 +178,9 @@ extension ReviewViewController: UICollectionViewDelegate {
             updateFooter()
         } else {
             let previewVC = PreviewViewController(data: viewModel.data,
-                                                  selectedIndex: indexPath,
-                                                  imageIdentifier: indexPath.description)
+                                                  selectedIndex: indexPath
+//                                                  imageIdentifier: indexPath.description
+            )
             previewVC.modalPresentationStyle = .fullScreen
             present(previewVC, animated: true, completion: nil)
         }
@@ -199,7 +200,7 @@ extension ReviewViewController: UICollectionViewDataSource {
         { return UICollectionViewCell() }
         let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
         cell.viewModel = viewModel
-        cell.photoImageView.motionIdentifier = indexPath.description
+//        cell.photoImageView.motionIdentifier = indexPath.description
 
         return cell
     }

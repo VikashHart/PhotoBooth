@@ -1,5 +1,5 @@
 import UIKit
-import Motion
+//import Motion
 import PromiseKit
 
 class PreviewView: UIView {
@@ -42,7 +42,7 @@ class PreviewView: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .black
         imageView.layer.masksToBounds = true
-        imageView.motionIdentifier = viewModel.imageIdentifier
+//        imageView.motionIdentifier = viewModel.imageIdentifier
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
