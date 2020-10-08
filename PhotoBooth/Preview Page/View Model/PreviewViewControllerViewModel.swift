@@ -55,17 +55,13 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
 
     init(data: PhotoShootData,
          selectedIndex: IndexPath,
-//         imageIdentifier: String,
          cellSpacing: CGFloat = StyleGuide.CollectionView.PreviewPage.cellSpacing,
          numCells: CGFloat = StyleGuide.CollectionView.PreviewPage.numberOfCells,
          isOverlayVisible: Bool = true,
          photoPermissionsProvider: PhotosAccess = PhotosPermissionsProvider()) {
         self.images = data.images
         self.selectedImage = data.images[selectedIndex.row]
-//        self.imageIdentifier = imageIdentifier
-        self.previewViewModel = PreviewViewModel(image: images[selectedIndex.row]
-//                                                 imageIdentifier: imageIdentifier
-        )
+        self.previewViewModel = PreviewViewModel(image: images[selectedIndex.row])
         self.selectedIndex = selectedIndex
         self.isOverlayVisible = isOverlayVisible
         self.cellSpacing = cellSpacing
