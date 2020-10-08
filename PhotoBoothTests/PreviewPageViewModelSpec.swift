@@ -15,7 +15,7 @@ class PreviewPageViewModelSpec: QuickSpec {
             context("When the onImageChanged callback is called") {
 
                 beforeEach {
-                    viewModel = PreviewViewModel(image: UIImage(), imageIdentifier: "test")
+                    viewModel = PreviewViewModel(image: UIImage())
                     onImageChanged = {
                         didChange = true
                     }

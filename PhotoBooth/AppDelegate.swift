@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = interstitialVC
         window?.makeKeyAndVisible()
+        interstitialVC.performFetch()
 
         return true
     }

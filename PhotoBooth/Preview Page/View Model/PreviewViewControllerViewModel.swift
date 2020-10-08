@@ -8,7 +8,7 @@ protocol PreviewViewControllerModeling {
     var selectedIndex: IndexPath { get set }
     var isOverlayVisible: Bool { get set }
     var permissionStatus: AuthorizationStatus { get }
-    var imageIdentifier: String { get }
+//    var imageIdentifier: String { get }
 
     var cellSpacing: CGFloat { get }
     var numberOfSpaces: CGFloat { get }
@@ -35,7 +35,7 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     var permissionStatus: AuthorizationStatus {
         return photoAccessLevel
     }
-    private(set) var imageIdentifier: String
+//    private(set) var imageIdentifier: String
 
     let cellSpacing: CGFloat
     let numberOfSpaces: CGFloat
@@ -55,16 +55,13 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
 
     init(data: PhotoShootData,
          selectedIndex: IndexPath,
-         imageIdentifier: String,
          cellSpacing: CGFloat = StyleGuide.CollectionView.PreviewPage.cellSpacing,
          numCells: CGFloat = StyleGuide.CollectionView.PreviewPage.numberOfCells,
          isOverlayVisible: Bool = true,
          photoPermissionsProvider: PhotosAccess = PhotosPermissionsProvider()) {
         self.images = data.images
         self.selectedImage = data.images[selectedIndex.row]
-        self.imageIdentifier = imageIdentifier
-        self.previewViewModel = PreviewViewModel(image: images[selectedIndex.row],
-                                                 imageIdentifier: imageIdentifier)
+        self.previewViewModel = PreviewViewModel(image: images[selectedIndex.row])
         self.selectedIndex = selectedIndex
         self.isOverlayVisible = isOverlayVisible
         self.cellSpacing = cellSpacing

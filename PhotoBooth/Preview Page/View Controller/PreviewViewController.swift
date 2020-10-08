@@ -1,5 +1,4 @@
 import UIKit
-import Motion
 import PromiseKit
 
 class PreviewViewController: UIViewController {
@@ -15,7 +14,6 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        self.isMotionEnabled = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,11 +44,9 @@ class PreviewViewController: UIViewController {
     }
 
     init(data: PhotoShootData,
-         selectedIndex: IndexPath,
-         imageIdentifier: String) {
+         selectedIndex: IndexPath) {
         self.viewModel = PreviewViewControllerModel(data: data,
-                                                    selectedIndex: selectedIndex,
-                                                    imageIdentifier: imageIdentifier)
+                                                    selectedIndex: selectedIndex)
         super.init(nibName: nil, bundle: nil)
     }
 

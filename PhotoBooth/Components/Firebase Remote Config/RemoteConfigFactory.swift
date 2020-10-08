@@ -35,7 +35,12 @@ class RemoteConfigStore {
         self.client = client
         self.loadComplete = loadComplete
         loadDefaultValues()
-        fetchCloudValues()
+        switch isActive {
+        case true:
+            fetchCloudValues()
+        case false:
+            self.loadComplete = true
+        }
     }
 
     private func getRCDefaults() {
@@ -106,6 +111,7 @@ class RemoteConfigStore {
                 }
             } else if let error = error {
                 print ("Uh-oh. Got an error fetching remote values \(error)")
+                self?.loadingDidFail?()
                 // In a real app, you would probably want to call the loading done callback anyway,
                 // and just proceed with the default values. I won't do that here, so we can call attention
                 // to the fact that Remote Config isn't loading.

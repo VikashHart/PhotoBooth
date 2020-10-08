@@ -9,6 +9,9 @@ class InterstitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+    }
+
+    internal func performFetch() {
         bindRemoteConfig()
         bindLoadComplete()
         bindLoadFail()
@@ -34,7 +37,10 @@ class InterstitialViewController: UIViewController {
 
     private func executeUpdateRoutine() {
         interstitialView.endLoad()
-        guard let payload = RemoteConfigStore.configStore.configPayload.first else { return }
+        guard let payload = RemoteConfigStore.configStore.configPayload.first else {
+            presentCameraVC()
+            return
+        }
 
         if viewModel.showUpdate() {
             let configuration = viewModel.getUpdateConfiguraion()

@@ -14,7 +14,7 @@ class PreviewViewControllerViewMoldelSpec: QuickSpec {
 
                 beforeEach {
                     let images = [UIImage(), UIImage(), UIImage()]
-                    viewModel = PreviewViewControllerModel(data: PhotoShootData(sessionID: "testID", images: images), selectedIndex: IndexPath(row: 0, section: 0), imageIdentifier: "test")
+                    viewModel = PreviewViewControllerModel(data: PhotoShootData(sessionID: "testID", images: images), selectedIndex: IndexPath(row: 0, section: 0))
                 }
 
                 it("viewModel selectedIndex should be IndexPath(0,0)") {
