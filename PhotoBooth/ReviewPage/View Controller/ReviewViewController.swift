@@ -161,6 +161,8 @@ extension ReviewViewController: ToolbarDelegate {
             openShareMenu()
         case .save:
             saveImages()
+        default:
+            break
         }
     }
 }

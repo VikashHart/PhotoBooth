@@ -26,6 +26,8 @@ class PhotosPermissionsProvider: PhotosAccess {
             completion(.denied)
         case .notDetermined:
             completion(.undetermined)
+        case .limited:
+            completion(.denied)
         @unknown default:
             completion(.denied)
         }
@@ -40,6 +42,8 @@ class PhotosPermissionsProvider: PhotosAccess {
                 completion(.denied)
             case .notDetermined:
                 completion(.undetermined)
+            case .limited:
+                completion(.denied)
             @unknown default:
                 completion(.denied)
             }

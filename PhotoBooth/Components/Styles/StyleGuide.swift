@@ -6,6 +6,8 @@ enum StyleGuide {
         //MARK: - Application image assets
         static let appLogo = "app_logo"
         static let cameraIcon = "camera_icon"
+        static let editIcon = "edit_icon"
+        static let endFilterIcon = "end_filtering_icon"
         static let flashOff = "flash_off"
         static let flashOn = "flash_on"
         static let justCamera = "just_camera"
@@ -82,6 +84,8 @@ enum StyleGuide {
             //MARK: - Toolbar text
             static let shareText = "Share"
             static let saveText = "Save"
+            static let filterText = "Filter"
+            static let doneText = "Done"
         }
     }
 
@@ -113,7 +117,8 @@ enum StyleGuide {
         }
 
         enum PreviewPage {
-            static let cellId = "PreviewCell"
+            static let previewCellId = "PreviewCell"
+            static let filterCellId = "FilterCell"
             static let cellSpacing: CGFloat = 6
             static let numberOfCells: CGFloat = 1
         }
