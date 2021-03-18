@@ -2,14 +2,7 @@ import UIKit
 
 class ReviewCell: UICollectionViewCell {
 
-    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage()) {
-        didSet {
-            viewModel.onSelectionChanged = { [weak self] in
-                self?.updateUI()
-            }
-            updateUI()
-        }
-    }
+    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage())
 
     lazy var photoImageView: UIImageView = {
         let photo = UIImageView()
@@ -46,6 +39,15 @@ class ReviewCell: UICollectionViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+
+    func set(viewModel: ReviewCellModeling) {
+        self.viewModel = viewModel
+        self.viewModel.onSelectionChanged = { [weak self] in
+            self?.updateUI()
+        }
+
+        updateUI()
     }
 
     private func commonInit() {

@@ -96,7 +96,7 @@ class ToolbarView: UIView {
 
     lazy var filterIcon: UIImageView = {
         let view = UIImageView()
-        let image = UIImage(named: StyleGuide.Assets.editIcon)?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: StyleGuide.Assets.filteringIcon)?.withRenderingMode(.alwaysTemplate)
         view.image = image
         view.tintColor = .white
         view.backgroundColor = .clear
@@ -342,7 +342,7 @@ class ToolbarView: UIView {
             filterTitle.text = StyleGuide.AppCopy.Toolbar.doneText
             layoutIfNeeded()
         case StyleGuide.AppCopy.Toolbar.doneText:
-            filterIcon.image = UIImage(named: StyleGuide.Assets.editIcon)?.withRenderingMode(.alwaysTemplate)
+            filterIcon.image = UIImage(named: StyleGuide.Assets.filteringIcon)?.withRenderingMode(.alwaysTemplate)
             filterIcon.tintColor = .white
             filterTitle.text = StyleGuide.AppCopy.Toolbar.filterText
             layoutIfNeeded()

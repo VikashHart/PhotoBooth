@@ -30,20 +30,17 @@ class FilterCellViewModel: FilterCellViewModeling {
     var filterName: String
 
     private var filterDesignation: String
-    private var context: CIContext
 
     init(image: UIImage,
          isSelected: Bool = false,
          isSpinnerActive: Bool = true,
          filterDesignation: String,
-         filterName: String,
-         context: CIContext) {
+         filterName: String) {
         self.imageObject = image
         self.filterName = filterName
         self.isSelected = isSelected
         self.isSpinnerActive = isSpinnerActive
         self.filterDesignation = filterDesignation
-        self.context = context
     }
 
     func setCellSelection(state: Bool) {
@@ -51,8 +48,7 @@ class FilterCellViewModel: FilterCellViewModeling {
     }
 
     func getFilteredImage() {
-        imageObject.applyFilter(context: context,
-                                filter: filterDesignation,
+        imageObject.applyFilter(filter: filterDesignation,
                                 completion: { [weak self] image in
                                     self?.imageObject = image
         })

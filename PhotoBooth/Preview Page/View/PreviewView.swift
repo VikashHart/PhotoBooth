@@ -113,6 +113,8 @@ class PreviewView: UIView {
         imageViewTrailingConstraint?.constant = x
         imageViewTopConstraint?.constant = y
         imageViewBottomConstraint?.constant = y
+
+        layoutIfNeeded()
     }
 
     func showOverlay(_ visibile: Bool) {

@@ -6,7 +6,7 @@ enum StyleGuide {
         //MARK: - Application image assets
         static let appLogo = "app_logo"
         static let cameraIcon = "camera_icon"
-        static let editIcon = "edit_icon"
+        static let filteringIcon = "filtering_icon"
         static let endFilterIcon = "end_filtering_icon"
         static let flashOff = "flash_off"
         static let flashOn = "flash_on"

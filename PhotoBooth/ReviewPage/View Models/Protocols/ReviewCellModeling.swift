@@ -7,5 +7,6 @@ protocol ReviewCellModeling {
     var selectionAlpha: CGFloat { get }
     var onSelectionChanged: (() -> Void)? { get set }
     var onSelectToggled: (() -> Void)? { get set }
+    func set(selection state: Bool)
     func getSelectionImage() -> UIImage?
 }

@@ -52,7 +52,6 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     //MARK: - Private Properties
 
     private let data: PhotoShootData
-    private var context: CIContext = CIContext()
 
     private lazy var photoAccessLevel: AuthorizationStatus = {
         return getPermissionStatus()
@@ -65,7 +64,6 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     init(data: PhotoShootData,
          selectedIndex: IndexPath,
          toolbarMode: ToolbarEditMode = .standby,
-         context: CIContext = CIContext(),
          cellSpacing: CGFloat = StyleGuide.CollectionView.PreviewPage.cellSpacing,
          numCells: CGFloat = StyleGuide.CollectionView.PreviewPage.numberOfCells,
          isOverlayVisible: Bool = true,
@@ -73,7 +71,6 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         self.images = data.images
         self.selectedImage = data.images[selectedIndex.row]
         self.toolbarMode = toolbarMode
-        self.context = context
         self.previewViewModel = PreviewViewModel(image: images[selectedIndex.row])
         self.selectedIndex = selectedIndex
         self.isOverlayVisible = isOverlayVisible
@@ -93,13 +90,12 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     }
 
     func getFilterCellViewModel(indexPath: IndexPath) -> FilterCellViewModeling {
-        let filter = FilterGuide.shared.filters[indexPath.row]
+        let filter = Filtering.shared.filters[indexPath.row]
         let image = selectedImage
         let viewModel = FilterCellViewModel(image: image,
                                             isSelected: selectedFilterIndex == indexPath,
                                             filterDesignation: filter.designation,
-                                            filterName: filter.name,
-                                            context: context)
+                                            filterName: filter.name)
 
         filterViewModels[indexPath] = viewModel
         return  viewModel
@@ -110,12 +106,13 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         case .standby:
             toolbarMode = .filtering
             selectedFilterIndex = IndexPath(row: 0, section: 0)
-            postEditTapped()
+            postFilteringBegan()
         case .filtering:
             toolbarMode = .standby
             selectedFilterIndex = IndexPath(row: 0, section: 0)
             filterViewModels = [:]
             setSelectedImageAndIndex(indexPath: selectedIndex)
+            postFilteringEnded()
         }
     }
 
@@ -142,9 +139,10 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
             let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
             Analytics.logEvent("save_completed", parameters: parameters)
         case .filtering:
-            let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
+            guard let index = selectedFilterIndex?.row else { return }
+            let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue,
+                              "filter" : Filtering.shared.filters[index].name]
             Analytics.logEvent("save_completed", parameters: parameters)
-            postSaveWithFilter()
         }
     }
 
@@ -153,16 +151,14 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         Analytics.logEvent("save_failed", parameters: parameters)
     }
 
-    func postSaveWithFilter() {
-        guard let index = selectedFilterIndex?.row else { return }
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue,
-                          "filter" : FilterGuide.shared.filters[index].name]
-        Analytics.logEvent("save_with_filter", parameters: parameters)
+    func postFilteringBegan() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
+        Analytics.logEvent("filtering_began", parameters: parameters)
     }
 
-    func postEditTapped() {
+    func postFilteringEnded() {
         let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
-        Analytics.logEvent("edit_tapped", parameters: parameters)
+        Analytics.logEvent("filtering_ended", parameters: parameters)
     }
 
     func saveImage() -> Promise<Void> {
@@ -179,10 +175,16 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     }
 
     func setSelectedFilterImageAndFilterIndex(indexPath: IndexPath) {
+        if let currentlySelectedIndexPath = self.selectedFilterIndex {
+            filterViewModels[currentlySelectedIndexPath]?.setCellSelection(state: false)
+        }
+
         guard let image = filterViewModels[indexPath]?.imageObject else { return }
         self.selectedImage = image
         self.selectedFilterIndex = indexPath
         self.previewViewModel.setImage(image: image)
+
+        filterViewModels[indexPath]?.setCellSelection(state: true)
     }
 
     //MARK: - Private Functions

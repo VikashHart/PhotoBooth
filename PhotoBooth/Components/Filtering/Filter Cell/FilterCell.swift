@@ -3,10 +3,9 @@ import UIKit
 class FilterCell: UICollectionViewCell {
 
     //MARK: - Objects
-    var viewModel: FilterCellViewModeling = FilterCellViewModel(image: UIImage(),
+    private(set) var viewModel: FilterCellViewModeling = FilterCellViewModel(image: UIImage(),
                                                                 filterDesignation: "",
-                                                                filterName: "",
-                                                                context: CIContext())
+                                                                filterName: "")
 
     lazy var filterBlurView: UIView = {
         let view = UIView()
@@ -60,7 +59,7 @@ class FilterCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         commonInit()
         bindUI()
-        bindImageStatus()
+//        bindImageStatus()
         updateUI()
     }
 
@@ -101,7 +100,6 @@ class FilterCell: UICollectionViewCell {
     func setViewModel(viewModel: FilterCellViewModeling) {
         self.viewModel = viewModel
         bindUI()
-        bindImageStatus()
         updateUI()
     }
 
@@ -182,12 +180,8 @@ class FilterCell: UICollectionViewCell {
         self.viewModel.isSelectedChanged = { [weak self] in
             self?.updateUI()
         }
-    }
-
-    private func bindImageStatus() {
         self.viewModel.imageDidUpdate = { [weak self] in
             self?.updateUI()
         }
     }
 }
-

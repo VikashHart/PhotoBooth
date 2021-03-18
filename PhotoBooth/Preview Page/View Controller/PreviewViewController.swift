@@ -184,7 +184,7 @@ class PreviewViewController: UIViewController {
             previewView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             previewView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             previewView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            ])
+        ])
     }
 }
 
@@ -252,21 +252,11 @@ extension PreviewViewController: UICollectionViewDelegate {
             if let cell = self.previewView.collectionView.cellForItem(at: indexPath) as? PreviewCell {
                 let cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
                 cell.viewModel = cellViewModel
-//                updateMinZoomScaleForSize(previewView.bounds.size)
             }
         case .filtering:
             guard indexPath != viewModel.selectedFilterIndex else { return }
 
-            guard let lastSelected = viewModel.selectedFilterIndex else { return }
             viewModel.setSelectedFilterImageAndFilterIndex(indexPath: indexPath)
-
-            if let cell = self.previewView.collectionView.cellForItem(at: lastSelected) as? FilterCell {
-                cell.viewModel.setCellSelection(state: false)
-            }
-            if let cell = self.previewView.collectionView.cellForItem(at: indexPath) as? FilterCell {
-                cell.viewModel.setCellSelection(state: true)
-            }
-//            updateMinZoomScaleForSize(previewView.bounds.size)
         }
         updateMinZoomScaleForSize(previewView.bounds.size)
         collectionView.collectionViewLayout.invalidateLayout()
@@ -280,7 +270,7 @@ extension PreviewViewController: UICollectionViewDataSource {
         case .standby:
             return self.viewModel.images.count
         case .filtering:
-            return FilterGuide.shared.filters.count
+            return Filtering.shared.filters.count
         }
     }
 
