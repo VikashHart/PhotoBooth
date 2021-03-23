@@ -198,6 +198,7 @@ extension ReviewViewController: UICollectionViewDataSource {
         { return UICollectionViewCell() }
         let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
         cell.set(viewModel: viewModel)
+        cell.addDropShadow()
 
         return cell
     }

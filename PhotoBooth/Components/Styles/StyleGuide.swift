@@ -97,7 +97,11 @@ enum StyleGuide {
     enum HapticFeedbackType {
         @available(iOS 13.0, *)
         static let primaryFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.soft
-        static let fallbackFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.medium
+        @available(iOS 13.0, *)
+        static let rigidFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.rigid
+        static let heavyFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.heavy
+        static let mediumFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.medium
+        static let lightFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.light
         static let savedFeedbackStyle =  UINotificationFeedbackGenerator.FeedbackType.success
     }
 

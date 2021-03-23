@@ -216,14 +216,10 @@ class SetupCardView: UIView {
 
     @objc private func completeConfiguration(sender: UIButton) {
         if #available(iOS 13.0, *) {
-            let generator = UIImpactFeedbackGenerator(style: StyleGuide.HapticFeedbackType.primaryFeedbackStyle)
-            generator.prepare()
-            generator.impactOccurred()
+            HapticFeedback.shared.playHaptic(feedback: StyleGuide.HapticFeedbackType.primaryFeedbackStyle)
         } else {
             // Fallback on earlier versions
-            let generator = UIImpactFeedbackGenerator(style: StyleGuide.HapticFeedbackType.fallbackFeedbackStyle)
-            generator.prepare()
-            generator.impactOccurred()
+            HapticFeedback.shared.playFallback()
         }
         viewModel.finalizeConfiguration()
     }

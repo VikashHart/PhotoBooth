@@ -107,6 +107,10 @@
 		A14D3A1225916B08004782E6 /* FilterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D3A1125916B08004782E6 /* FilterObject.swift */; };
 		A14D6BB124A1874A00414D3E /* saved.json in Resources */ = {isa = PBXBuildFile; fileRef = A14D6BB024A1874A00414D3E /* saved.json */; };
 		A14D6BB324A6A49500414D3E /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D6BB224A6A49500414D3E /* PreviewCell.swift */; };
+		A14E6EDE26053009007A5E26 /* ApplyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E6EDD26053009007A5E26 /* ApplyFilter.swift */; };
+		A14E6F0226053365007A5E26 /* ImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E6F0126053365007A5E26 /* ImageFilter.swift */; };
+		A14E6F0826053939007A5E26 /* AutoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E6F0726053939007A5E26 /* AutoFilter.swift */; };
+		A14E6F1126054556007A5E26 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E6F1026054556007A5E26 /* FilterType.swift */; };
 		A1607C4A25D342310018219E /* ToolbarEditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1607C4925D342310018219E /* ToolbarEditMode.swift */; };
 		A1607C4C25D70CAA0018219E /* Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1607C4B25D70CAA0018219E /* Filtering.swift */; };
 		A1607C4E25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1607C4D25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift */; };
@@ -122,6 +126,8 @@
 		A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */; };
 		A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */; };
 		A1E1F498248C001200C4AD10 /* AuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */; };
+		A1E6DC412605A8300023DF4C /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6DC402605A8300023DF4C /* HapticFeedback.swift */; };
+		A1E6DC4526091C780023DF4C /* UIView+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6DC4426091C780023DF4C /* UIView+DropShadow.swift */; };
 		A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */; };
 		A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19A2478685700329532 /* StyleGuide.swift */; };
 		A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */; };
@@ -252,6 +258,10 @@
 		A14D3A1125916B08004782E6 /* FilterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterObject.swift; sourceTree = "<group>"; };
 		A14D6BB024A1874A00414D3E /* saved.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = saved.json; sourceTree = "<group>"; };
 		A14D6BB224A6A49500414D3E /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		A14E6EDD26053009007A5E26 /* ApplyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilter.swift; sourceTree = "<group>"; };
+		A14E6F0126053365007A5E26 /* ImageFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilter.swift; sourceTree = "<group>"; };
+		A14E6F0726053939007A5E26 /* AutoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFilter.swift; sourceTree = "<group>"; };
+		A14E6F1026054556007A5E26 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 		A1607C4925D342310018219E /* ToolbarEditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditMode.swift; sourceTree = "<group>"; };
 		A1607C4B25D70CAA0018219E /* Filtering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filtering.swift; sourceTree = "<group>"; };
 		A1607C4D25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CIImage+ApplyFilter.swift"; sourceTree = "<group>"; };
@@ -267,6 +277,8 @@
 		A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorization.swift; sourceTree = "<group>"; };
 		A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationProvider.swift; sourceTree = "<group>"; };
 		A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationStatus.swift; sourceTree = "<group>"; };
+		A1E6DC402605A8300023DF4C /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		A1E6DC4426091C780023DF4C /* UIView+DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DropShadow.swift"; sourceTree = "<group>"; };
 		A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BlurEffect.swift"; sourceTree = "<group>"; };
 		A1EDE19A2478685700329532 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
@@ -416,6 +428,7 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1E6DC3F2605A7950023DF4C /* Accessibility */,
 				A14D3A1025916AD9004782E6 /* Filtering */,
 				A10A1FAA24D5D39900AA815F /* Update Configuration */,
 				A10A1FA724CE56DB00AA815F /* Device Process Info */,
@@ -705,12 +718,32 @@
 		A14D3A1025916AD9004782E6 /* Filtering */ = {
 			isa = PBXGroup;
 			children = (
+				A14E6F1026054556007A5E26 /* FilterType.swift */,
 				A14D3A1125916B08004782E6 /* FilterObject.swift */,
 				A1607C4B25D70CAA0018219E /* Filtering.swift */,
+				A14E6F0F260544FE007A5E26 /* Filters */,
 				A14D3A0D259169BD004782E6 /* Filter Cell */,
-				A1607C4D25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift */,
+				A14E6EE1260531BF007A5E26 /* Protocol */,
 			);
 			path = Filtering;
+			sourceTree = "<group>";
+		};
+		A14E6EE1260531BF007A5E26 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A14E6EDD26053009007A5E26 /* ApplyFilter.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A14E6F0F260544FE007A5E26 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				A1607C4D25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift */,
+				A14E6F0126053365007A5E26 /* ImageFilter.swift */,
+				A14E6F0726053939007A5E26 /* AutoFilter.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		A17406F2249E9030007D3DDA /* Image Handler */ = {
@@ -757,13 +790,22 @@
 			path = Permissions;
 			sourceTree = "<group>";
 		};
+		A1E6DC3F2605A7950023DF4C /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				A1E6DC402605A8300023DF4C /* HapticFeedback.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
 		A1EDE1972477781000329532 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */,
-				A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */,
-				A1EDE2012486BB0C00329532 /* UIView+Gradient.swift */,
 				A1EDE2032486BBA900329532 /* UIColor+CGColor+HexConverter.swift */,
+				A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */,
+				A1E6DC4426091C780023DF4C /* UIView+DropShadow.swift */,
+				A1EDE2012486BB0C00329532 /* UIView+Gradient.swift */,
+				A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */,
 				A17406EC249D90FC007D3DDA /* UIView+Promise.swift */,
 				A17406F0249E8AA0007D3DDA /* UIAlertController+CustomAlerts.swift */,
 				A12C800024B75E2600915E5B /* Bundle+VersionNumber.swift */,
@@ -1057,6 +1099,7 @@
 				A1807FE6248953DA0007460F /* PhotosPermissionsProvider.swift in Sources */,
 				81CA8CA821A61A7300170F1A /* ReviewCell.swift in Sources */,
 				A17406F4249E909E007D3DDA /* PhotosAlbumSaveTask.swift in Sources */,
+				A1E6DC412605A8300023DF4C /* HapticFeedback.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
 				A1607C4E25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift in Sources */,
@@ -1089,9 +1132,11 @@
 				81B4570A21CCD37A001595DD /* PreviewViewController.swift in Sources */,
 				818360902188E50000238022 /* SwipeToCancelPromptViewModeling.swift in Sources */,
 				814956FA21C7374300CE3AD9 /* ProcessedImage.swift in Sources */,
+				A14E6F0226053365007A5E26 /* ImageFilter.swift in Sources */,
 				A1607C4C25D70CAA0018219E /* Filtering.swift in Sources */,
 				A10A1F9A24CA78C700AA815F /* InterstitialViewModel.swift in Sources */,
 				813B2FB4218809BE00CEB640 /* PartialModal.swift in Sources */,
+				A14E6EDE26053009007A5E26 /* ApplyFilter.swift in Sources */,
 				A1EDE2022486BB0C00329532 /* UIView+Gradient.swift in Sources */,
 				811A89D621C8415B00AA3D3D /* Dictionary+MergeOperator.swift in Sources */,
 				A14D3A0C257AD842004782E6 /* FilterCell.swift in Sources */,
@@ -1107,6 +1152,7 @@
 				A17406EB249D2633007D3DDA /* ToolbarOptionType.swift in Sources */,
 				81CA8CAE21A9E27A00170F1A /* ReviewCellModeling.swift in Sources */,
 				A1607C4A25D342310018219E /* ToolbarEditMode.swift in Sources */,
+				A1E6DC4526091C780023DF4C /* UIView+DropShadow.swift in Sources */,
 				814F104C2154654F0066CCD5 /* MockSession.swift in Sources */,
 				81F6B35321B88D89006A7BED /* ReviewPageViewModel.swift in Sources */,
 				A10A1FB024F888CD00AA815F /* UILabel+LineSpacing.swift in Sources */,
@@ -1126,12 +1172,14 @@
 				8183608C2188D80100238022 /* SwipeToCancelPromptView.swift in Sources */,
 				814956D521C5ADD500CE3AD9 /* AVSession+Analytics.swift in Sources */,
 				A14499542476106D00100B7C /* EnvironmentProvider.swift in Sources */,
+				A14E6F1126054556007A5E26 /* FilterType.swift in Sources */,
 				A12C7FF924AA79B200915E5B /* PreviewCellViewModel.swift in Sources */,
 				8174574D21598D7E00F612F6 /* PromptView.swift in Sources */,
 				8183608A2188D68500238022 /* SwipeToCancelPromptPartialModal.swift in Sources */,
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
 				A14D6BB324A6A49500414D3E /* PreviewCell.swift in Sources */,
 				A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */,
+				A14E6F0826053939007A5E26 /* AutoFilter.swift in Sources */,
 				A14D39C9252BCB5B004782E6 /* UIImage+MirrorImage.swift in Sources */,
 				8131077C22A35D520019BBC6 /* CameraZoom.swift in Sources */,
 				A10A1F8924BD4CC300AA815F /* ReachabilityDelegate.swift in Sources */,

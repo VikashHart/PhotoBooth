@@ -55,10 +55,11 @@ extension UIColor {
 // MARK: - Created UIColors
 extension UIColor {
     //Black
-    static let photoBoothBlackLight = UIColor(hexString: "262933")!
-    static let photoBoothBlackDark = UIColor(hexString: "1A1D21")!
+    static let photoBoothBlackLight = UIColor(hexString: "252832")!
+    static let photoBoothBlackDark = UIColor(hexString: "1B1E22")!
     //Gray
     static let shadowGray = UIColor(hexString: "b4b4b4")!
+    static let fog       = UIColor(hexString: "ebedee")!
     // Blue
     static let photoBoothBlue = UIColor(hexString: "3BAADC")!
     static let photoBoothLight = UIColor(hexString: "2BC1E4")!
@@ -69,5 +70,6 @@ extension UIColor {
 // MARK: - Created cgColor Arrays
 extension CGColor {
     static let blues = [UIColor.photoBoothLight.cgColor, UIColor.photoBoothBlue.cgColor, UIColor.photoBoothMed.cgColor, UIColor.photoBoothDark.cgColor]
-    static let blacks = [UIColor.photoBoothBlackDark.cgColor, UIColor.photoBoothBlackLight.cgColor]
+    static let blacks = [UIColor.photoBoothBlackLight.cgColor, UIColor.photoBoothBlackDark.cgColor]
+    static let lights = [UIColor.white.cgColor, UIColor.fog.cgColor]
 }

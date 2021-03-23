@@ -94,8 +94,7 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         let image = selectedImage
         let viewModel = FilterCellViewModel(image: image,
                                             isSelected: selectedFilterIndex == indexPath,
-                                            filterDesignation: filter.designation,
-                                            filterName: filter.name)
+                                            filter: filter)
 
         filterViewModels[indexPath] = viewModel
         return  viewModel

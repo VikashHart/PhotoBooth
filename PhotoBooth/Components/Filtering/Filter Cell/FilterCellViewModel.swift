@@ -21,26 +21,19 @@ class FilterCellViewModel: FilterCellViewModeling {
     var isSpinnerActive: Bool
     var isSelectedChanged: (() -> Void)?
     var imageDidUpdate: (() -> Void)?
-    var imageObject: UIImage {
-        didSet {
-            isSpinnerActive = false
-            imageDidUpdate?()
-        }
-    }
+    var imageObject: UIImage
     var filterName: String
-
-    private var filterDesignation: String
+    private var filter: FilterObject
 
     init(image: UIImage,
          isSelected: Bool = false,
          isSpinnerActive: Bool = true,
-         filterDesignation: String,
-         filterName: String) {
+         filter: FilterObject) {
         self.imageObject = image
-        self.filterName = filterName
+        self.filterName = filter.name
         self.isSelected = isSelected
         self.isSpinnerActive = isSpinnerActive
-        self.filterDesignation = filterDesignation
+        self.filter = filter
     }
 
     func setCellSelection(state: Bool) {
@@ -48,9 +41,11 @@ class FilterCellViewModel: FilterCellViewModeling {
     }
 
     func getFilteredImage() {
-        imageObject.applyFilter(filter: filterDesignation,
+        imageObject.applyFilter(filter: filter,
                                 completion: { [weak self] image in
                                     self?.imageObject = image
+                                    self?.isSpinnerActive = false
+                                    self?.imageDidUpdate?()
         })
     }
 }

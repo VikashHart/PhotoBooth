@@ -9,14 +9,43 @@ class Filtering: filtering {
 
     let context: CIContext = CIContext()
     let filters: [FilterObject] =
-        [FilterObject(category: "Original", designation: "Original", name: "Original"),
-         FilterObject(category: "Color Effect", designation: "CIPhotoEffectChrome", name: "Photo Effect Chrome"),
-         FilterObject(category: "Color Effect", designation: "CIPhotoEffectInstant", name: "Photo Effect Instant"),
-         FilterObject(category: "Color Effect", designation: "CIPhotoEffectProcess", name: "Photo Effect Process"),
-         FilterObject(category: "Color Effect", designation: "CIPhotoEffectTonal", name: "Photo Effect Tonal"),
-         FilterObject(category: "Color Effect", designation: "CIPhotoEffectTransfer", name: "Photo Effect Transfer"),
-         FilterObject(category: "Color Effect", designation: "CISepiaTone", name: "Sepia Tone"),
-         FilterObject(category: "Halftone Effect", designation: "CIHatchedScreen", name: "Hatched Screen"),
-         FilterObject(category: "Stylize", designation: "CIComicEffect", name: "Comic Effect"),
+        [FilterObject(category: FilterType.none,
+                      designation: "Original",
+                      name: "Original",
+                      inputs: [:]),
+         FilterObject(category: FilterType.auto,
+                      designation: "Auto",
+                      name: "Otto",
+                      inputs: [:]),
+         FilterObject(category: FilterType.standard,
+                      designation: "CITemperatureAndTint",
+                      name: "Vice",
+                      inputs: [
+                        "inputNeutral" : CIVector(x: 6500, y: 0),
+                        "inputTargetNeutral" : CIVector(x: 5200, y: 0)
+                      ]),
+         FilterObject(category: FilterType.standard,
+                      designation: "CITemperatureAndTint",
+                      name: "Eleanor",
+                      inputs: [
+                        "inputNeutral" : CIVector(x: 6500, y: 0),
+                        "inputTargetNeutral" : CIVector(x: 9000, y: 0)
+                      ]),
+         FilterObject(category: FilterType.standard,
+                      designation: "CIPhotoEffectInstant",
+                      name: "Winchester",
+                      inputs: [:]),
+         FilterObject(category: FilterType.standard,
+                      designation: "CIPhotoEffectChrome",
+                      name: "Magnum",
+                      inputs: [:]),
+         FilterObject(category: FilterType.standard,
+                      designation: "CIPhotoEffectMono",
+                      name: "Obsidian",
+                      inputs: [:]),
+         FilterObject(category: FilterType.standard,
+                      designation: "CIHatchedScreen",
+                      name: "Akira",
+                      inputs: [:])
     ]
 }

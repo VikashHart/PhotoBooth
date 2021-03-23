@@ -4,8 +4,10 @@ class FilterCell: UICollectionViewCell {
 
     //MARK: - Objects
     private(set) var viewModel: FilterCellViewModeling = FilterCellViewModel(image: UIImage(),
-                                                                filterDesignation: "",
-                                                                filterName: "")
+                                                                             filter: FilterObject(category: .none,
+                                                                                  designation: "",
+                                                                                  name: "",
+                                                                                  inputs: [:]))
 
     lazy var filterBlurView: UIView = {
         let view = UIView()
@@ -52,6 +54,8 @@ class FilterCell: UICollectionViewCell {
         return indicator
     }()
 
+    var imageReceived: (() -> Void)?
+
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,7 +63,6 @@ class FilterCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         commonInit()
         bindUI()
-//        bindImageStatus()
         updateUI()
     }
 
@@ -182,6 +185,7 @@ class FilterCell: UICollectionViewCell {
         }
         self.viewModel.imageDidUpdate = { [weak self] in
             self?.updateUI()
+            self?.imageReceived?()
         }
     }
 }

@@ -32,8 +32,8 @@ class ReviewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = 10
+        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.masksToBounds = true
         commonInit()
     }
 
@@ -51,7 +51,7 @@ class ReviewCell: UICollectionViewCell {
     }
 
     private func commonInit() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         setupViews()
     }
 

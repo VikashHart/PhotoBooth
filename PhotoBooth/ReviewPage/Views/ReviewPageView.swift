@@ -14,14 +14,14 @@ class ReviewPageView: UIView {
         let view = GradientView()
         view.gradientLayer?.startPoint = CGPoint(x: 0.2, y: 0)
         view.gradientLayer?.endPoint = CGPoint(x: 0.8, y: 1)
-        view.gradientLayer?.colors = CGColor.blues
+        view.gradientLayer?.colors = CGColor.blacks
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     lazy var navbarContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        view.backgroundColor = UIColor.photoBoothMed.withAlphaComponent(0.4)
         view.addBlurEffect(blurStyle: .light)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

@@ -254,6 +254,14 @@ extension PreviewViewController: UICollectionViewDelegate {
                 cell.viewModel = cellViewModel
             }
         case .filtering:
+            if indexPath != viewModel.selectedFilterIndex {
+                if #available(iOS 13.0, *) {
+                    HapticFeedback.shared.playHaptic(feedback: StyleGuide.HapticFeedbackType.rigidFeedbackStyle)
+                } else {
+                    // Fallback on earlier versions
+                    HapticFeedback.shared.playFallback()
+                }
+            }
             guard indexPath != viewModel.selectedFilterIndex else { return }
 
             viewModel.setSelectedFilterImageAndFilterIndex(indexPath: indexPath)
@@ -301,6 +309,9 @@ extension PreviewViewController: UICollectionViewDataSource {
                 cell.setViewModel(viewModel: filterViewModel)
 
                 cell.viewModel.getFilteredImage()
+                cell.imageReceived = { [weak self] in
+                    self?.previewView.collectionView.collectionViewLayout.invalidateLayout()
+                }
 
                 return cell
             }
