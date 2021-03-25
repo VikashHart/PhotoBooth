@@ -57,6 +57,7 @@ class PreviewView: UIView {
 
     lazy var toolbarView: ToolbarView = {
         let view = ToolbarView()
+        view.addFilterFunctionality()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -66,7 +67,8 @@ class PreviewView: UIView {
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
-        collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.PreviewPage.cellId)
+        collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.PreviewPage.previewCellId)
+        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.PreviewPage.filterCellId)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -111,6 +113,8 @@ class PreviewView: UIView {
         imageViewTrailingConstraint?.constant = x
         imageViewTopConstraint?.constant = y
         imageViewBottomConstraint?.constant = y
+
+        layoutIfNeeded()
     }
 
     func showOverlay(_ visibile: Bool) {
@@ -252,8 +256,8 @@ class PreviewView: UIView {
         addSubview(toolbarView)
         NSLayoutConstraint.activate([
             toolbarView.bottomAnchor.constraint(equalTo: collectionViewContainer.topAnchor, constant: -8),
-            toolbarView.heightAnchor.constraint(equalToConstant: 50),
-            toolbarView.widthAnchor.constraint(equalToConstant: 150),
+            toolbarView.heightAnchor.constraint(equalToConstant: 55),
+            toolbarView.widthAnchor.constraint(equalToConstant: 170),
             toolbarView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }

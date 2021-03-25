@@ -60,7 +60,10 @@ class CameraViewControllerViewModel: CameraViewControllerViewModeling {
 
     func setupShoot(with config: PhotoShootConfiguration,
                     onTimerUpdated: @escaping (Seconds) -> Void) {
-        Analytics.logEvent("setup_complete", parameters: ["photo_count" : config.photoCount, "time_interval" : config.timeInterval])
+        Analytics.logEvent("setup_complete", parameters: [
+            "vc_identifier" : ViewControllerIdentifier.camera.rawValue,
+            "photo_count" : config.photoCount,
+            "time_interval" : config.timeInterval])
         photoShootConfiguration = config
         numberOfPhotos = config.photoCount
         timer = CountdownTimer(seconds: config.timeInterval,

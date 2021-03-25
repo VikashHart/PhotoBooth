@@ -1,6 +1,6 @@
 import Foundation
 
-enum ViewControllerIdentifier {
+enum ViewControllerIdentifier: String {
     case interstitial
     case camera
     case review

@@ -43,17 +43,17 @@ class InterstitialVCViewModel: InterstitialVCViewModeling {
     }
 
     func postLaterSelected() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial]
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial.rawValue]
         Analytics.logEvent("later_selected", parameters: parameters)
     }
 
     func postOkaySelected() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial]
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial.rawValue]
         Analytics.logEvent("okay_selected", parameters: parameters)
     }
 
     func postUpdateSelected() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial]
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.interstitial.rawValue]
         Analytics.logEvent("update_selected", parameters: parameters)
     }
 

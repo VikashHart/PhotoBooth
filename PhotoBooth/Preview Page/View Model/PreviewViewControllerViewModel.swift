@@ -8,13 +8,18 @@ protocol PreviewViewControllerModeling {
     var selectedIndex: IndexPath { get set }
     var isOverlayVisible: Bool { get set }
     var permissionStatus: AuthorizationStatus { get }
-//    var imageIdentifier: String { get }
+
+    var toolbarMode: ToolbarEditMode { get set }
+    var selectedFilterIndex: IndexPath? { get set }
+    var filterViewModels: [IndexPath : FilterCellViewModeling] { get set }
 
     var cellSpacing: CGFloat { get }
     var numberOfSpaces: CGFloat { get }
     var numberOfCells: CGFloat { get }
 
     func getCellViewModel(indexPath: IndexPath) -> PreviewCellModeling
+    func getFilterCellViewModel(indexPath: IndexPath) -> FilterCellViewModeling
+    func setToolbarMode()
     func requestPhotosPermission()
     func postShareCancelled()
     func postShareCompleted(activityType: UIActivity.ActivityType)
@@ -35,7 +40,10 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     var permissionStatus: AuthorizationStatus {
         return photoAccessLevel
     }
-//    private(set) var imageIdentifier: String
+
+    var toolbarMode: ToolbarEditMode
+    var selectedFilterIndex: IndexPath?
+    var filterViewModels: [IndexPath : FilterCellViewModeling] = [:]
 
     let cellSpacing: CGFloat
     let numberOfSpaces: CGFloat
@@ -55,12 +63,14 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
 
     init(data: PhotoShootData,
          selectedIndex: IndexPath,
+         toolbarMode: ToolbarEditMode = .standby,
          cellSpacing: CGFloat = StyleGuide.CollectionView.PreviewPage.cellSpacing,
          numCells: CGFloat = StyleGuide.CollectionView.PreviewPage.numberOfCells,
          isOverlayVisible: Bool = true,
          photoPermissionsProvider: PhotosAccess = PhotosPermissionsProvider()) {
         self.images = data.images
         self.selectedImage = data.images[selectedIndex.row]
+        self.toolbarMode = toolbarMode
         self.previewViewModel = PreviewViewModel(image: images[selectedIndex.row])
         self.selectedIndex = selectedIndex
         self.isOverlayVisible = isOverlayVisible
@@ -79,31 +89,75 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         return viewModel
     }
 
+    func getFilterCellViewModel(indexPath: IndexPath) -> FilterCellViewModeling {
+        let filter = Filtering.shared.filters[indexPath.row]
+        let image = selectedImage
+        let viewModel = FilterCellViewModel(image: image,
+                                            isSelected: selectedFilterIndex == indexPath,
+                                            filter: filter)
+
+        filterViewModels[indexPath] = viewModel
+        return  viewModel
+    }
+
+    func setToolbarMode() {
+        switch toolbarMode {
+        case .standby:
+            toolbarMode = .filtering
+            selectedFilterIndex = IndexPath(row: 0, section: 0)
+            postFilteringBegan()
+        case .filtering:
+            toolbarMode = .standby
+            selectedFilterIndex = IndexPath(row: 0, section: 0)
+            filterViewModels = [:]
+            setSelectedImageAndIndex(indexPath: selectedIndex)
+            postFilteringEnded()
+        }
+    }
+
     func requestPhotosPermission() {
         requstPermission()
     }
 
     func postShareCancelled() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview] + data.parameters
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue] + data.parameters
         Analytics.logEvent("share_cancelled", parameters: parameters)
     }
 
     func postShareCompleted(activityType: UIActivity.ActivityType) {
         let imageOrientation = selectedImage.orientation.description
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview,
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue,
                           "share_activity" : activityType,
                           "image_orientations": imageOrientation] + data.parameters
         Analytics.logEvent("share_completed", parameters: parameters)
     }
 
     func postSaveCompleted() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview]
-        Analytics.logEvent("save_completed", parameters: parameters)
+        switch toolbarMode {
+        case .standby:
+            let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
+            Analytics.logEvent("save_completed", parameters: parameters)
+        case .filtering:
+            guard let index = selectedFilterIndex?.row else { return }
+            let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue,
+                              "filter" : Filtering.shared.filters[index].name]
+            Analytics.logEvent("save_completed", parameters: parameters)
+        }
     }
 
     func postSaveFailed() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview]
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
         Analytics.logEvent("save_failed", parameters: parameters)
+    }
+
+    func postFilteringBegan() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
+        Analytics.logEvent("filtering_began", parameters: parameters)
+    }
+
+    func postFilteringEnded() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
+        Analytics.logEvent("filtering_ended", parameters: parameters)
     }
 
     func saveImage() -> Promise<Void> {
@@ -117,6 +171,19 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         self.selectedImage = images[indexPath.row]
         self.selectedIndex = indexPath
         self.previewViewModel.setImage(image: images[indexPath.row])
+    }
+
+    func setSelectedFilterImageAndFilterIndex(indexPath: IndexPath) {
+        if let currentlySelectedIndexPath = self.selectedFilterIndex {
+            filterViewModels[currentlySelectedIndexPath]?.setCellSelection(state: false)
+        }
+
+        guard let image = filterViewModels[indexPath]?.imageObject else { return }
+        self.selectedImage = image
+        self.selectedFilterIndex = indexPath
+        self.previewViewModel.setImage(image: image)
+
+        filterViewModels[indexPath]?.setCellSelection(state: true)
     }
 
     //MARK: - Private Functions

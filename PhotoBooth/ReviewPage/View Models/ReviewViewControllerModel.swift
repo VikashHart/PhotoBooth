@@ -109,7 +109,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     }
 
     func postShareCancelled() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.review] + data.parameters
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue] + data.parameters
         Analytics.logEvent("share_cancelled", parameters: parameters)
     }
 
@@ -117,7 +117,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         let imageOrientations = selectedImages.map { image in
             return image.orientation.description
         }
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue,
                           "share_activity" : activityType,
                           "selected_image_count" : selectedIndices.count,
                           "image_orientations": imageOrientations] + data.parameters
@@ -125,19 +125,19 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     }
 
     func postSaveCompleted() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue,
                           "selected_image_count" : selectedIndices.count] as [String : Any]
         Analytics.logEvent("save_completed", parameters: parameters)
     }
 
     func postSaveFailed() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.review,
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue,
                           "selected_image_count" : selectedIndices.count] as [String : Any]
         Analytics.logEvent("save_failed", parameters: parameters)
     }
 
     func postSelectPressed() {
-        let parameters = ["vc_identifier" : ViewControllerIdentifier.review]
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue]
         Analytics.logEvent("select_pressed", parameters: parameters)
     }
 

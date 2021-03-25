@@ -161,6 +161,8 @@ extension ReviewViewController: ToolbarDelegate {
             openShareMenu()
         case .save:
             saveImages()
+        default:
+            break
         }
     }
 }
@@ -171,7 +173,7 @@ extension ReviewViewController: UICollectionViewDelegate {
         let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! ReviewCell
 
         if self.viewModel.isSelectable == true {
-            cell.viewModel.isSelected.toggle()
+            cell.viewModel.set(selection: !cell.viewModel.isSelected)
             cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
             updateFooter()
         } else {
@@ -195,7 +197,8 @@ extension ReviewViewController: UICollectionViewDataSource {
             for: indexPath) as? ReviewCell else
         { return UICollectionViewCell() }
         let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
-        cell.viewModel = viewModel
+        cell.set(viewModel: viewModel)
+        cell.addDropShadow()
 
         return cell
     }

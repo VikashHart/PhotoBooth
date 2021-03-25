@@ -6,6 +6,8 @@ enum StyleGuide {
         //MARK: - Application image assets
         static let appLogo = "app_logo"
         static let cameraIcon = "camera_icon"
+        static let filteringIcon = "filtering_icon"
+        static let endFilterIcon = "end_filtering_icon"
         static let flashOff = "flash_off"
         static let flashOn = "flash_on"
         static let justCamera = "just_camera"
@@ -82,6 +84,8 @@ enum StyleGuide {
             //MARK: - Toolbar text
             static let shareText = "Share"
             static let saveText = "Save"
+            static let filterText = "Filter"
+            static let doneText = "Done"
         }
     }
 
@@ -93,7 +97,11 @@ enum StyleGuide {
     enum HapticFeedbackType {
         @available(iOS 13.0, *)
         static let primaryFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.soft
-        static let fallbackFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.medium
+        @available(iOS 13.0, *)
+        static let rigidFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.rigid
+        static let heavyFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.heavy
+        static let mediumFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.medium
+        static let lightFeedbackStyle = UIImpactFeedbackGenerator.FeedbackStyle.light
         static let savedFeedbackStyle =  UINotificationFeedbackGenerator.FeedbackType.success
     }
 
@@ -113,7 +121,8 @@ enum StyleGuide {
         }
 
         enum PreviewPage {
-            static let cellId = "PreviewCell"
+            static let previewCellId = "PreviewCell"
+            static let filterCellId = "FilterCell"
             static let cellSpacing: CGFloat = 6
             static let numberOfCells: CGFloat = 1
         }

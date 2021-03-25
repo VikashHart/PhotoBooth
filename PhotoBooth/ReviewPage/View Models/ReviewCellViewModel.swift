@@ -26,6 +26,10 @@ class ReviewCellViewModel: ReviewCellModeling {
         self.image = image
     }
 
+    func set(selection state: Bool) {
+        isSelected = state
+    }
+
     func getSelectionImage() -> UIImage? {
         guard showSelectionStatus == true else { return nil }
         var image: UIImage?

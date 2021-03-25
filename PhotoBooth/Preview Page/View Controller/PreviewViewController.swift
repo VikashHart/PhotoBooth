@@ -90,6 +90,12 @@ class PreviewViewController: UIViewController {
         }
     }
 
+    private func toggleFilter() {
+        viewModel.setToolbarMode()
+        previewView.toolbarView.toggleFilterUI()
+        reloadData()
+    }
+
     //MARK: - @objc methods
     @objc private func backSelected() {
         dismiss(animated: true, completion: nil)
@@ -143,6 +149,10 @@ class PreviewViewController: UIViewController {
         previewView.collectionView.scrollToItem(at: viewModel.selectedIndex, at: .centeredHorizontally, animated: true)
     }
 
+    private func reloadData() {
+        previewView.collectionView.reloadData()
+    }
+
     //MARK: - Configuration methods
     private func configureView() {
         setupPreviewView()
@@ -174,7 +184,7 @@ class PreviewViewController: UIViewController {
             previewView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             previewView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             previewView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            ])
+        ])
     }
 }
 
@@ -187,7 +197,6 @@ extension PreviewViewController {
 
         previewView.imageScrollView.minimumZoomScale = minScale
         previewView.imageScrollView.zoomScale = minScale
-        
     }
 }
 
@@ -219,6 +228,8 @@ extension PreviewViewController: ToolbarDelegate {
             openShareMenu()
         case .save:
             saveImages()
+        case .filter:
+            toggleFilter()
         }
     }
 }
@@ -226,21 +237,36 @@ extension PreviewViewController: ToolbarDelegate {
 //MARK: - Collectionview delegate
 extension PreviewViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath != viewModel.selectedIndex else { return }
+        switch viewModel.toolbarMode {
+        case .standby:
+            guard indexPath != viewModel.selectedIndex else { return }
 
-        let lastSelected = viewModel.selectedIndex
-        viewModel.setSelectedImageAndIndex(indexPath: indexPath)
+            let lastSelected = viewModel.selectedIndex
+            viewModel.setSelectedImageAndIndex(indexPath: indexPath)
 
-        if let cell = self.previewView.collectionView.cellForItem(at: lastSelected) as? PreviewCell {
-            let cellViewModel = viewModel.getCellViewModel(indexPath: lastSelected)
-            cell.viewModel = cellViewModel
+            if let cell = self.previewView.collectionView.cellForItem(at: lastSelected) as? PreviewCell {
+                let cellViewModel = viewModel.getCellViewModel(indexPath: lastSelected)
+                cell.viewModel = cellViewModel
+            }
+
+            if let cell = self.previewView.collectionView.cellForItem(at: indexPath) as? PreviewCell {
+                let cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
+                cell.viewModel = cellViewModel
+            }
+        case .filtering:
+            if indexPath != viewModel.selectedFilterIndex {
+                if #available(iOS 13.0, *) {
+                    HapticFeedback.shared.playHaptic(feedback: StyleGuide.HapticFeedbackType.rigidFeedbackStyle)
+                } else {
+                    // Fallback on earlier versions
+                    HapticFeedback.shared.playFallback()
+                }
+            }
+            guard indexPath != viewModel.selectedFilterIndex else { return }
+
+            viewModel.setSelectedFilterImageAndFilterIndex(indexPath: indexPath)
         }
-
-        if let cell = self.previewView.collectionView.cellForItem(at: indexPath) as? PreviewCell {
-            let cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
-            cell.viewModel = cellViewModel
-            updateMinZoomScaleForSize(previewView.bounds.size)
-        }
+        updateMinZoomScaleForSize(previewView.bounds.size)
         collectionView.collectionViewLayout.invalidateLayout()
     }
 }
@@ -248,19 +274,48 @@ extension PreviewViewController: UICollectionViewDelegate {
 //MARK: - Collectionview data source
 extension PreviewViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.images.count
+        switch viewModel.toolbarMode {
+        case .standby:
+            return self.viewModel.images.count
+        case .filtering:
+            return Filtering.shared.filters.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = previewView.collectionView.dequeueReusableCell(
-            withReuseIdentifier: StyleGuide.CollectionView.PreviewPage.cellId,
-            for: indexPath) as? PreviewCell else
-        { return UICollectionViewCell() }
+        switch viewModel.toolbarMode {
+        case .standby:
+            guard let cell = previewView.collectionView.dequeueReusableCell(
+                withReuseIdentifier: StyleGuide.CollectionView.PreviewPage.previewCellId,
+                for: indexPath) as? PreviewCell else
+            { return UICollectionViewCell() }
 
-        let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
-        cell.viewModel = viewModel
+            let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
+            cell.viewModel = viewModel
 
-        return cell
+            return cell
+        case .filtering:
+            guard let cell = previewView.collectionView.dequeueReusableCell(
+                withReuseIdentifier: StyleGuide.CollectionView.PreviewPage.filterCellId,
+                for: indexPath) as? FilterCell else
+            { return UICollectionViewCell() }
+
+            if let filterViewModel = viewModel.filterViewModels[indexPath] {
+                cell.setViewModel(viewModel: filterViewModel)
+
+                return cell
+            } else {
+                let filterViewModel = viewModel.getFilterCellViewModel(indexPath: indexPath)
+                cell.setViewModel(viewModel: filterViewModel)
+
+                cell.viewModel.getFilteredImage()
+                cell.imageReceived = { [weak self] in
+                    self?.previewView.collectionView.collectionViewLayout.invalidateLayout()
+                }
+
+                return cell
+            }
+        }
     }
 }
 

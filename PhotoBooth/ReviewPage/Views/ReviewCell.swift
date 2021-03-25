@@ -2,14 +2,7 @@ import UIKit
 
 class ReviewCell: UICollectionViewCell {
 
-    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage()) {
-        didSet {
-            viewModel.onSelectionChanged = { [weak self] in
-                self?.updateUI()
-            }
-            updateUI()
-        }
-    }
+    var viewModel: ReviewCellModeling = ReviewCellViewModel(image: UIImage())
 
     lazy var photoImageView: UIImageView = {
         let photo = UIImageView()
@@ -39,8 +32,8 @@ class ReviewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = 10
+        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.masksToBounds = true
         commonInit()
     }
 
@@ -48,8 +41,17 @@ class ReviewCell: UICollectionViewCell {
         fatalError()
     }
 
+    func set(viewModel: ReviewCellModeling) {
+        self.viewModel = viewModel
+        self.viewModel.onSelectionChanged = { [weak self] in
+            self?.updateUI()
+        }
+
+        updateUI()
+    }
+
     private func commonInit() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         setupViews()
     }
 
