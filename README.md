@@ -1,1 +1,1 @@
-# PhotoBooth [![Build Status](https://travis-ci.org/VikashHart/PhotoBooth.svg?branch=master)](https://travis-ci.org/VikashHart/PhotoBooth) [![GitHub version](https://badge.fury.io/gh/VikashHart%2FPhotoBooth.svg)](https://github.com/VikashHart/PhotoBooth)
+# PhotoBooth [![Build Status](https://app.bitrise.io/app/adeb6e59c09b46ac/status.svg?token=ssq1TFPvjF6LslzQV0G0EQ&branch=master)](https://app.bitrise.io/app/adeb6e59c09b46ac) [![GitHub version](https://badge.fury.io/gh/VikashHart%2FPhotoBooth.svg)](https://github.com/VikashHart/PhotoBooth)
