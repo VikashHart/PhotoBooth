@@ -6,6 +6,7 @@ protocol ReviewViewControllerModeling {
 
     var permissionStatus: AuthorizationStatus { get }
 
+    var capturedImages: [UIImage] { get }
     var processedData: PhotoShootData { get }
     var selectedIndices: [IndexPath] { get set }
     var selectedImages: [UIImage] { get }

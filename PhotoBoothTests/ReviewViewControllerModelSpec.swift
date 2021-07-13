@@ -20,7 +20,7 @@ class ReviewViewControllerModelSpec: QuickSpec {
                 }
 
                 context("When I call get viewModel") {
-                    let indexPath: IndexPath = IndexPath(row: 0, section: 0)
+                    let indexPath: IndexPath = IndexPath(row: 1, section: 0)
                     var cellViewModel: ReviewCellModeling!
 
                     beforeEach {
@@ -32,7 +32,7 @@ class ReviewViewControllerModelSpec: QuickSpec {
                     }
 
                     it("should return a UIImage") {
-                        expect(cellViewModel.image).to(be(viewModel.data.images[0]))
+                        expect(cellViewModel.image).to(be(viewModel.capturedImages[0]))
                     }
                 }
 

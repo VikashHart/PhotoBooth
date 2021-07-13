@@ -15,7 +15,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         return photoAccessLevel
     }
 
-    private var capturedImages: [UIImage] {
+    var capturedImages: [UIImage] {
         return data.images
     }
     private var topShotImage: UIImage?
@@ -37,7 +37,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
 
     var selectedImages: [UIImage] {
         return selectedIndices.map({ (indexPath) in
-            return capturedImages[indexPath.row]
+            return processedData.images[indexPath.row]
         })
     }
 
@@ -86,7 +86,8 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     }
 
     func getTopShotCellViewModel() -> TopShotCellViewModeling {
-        let viewModel = TopShotCellViewModel(images: capturedImages)
+        let viewModel = TopShotCellViewModel(images: capturedImages,
+                                             showSelectionStatus: isSelectable)
         return viewModel
     }
 

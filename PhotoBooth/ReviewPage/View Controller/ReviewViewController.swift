@@ -127,10 +127,6 @@ class ReviewViewController: UIViewController {
         reviewView.collectionView.reloadItems(at: indices)
     }
 
-    private func reloadData() {
-        reviewView.collectionView.reloadData()
-    }
-
     //MARK: - Configure Collection Views
     private func configureCollectionViews() {
         reviewView.collectionView.delegate = self
@@ -208,7 +204,7 @@ extension ReviewViewController: UICollectionViewDelegate {
 //MARK: - Collectionview data source
 extension ReviewViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.processedData.images.count + 1
+        return self.viewModel.capturedImages.count + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
