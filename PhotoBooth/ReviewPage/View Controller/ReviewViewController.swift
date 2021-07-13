@@ -170,17 +170,33 @@ extension ReviewViewController: ToolbarDelegate {
 //MARK: - Collectionview delegate
 extension ReviewViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! ReviewCell
+        switch indexPath.row {
+        case 0:
+            let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! TopShotCell
 
-        if self.viewModel.isSelectable == true {
-            cell.viewModel.set(selection: !cell.viewModel.isSelected)
-            cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
-            updateFooter()
-        } else {
-            let previewVC = PreviewViewController(data: viewModel.data,
-                                                  selectedIndex: indexPath)
-            previewVC.modalPresentationStyle = .fullScreen
-            present(previewVC, animated: true, completion: nil)
+            if self.viewModel.isSelectable == true {
+                cell.viewModel.set(selection: !cell.viewModel.isSelected)
+                cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
+                updateFooter()
+            } else {
+                let previewVC = PreviewViewController(data: viewModel.processedData,
+                                                      selectedIndex: indexPath)
+                previewVC.modalPresentationStyle = .fullScreen
+                present(previewVC, animated: true, completion: nil)
+            }
+        default:
+            let cell = self.reviewView.collectionView.cellForItem(at: indexPath) as! ReviewCell
+
+            if self.viewModel.isSelectable == true {
+                cell.viewModel.set(selection: !cell.viewModel.isSelected)
+                cell.viewModel.isSelected ? viewModel.add(index: indexPath) : viewModel.remove(index: indexPath)
+                updateFooter()
+            } else {
+                let previewVC = PreviewViewController(data: viewModel.processedData,
+                                                      selectedIndex: indexPath)
+                previewVC.modalPresentationStyle = .fullScreen
+                present(previewVC, animated: true, completion: nil)
+            }
         }
     }
 }
@@ -188,19 +204,37 @@ extension ReviewViewController: UICollectionViewDelegate {
 //MARK: - Collectionview data source
 extension ReviewViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.data.images.count
+        return self.viewModel.capturedImages.count + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = reviewView.collectionView.dequeueReusableCell(
-            withReuseIdentifier: StyleGuide.CollectionView.ReviewPage.cellId,
-            for: indexPath) as? ReviewCell else
-        { return UICollectionViewCell() }
-        let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
-        cell.set(viewModel: viewModel)
-        cell.addDropShadow()
+        switch indexPath.row {
+        case 0:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: StyleGuide.CollectionView.ReviewPage.topShotCellId,
+                for: indexPath) as? TopShotCell else
+            { return UICollectionViewCell() }
+            let viewModel = self.viewModel.getTopShotCellViewModel()
+            cell.set(viewModel: viewModel)
+            cell.viewModel.getTopShot()
+            cell.imageReceived = { [weak self] in
+                self?.viewModel.setTopShot(image: cell.viewModel.topShotImage)
+                self?.reviewView.collectionView.collectionViewLayout.invalidateLayout()
+            }
+            cell.addDropShadow()
 
-        return cell
+            return cell
+        default:
+            guard let cell = reviewView.collectionView.dequeueReusableCell(
+                withReuseIdentifier: StyleGuide.CollectionView.ReviewPage.reviewCellId,
+                for: indexPath) as? ReviewCell else
+            { return UICollectionViewCell() }
+            let viewModel = self.viewModel.getCellViewModel(indexPath: indexPath)
+            cell.set(viewModel: viewModel)
+            cell.addDropShadow()
+
+            return cell
+        }
     }
 }
 
@@ -208,11 +242,20 @@ extension ReviewViewController: UICollectionViewDataSource {
 extension ReviewViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        let width = (screenWidth - (self.viewModel.cellSpacing * self.viewModel.numberOfSpaces)) / self.viewModel.numberOfCells
-        let height = width * StyleGuide.CollectionView.ReviewPage.heightMultiplier
+        switch indexPath.row {
+        case 0:
+            let screenWidth = UIScreen.main.bounds.width
+            let width = (screenWidth - (self.viewModel.cellSpacing * self.viewModel.numberOfCells))
+            let height = width
 
-        return CGSize(width: width , height: height)
+            return CGSize(width: width , height: height)
+        default:
+            let screenWidth = UIScreen.main.bounds.width
+            let width = (screenWidth - (self.viewModel.cellSpacing * self.viewModel.numberOfSpaces)) / self.viewModel.numberOfCells
+            let height = width * StyleGuide.CollectionView.ReviewPage.heightMultiplier
+
+            return CGSize(width: width , height: height)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

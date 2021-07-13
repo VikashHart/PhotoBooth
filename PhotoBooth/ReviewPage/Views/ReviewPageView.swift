@@ -81,7 +81,8 @@ class ReviewPageView: UIView {
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
-        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.ReviewPage.cellId)
+        collectionView.register(TopShotCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.ReviewPage.topShotCellId)
+        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: StyleGuide.CollectionView.ReviewPage.reviewCellId)
         collectionView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

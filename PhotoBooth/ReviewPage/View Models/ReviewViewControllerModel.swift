@@ -5,9 +5,9 @@ import PromiseKit
 class ReviewViewControllerModel: ReviewViewControllerModeling {
     lazy var reviewViewModel: ReviewPageViewModeling = {
         return ReviewPageViewModel(selectionCountObservable:
-            selectedIndicesSubject
-                .asObservable()
-                .map({$0.count})
+                                    selectedIndicesSubject
+                                    .asObservable()
+                                    .map({$0.count})
         )
     }()
 
@@ -15,10 +15,20 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         return photoAccessLevel
     }
 
-    private var capturedImages: [UIImage] {
+    var capturedImages: [UIImage] {
         return data.images
     }
-    let data: PhotoShootData
+    private var topShotImage: UIImage?
+    private let data: PhotoShootData
+    var processedData: PhotoShootData {
+        var images = capturedImages
+        if let image = topShotImage {
+            images.insert(image, at: 0)
+        }
+        let pData = PhotoShootData(sessionID: data.sessionID, images: images)
+        return pData
+    }
+
     var selectedIndices: [IndexPath] {
         didSet {
             selectedIndicesSubject.onNext(selectedIndices)
@@ -27,7 +37,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
 
     var selectedImages: [UIImage] {
         return selectedIndices.map({ (indexPath) in
-            return capturedImages[indexPath.row]
+            return processedData.images[indexPath.row]
         })
     }
 
@@ -71,7 +81,13 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling {
         let viewModel = ReviewCellViewModel(isSelected: selectedIndices.contains(indexPath),
                                             showSelectionStatus: isSelectable,
-                                            image: capturedImages[indexPath.row])
+                                            image: capturedImages[indexPath.row - 1])
+        return viewModel
+    }
+
+    func getTopShotCellViewModel() -> TopShotCellViewModeling {
+        let viewModel = TopShotCellViewModel(images: capturedImages,
+                                             showSelectionStatus: isSelectable)
         return viewModel
     }
 
@@ -82,7 +98,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     func remove(index: IndexPath) {
         selectedIndices = selectedIndices.filter({ (indexPath) -> Bool in
             return indexPath.row != index.row
-            })
+        })
     }
 
     func deselectAll() {
@@ -150,6 +166,10 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         }
 
         return when(fulfilled: promises)
+    }
+
+    func setTopShot(image: UIImage) {
+        topShotImage = image
     }
 
     //MARK: - Private Functions

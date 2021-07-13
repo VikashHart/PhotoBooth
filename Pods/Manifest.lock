@@ -103,7 +103,7 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - Nimble (7.3.4)
+  - Nimble (9.2.0)
   - PromiseKit/CorePromise (6.13.1)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
@@ -118,7 +118,7 @@ DEPENDENCIES:
   - FirebaseRemoteConfig (~> 4.6.0)
   - lottie-ios (~> 3.1.8)
   - Motion (~> 3.1.1)
-  - Nimble (~> 7.3.3)
+  - Nimble (~> 9.2.0)
   - PromiseKit/CorePromise (~> 6.13.1)
   - Quick (~> 1.3.2)
   - RxSwift (~> 5.0.0)
@@ -171,13 +171,13 @@ SPEC CHECKSUMS:
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: adecb53958e58c22982edebc04ae21a98bba7eef
+PODFILE CHECKSUM: a16cf23a49952320fdd8a9c364ed46169c0fba3c
 
 COCOAPODS: 1.10.1

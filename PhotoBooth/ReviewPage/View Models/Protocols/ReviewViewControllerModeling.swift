@@ -6,7 +6,8 @@ protocol ReviewViewControllerModeling {
 
     var permissionStatus: AuthorizationStatus { get }
 
-    var data: PhotoShootData { get }
+    var capturedImages: [UIImage] { get }
+    var processedData: PhotoShootData { get }
     var selectedIndices: [IndexPath] { get set }
     var selectedImages: [UIImage] { get }
     var reloadIndices: (([IndexPath]) -> Void)? { get set }
@@ -19,6 +20,7 @@ protocol ReviewViewControllerModeling {
     var onSelectToggled: (() -> Void)? { get set }
 
     func getCellViewModel(indexPath: IndexPath) -> ReviewCellModeling
+    func getTopShotCellViewModel() -> TopShotCellViewModeling
     func add(index: IndexPath)
     func remove(index: IndexPath)
     func deselectAll()
@@ -31,4 +33,5 @@ protocol ReviewViewControllerModeling {
     func postSaveFailed()
     func postSelectPressed()
     func saveImages() -> Promise<Void>
+    func setTopShot(image: UIImage)
 }
