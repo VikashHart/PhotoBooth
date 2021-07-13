@@ -59,6 +59,7 @@ enum StyleGuide {
             static let selectionModeHeaderTitle = "Selecting"
             static let selectButtonText = "Select"
             static let doneButtonText = "Done"
+            static let topShotText = "Top Shot by Lens 🎯"
         }
 
         enum PreviewVC {
@@ -114,7 +115,8 @@ enum StyleGuide {
 
     enum CollectionView {
         enum ReviewPage {
-            static let cellId = "ReviewCell"
+            static let reviewCellId = "ReviewCell"
+            static let topShotCellId = "TopShotCell"
             static let cellSpacing: CGFloat = 16
             static let numberOfCells: CGFloat = 2
             static let heightMultiplier: CGFloat = 1.6

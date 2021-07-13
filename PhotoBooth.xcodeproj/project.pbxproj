@@ -124,11 +124,15 @@
 		A1807FAA2487356C0007460F /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FA92487356C0007460F /* ToolbarDelegate.swift */; };
 		A1807FE12488F1DA0007460F /* SaveIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FE02488F1DA0007460F /* SaveIndicator.swift */; };
 		A1807FE6248953DA0007460F /* PhotosPermissionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1807FE5248953DA0007460F /* PhotosPermissionsProvider.swift */; };
+		A1B3DCA426960BE0000E903B /* TopShotCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3DCA326960BE0000E903B /* TopShotCellViewModel.swift */; };
 		A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */; };
 		A1BA9FDE2470F7AF00FAA08E /* AVAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */; };
+		A1D2C3842623AB7F00DDFA73 /* AnalyzedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2C3832623AB7F00DDFA73 /* AnalyzedImage.swift */; };
+		A1D2C3892623B6F300DDFA73 /* TopShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2C3882623B6F300DDFA73 /* TopShotCell.swift */; };
 		A1E1F498248C001200C4AD10 /* AuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */; };
 		A1E6DC412605A8300023DF4C /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6DC402605A8300023DF4C /* HapticFeedback.swift */; };
 		A1E6DC4526091C780023DF4C /* UIView+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6DC4426091C780023DF4C /* UIView+DropShadow.swift */; };
+		A1E6DD20262102930023DF4C /* ImageQualityDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6DD1F262102930023DF4C /* ImageQualityDetection.swift */; };
 		A1EDE1992477782E00329532 /* UIView+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */; };
 		A1EDE19B2478685700329532 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19A2478685700329532 /* StyleGuide.swift */; };
 		A1EDE19D2478D52400329532 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */; };
@@ -274,11 +278,15 @@
 		A1807FA92487356C0007460F /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		A1807FE02488F1DA0007460F /* SaveIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIndicator.swift; sourceTree = "<group>"; };
 		A1807FE5248953DA0007460F /* PhotosPermissionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPermissionsProvider.swift; sourceTree = "<group>"; };
+		A1B3DCA326960BE0000E903B /* TopShotCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopShotCellViewModel.swift; sourceTree = "<group>"; };
 		A1BA9FDB2470F70100FAA08E /* AVAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorization.swift; sourceTree = "<group>"; };
 		A1BA9FDD2470F7AF00FAA08E /* AVAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationProvider.swift; sourceTree = "<group>"; };
+		A1D2C3832623AB7F00DDFA73 /* AnalyzedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzedImage.swift; sourceTree = "<group>"; };
+		A1D2C3882623B6F300DDFA73 /* TopShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopShotCell.swift; sourceTree = "<group>"; };
 		A1E1F497248C001200C4AD10 /* AuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationStatus.swift; sourceTree = "<group>"; };
 		A1E6DC402605A8300023DF4C /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		A1E6DC4426091C780023DF4C /* UIView+DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DropShadow.swift"; sourceTree = "<group>"; };
+		A1E6DD1F262102930023DF4C /* ImageQualityDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQualityDetection.swift; sourceTree = "<group>"; };
 		A1EDE1982477782E00329532 /* UIView+BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BlurEffect.swift"; sourceTree = "<group>"; };
 		A1EDE19A2478685700329532 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		A1EDE19C2478D52400329532 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
@@ -419,6 +427,7 @@
 		814956DE21C5C48200CE3AD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1E6DD1E2621022D0023DF4C /* Top Shot */,
 				A1E6DC3F2605A7950023DF4C /* Accessibility */,
 				A14D3A1025916AD9004782E6 /* Filtering */,
 				A10A1FAA24D5D39900AA815F /* Update Configuration */,
@@ -782,6 +791,24 @@
 			path = "Photos Permissions Provider";
 			sourceTree = "<group>";
 		};
+		A1B3DCA226960BA9000E903B /* Top Shot Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A1D2C3882623B6F300DDFA73 /* TopShotCell.swift */,
+				A1B3DCA326960BE0000E903B /* TopShotCellViewModel.swift */,
+			);
+			path = "Top Shot Cell";
+			sourceTree = "<group>";
+		};
+		A1D2C3872623B6C600DDFA73 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				A1E6DD1F262102930023DF4C /* ImageQualityDetection.swift */,
+				A1D2C3832623AB7F00DDFA73 /* AnalyzedImage.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
 		A1E1F496248BFFEF00C4AD10 /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +823,15 @@
 				A1E6DC402605A8300023DF4C /* HapticFeedback.swift */,
 			);
 			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		A1E6DD1E2621022D0023DF4C /* Top Shot */ = {
+			isa = PBXGroup;
+			children = (
+				A1D2C3872623B6C600DDFA73 /* Analysis */,
+				A1B3DCA226960BA9000E903B /* Top Shot Cell */,
+			);
+			path = "Top Shot";
 			sourceTree = "<group>";
 		};
 		A1EDE1972477781000329532 /* Extensions */ = {
@@ -833,7 +869,6 @@
 				996989A84E6616492E6E92B6 /* Pods-PhotoBooth-PhotoBoothTests.debug.xcconfig */,
 				EF6859B61B32344B43F8E665 /* Pods-PhotoBooth-PhotoBoothTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1110,9 +1145,11 @@
 				A17406F4249E909E007D3DDA /* PhotosAlbumSaveTask.swift in Sources */,
 				A1E6DC412605A8300023DF4C /* HapticFeedback.swift in Sources */,
 				81745757216ADE6700F612F6 /* CustomStepperView.swift in Sources */,
+				A1B3DCA426960BE0000E903B /* TopShotCellViewModel.swift in Sources */,
 				81CA8CAA21A7883A00170F1A /* ReviewViewControllerModel.swift in Sources */,
 				A1607C4E25D70D020018219E /* UIImage+CIImage+ApplyFilter.swift in Sources */,
 				812704B321740B2A00545143 /* SetupCardViewModel.swift in Sources */,
+				A1E6DD20262102930023DF4C /* ImageQualityDetection.swift in Sources */,
 				81745751215B0EEB00F612F6 /* AVCapturePreviewView.swift in Sources */,
 				814956F421C71B0100CE3AD9 /* PhotoShootConfiguration+Analytics.swift in Sources */,
 				A10A1F9024BF91C500AA815F /* RCPayloadClient.swift in Sources */,
@@ -1180,6 +1217,7 @@
 				81A70D4121BDC3B900DB8884 /* SwipeToCancelPartialModal.swift in Sources */,
 				8183608C2188D80100238022 /* SwipeToCancelPromptView.swift in Sources */,
 				814956D521C5ADD500CE3AD9 /* AVSession+Analytics.swift in Sources */,
+				A1D2C3892623B6F300DDFA73 /* TopShotCell.swift in Sources */,
 				A14499542476106D00100B7C /* EnvironmentProvider.swift in Sources */,
 				A14E6F1126054556007A5E26 /* FilterType.swift in Sources */,
 				A12C7FF924AA79B200915E5B /* PreviewCellViewModel.swift in Sources */,
@@ -1188,6 +1226,7 @@
 				812704AF2173FECF00545143 /* PhotoStepperViewModel.swift in Sources */,
 				A14D6BB324A6A49500414D3E /* PreviewCell.swift in Sources */,
 				A1BA9FDC2470F70100FAA08E /* AVAuthorization.swift in Sources */,
+				A1D2C3842623AB7F00DDFA73 /* AnalyzedImage.swift in Sources */,
 				A14E6F0826053939007A5E26 /* AutoFilter.swift in Sources */,
 				A14D39C9252BCB5B004782E6 /* UIImage+MirrorImage.swift in Sources */,
 				8131077C22A35D520019BBC6 /* CameraZoom.swift in Sources */,
@@ -1307,7 +1346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1362,7 +1401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
