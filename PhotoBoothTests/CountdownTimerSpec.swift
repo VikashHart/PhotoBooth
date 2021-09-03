@@ -9,7 +9,7 @@ class CountdownTimerSpec: QuickSpec {
         var countdownArray: [Int]!
 
         describe("Countdown Timer") {
-            context("When the timer is initialized with a value of 5") {
+            context("When the timer is initialized with a value of 2") {
 
                 afterEach {
                     timer.stopTimer()
@@ -26,7 +26,7 @@ class CountdownTimerSpec: QuickSpec {
 
                 it("will return an array containing 2,1,0") {
 
-                    expect(countdownArray).toEventually(equal([2,1,0]), timeout: DispatchTimeInterval.seconds(2), pollInterval: DispatchTimeInterval.seconds(1), description: nil)
+                    expect(countdownArray).toEventually(equal([2,1,0]), timeout: DispatchTimeInterval.seconds(3), pollInterval: DispatchTimeInterval.seconds(1), description: nil)
                 }
 
                 context("and reset timer is called") {
@@ -39,9 +39,9 @@ class CountdownTimerSpec: QuickSpec {
                         expect(timer.timeRemaining).to(equal(2))
                     }
 
-                    it("will return an array containing 2,1,0") {
+                    it("will return an array containing 2,2,1,0") {
 
-                        expect(countdownArray).toEventually(equal([2,2,1,0]), timeout: DispatchTimeInterval.seconds(2), pollInterval: DispatchTimeInterval.seconds(1), description: nil)
+                        expect(countdownArray).toEventually(equal([2,2,1,0]), timeout: DispatchTimeInterval.seconds(3), pollInterval: DispatchTimeInterval.seconds(1), description: nil)
                     }
                 }
             }
