@@ -38,7 +38,6 @@ class ReviewPageView: UIView {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle(StyleGuide.AppCopy.ReviewVC.exitButtonText, for: .normal)
-        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .clear
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +48,6 @@ class ReviewPageView: UIView {
         let label = UILabel()
         label.font = UIFont.semiBoldFont(size: 24)
         label.textAlignment = .center
-        label.textColor = .white
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -61,7 +59,6 @@ class ReviewPageView: UIView {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle(StyleGuide.AppCopy.ReviewVC.selectButtonText, for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -70,7 +67,6 @@ class ReviewPageView: UIView {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle(StyleGuide.AppCopy.ReviewVC.doneButtonText, for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -136,6 +132,42 @@ class ReviewPageView: UIView {
 
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            setUI()
+        }
+    }
+
+    func setUI() {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light:
+            gradientView.gradientLayer?.colors = CGColor.lights
+            cancelButton.setTitleColor(.darkGray, for: .normal)
+            selectButton.setTitleColor(.darkGray, for: .normal)
+            doneButton.setTitleColor(.darkGray, for: .normal)
+            titleLabel.textColor = .darkGray
+        case .dark:
+            gradientView.gradientLayer?.colors = CGColor.blacks
+            cancelButton.setTitleColor(.white, for: .normal)
+            selectButton.setTitleColor(.white, for: .normal)
+            doneButton.setTitleColor(.white, for: .normal)
+            titleLabel.textColor = .white
+        case .unspecified:
+            gradientView.gradientLayer?.colors = CGColor.blacks
+            cancelButton.setTitleColor(.white, for: .normal)
+            selectButton.setTitleColor(.white, for: .normal)
+            doneButton.setTitleColor(.white, for: .normal)
+            titleLabel.textColor = .white
+        @unknown default:
+            gradientView.gradientLayer?.colors = CGColor.blacks
+            cancelButton.setTitleColor(.white, for: .normal)
+            selectButton.setTitleColor(.white, for: .normal)
+            doneButton.setTitleColor(.white, for: .normal)
+            titleLabel.textColor = .white
+        }
+    }
+
     func showToolbar(_ visibile: Bool) {
         switch visibile {
         case true:
@@ -180,6 +212,7 @@ class ReviewPageView: UIView {
 
     private func commonInit() {
         backgroundColor = .white
+        setUI()
         setupViews()
     }
 

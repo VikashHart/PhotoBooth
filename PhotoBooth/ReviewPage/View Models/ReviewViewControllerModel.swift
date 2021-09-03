@@ -144,6 +144,7 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
         let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue,
                           "selected_image_count" : selectedIndices.count] as [String : Any]
         Analytics.logEvent("save_completed", parameters: parameters)
+        postTopShotSaved()
     }
 
     func postSaveFailed() {
@@ -155,6 +156,18 @@ class ReviewViewControllerModel: ReviewViewControllerModeling {
     func postSelectPressed() {
         let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue]
         Analytics.logEvent("select_pressed", parameters: parameters)
+    }
+
+    func postTopShotSaved() {
+        if selectedIndices.contains(IndexPath(row: 0, section: 0)) {
+            let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue] as [String : Any]
+            Analytics.logEvent("topShot_saved", parameters: parameters)
+        }
+    }
+
+    func postTopShotPressed() {
+        let parameters = ["vc_identifier" : ViewControllerIdentifier.review.rawValue]
+        Analytics.logEvent("topShot_pressed", parameters: parameters)
     }
 
     func saveImages() -> Promise<Void> {

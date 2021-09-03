@@ -59,7 +59,7 @@ enum StyleGuide {
             static let selectionModeHeaderTitle = "Selecting"
             static let selectButtonText = "Select"
             static let doneButtonText = "Done"
-            static let topShotText = "Top Shot by Lens 🎯"
+            static let topShotText = "Top Shot by"
         }
 
         enum PreviewVC {
@@ -107,7 +107,7 @@ enum StyleGuide {
     }
 
     enum StaticAppNumbers {
-        static let shimmerDelay: TimeInterval = 8
+        static let shimmerDelay: TimeInterval = 6
         static let swipeToCancelPromptDuration: TimeInterval = 2.5
         //MARK: - Interstial View constant
         static let heightConstant: CGFloat = (UIScreen.main.bounds.height / 4)
