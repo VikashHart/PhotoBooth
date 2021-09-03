@@ -42,6 +42,11 @@ class ReviewViewController: UIViewController {
         AppUtility.lockOrientation(.all)
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        reviewView.setUI()
+    }
+
     //MARK: - Initializers
     required init?(coder aDecoder: NSCoder) {
         fatalError()
@@ -182,6 +187,7 @@ extension ReviewViewController: UICollectionViewDelegate {
                 let previewVC = PreviewViewController(data: viewModel.processedData,
                                                       selectedIndex: indexPath)
                 previewVC.modalPresentationStyle = .fullScreen
+                self.viewModel.postTopShotPressed()
                 present(previewVC, animated: true, completion: nil)
             }
         default:
@@ -220,8 +226,10 @@ extension ReviewViewController: UICollectionViewDataSource {
             cell.imageReceived = { [weak self] in
                 self?.viewModel.setTopShot(image: cell.viewModel.topShotImage)
                 self?.reviewView.collectionView.collectionViewLayout.invalidateLayout()
+                cell.animateShimmer()
             }
             cell.addDropShadow()
+            cell.setUI()
 
             return cell
         default:

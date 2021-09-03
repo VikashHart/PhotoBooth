@@ -32,6 +32,7 @@ protocol ReviewViewControllerModeling {
     func postSaveCompleted()
     func postSaveFailed()
     func postSelectPressed()
+    func postTopShotPressed()
     func saveImages() -> Promise<Void>
     func setTopShot(image: UIImage)
 }

@@ -3,6 +3,8 @@ import UIKit
 class TopShotCell: UICollectionViewCell {
     var viewModel: TopShotCellViewModeling = TopShotCellViewModel(images: [UIImage()])
 
+    var textColor: UIColor?
+
     lazy var photoImageView: UIImageView = {
         let photo = UIImageView()
         photo.contentMode = .center
@@ -38,10 +40,17 @@ class TopShotCell: UICollectionViewCell {
         return view
     }()
 
+    lazy var labelShimmerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     lazy var topShotLabel: UILabel = {
         let label = UILabel()
         label.text = StyleGuide.AppCopy.ReviewVC.topShotText
-        label.textColor = .white
+        label.textColor = textColor
         label.font = UIFont.regularFont(size: 15)
         label.numberOfLines = 1
         label.textAlignment = .center
@@ -49,6 +58,15 @@ class TopShotCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+
+    lazy var topShotLabelIcon: UIImageView = {
+        let image = UIImage(named: StyleGuide.Assets.appLogo)
+        let iv = UIImageView()
+        iv.image = image
+        iv.contentMode = .scaleAspectFit
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
     }()
 
     lazy var blurView: UIView = {
@@ -81,6 +99,35 @@ class TopShotCell: UICollectionViewCell {
         fatalError()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            switch self.traitCollection.userInterfaceStyle {
+            case .light:
+                textColor = .darkGray
+            case .dark:
+                textColor = .white
+            case .unspecified:
+                textColor = .white
+            @unknown default:
+                textColor = .white
+            }
+        }
+    }
+
+    func setUI() {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light:
+            textColor = .darkGray
+        case .dark:
+            textColor = .white
+        case .unspecified:
+            textColor = .white
+        @unknown default:
+            textColor = .white
+        }
+    }
+
     func isSpinnerActive(state: Bool) {
         switch state {
         case true:
@@ -101,6 +148,28 @@ class TopShotCell: UICollectionViewCell {
         bindUI()
     }
 
+    func animateShimmer() {
+        DispatchQueue.main.asyncAfter(deadline:
+        .now() + StyleGuide.StaticAppNumbers.shimmerDelay) {
+            let shimmerMask = UIView(frame: self.labelShimmerView.bounds)
+            shimmerMask.layer.cornerRadius = self.labelShimmerView.layer.cornerRadius
+            UIView.animate(withDuration: 1,
+                           delay: 0,
+                           options: .repeat,
+                           animations: {
+                            self.labelShimmerView.animateShimmer(
+                                withMask: shimmerMask,
+                                shimmerWidth: shimmerMask.bounds.height,
+                                maskColor: .white,
+                                duration: 1,
+                                repeatCount: 1,
+                                insertionPoint: 0)
+            }) { (true) in
+                self.animateShimmer()
+            }
+        }
+    }
+
     private func commonInit() {
         backgroundColor = UIColor.clear
         setupViews()
@@ -115,7 +184,9 @@ class TopShotCell: UICollectionViewCell {
         setupSelectedView()
         setupSelectedPhotoIcon()
         setupLabelBlur()
+        setupShimerVIew()
         setupTopShotLabel()
+        setupTopshotLabelIcon()
         setupBlurView()
         setupActivityIndicator()
     }
@@ -155,8 +226,18 @@ class TopShotCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             labelBlur.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             labelBlur.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            labelBlur.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.45),
+            labelBlur.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, multiplier: 0.4),
             labelBlur.heightAnchor.constraint(equalToConstant: 28)
+        ])
+    }
+
+    private func setupShimerVIew() {
+        labelBlur.addSubview(labelShimmerView)
+        NSLayoutConstraint.activate([
+            labelShimmerView.topAnchor.constraint(equalTo: labelBlur.topAnchor),
+            labelShimmerView.leadingAnchor.constraint(equalTo: labelBlur.leadingAnchor),
+            labelShimmerView.trailingAnchor.constraint(equalTo: labelBlur.trailingAnchor),
+            labelShimmerView.bottomAnchor.constraint(equalTo: labelBlur.bottomAnchor)
         ])
     }
 
@@ -164,9 +245,19 @@ class TopShotCell: UICollectionViewCell {
         labelBlur.addSubview(topShotLabel)
         NSLayoutConstraint.activate([
             topShotLabel.topAnchor.constraint(equalTo: labelBlur.topAnchor),
-            topShotLabel.leadingAnchor.constraint(equalTo: labelBlur.leadingAnchor),
-            topShotLabel.trailingAnchor.constraint(equalTo: labelBlur.trailingAnchor),
+            topShotLabel.leadingAnchor.constraint(equalTo: labelBlur.leadingAnchor, constant: 8),
             topShotLabel.bottomAnchor.constraint(equalTo: labelBlur.bottomAnchor)
+        ])
+    }
+
+    private func setupTopshotLabelIcon() {
+        labelBlur.addSubview(topShotLabelIcon)
+        NSLayoutConstraint.activate([
+            topShotLabelIcon.topAnchor.constraint(equalTo: labelBlur.topAnchor, constant: 2),
+            topShotLabelIcon.leadingAnchor.constraint(equalTo: topShotLabel.trailingAnchor, constant: 2),
+            topShotLabelIcon.trailingAnchor.constraint(equalTo: labelBlur.trailingAnchor, constant: -4),
+            topShotLabelIcon.heightAnchor.constraint(equalToConstant: 22),
+            topShotLabelIcon.widthAnchor.constraint(equalToConstant: 22)
         ])
     }
 

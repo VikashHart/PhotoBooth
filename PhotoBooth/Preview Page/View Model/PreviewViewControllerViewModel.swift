@@ -137,11 +137,13 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
         case .standby:
             let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
             Analytics.logEvent("save_completed", parameters: parameters)
+            postTopShotSaved()
         case .filtering:
             guard let index = selectedFilterIndex?.row else { return }
             let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue,
                               "filter" : Filtering.shared.filters[index].name]
             Analytics.logEvent("save_completed", parameters: parameters)
+            postTopShotSaved()
         }
     }
 
@@ -158,6 +160,13 @@ class PreviewViewControllerModel: PreviewViewControllerModeling {
     func postFilteringEnded() {
         let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue]
         Analytics.logEvent("filtering_ended", parameters: parameters)
+    }
+
+    func postTopShotSaved() {
+        if selectedIndex == IndexPath(row: 0, section: 0) {
+            let parameters = ["vc_identifier" : ViewControllerIdentifier.preview.rawValue] as [String : Any]
+            Analytics.logEvent("topShot_saved", parameters: parameters)
+        }
     }
 
     func saveImage() -> Promise<Void> {
