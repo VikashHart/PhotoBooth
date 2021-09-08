@@ -21,7 +21,6 @@ class ReviewPageView: UIView {
 
     lazy var navbarContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.photoBoothMed.withAlphaComponent(0.4)
         view.addBlurEffect(blurStyle: .light)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -38,6 +37,7 @@ class ReviewPageView: UIView {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle(StyleGuide.AppCopy.ReviewVC.exitButtonText, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .clear
         button.layer.opacity = 1
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +47,7 @@ class ReviewPageView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.semiBoldFont(size: 24)
+        label.textColor = .white
         label.textAlignment = .center
         label.backgroundColor = .clear
         label.numberOfLines = 0
@@ -59,6 +60,7 @@ class ReviewPageView: UIView {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle(StyleGuide.AppCopy.ReviewVC.selectButtonText, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -67,6 +69,7 @@ class ReviewPageView: UIView {
         let button = UIButton()
         button.titleLabel?.font = UIFont.semiBoldFont(size: 18)
         button.setTitle(StyleGuide.AppCopy.ReviewVC.doneButtonText, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -99,7 +102,7 @@ class ReviewPageView: UIView {
     }()
 
     private let headerHeight: CGFloat = UIApplication.shared.statusBarFrame.height + 44
-
+    private var navbarHeight: CGFloat = 44
     private var toolbarTopToViewBottom: NSLayoutConstraint?
     private var toolbarBottomToSafeAreaBottom: NSLayoutConstraint?
 
@@ -129,7 +132,6 @@ class ReviewPageView: UIView {
 
         collectionView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 44,left: 0,bottom: 0,right: 0)
-
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -143,28 +145,16 @@ class ReviewPageView: UIView {
         switch UITraitCollection.current.userInterfaceStyle {
         case .light:
             gradientView.gradientLayer?.colors = CGColor.lights
-            cancelButton.setTitleColor(.darkGray, for: .normal)
-            selectButton.setTitleColor(.darkGray, for: .normal)
-            doneButton.setTitleColor(.darkGray, for: .normal)
-            titleLabel.textColor = .darkGray
+            navbarContainer.backgroundColor = UIColor.photoBoothDark.withAlphaComponent(0.7)
         case .dark:
             gradientView.gradientLayer?.colors = CGColor.blacks
-            cancelButton.setTitleColor(.white, for: .normal)
-            selectButton.setTitleColor(.white, for: .normal)
-            doneButton.setTitleColor(.white, for: .normal)
-            titleLabel.textColor = .white
+            navbarContainer.backgroundColor = UIColor.photoBoothMed.withAlphaComponent(0.4)
         case .unspecified:
             gradientView.gradientLayer?.colors = CGColor.blacks
-            cancelButton.setTitleColor(.white, for: .normal)
-            selectButton.setTitleColor(.white, for: .normal)
-            doneButton.setTitleColor(.white, for: .normal)
-            titleLabel.textColor = .white
+            navbarContainer.backgroundColor = UIColor.photoBoothMed.withAlphaComponent(0.4)
         @unknown default:
             gradientView.gradientLayer?.colors = CGColor.blacks
-            cancelButton.setTitleColor(.white, for: .normal)
-            selectButton.setTitleColor(.white, for: .normal)
-            doneButton.setTitleColor(.white, for: .normal)
-            titleLabel.textColor = .white
+            navbarContainer.backgroundColor = UIColor.photoBoothMed.withAlphaComponent(0.4)
         }
     }
 
@@ -175,7 +165,6 @@ class ReviewPageView: UIView {
         case false:
             self.toolbarDeactivate()
         }
-
         UIView.animate(withDuration: 0.2) {
             self.layoutIfNeeded()
         }
@@ -255,8 +244,8 @@ class ReviewPageView: UIView {
             navBarUIView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             navBarUIView.leadingAnchor.constraint(equalTo: leadingAnchor),
             navBarUIView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            navBarUIView.heightAnchor.constraint(equalToConstant: 44)
-            ])
+            navBarUIView.heightAnchor.constraint(equalToConstant: navbarHeight)
+        ])
     }
 
     private func setupCancelButton() {
@@ -264,7 +253,7 @@ class ReviewPageView: UIView {
         NSLayoutConstraint.activate([
             cancelButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
             cancelButton.leadingAnchor.constraint(equalTo: navBarUIView.leadingAnchor, constant: 10)
-            ])
+        ])
     }
 
     private func setupTitleLabel() {
@@ -273,7 +262,7 @@ class ReviewPageView: UIView {
             titleLabel.widthAnchor.constraint(equalTo: navBarUIView.widthAnchor, multiplier: 0.5),
             titleLabel.centerXAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor)
-            ])
+        ])
     }
 
     private func setupSelectButton() {
@@ -281,7 +270,7 @@ class ReviewPageView: UIView {
         NSLayoutConstraint.activate([
             selectButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
             selectButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10)
-            ])
+        ])
     }
 
     private func setupDoneButton() {
@@ -289,7 +278,7 @@ class ReviewPageView: UIView {
         NSLayoutConstraint.activate([
             doneButton.centerYAnchor.constraint(equalTo: navBarUIView.safeAreaLayoutGuide.centerYAnchor),
             doneButton.trailingAnchor.constraint(equalTo: navBarUIView.trailingAnchor, constant: -10)
-            ])
+        ])
     }
 
     private func setupCollectionView() {
@@ -299,7 +288,7 @@ class ReviewPageView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-            ])
+        ])
     }
 
     private func setupToolbarView() {
@@ -312,7 +301,7 @@ class ReviewPageView: UIView {
             toolbarView.widthAnchor.constraint(equalToConstant: 150),
             toolbarView.centerXAnchor.constraint(equalTo: centerXAnchor),
             toolbarView.heightAnchor.constraint(equalToConstant: 50)
-            ])
+        ])
         toolbarTopToViewBottom?.isActive = true
     }
 
