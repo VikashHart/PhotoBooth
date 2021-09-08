@@ -127,6 +127,19 @@ class ReviewViewController: UIViewController {
         updateFooter()
     }
 
+    //MARK: - Scroll View Methods
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        var headerTransform = CATransform3DIdentity
+        if offset < 0 {
+            headerTransform = CATransform3DTranslate(headerTransform, 0, 0, 0)
+            reviewView.navbarContainer.layer.transform = headerTransform
+        } else if offset > 0 {
+            headerTransform = CATransform3DTranslate(headerTransform, 0, -offset, 0)
+            reviewView.navbarContainer.layer.transform = headerTransform
+        }
+    }
+
     //MARK: - Reload cells
     private func reloadCells(indices: [IndexPath]) {
         reviewView.collectionView.reloadItems(at: indices)
